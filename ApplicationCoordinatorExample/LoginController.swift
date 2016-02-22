@@ -9,27 +9,28 @@
 import UIKit
 
 class LoginController: UIViewController {
+    
+    var complitionHandler: Optional<AuthenticationAction -> ()> = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        title = "LoginController"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func openSignUp() {
+        
+        if let handler = complitionHandler {
+            handler(.OpenSignUp)
+        }
     }
-    */
-
+    
+    @IBAction func authComplete() {
+        
+        //check smth
+        //and open items
+        if let handler = complitionHandler {
+            handler(.AuthSuccess)
+        }
+    }
 }
