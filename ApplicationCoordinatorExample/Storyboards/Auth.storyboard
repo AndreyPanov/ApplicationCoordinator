@@ -53,6 +53,9 @@
                                     <constraint firstAttribute="width" constant="46" id="OI6-LI-8hO"/>
                                 </constraints>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="authComplete" destination="Vl2-QL-67X" eventType="touchUpInside" id="vw9-pY-hYq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
