@@ -19,6 +19,9 @@
 		D50F9F111C7B316800C5A59F /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50F9F101C7B316800C5A59F /* AuthenticationCoordinator.swift */; };
 		D50F9F131C7B318A00C5A59F /* ItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50F9F121C7B318A00C5A59F /* ItemsCoordinator.swift */; };
 		D50F9F161C7B626200C5A59F /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50F9F151C7B626200C5A59F /* UIViewControllerExtension.swift */; };
+		D50F9F181C7B687100C5A59F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50F9F171C7B687100C5A59F /* ArrayExtension.swift */; };
+		D50F9F1A1C7B6B7400C5A59F /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50F9F191C7B6B7400C5A59F /* Auth.storyboard */; };
+		D50F9F1C1C7B6B8200C5A59F /* Items.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50F9F1B1C7B6B8200C5A59F /* Items.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		D50F9F101C7B316800C5A59F /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		D50F9F121C7B318A00C5A59F /* ItemsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsCoordinator.swift; sourceTree = "<group>"; };
 		D50F9F151C7B626200C5A59F /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = Extensions/UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		D50F9F171C7B687100C5A59F /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtension.swift; path = Extensions/ArrayExtension.swift; sourceTree = "<group>"; };
+		D50F9F191C7B6B7400C5A59F /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Auth.storyboard; path = Storyboards/Auth.storyboard; sourceTree = "<group>"; };
+		D50F9F1B1C7B6B8200C5A59F /* Items.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Items.storyboard; path = Storyboards/Items.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +79,7 @@
 				D50F9F041C7A528600C5A59F /* ApplicationCoordinator.swift */,
 				D50F9F0E1C7A5A2B00C5A59F /* Login flow */,
 				D50F9F0F1C7A5A3B00C5A59F /* Items flow */,
-				D50F9EF61C7A525E00C5A59F /* Main.storyboard */,
+				D50F9F1D1C7B6B8800C5A59F /* Storyboards */,
 				D50F9EF91C7A525E00C5A59F /* Assets.xcassets */,
 				D50F9EFB1C7A525E00C5A59F /* LaunchScreen.storyboard */,
 				D50F9EFE1C7A525E00C5A59F /* Info.plist */,
@@ -105,8 +111,19 @@
 			isa = PBXGroup;
 			children = (
 				D50F9F151C7B626200C5A59F /* UIViewControllerExtension.swift */,
+				D50F9F171C7B687100C5A59F /* ArrayExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D50F9F1D1C7B6B8800C5A59F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D50F9EF61C7A525E00C5A59F /* Main.storyboard */,
+				D50F9F191C7B6B7400C5A59F /* Auth.storyboard */,
+				D50F9F1B1C7B6B8200C5A59F /* Items.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +184,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D50F9F1A1C7B6B7400C5A59F /* Auth.storyboard in Resources */,
+				D50F9F1C1C7B6B8200C5A59F /* Items.storyboard in Resources */,
 				D50F9EFD1C7A525E00C5A59F /* LaunchScreen.storyboard in Resources */,
 				D50F9EFA1C7A525E00C5A59F /* Assets.xcassets in Resources */,
 				D50F9EF81C7A525E00C5A59F /* Main.storyboard in Resources */,
@@ -185,6 +204,7 @@
 				D50F9F161C7B626200C5A59F /* UIViewControllerExtension.swift in Sources */,
 				D50F9F0D1C7A5A2100C5A59F /* SignUpController.swift in Sources */,
 				D50F9EF31C7A525E00C5A59F /* AppDelegate.swift in Sources */,
+				D50F9F181C7B687100C5A59F /* ArrayExtension.swift in Sources */,
 				D50F9F071C7A59F300C5A59F /* ItemsListController.swift in Sources */,
 				D50F9F051C7A528600C5A59F /* ApplicationCoordinator.swift in Sources */,
 				D50F9F091C7A5A0600C5A59F /* ItemDetailController.swift in Sources */,

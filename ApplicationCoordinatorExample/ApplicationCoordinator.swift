@@ -8,9 +8,12 @@
 
 import UIKit
 
+typealias ComplitionBlock = () -> ()
+
 @objc protocol Coordinatable {
     
     var childCoorditators: [Coordinatable] {get}
+    optional var complitionHandler:ComplitionBlock? {get set}
     init(rootController: UINavigationController)
     func start()
 }
@@ -18,7 +21,7 @@ import UIKit
 class ApplicationCoordinator: NSObject, Coordinatable {
     
     private(set) var rootController: UINavigationController
-    private(set) lazy var childCoorditators: [Coordinatable] = []
+    private(set) lazy var childCoorditators = [Coordinatable]()
 
     required init(rootController: UINavigationController) {
         
@@ -38,17 +41,24 @@ class ApplicationCoordinator: NSObject, Coordinatable {
         return false
     }
     
-    func showItems() {
-        
-        let itemsCoordinator = ItemsCoordinator(rootController: rootController)
-        itemsCoordinator.start()
-        childCoorditators.append(itemsCoordinator)
-    }
-    
     func showAuth() {
         
         let authenticationCoordinator = AuthenticationCoordinator(rootController: rootController)
+        authenticationCoordinator.complitionHandler = {
+            self.showItems()
+            self.childCoorditators.removeObject(authenticationCoordinator)
+        }
         authenticationCoordinator.start()
         childCoorditators.append(authenticationCoordinator)
+    }
+    
+    func showItems() {
+        
+        let itemsCoordinator = ItemsCoordinator(rootController: rootController)
+        itemsCoordinator.complitionHandler = {
+            self.childCoorditators.removeObject(itemsCoordinator)
+        }
+        itemsCoordinator.start()
+        childCoorditators.append(itemsCoordinator)
     }
 }
