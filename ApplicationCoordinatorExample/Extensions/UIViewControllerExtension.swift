@@ -31,7 +31,7 @@ extension UIViewController {
     }
 }
 
-private extension NSObject {
+extension NSObject {
     
     class var nameOfClass: String {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!

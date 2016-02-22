@@ -33,12 +33,10 @@ class AuthenticationCoordinator: NSObject, Coordinatable {
             case .OpenSignUp:
                 self.pushSignUp()
             case .AuthSuccess:
-                loginController.dismissViewControllerAnimated(true, completion: {
-                    self.authSuccess()
-                })
+                self.authSuccess()
             }
         }
-        rootController.presentViewController(loginController, animated: false, completion: nil)
+        rootController.setViewControllers([loginController], animated: false)
     }
 }
 
@@ -50,7 +48,7 @@ private extension AuthenticationCoordinator {
         signUpController.complitionHandler = { action in
             switch action {
             case .AuthSuccess:
-                return
+                self.authSuccess()
             default:
                 print("some")
             }

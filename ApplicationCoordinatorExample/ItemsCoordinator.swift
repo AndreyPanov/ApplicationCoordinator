@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum ItemAction {
+    case OpenDetail(String)
+}
+
 class ItemsCoordinator: NSObject, Coordinatable {
 
     private(set) var rootController: UINavigationController
@@ -22,5 +26,26 @@ class ItemsCoordinator: NSObject, Coordinatable {
     
     func start() {
         
+        let itemListController = ItemsListController.controllerFromStoryboard(.Items)
+        itemListController.complitionHandler = { action in
+            switch (action) {
+            case .OpenDetail(let item):
+                self.pushItemDetail(item)
+            }
+        }
+        rootController.setViewControllers([itemListController], animated: false)
+    }
+}
+
+private extension ItemsCoordinator {
+    
+    func pushItemDetail(item: String) {
+        
+        let itemDetailController = ItemDetailController.controllerFromStoryboard(.Items)
+        itemDetailController.complitionHandler = { action in
+            print("some...")
+        }
+        itemDetailController.item = item
+        rootController.pushViewController(itemDetailController, animated: true)
     }
 }
