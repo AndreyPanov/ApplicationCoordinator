@@ -11,7 +11,7 @@ import UIKit
 class LoginController: UIViewController, Controllerable {
     
     typealias T = AuthenticationAction
-    var complitionHandler: Optional<AuthenticationAction -> ()> = nil
+    var completionHandler: Optional<AuthenticationAction -> ()> = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class LoginController: UIViewController, Controllerable {
     
     @IBAction func openSignUp() {
         
-        if let handler = complitionHandler {
+        if let handler = completionHandler {
             handler(.OpenSignUp)
         }
     }
@@ -30,7 +30,7 @@ class LoginController: UIViewController, Controllerable {
         
         //check smth
         //and open items
-        if let handler = complitionHandler {
+        if let handler = completionHandler {
             handler(.AuthSuccess)
         }
     }

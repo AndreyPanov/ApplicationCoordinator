@@ -16,7 +16,7 @@ class ItemsCoordinator: NSObject, Coordinatable {
 
     private(set) var rootController: UINavigationController
     private(set) lazy var childCoorditators: [Coordinatable] = []
-    var complitionHandler:ComplitionBlock?
+    var completionHandler:CompletionBlock?
     
     required init(rootController: UINavigationController) {
         
@@ -27,7 +27,7 @@ class ItemsCoordinator: NSObject, Coordinatable {
     func start() {
         
         let itemListController = ItemsListController.controllerFromStoryboard(.Items)
-        itemListController.complitionHandler = { action in
+        itemListController.completionHandler = { action in
             switch (action) {
             case .OpenDetail(let item):
                 self.pushItemDetail(item)
@@ -42,7 +42,7 @@ private extension ItemsCoordinator {
     func pushItemDetail(item: String) {
         
         let itemDetailController = ItemDetailController.controllerFromStoryboard(.Items)
-        itemDetailController.complitionHandler = { action in
+        itemDetailController.completionHandler = { action in
             print("some...")
         }
         itemDetailController.item = item

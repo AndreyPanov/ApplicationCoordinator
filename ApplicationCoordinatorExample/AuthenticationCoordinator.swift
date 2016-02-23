@@ -17,7 +17,7 @@ class AuthenticationCoordinator: NSObject, Coordinatable {
 
     private(set) var rootController: UINavigationController
     private(set) lazy var childCoorditators: [Coordinatable] = []
-    var complitionHandler:ComplitionBlock?
+    var completionHandler:CompletionBlock?
     
     required init(rootController: UINavigationController) {
         
@@ -28,7 +28,7 @@ class AuthenticationCoordinator: NSObject, Coordinatable {
     func start() {
         
         let loginController = LoginController.controllerFromStoryboard(.Auth)
-        loginController.complitionHandler = { action in
+        loginController.completionHandler = { action in
             switch action {
             case .OpenSignUp:
                 self.pushSignUp()
@@ -45,7 +45,7 @@ private extension AuthenticationCoordinator {
     func pushSignUp() {
         
         let signUpController = SignUpController.controllerFromStoryboard(.Auth)
-        signUpController.complitionHandler = { action in
+        signUpController.completionHandler = { action in
             switch action {
             case .AuthSuccess:
                 self.authSuccess()
@@ -58,7 +58,7 @@ private extension AuthenticationCoordinator {
     
     func authSuccess() {
         
-        if let handler = complitionHandler {
+        if let handler = completionHandler {
             handler()
         }
     }

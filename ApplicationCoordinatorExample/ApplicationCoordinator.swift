@@ -8,20 +8,19 @@
 
 import UIKit
 
-typealias ComplitionBlock = () -> ()
-//typealias complitionHandler = T -> ()>
+typealias CompletionBlock = () -> ()
 
 @objc protocol Coordinatable {
     
     var childCoorditators: [Coordinatable] {get}
-    optional var complitionHandler:ComplitionBlock? {get set}
+    optional var completionHandler:CompletionBlock? {get set}
     init(rootController: UINavigationController)
     func start()
 }
 
 protocol Controllerable: NSObjectProtocol {
     typealias T
-    var complitionHandler: Optional<T -> ()> {get set}
+    var completionHandler: Optional<T -> ()> {get set}
 }
 
 class ApplicationCoordinator: NSObject, Coordinatable {
@@ -50,7 +49,7 @@ class ApplicationCoordinator: NSObject, Coordinatable {
     func showAuth() {
         
         let authenticationCoordinator = AuthenticationCoordinator(rootController: rootController)
-        authenticationCoordinator.complitionHandler = {
+        authenticationCoordinator.completionHandler = {
             self.showItems()
             self.childCoorditators.removeObject(authenticationCoordinator)
         }
@@ -61,7 +60,7 @@ class ApplicationCoordinator: NSObject, Coordinatable {
     func showItems() {
         
         let itemsCoordinator = ItemsCoordinator(rootController: rootController)
-        itemsCoordinator.complitionHandler = {
+        itemsCoordinator.completionHandler = {
             self.childCoorditators.removeObject(itemsCoordinator)
         }
         itemsCoordinator.start()

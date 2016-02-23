@@ -11,7 +11,7 @@ import UIKit
 class ItemsListController: UITableViewController, Controllerable {
     
     typealias T = ItemAction
-    var complitionHandler: Optional<ItemAction -> ()> = nil
+    var completionHandler: Optional<ItemAction -> ()> = nil
     var dataSource = ["Cat", "Dog", "Bear"]
 
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class ItemsListController: UITableViewController, Controllerable {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let handler = complitionHandler {
+        if let handler = completionHandler {
             
             handler(.OpenDetail(dataSource[indexPath.row]))
         }
