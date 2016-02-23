@@ -101,8 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				D50F9F241C7C8D1C00C5A59F /* ItemsCoordinator.swift */,
-				D50F9F251C7C8D1C00C5A59F /* ItemDetailController.swift */,
 				D50F9F261C7C8D1C00C5A59F /* ItemsListController.swift */,
+				D50F9F251C7C8D1C00C5A59F /* ItemDetailController.swift */,
 			);
 			name = "Items flow";
 			sourceTree = "<group>";
