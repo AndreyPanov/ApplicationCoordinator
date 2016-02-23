@@ -28,7 +28,7 @@ class AuthenticationCoordinator: NSObject, Coordinatable {
     func start() {
         
         let loginController = LoginController.controllerFromStoryboard(.Auth)
-        loginController.completionHandler = { action in
+        loginController.completionHandler = { [unowned self] action in
             switch action {
             case .OpenSignUp:
                 self.pushSignUp()
@@ -45,7 +45,7 @@ private extension AuthenticationCoordinator {
     func pushSignUp() {
         
         let signUpController = SignUpController.controllerFromStoryboard(.Auth)
-        signUpController.completionHandler = { action in
+        signUpController.completionHandler = { [unowned self] action in
             switch action {
             case .AuthSuccess:
                 self.authSuccess()

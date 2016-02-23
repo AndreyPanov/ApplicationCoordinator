@@ -27,7 +27,7 @@ class ItemsCoordinator: NSObject, Coordinatable {
     func start() {
         
         let itemListController = ItemsListController.controllerFromStoryboard(.Items)
-        itemListController.completionHandler = { action in
+        itemListController.completionHandler = { [unowned self] action in
             switch (action) {
             case .OpenDetail(let item):
                 self.pushItemDetail(item)
