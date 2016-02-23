@@ -2,18 +2,19 @@
 //  ItemDetailController.swift
 //  ApplicationCoordinatorExample
 //
-//  Created by Панов Андрей on 21.02.16.
+//  Created by Andrey Panov on 21.02.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
 import UIKit
 
-class ItemDetailController: UIViewController {
+class ItemDetailController: UIViewController, Controllerable {
     
-    var item: String?
-    @IBOutlet weak var animalLabel: UILabel!
-    
+    typealias T = ItemAction
     var complitionHandler: Optional<ItemAction -> ()> = nil
+    var item: String?
+    
+    @IBOutlet weak var animalLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

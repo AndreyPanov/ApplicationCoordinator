@@ -2,7 +2,7 @@
 //  UIViewControllerExtension.swift
 //  ApplicationCoordinatorExample
 //
-//  Created by Панов Андрей on 22.02.16.
+//  Created by Andrey Panov on 22.02.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 

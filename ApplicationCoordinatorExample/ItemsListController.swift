@@ -2,14 +2,15 @@
 //  ItemsListController.swift
 //  ApplicationCoordinatorExample
 //
-//  Created by Панов Андрей on 21.02.16.
+//  Created by Andrey Panov on 21.02.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
 import UIKit
 
-class ItemsListController: UITableViewController {
+class ItemsListController: UITableViewController, Controllerable {
     
+    typealias T = ItemAction
     var complitionHandler: Optional<ItemAction -> ()> = nil
     var dataSource = ["Cat", "Dog", "Bear"]
 
