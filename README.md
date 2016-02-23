@@ -2,7 +2,8 @@
 Base on the post about Application Coordinators [khanlou.com](http://khanlou.com/2015/10/coordinators-redux/) and Application Controller pattern description [martinfowler.com](http://martinfowler.com/eaaCatalog/applicationController.html).
 My example provides very base structure with 3 controllers and 3 coordinators.
 ![](/str.jpg)
-We have protocol for coordinators:
+
+I created protocol for coordinators:
 ```swift
 @objc protocol Coordinatable {
     
