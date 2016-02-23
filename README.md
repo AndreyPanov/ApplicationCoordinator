@@ -1,6 +1,6 @@
 # ApplicationCoordinator
-Base on the post about Application Coordinators [khanlou.com](http://khanlou.com/2015/10/coordinators-redux/) and Application Controller pattern description [martinfowler.com](http://martinfowler.com/eaaCatalog/applicationController.html).
-My example provides very base structure with 3 controllers and 3 coordinators.
+Based on the post about Application Coordinators [khanlou.com](http://khanlou.com/2015/10/coordinators-redux/) and Application Controller pattern description [martinfowler.com](http://martinfowler.com/eaaCatalog/applicationController.html).
+My example provides very basic structure with 3 controllers and 3 coordinators.
 ![](/str.jpg)
 
 I created protocol for coordinators:
@@ -24,7 +24,7 @@ All controllers and coordinators have optional completionHandlers.
 ```swift
 var completionHandler: Optional<T -> ()>
 ```
-The main Application Coordinator store dependancies of child coordinators
+The main Application Coordinator stores dependancies of child coordinators
 ```swift
 private(set) lazy var childCoorditators = [Coordinatable]()
 ```
