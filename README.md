@@ -3,7 +3,7 @@ Based on the post about Application Coordinators [khanlou.com](http://khanlou.co
 My example provides very basic structure with 3 controllers and 3 coordinators.
 ![](/str.jpg)
 
-I created protocol for coordinators:
+I created a protocol for coordinators:
 ```swift
 @objc protocol Coordinatable {
     
@@ -13,7 +13,7 @@ I created protocol for coordinators:
     func start()
 }
 ```
-And protocol for controllers:
+And a protocol for controllers:
 ```swift
 protocol Controllerable: NSObjectProtocol {
     typealias T
