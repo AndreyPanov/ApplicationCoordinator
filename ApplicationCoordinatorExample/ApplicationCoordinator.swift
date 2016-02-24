@@ -20,7 +20,7 @@ typealias CompletionBlock = () -> ()
 
 protocol Controllerable: NSObjectProtocol {
     typealias T
-    var completionHandler: Optional<T -> ()> {get set}
+    var completionHandler: (T -> ())? {get set}
 }
 
 class ApplicationCoordinator: NSObject, Coordinatable {

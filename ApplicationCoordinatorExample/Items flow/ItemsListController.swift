@@ -11,7 +11,7 @@ import UIKit
 class ItemsListController: UITableViewController, Controllerable {
     
     typealias T = ItemAction
-    var completionHandler: Optional<ItemAction -> ()> = nil
+    var completionHandler: (ItemAction -> ())? = nil
     var dataSource = ["Cat", "Dog", "Bear"]
 
     override func viewDidLoad() {

@@ -17,12 +17,12 @@ And a protocol for controllers:
 ```swift
 protocol Controllerable: NSObjectProtocol {
     typealias T
-    var completionHandler: Optional<T -> ()> {get set}
+    var completionHandler: (T -> ())? {get set}
 }
 ```
 All controllers and coordinators have optional completionHandlers.
 ```swift
-var completionHandler: Optional<T -> ()>
+var completionHandler: (T -> ())?
 ```
 The main Application Coordinator stores dependancies of child coordinators
 ```swift

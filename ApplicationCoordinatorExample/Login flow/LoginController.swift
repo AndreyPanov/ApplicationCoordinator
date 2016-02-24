@@ -11,7 +11,7 @@ import UIKit
 class LoginController: UIViewController, Controllerable {
     
     typealias T = AuthenticationAction
-    var completionHandler: Optional<AuthenticationAction -> ()> = nil
+    var completionHandler: (AuthenticationAction -> ())? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()

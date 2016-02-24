@@ -11,7 +11,7 @@ import UIKit
 class ItemDetailController: UIViewController, Controllerable {
     
     typealias T = ItemAction
-    var completionHandler: Optional<ItemAction -> ()> = nil
+    var completionHandler: (ItemAction -> ())? = nil
     var item: String?
     
     @IBOutlet weak var animalLabel: UILabel!
