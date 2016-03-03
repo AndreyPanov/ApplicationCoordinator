@@ -12,7 +12,6 @@ typealias CompletionBlock = () -> ()
 
 @objc protocol Coordinatable {
     
-    var childCoorditators: [Coordinatable] {get}
     optional var completionHandler:CompletionBlock? {get set}
     init(rootController: UINavigationController)
     func start()
@@ -26,7 +25,6 @@ protocol Controllerable: NSObjectProtocol {
 class ApplicationCoordinator: NSObject, Coordinatable {
     
     private(set) var rootController: UINavigationController
-    private(set) lazy var childCoorditators = [Coordinatable]()
 
     required init(rootController: UINavigationController) {
         
@@ -51,19 +49,16 @@ class ApplicationCoordinator: NSObject, Coordinatable {
         let authenticationCoordinator = AuthenticationCoordinator(rootController: rootController)
         authenticationCoordinator.completionHandler = {
             self.showItems()
-            self.childCoorditators.removeObject(authenticationCoordinator)
         }
         authenticationCoordinator.start()
-        childCoorditators.append(authenticationCoordinator)
     }
     
     func showItems() {
         
         let itemsCoordinator = ItemsCoordinator(rootController: rootController)
         itemsCoordinator.completionHandler = {
-            self.childCoorditators.removeObject(itemsCoordinator)
+            // some
         }
         itemsCoordinator.start()
-        childCoorditators.append(itemsCoordinator)
     }
 }

@@ -15,7 +15,6 @@ enum ItemAction {
 class ItemsCoordinator: NSObject, Coordinatable {
 
     private(set) var rootController: UINavigationController
-    private(set) lazy var childCoorditators: [Coordinatable] = []
     var completionHandler:CompletionBlock?
     
     required init(rootController: UINavigationController) {
