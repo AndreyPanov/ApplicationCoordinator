@@ -79,7 +79,22 @@
                     <view key="view" contentMode="scaleToFill" id="KGM-Ck-qNt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d0z-hg-HSS">
+                                <rect key="frame" x="26" y="28" width="548" height="564"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">«So what is a coordinator? A coordinator is an object that bosses view controllers around. Taking all of the driving logic out of your view controllers, and moving that stuff one layer up is gonna make your life a lot more awesome.»   –Soroush Khanlou</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d0z-hg-HSS" firstAttribute="leading" secondItem="KGM-Ck-qNt" secondAttribute="leading" constant="26" id="PLS-FO-qCz"/>
+                            <constraint firstAttribute="trailing" secondItem="d0z-hg-HSS" secondAttribute="trailing" constant="26" id="SuM-tW-vxL"/>
+                            <constraint firstItem="fcL-RP-U8e" firstAttribute="top" secondItem="d0z-hg-HSS" secondAttribute="bottom" constant="8" id="W4I-NQ-hVu"/>
+                            <constraint firstItem="d0z-hg-HSS" firstAttribute="top" secondItem="iBY-3J-AJj" secondAttribute="bottom" constant="8" id="kdw-Hk-Pbj"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQt-i8-Rnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
