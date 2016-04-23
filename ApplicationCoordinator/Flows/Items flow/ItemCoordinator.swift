@@ -19,7 +19,7 @@ class ItemCoordinator: NSObject, Coordinatable {
     var coordinatorFactory: CoordinatorFactory
     private(set) weak var presenter: UINavigationController?
     private var creationCoordinator: ItemCreateCoordinator?
-    //private var editCoordinator: ItemEditCoordinator?
+    private var authCoordinator: AuthCoordinator?
     
     init(presenter: UINavigationController) {
         
@@ -72,34 +72,28 @@ class ItemCoordinator: NSObject, Coordinatable {
     
     func runAuthCoodrinator() {
         
-        if let presenter = presenter {
+        let creationFlow = coordinatorFactory.createAuthCoordinator()
+        authCoordinator = creationFlow.authCoordinator
+        authCoordinator?.flowCompletionHandler = { [unowned self] in
             
-            let creationFlow = coordinatorFactory.createItemCreationCoordinator()
-            creationCoordinator = creationFlow.createCoordinator
-            creationCoordinator?.flowCompletionHandler = { [unowned self] in
-                
-                presenter.dismissViewControllerAnimated(true, completion: nil)
-                self.creationCoordinator = nil
-            }
-            creationCoordinator?.start()
-            presenter.presentViewController(creationFlow.presenter, animated: true, completion: nil)
+            self.dismiss()
+            self.authCoordinator = nil
         }
+        authCoordinator?.start()
+        present(creationFlow.presenter)
     }
     
     func runCreationCoordinator() {
         
-        if let presenter = presenter {
+        let creationFlow = coordinatorFactory.createItemCreationCoordinator()
+        creationCoordinator = creationFlow.createCoordinator
+        creationCoordinator?.flowCompletionHandler = { [unowned self] in
             
-            let creationFlow = coordinatorFactory.createItemCreationCoordinator()
-            creationCoordinator = creationFlow.createCoordinator
-            creationCoordinator?.flowCompletionHandler = { [unowned self] in
-                
-                presenter.dismissViewControllerAnimated(true, completion: nil)
-                self.creationCoordinator = nil
-            }
-            creationCoordinator?.start()
-            presenter.presentViewController(creationFlow.presenter, animated: true, completion: nil)
+            self.dismiss()
+            self.creationCoordinator = nil
         }
+        creationCoordinator?.start()
+        present(creationFlow.presenter)
     }
 }
 

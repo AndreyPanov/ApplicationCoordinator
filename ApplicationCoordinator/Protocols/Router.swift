@@ -19,14 +19,18 @@ protocol Router {
 extension Router {
     
     func present(controller:UIViewController, animated: Bool = true) {
-        self.presenter?.presentViewController(controller, animated: animated, completion: nil)
+        presenter?.presentViewController(controller, animated: animated, completion: nil)
     }
     
     func push(controller:UIViewController, animated: Bool = true)  {
-        self.presenter?.pushViewController(controller, animated: animated)
+        presenter?.pushViewController(controller, animated: animated)
     }
     
     func pop(animated: Bool = true)  {
-        self.presenter?.popViewControllerAnimated(animated)
+        presenter?.popViewControllerAnimated(animated)
+    }
+    
+    func dismiss(animated: Bool = true) {
+        presenter?.dismissViewControllerAnimated(true, completion: nil)
     }
 }

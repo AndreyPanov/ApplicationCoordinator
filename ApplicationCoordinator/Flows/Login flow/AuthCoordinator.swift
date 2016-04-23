@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum AuthActions {
+    case SignUp
+    case Complete
+}
+
 class AuthCoordinator: NSObject, Coordinatable {
 
     var flowCompletionHandler:CoordinatorHandler?
@@ -32,16 +37,23 @@ class AuthCoordinator: NSObject, Coordinatable {
         let loginController = factory.createLoginController()
         loginController.completionHandler = { [weak self] result in
             
-            if case let ItemListActions.ItemSelect(list) = result {
-                self?.showItemDetail(list)
+            if case AuthActions.SignUp = result {
+                self?.showSignUp()
             }
-            else if case ItemListActions.Create = result {
-                self?.runCreationCoordinator()
+            else if case AuthActions.Complete = result {
+                //finish flow
+                self?.flowCompletionHandler
             }
         }
         push(loginController, animated: false)
     }
+    
+    func showSignUp() {
+        
+    }
 }
+
+//MARK: - Factory
 
 class AuthFactory {
     
