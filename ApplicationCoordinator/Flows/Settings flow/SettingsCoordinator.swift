@@ -10,4 +10,21 @@ import UIKit
 
 class SettingsCoordinator: NSObject, Coordinatable {
 
+    var flowCompletionHandler:CoordinatorHandler?
+    var factory: SettingsFactory
+    private(set) weak var presenter: UINavigationController?
+    
+    init(presenter: UINavigationController) {
+        
+        self.presenter = presenter
+        factory = SettingsFactory()
+    }
+    
+    func start() {
+    }
+}
+
+class SettingsFactory {
+    
+    
 }

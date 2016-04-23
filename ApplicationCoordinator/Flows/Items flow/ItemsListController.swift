@@ -18,6 +18,4 @@ class ItemsListController: UIViewController, FlowController {
         super.viewDidLoad()
 
     }
-
-
 }

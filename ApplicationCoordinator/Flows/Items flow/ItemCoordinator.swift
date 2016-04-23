@@ -33,12 +33,7 @@ class ItemCoordinator: NSObject, Coordinatable {
         // Just example
         // In real project we would be call some AuthManager and check user valid session.
         let isUserAuth = false
-        
-        if isUserAuth {
-            showItemList()
-        } else {
-            runAuthCoodrinator()
-        }
+        isUserAuth ? showItemList() : runAuthCoodrinator()
     }
     
 //MARK: - Run current flow's controllers
@@ -78,6 +73,7 @@ class ItemCoordinator: NSObject, Coordinatable {
             
             self.dismiss()
             self.authCoordinator = nil
+            self.showItemList()
         }
         authCoordinator?.start()
         present(creationFlow.presenter)
