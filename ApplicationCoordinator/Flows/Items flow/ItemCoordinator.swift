@@ -37,9 +37,11 @@ class ItemCoordinator: NSObject, Coordinatable {
         if isUserAuth {
             showItemList()
         } else {
-            showAuth()
+            runAuthCoodrinator()
         }
     }
+    
+//MARK: - Run current flow's controllers
     
     func showItemList() {
         
@@ -56,9 +58,7 @@ class ItemCoordinator: NSObject, Coordinatable {
         push(itemListController, animated: false)
     }
     
-    func showAuth() {
-        
-    }
+    
     
     func showItemDetail(item: ItemList) {
         
@@ -68,6 +68,24 @@ class ItemCoordinator: NSObject, Coordinatable {
             /* continue the flow */
         }
         push(itemDetailController)
+    }
+    
+//MARK: - Run coordinators (switch to another flow)
+    
+    func runAuthCoodrinator() {
+        
+        if let presenter = presenter {
+            
+            let creationFlow = coordinatorFactory.createItemCreationCoordinator()
+            creationCoordinator = creationFlow.createCoordinator
+            creationCoordinator?.flowCompletionHandler = { [unowned self] in
+                
+                presenter.dismissViewControllerAnimated(true, completion: nil)
+                self.creationCoordinator = nil
+            }
+            creationCoordinator?.start()
+            presenter.presentViewController(creationFlow.presenter, animated: true, completion: nil)
+        }
     }
     
     func runCreationCoordinator() {
@@ -86,6 +104,8 @@ class ItemCoordinator: NSObject, Coordinatable {
         }
     }
 }
+
+//MARK: - Factory
 
 class ItemFactory {
     

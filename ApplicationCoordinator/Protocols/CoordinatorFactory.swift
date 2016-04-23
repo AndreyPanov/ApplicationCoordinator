@@ -21,6 +21,12 @@ class CoordinatorFactory {
         return (ItemCreateCoordinator(presenter: presenter), presenter)
     }
     
+    func createAuthCoordinator() -> (authCoordinator: AuthCoordinator, presenter: UINavigationController) {
+        
+        let presenter = createNavigationController()
+        return (AuthCoordinator(presenter: presenter), presenter)
+    }
+    
     private func createNavigationController() -> UINavigationController {
         return UINavigationController.controllerFromStoryboard(.Main)
     }
