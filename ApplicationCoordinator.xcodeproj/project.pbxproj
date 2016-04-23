@@ -108,8 +108,8 @@
 		0E3CCF891CCBBB670022E830 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				0E3CCF8A1CCBBB670022E830 /* Create flow */,
 				0E3CCF8B1CCBBB670022E830 /* Items flow */,
+				0E3CCF8A1CCBBB670022E830 /* Create flow */,
 				0E3CCF8C1CCBBB670022E830 /* Login flow */,
 				0E3CCF8D1CCBBB670022E830 /* Settings flow */,
 			);

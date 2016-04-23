@@ -8,7 +8,7 @@
         <!--Login Controller-->
         <scene sceneID="tzI-JX-qpA">
             <objects>
-                <viewController id="zQv-zS-ySU" customClass="LoginController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginController" id="zQv-zS-ySU" customClass="LoginController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Smv-k4-wkp"/>
                         <viewControllerLayoutGuide type="bottom" id="I5k-N2-1xf"/>
