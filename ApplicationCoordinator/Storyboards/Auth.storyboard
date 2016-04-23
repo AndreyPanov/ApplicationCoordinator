@@ -26,7 +26,7 @@
         <!--Sign Up Controller-->
         <scene sceneID="OXS-Mb-DSx">
             <objects>
-                <viewController id="Mxu-2P-E0E" customClass="SignUpController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpController" id="Mxu-2P-E0E" customClass="SignUpController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vq1-T2-Hrw"/>
                         <viewControllerLayoutGuide type="bottom" id="Ahm-sO-W7N"/>

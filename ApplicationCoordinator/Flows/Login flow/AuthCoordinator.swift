@@ -17,17 +17,16 @@ class AuthCoordinator: NSObject, Coordinatable {
 
     var flowCompletionHandler:CoordinatorHandler?
     var factory: AuthFactory
-    var coordinatorFactory: CoordinatorFactory
     private(set) weak var presenter: UINavigationController?
     
     init(presenter: UINavigationController) {
         
         self.presenter = presenter
         factory = AuthFactory()
-        coordinatorFactory = CoordinatorFactory()
     }
     
     func start() {
+        showLogin()
     }
     
     //MARK: - Run current flow's controllers

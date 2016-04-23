@@ -8,7 +8,7 @@
         <!--Settings Controller-->
         <scene sceneID="ilJ-tM-IST">
             <objects>
-                <viewController id="YVe-Cc-sy1" customClass="SettingsController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsController" id="YVe-Cc-sy1" customClass="SettingsController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="koT-Mc-cLw"/>
                         <viewControllerLayoutGuide type="bottom" id="iSc-5z-XTD"/>
@@ -16,8 +16,53 @@
                     <view key="view" contentMode="scaleToFill" id="3nR-GS-oep">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="vHC-aC-bo8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="md4-op-YPF" detailTextLabel="fEM-xW-E1l" style="IBUITableViewCellStyleValue1" id="Qoc-qd-mba">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qoc-qd-mba" id="rNM-Bn-bic">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="md4-op-YPF">
+                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fEM-xW-E1l">
+                                                    <rect key="frame" x="543.5" y="12" width="41.5" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YVe-Cc-sy1" id="LD3-9B-1yP"/>
+                                    <outlet property="delegate" destination="YVe-Cc-sy1" id="4Ce-5w-U6a"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vHC-aC-bo8" secondAttribute="trailing" id="FO3-XN-1Jv"/>
+                            <constraint firstItem="vHC-aC-bo8" firstAttribute="top" secondItem="3nR-GS-oep" secondAttribute="top" id="bAr-oi-3zl"/>
+                            <constraint firstItem="vHC-aC-bo8" firstAttribute="leading" secondItem="3nR-GS-oep" secondAttribute="leading" id="gIz-e2-W9S"/>
+                            <constraint firstItem="iSc-5z-XTD" firstAttribute="top" secondItem="vHC-aC-bo8" secondAttribute="bottom" id="kd6-3a-ksx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="vHC-aC-bo8" id="e84-d3-uJA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyO-WI-GwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

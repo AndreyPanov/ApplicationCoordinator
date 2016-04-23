@@ -7,19 +7,25 @@
 //
 import UIKit
 
-class RootTabbarController: UITabBarController {
+class RootTabbarController: UITabBarController, UITabBarControllerDelegate {
     
     var itemCoordinator: ItemCoordinator?
+    var settingsCoordinator: SettingsCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         runItemCoordinator()
+        delegate = self
     }
     
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        
         if selectedIndex == 0 {
             runItemCoordinator()
+        }
+        else if selectedIndex == 1 {
+            runSettingsCoordinator()
         }
     }
     
@@ -30,6 +36,17 @@ class RootTabbarController: UITabBarController {
                 itemCoordinator = ItemCoordinator(presenter: navController)
                 itemCoordinator?.start()
                 print("ItemCoordinator start")
+            }
+        }
+    }
+    
+    func runSettingsCoordinator() {
+        
+        if settingsCoordinator == nil {
+            if let navController = viewControllers?[1] as? UINavigationController {
+                settingsCoordinator = SettingsCoordinator(presenter: navController)
+                settingsCoordinator?.start()
+                print("SettingsCoordinator start")
             }
         }
     }

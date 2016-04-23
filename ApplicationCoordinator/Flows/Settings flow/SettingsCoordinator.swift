@@ -8,6 +8,9 @@
 
 import UIKit
 
+enum SettingsActions {
+}
+
 class SettingsCoordinator: NSObject, Coordinatable {
 
     var flowCompletionHandler:CoordinatorHandler?
@@ -21,10 +24,26 @@ class SettingsCoordinator: NSObject, Coordinatable {
     }
     
     func start() {
+        showSettings()
+    }
+    
+    //MARK: - Run current flow's controllers
+    
+    func showSettings() {
+        
+        let settingsController = factory.createSettingsController()
+        settingsController.completionHandler = { result in
+            /* continue the flow */
+        }
+        push(settingsController, animated: false)
     }
 }
 
+//MARK: - Factory
+
 class SettingsFactory {
     
-    
+    func createSettingsController() -> SettingsController {
+        return SettingsController.controllerFromStoryboard(.Settings)
+    }
 }
