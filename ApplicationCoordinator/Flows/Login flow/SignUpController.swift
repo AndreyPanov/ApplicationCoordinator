@@ -1,5 +1,5 @@
 //
-//  LoginController.swift
+//  SignUpController.swift
 //  ApplicationCoordinator
 //
 //  Created by Andrey Panov on 23/04/16.
@@ -8,14 +8,10 @@
 
 import UIKit
 
-class LoginController: UIViewController, FlowController {
-
+class SignUpController: UIViewController, FlowController {
+    
     //controller handler
     typealias T = AuthActions //enum Actions type
     var completionHandler: (T -> ())?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+
 }

@@ -32,6 +32,7 @@
 		0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC11CCBC0AA0022E830 /* ItemCreateCoordinator.swift */; };
 		0E3CCFC41CCBC0C00022E830 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC31CCBC0C00022E830 /* ItemCreateController.swift */; };
 		0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC61CCBC6740022E830 /* ItemList.swift */; };
+		0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		0E3CCFC11CCBC0AA0022E830 /* ItemCreateCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateCoordinator.swift; sourceTree = "<group>"; };
 		0E3CCFC31CCBC0C00022E830 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateController.swift; sourceTree = "<group>"; };
 		0E3CCFC61CCBC6740022E830 /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
+		0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 			children = (
 				0E3CCFBB1CCBC0210022E830 /* AuthCoordinator.swift */,
 				0E3CCFB91CCBBFEF0022E830 /* LoginController.swift */,
+				0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */,
 			);
 			path = "Login flow";
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				0E3CCFA51CCBBB670022E830 /* CoordinatorFactory.swift in Sources */,
 				0E3CCFB61CCBBFC10022E830 /* ItemsListController.swift in Sources */,
 				0E3CCFC41CCBC0C00022E830 /* ItemCreateController.swift in Sources */,
+				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
 				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,
 				0E3CCFA71CCBBB670022E830 /* Router.swift in Sources */,

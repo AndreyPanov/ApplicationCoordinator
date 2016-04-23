@@ -23,5 +23,23 @@
             </objects>
             <point key="canvasLocation" x="532" y="193"/>
         </scene>
+        <!--Sign Up Controller-->
+        <scene sceneID="OXS-Mb-DSx">
+            <objects>
+                <viewController id="Mxu-2P-E0E" customClass="SignUpController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vq1-T2-Hrw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ahm-sO-W7N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Yj-UV-vc6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pto-xY-y8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1178" y="193"/>
+        </scene>
     </scenes>
 </document>
