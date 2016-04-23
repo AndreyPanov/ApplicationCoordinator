@@ -1,5 +1,5 @@
 //
-//  ItemsListController.swift
+//  CreateController.swift
 //  ApplicationCoordinator
 //
 //  Created by Andrey Panov on 23/04/16.
@@ -8,16 +8,11 @@
 
 import UIKit
 
-class ItemsListController: UIViewController, FlowController {
-    
-    //controller handler
-    typealias T = ItemListActions //enum Actions type
-    var completionHandler: (T -> ())?
+class ItemCreateController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
     }
-
-
 }

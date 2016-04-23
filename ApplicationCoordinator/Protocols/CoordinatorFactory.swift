@@ -5,22 +5,23 @@
 //  Created by Панов Андрей on 21.04.16.
 //  Copyright © 2016 Avito. All rights reserved.
 //
+import UIKit
 
 class CoordinatorFactory {
-    /*
-    func createItemCreationCoordinator() -> (creationCoordinator: ItemCreationCoordinator, presenter: UINavigationController) {
+    
+    func createItemCoordinator() -> (creationCoordinator: ItemCoordinator, presenter: UINavigationController) {
         
-        let presenter = createBaseNavigationController()
-        return (ItemCreationCoordinator(presenter: presenter), presenter)
+        let presenter = createNavigationController()
+        return (ItemCoordinator(presenter: presenter), presenter)
     }
     
-    func createEditCoordinator() -> (editCoordinator: ItemEditCoordinator, presenter: UINavigationController) {
+    func createItemCreationCoordinator() -> (createCoordinator: ItemCreateCoordinator, presenter: UINavigationController) {
         
-        let presenter = createBaseNavigationController()
-        return (ItemEditCoordinator(presenter: presenter), presenter)
+        let presenter = createNavigationController()
+        return (ItemCreateCoordinator(presenter: presenter), presenter)
     }
     
-    private func createBaseNavigationController() -> BaseNavigationController {
-        return BaseNavigationController.controllerFromStoryboard(.Items)
-    }*/
+    private func createNavigationController() -> UINavigationController {
+        return UINavigationController.controllerFromStoryboard(.Main)
+    }
 }

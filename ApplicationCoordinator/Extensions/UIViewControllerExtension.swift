@@ -59,5 +59,6 @@ enum Storyboards: String {
     case Main = "Main"
     case Items = "Items"
     case Auth = "Auth"
-    
+    case Create = "Create"
+    case Settings = "Settings"
 }

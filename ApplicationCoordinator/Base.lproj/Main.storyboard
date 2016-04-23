@@ -24,6 +24,19 @@
             </objects>
             <point key="canvasLocation" x="1379" y="-646"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="obY-MR-Pne">
+            <objects>
+                <navigationController storyboardIdentifier="UINavigationController" id="H63-i7-qyz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6A3-Jy-HQL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9AF-Zz-7Ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="79"/>
+        </scene>
         <!--Item 1-->
         <scene sceneID="2dP-iP-UbT">
             <objects>

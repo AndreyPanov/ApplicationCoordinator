@@ -8,11 +8,8 @@
 import UIKit
 
 enum ItemListActions {
-    //case ItemSelect(ItemList)
-    case New
-    //case VasSelect(ItemDetail)
-    //case Edit(ItemDetail)
-    case VasApply
+    case ItemSelect(ItemList)
+    case Create
 }
 
 class ItemCoordinator: NSObject, Coordinatable {
@@ -21,7 +18,7 @@ class ItemCoordinator: NSObject, Coordinatable {
     var factory: ItemFactory
     var coordinatorFactory: CoordinatorFactory
     private(set) weak var presenter: UINavigationController?
-    //private var creationCoordinator: ItemCreationCoordinator?
+    private var creationCoordinator: ItemCreateCoordinator?
     //private var editCoordinator: ItemEditCoordinator?
     
     init(presenter: UINavigationController) {
@@ -32,70 +29,45 @@ class ItemCoordinator: NSObject, Coordinatable {
     }
     
     func start() {
-        //showItemList()
+        
+        // Just example
+        // In real project we would be call some AuthManager and check user valid session.
+        let isUserAuth = false
+        
+        if isUserAuth {
+            showItemList()
+        } else {
+            showAuth()
+        }
     }
-    /*
+    
     func showItemList() {
         
-        let itemListController = factory.createItemListController()
+        let itemListController = factory.createItemsListController()
         itemListController.completionHandler = { [weak self] result in
             
             if case let ItemListActions.ItemSelect(list) = result {
                 self?.showItemDetail(list)
             }
-            else if case ItemListActions.New = result {
+            else if case ItemListActions.Create = result {
                 self?.runCreationCoordinator()
             }
         }
         push(itemListController, animated: false)
     }
     
+    func showAuth() {
+        
+    }
+    
     func showItemDetail(item: ItemList) {
         
         let itemDetailController = factory.createItemDetailController()
         itemDetailController.item = item
-        itemDetailController.completionHandler = { [weak self] result in
-            
-            if case let ItemListActions.VasSelect(detail) = result, let itemId = detail.item?.id {
-                self?.showVasList(itemId)
-            }
-            else if case let ItemListActions.Edit(detail) = result {
-                self?.runEditCoordinator(detail)
-            }
+        itemDetailController.completionHandler = { result in
+            /* continue the flow */
         }
         push(itemDetailController)
-    }
-    
-    func showVasList(itemId: Int) {
-        
-        let vasPublicationController = factory.createVasController()
-        vasPublicationController.itemId = itemId
-        vasPublicationController.isEditingState = true
-        vasPublicationController.completionHandler = { [weak self] result in
-            if case ItemCreationActions.Success(_) = result {
-                
-                NSNotificationCenter.defaultCenter().postNotificationName(NotificationsNames.kItemDidUpdateNotification, object: nil)
-                self?.pop()
-            }
-        }
-        push(vasPublicationController)
-    }
-    
-    func runEditCoordinator(item: ItemDetail) {
-        
-        if let presenter = presenter {
-            
-            let creationFlow = coordinatorFactory.createEditCoordinator()
-            editCoordinator = creationFlow.editCoordinator
-            editCoordinator?.item = item.item
-            editCoordinator?.flowCompletionHandler = { [unowned self] in
-                
-                presenter.dismissViewControllerAnimated(true, completion: nil)
-                self.editCoordinator = nil
-            }
-            editCoordinator?.start()
-            presenter.presentViewController(creationFlow.presenter, animated: true, completion: nil)
-        }
     }
     
     func runCreationCoordinator() {
@@ -103,7 +75,7 @@ class ItemCoordinator: NSObject, Coordinatable {
         if let presenter = presenter {
             
             let creationFlow = coordinatorFactory.createItemCreationCoordinator()
-            creationCoordinator = creationFlow.creationCoordinator
+            creationCoordinator = creationFlow.createCoordinator
             creationCoordinator?.flowCompletionHandler = { [unowned self] in
                 
                 presenter.dismissViewControllerAnimated(true, completion: nil)
@@ -112,21 +84,17 @@ class ItemCoordinator: NSObject, Coordinatable {
             creationCoordinator?.start()
             presenter.presentViewController(creationFlow.presenter, animated: true, completion: nil)
         }
-    }*/
+    }
 }
 
 class ItemFactory {
-    /*
-    func createItemListController() -> ItemsListAdsController {
-        return ItemsListAdsController.controllerFromStoryboard(.Tab)
+    
+    func createItemsListController() -> ItemsListController {
+        return ItemsListController.controllerFromStoryboard(.Items)
     }
     
-    func createItemDetailController() -> ItemDetailsController {
-        return ItemDetailsController.controllerFromStoryboard(.Items)
+    func createItemDetailController() -> ItemDetailController {
+        return ItemDetailController.controllerFromStoryboard(.Items)
     }
-    
-    func createVasController() -> VasPublicationController {
-        return VasPublicationController.controllerFromStoryboard(.Items)
-    }*/
 }
 

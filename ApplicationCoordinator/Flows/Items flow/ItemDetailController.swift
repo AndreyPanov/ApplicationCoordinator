@@ -8,8 +8,14 @@
 
 import UIKit
 
-class ItemDetailController: UIViewController {
+class ItemDetailController: UIViewController, FlowController {
 
+    //controller handler
+    typealias T = ItemListActions //enum Actions type
+    var completionHandler: (T -> ())?
+    
+    var item: ItemList?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

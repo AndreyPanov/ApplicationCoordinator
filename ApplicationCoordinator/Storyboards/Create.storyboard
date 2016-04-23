@@ -5,23 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="PPH-so-oBu">
-            <objects>
-                <navigationController id="r0W-nF-xmf" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eS2-ig-wGR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kfF-dM-4OL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-318" y="491"/>
-        </scene>
-        <!--Create Controller-->
+        <!--Item Create Controller-->
         <scene sceneID="dBc-At-qDg">
             <objects>
-                <viewController id="ZZP-8h-eU1" customClass="CreateController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZZP-8h-eU1" customClass="ItemCreateController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z6T-dI-9Nj"/>
                         <viewControllerLayoutGuide type="bottom" id="bCH-mn-KLG"/>

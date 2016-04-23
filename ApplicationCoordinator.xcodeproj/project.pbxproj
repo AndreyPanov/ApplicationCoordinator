@@ -12,7 +12,6 @@
 		0E3CCF9B1CCBBB670022E830 /* RootTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF7F1CCBBB670022E830 /* RootTabbarController.swift */; };
 		0E3CCF9D1CCBBB670022E830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF821CCBBB670022E830 /* LaunchScreen.storyboard */; };
 		0E3CCF9E1CCBBB670022E830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF841CCBBB670022E830 /* Main.storyboard */; };
-		0E3CCF9F1CCBBB670022E830 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF871CCBBB670022E830 /* ArrayExtension.swift */; };
 		0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */; };
 		0E3CCFA51CCBBB670022E830 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF931CCBBB670022E830 /* CoordinatorFactory.swift */; };
 		0E3CCFA61CCBBB670022E830 /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF941CCBBB670022E830 /* CoordinatorProtocols.swift */; };
@@ -30,8 +29,9 @@
 		0E3CCFBC1CCBC0210022E830 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFBB1CCBC0210022E830 /* LoginCoordinator.swift */; };
 		0E3CCFBE1CCBC04B0022E830 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFBD1CCBC04B0022E830 /* SettingsCoordinator.swift */; };
 		0E3CCFC01CCBC0600022E830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFBF1CCBC0600022E830 /* SettingsController.swift */; };
-		0E3CCFC21CCBC0AA0022E830 /* CreateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC11CCBC0AA0022E830 /* CreateCoordinator.swift */; };
-		0E3CCFC41CCBC0C00022E830 /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC31CCBC0C00022E830 /* CreateController.swift */; };
+		0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC11CCBC0AA0022E830 /* ItemCreateCoordinator.swift */; };
+		0E3CCFC41CCBC0C00022E830 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC31CCBC0C00022E830 /* ItemCreateController.swift */; };
+		0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC61CCBC6740022E830 /* ItemList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,6 @@
 		0E3CCF7F1CCBBB670022E830 /* RootTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabbarController.swift; sourceTree = "<group>"; };
 		0E3CCF831CCBBB670022E830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E3CCF851CCBBB670022E830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		0E3CCF871CCBBB670022E830 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		0E3CCF931CCBBB670022E830 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		0E3CCF941CCBBB670022E830 /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
@@ -58,8 +57,9 @@
 		0E3CCFBB1CCBC0210022E830 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		0E3CCFBD1CCBC04B0022E830 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		0E3CCFBF1CCBC0600022E830 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		0E3CCFC11CCBC0AA0022E830 /* CreateCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCoordinator.swift; sourceTree = "<group>"; };
-		0E3CCFC31CCBC0C00022E830 /* CreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
+		0E3CCFC11CCBC0AA0022E830 /* ItemCreateCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateCoordinator.swift; sourceTree = "<group>"; };
+		0E3CCFC31CCBC0C00022E830 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateController.swift; sourceTree = "<group>"; };
+		0E3CCFC61CCBC6740022E830 /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,6 @@
 		0E3CCF861CCBBB670022E830 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0E3CCF871CCBBB670022E830 /* ArrayExtension.swift */,
 				0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */,
 			);
 			name = Extensions;
@@ -119,8 +118,8 @@
 		0E3CCF8A1CCBBB670022E830 /* Create flow */ = {
 			isa = PBXGroup;
 			children = (
-				0E3CCFC11CCBC0AA0022E830 /* CreateCoordinator.swift */,
-				0E3CCFC31CCBC0C00022E830 /* CreateController.swift */,
+				0E3CCFC11CCBC0AA0022E830 /* ItemCreateCoordinator.swift */,
+				0E3CCFC31CCBC0C00022E830 /* ItemCreateController.swift */,
 			);
 			path = "Create flow";
 			sourceTree = "<group>";
@@ -188,6 +187,15 @@
 			path = ../ApplicationCoordinator/Resources;
 			sourceTree = "<group>";
 		};
+		0E3CCFC51CCBC6660022E830 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E3CCFC61CCBC6740022E830 /* ItemList.swift */,
+			);
+			name = Model;
+			path = ApplicationCoordinator/Model;
+			sourceTree = SOURCE_ROOT;
+		};
 		D50F9EE61C7A525E00C5A59F = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +215,7 @@
 		D50F9EF11C7A525E00C5A59F /* ApplicationCoordinator */ = {
 			isa = PBXGroup;
 			children = (
+				0E3CCFC51CCBC6660022E830 /* Model */,
 				0E3CCF861CCBBB670022E830 /* Extensions */,
 				0E3CCF921CCBBB670022E830 /* Protocols */,
 				0E3CCF7C1CCBBB670022E830 /* Application */,
@@ -296,6 +305,7 @@
 			files = (
 				0E3CCF991CCBBB670022E830 /* AppDelegate.swift in Sources */,
 				0E3CCFBA1CCBBFEF0022E830 /* LoginController.swift in Sources */,
+				0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */,
 				0E3CCF9B1CCBBB670022E830 /* RootTabbarController.swift in Sources */,
 				0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */,
 				0E3CCFBC1CCBC0210022E830 /* LoginCoordinator.swift in Sources */,
@@ -303,13 +313,12 @@
 				0E3CCFC01CCBC0600022E830 /* SettingsController.swift in Sources */,
 				0E3CCFA51CCBBB670022E830 /* CoordinatorFactory.swift in Sources */,
 				0E3CCFB61CCBBFC10022E830 /* ItemsListController.swift in Sources */,
-				0E3CCFC41CCBC0C00022E830 /* CreateController.swift in Sources */,
+				0E3CCFC41CCBC0C00022E830 /* ItemCreateController.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
-				0E3CCFC21CCBC0AA0022E830 /* CreateCoordinator.swift in Sources */,
+				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,
 				0E3CCFA71CCBBB670022E830 /* Router.swift in Sources */,
 				0E3CCF9A1CCBBB670022E830 /* ApplicationCoordinator.swift in Sources */,
 				0E3CCFBE1CCBC04B0022E830 /* SettingsCoordinator.swift in Sources */,
-				0E3CCF9F1CCBBB670022E830 /* ArrayExtension.swift in Sources */,
 				0E3CCFA61CCBBB670022E830 /* CoordinatorProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
