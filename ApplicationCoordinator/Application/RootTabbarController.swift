@@ -29,6 +29,7 @@ class RootTabbarController: UITabBarController {
             if let navController = viewControllers?[0] as? UINavigationController {
                 itemCoordinator = ItemCoordinator(presenter: navController)
                 itemCoordinator?.start()
+                print("ItemCoordinator start")
             }
         }
     }

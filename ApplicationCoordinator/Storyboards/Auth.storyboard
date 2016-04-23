@@ -6,94 +6,22 @@
     </dependencies>
     <scenes>
         <!--Login Controller-->
-        <scene sceneID="hdG-hZ-lvF">
+        <scene sceneID="tzI-JX-qpA">
             <objects>
-                <viewController storyboardIdentifier="LoginController" id="Vl2-QL-67X" customClass="LoginController" customModule="ApplicationCoordinatorExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zQv-zS-ySU" customClass="LoginController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tKb-2E-0vk"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Vl-sp-VuB"/>
+                        <viewControllerLayoutGuide type="top" id="Smv-k4-wkp"/>
+                        <viewControllerLayoutGuide type="bottom" id="I5k-N2-1xf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="w8G-rb-UJb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="rsE-DJ-HJd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmL-SR-on7">
-                                <rect key="frame" x="139" y="198" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wlZ-yw-zKg">
-                                <rect key="frame" x="139" y="254" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhF-Hb-oPK">
-                                <rect key="frame" x="164" y="313" width="46" height="30"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="authComplete" destination="Vl2-QL-67X" eventType="touchUpInside" id="vw9-pY-hYq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akQ-LV-chy">
-                                <rect key="frame" x="154" y="356" width="67" height="30"/>
-                                <state key="normal" title="SignUp"/>
-                                <connections>
-                                    <action selector="openSignUp" destination="Vl2-QL-67X" eventType="touchUpInside" id="tME-0L-OTt"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JAx-wp-aYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tp0-4d-VzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="246"/>
-        </scene>
-        <!--Sign Up Controller-->
-        <scene sceneID="QB9-7I-55O">
-            <objects>
-                <viewController storyboardIdentifier="SignUpController" id="9jq-XV-Sts" customClass="SignUpController" customModule="ApplicationCoordinatorExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="N4T-4g-Pp7"/>
-                        <viewControllerLayoutGuide type="bottom" id="ysP-aJ-ZHc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="poc-j2-XI0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raQ-Vd-c7e">
-                                <rect key="frame" x="139" y="200" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVW-8d-fWq">
-                                <rect key="frame" x="139" y="256" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iht-28-RuP">
-                                <rect key="frame" x="154" y="361" width="67" height="30"/>
-                                <state key="normal" title="SignUp"/>
-                                <connections>
-                                    <action selector="authComplete" destination="9jq-XV-Sts" eventType="touchUpInside" id="poK-Xd-2Yv"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6UN-ba-2gC">
-                                <rect key="frame" x="139" y="309" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="918-VY-wa0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="954" y="246"/>
+            <point key="canvasLocation" x="532" y="193"/>
         </scene>
     </scenes>
 </document>

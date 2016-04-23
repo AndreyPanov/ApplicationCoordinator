@@ -1,67 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Items List Controller-->
-        <scene sceneID="9gi-pZ-JNj">
+        <scene sceneID="QdX-v6-yZs">
             <objects>
-                <tableViewController storyboardIdentifier="ItemsListController" id="7T1-aA-2YM" customClass="ItemsListController" customModule="ApplicationCoordinatorExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SH9-It-Vyl">
+                <viewController id="kGx-Oi-sCM" customClass="ItemsListController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gJR-he-qcO"/>
+                        <viewControllerLayoutGuide type="bottom" id="4dm-LH-uN5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gzj-my-fP3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AnimalCell" id="25n-DF-BGj">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="25n-DF-BGj" id="VbZ-PY-s8k">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="7T1-aA-2YM" id="cTk-6A-uj1"/>
-                            <outlet property="delegate" destination="7T1-aA-2YM" id="NBf-du-hGo"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ELp-dL-aeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gU6-Xf-DAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="382"/>
+            <point key="canvasLocation" x="406" y="402"/>
         </scene>
         <!--Item Detail Controller-->
-        <scene sceneID="AWw-W3-wVs">
+        <scene sceneID="kWo-2X-cem">
             <objects>
-                <viewController storyboardIdentifier="ItemDetailController" id="ahq-g5-Ex8" customClass="ItemDetailController" customModule="ApplicationCoordinatorExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TCY-JM-Reo" customClass="ItemDetailController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SaI-DR-g5b"/>
-                        <viewControllerLayoutGuide type="bottom" id="cvI-IP-o8k"/>
+                        <viewControllerLayoutGuide type="top" id="iBY-3J-AJj"/>
+                        <viewControllerLayoutGuide type="bottom" id="fcL-RP-U8e"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ehu-gB-gzz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="KGM-Ck-qNt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0A-P5-LYu">
-                                <rect key="frame" x="89" y="136" width="196" height="123"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="animalLabel" destination="p0A-P5-LYu" id="8d3-mt-h2x"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CQl-D2-ppm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQt-i8-Rnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018.5" y="381.5"/>
+            <point key="canvasLocation" x="1195" y="284"/>
         </scene>
     </scenes>
 </document>

@@ -24,6 +24,14 @@
 		0E3CCFB11CCBBC760022E830 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCFAF1CCBBC760022E830 /* Create.storyboard */; };
 		0E3CCFB21CCBBC760022E830 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCFB01CCBBC760022E830 /* Settings.storyboard */; };
 		0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFB31CCBBCA20022E830 /* ItemCoordinator.swift */; };
+		0E3CCFB61CCBBFC10022E830 /* ItemsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFB51CCBBFC10022E830 /* ItemsListController.swift */; };
+		0E3CCFB81CCBBFD70022E830 /* ItemDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFB71CCBBFD70022E830 /* ItemDetailController.swift */; };
+		0E3CCFBA1CCBBFEF0022E830 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFB91CCBBFEF0022E830 /* LoginController.swift */; };
+		0E3CCFBC1CCBC0210022E830 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFBB1CCBC0210022E830 /* LoginCoordinator.swift */; };
+		0E3CCFBE1CCBC04B0022E830 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFBD1CCBC04B0022E830 /* SettingsCoordinator.swift */; };
+		0E3CCFC01CCBC0600022E830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFBF1CCBC0600022E830 /* SettingsController.swift */; };
+		0E3CCFC21CCBC0AA0022E830 /* CreateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC11CCBC0AA0022E830 /* CreateCoordinator.swift */; };
+		0E3CCFC41CCBC0C00022E830 /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC31CCBC0C00022E830 /* CreateController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +52,14 @@
 		0E3CCFAF1CCBBC760022E830 /* Create.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		0E3CCFB01CCBBC760022E830 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		0E3CCFB31CCBBCA20022E830 /* ItemCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCoordinator.swift; sourceTree = "<group>"; };
+		0E3CCFB51CCBBFC10022E830 /* ItemsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsListController.swift; sourceTree = "<group>"; };
+		0E3CCFB71CCBBFD70022E830 /* ItemDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailController.swift; sourceTree = "<group>"; };
+		0E3CCFB91CCBBFEF0022E830 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		0E3CCFBB1CCBC0210022E830 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		0E3CCFBD1CCBC04B0022E830 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		0E3CCFBF1CCBC0600022E830 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		0E3CCFC11CCBC0AA0022E830 /* CreateCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCoordinator.swift; sourceTree = "<group>"; };
+		0E3CCFC31CCBC0C00022E830 /* CreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +119,8 @@
 		0E3CCF8A1CCBBB670022E830 /* Create flow */ = {
 			isa = PBXGroup;
 			children = (
+				0E3CCFC11CCBC0AA0022E830 /* CreateCoordinator.swift */,
+				0E3CCFC31CCBC0C00022E830 /* CreateController.swift */,
 			);
 			path = "Create flow";
 			sourceTree = "<group>";
@@ -111,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				0E3CCFB31CCBBCA20022E830 /* ItemCoordinator.swift */,
+				0E3CCFB51CCBBFC10022E830 /* ItemsListController.swift */,
+				0E3CCFB71CCBBFD70022E830 /* ItemDetailController.swift */,
 			);
 			path = "Items flow";
 			sourceTree = "<group>";
@@ -118,6 +138,8 @@
 		0E3CCF8C1CCBBB670022E830 /* Login flow */ = {
 			isa = PBXGroup;
 			children = (
+				0E3CCFBB1CCBC0210022E830 /* LoginCoordinator.swift */,
+				0E3CCFB91CCBBFEF0022E830 /* LoginController.swift */,
 			);
 			path = "Login flow";
 			sourceTree = "<group>";
@@ -125,6 +147,8 @@
 		0E3CCF8D1CCBBB670022E830 /* Settings flow */ = {
 			isa = PBXGroup;
 			children = (
+				0E3CCFBD1CCBC04B0022E830 /* SettingsCoordinator.swift */,
+				0E3CCFBF1CCBC0600022E830 /* SettingsController.swift */,
 			);
 			path = "Settings flow";
 			sourceTree = "<group>";
@@ -271,12 +295,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E3CCF991CCBBB670022E830 /* AppDelegate.swift in Sources */,
+				0E3CCFBA1CCBBFEF0022E830 /* LoginController.swift in Sources */,
 				0E3CCF9B1CCBBB670022E830 /* RootTabbarController.swift in Sources */,
 				0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */,
+				0E3CCFBC1CCBC0210022E830 /* LoginCoordinator.swift in Sources */,
+				0E3CCFB81CCBBFD70022E830 /* ItemDetailController.swift in Sources */,
+				0E3CCFC01CCBC0600022E830 /* SettingsController.swift in Sources */,
 				0E3CCFA51CCBBB670022E830 /* CoordinatorFactory.swift in Sources */,
+				0E3CCFB61CCBBFC10022E830 /* ItemsListController.swift in Sources */,
+				0E3CCFC41CCBC0C00022E830 /* CreateController.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
+				0E3CCFC21CCBC0AA0022E830 /* CreateCoordinator.swift in Sources */,
 				0E3CCFA71CCBBB670022E830 /* Router.swift in Sources */,
 				0E3CCF9A1CCBBB670022E830 /* ApplicationCoordinator.swift in Sources */,
+				0E3CCFBE1CCBC04B0022E830 /* SettingsCoordinator.swift in Sources */,
 				0E3CCF9F1CCBBB670022E830 /* ArrayExtension.swift in Sources */,
 				0E3CCFA61CCBBB670022E830 /* CoordinatorProtocols.swift in Sources */,
 			);
@@ -390,7 +422,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ApplicationCoordinator/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -404,7 +435,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ApplicationCoordinator/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
