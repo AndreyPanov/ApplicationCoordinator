@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+/*
     private lazy var applicationCoordinator: ApplicationCoordinator = {
         return ApplicationCoordinator(rootController: self.window!.rootViewController as! UINavigationController)
     }()
@@ -21,6 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         applicationCoordinator.start()
         return true
-    }
+    }*/
 }
 

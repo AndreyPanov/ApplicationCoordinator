@@ -8,21 +8,8 @@
 
 import UIKit
 
-typealias CompletionBlock = () -> ()
 
-@objc protocol Coordinatable {
-    
-    optional var completionHandler:CompletionBlock? {get set}
-    init(rootController: UINavigationController)
-    func start()
-}
-
-protocol Controllerable: NSObjectProtocol {
-    typealias T
-    var completionHandler: (T -> ())? {get set}
-}
-
-class ApplicationCoordinator: NSObject, Coordinatable {
+class ApplicationCoordinator: NSObject {
     
     private(set) var rootController: UINavigationController
 
@@ -45,20 +32,20 @@ class ApplicationCoordinator: NSObject, Coordinatable {
     }
     
     func showAuth() {
-        
+        /*
         let authenticationCoordinator = AuthenticationCoordinator(rootController: rootController)
         authenticationCoordinator.completionHandler = {
             self.showItems()
         }
-        authenticationCoordinator.start()
+        authenticationCoordinator.start()*/
     }
     
     func showItems() {
-        
+        /*
         let itemsCoordinator = ItemsCoordinator(rootController: rootController)
         itemsCoordinator.completionHandler = {
             // some
         }
-        itemsCoordinator.start()
+        itemsCoordinator.start()*/
     }
 }
