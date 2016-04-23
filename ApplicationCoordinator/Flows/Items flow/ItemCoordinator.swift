@@ -58,8 +58,6 @@ class ItemCoordinator: NSObject, Coordinatable {
         push(itemListController, animated: false)
     }
     
-    
-    
     func showItemDetail(item: ItemList) {
         
         let itemDetailController = factory.createItemDetailController()
