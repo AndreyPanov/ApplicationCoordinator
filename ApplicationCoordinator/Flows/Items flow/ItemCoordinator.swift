@@ -29,10 +29,17 @@ class ItemCoordinator: NSObject, Coordinatable {
     
     func start() {
         
+        //
         // Just example
         // In real project we would be call some AuthManager and check user valid session.
-        let isUserAuth = true
-        isUserAuth ? showItemList() : runAuthCoodrinator()
+        let isUserAuth = false
+        if isUserAuth {
+            showItemList()
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {[unowned self] in
+                self.runAuthCoodrinator()
+            })
+        }
     }
     
 //MARK: - Run current flow's controllers
@@ -66,16 +73,16 @@ class ItemCoordinator: NSObject, Coordinatable {
     
     func runAuthCoodrinator() {
         
-        let creationFlow = coordinatorFactory.createAuthCoordinator()
-        authCoordinator = creationFlow.authCoordinator
-        authCoordinator?.flowCompletionHandler = { [unowned self] in
+        let authFlow = coordinatorFactory.createAuthCoordinator()
+        authCoordinator = authFlow.authCoordinator
+        authCoordinator!.flowCompletionHandler = { [unowned self] in
             
             self.dismiss()
             self.authCoordinator = nil
             self.showItemList()
         }
         authCoordinator?.start()
-        present(creationFlow.presenter)
+        present(authFlow.presenter)
     }
     
     func runCreationCoordinator() {

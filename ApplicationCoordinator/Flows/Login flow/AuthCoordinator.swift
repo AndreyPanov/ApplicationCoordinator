@@ -33,14 +33,14 @@ class AuthCoordinator: NSObject, Coordinatable {
     func showLogin() {
         
         let loginController = factory.createLoginController()
-        loginController.completionHandler = { [weak self] result in
+        loginController.completionHandler = { [unowned self] result in
             
             if case AuthActions.SignUp = result {
-                self?.showSignUp()
+                self.showSignUp()
             }
             else if case AuthActions.Complete = result {
                 //finish flow
-                self?.flowCompletionHandler
+                self.flowCompletionHandler!()
             }
         }
         push(loginController, animated: false)

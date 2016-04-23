@@ -10,11 +10,9 @@ import UIKit
 
 class ItemCreateController: UIViewController, FlowController {
 
-    
     //controller handler
     typealias T = CreateActions //enum Actions type
     var completionHandler: (T -> ())?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

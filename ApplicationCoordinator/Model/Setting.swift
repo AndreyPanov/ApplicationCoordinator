@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-struct Settings {
+struct Setting {
     
     var title: String
     var subtitle: String
