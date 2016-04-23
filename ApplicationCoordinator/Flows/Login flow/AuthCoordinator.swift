@@ -9,8 +9,7 @@
 import UIKit
 
 enum AuthActions {
-    case SignUp
-    case Complete
+    case SignUp, Complete
 }
 
 class AuthCoordinator: NSObject, Coordinatable {

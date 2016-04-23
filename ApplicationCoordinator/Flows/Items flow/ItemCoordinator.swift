@@ -8,8 +8,7 @@
 import UIKit
 
 enum ItemListActions {
-    case ItemSelect(ItemList)
-    case Create
+    case ItemSelect(ItemList), Create
 }
 
 class ItemCoordinator: NSObject, Coordinatable {

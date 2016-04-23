@@ -8,11 +8,26 @@
 
 import UIKit
 
-class ItemCreateController: UIViewController {
+class ItemCreateController: UIViewController, FlowController {
 
+    
+    //controller handler
+    typealias T = CreateActions //enum Actions type
+    var completionHandler: (T -> ())?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "Create"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .Plain, target: self, action: #selector(ItemCreateController.hideButtonClicked(_:)))
+    }
+    
+    @IBAction func hideButtonClicked(sender: UIBarButtonItem) {
+        completionHandler?(.Hide)
+    }
+    
+    @IBAction func createButtonClicked(sender: UIBarButtonItem) {
+        completionHandler?(.Create)
     }
 }
