@@ -88,7 +88,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="More field to fill 😃 Just tap &quot;SignUp&quot;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pqG-XE-N8b">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="More field to fill 😃 Just tap &quot;SignUp&quot;" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqG-XE-N8b">
                                 <rect key="frame" x="171" y="119" width="259" height="37"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
