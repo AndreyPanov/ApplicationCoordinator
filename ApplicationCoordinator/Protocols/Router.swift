@@ -14,6 +14,7 @@ protocol Router {
     func present(controller:UIViewController, animated: Bool)
     func push(controller:UIViewController, animated: Bool)
     func pop(animated: Bool)
+    func dismiss(animated: Bool)
 }
 
 extension Router {
