@@ -22,6 +22,7 @@ class AuthCoordinator: NSObject, Coordinatable {
         
         self.presenter = presenter
         factory = AuthFactory()
+        super.init()
     }
     
     func start() {

@@ -22,6 +22,7 @@ class ItemCreateCoordinator: NSObject, Coordinatable {
         
         self.presenter = presenter
         factory = ItemCreateFactory()
+        super.init()
     }
     
     func start() {

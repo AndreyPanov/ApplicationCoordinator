@@ -9,43 +9,53 @@
 import UIKit
 
 
-class ApplicationCoordinator: NSObject {
+class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
     
-    private(set) var rootController: UINavigationController
+    private(set) var presenter: UITabBarController
+    var itemCoordinator: ItemCoordinator?
+    var settingsCoordinator: SettingsCoordinator?
 
-    required init(rootController: UINavigationController) {
+    init(presenter: UITabBarController) {
         
-        self.rootController = rootController
+        self.presenter = presenter
         super.init()
+        self.presenter.delegate = self
     }
     
     func start() {
+        runItemCoordinator()
+    }
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
         
-        isLoggedIn() ? showItems() : showAuth()
+        if tabBarController.selectedIndex == 0 {
+            runItemCoordinator()
+        }
+        else if tabBarController.selectedIndex == 1 {
+            runSettingsCoordinator()
+        }
     }
+
     
-    func isLoggedIn() -> Bool {
+    func runItemCoordinator() {
         
-        //here we call some func to check user session
-        //in this example just return false
-        return false
+        if itemCoordinator == nil {
+            if let navController = presenter.viewControllers?[0] as? UINavigationController {
+                itemCoordinator = ItemCoordinator(presenter: navController)
+                itemCoordinator?.start()
+                print("ItemCoordinator start")
+            }
+        }
     }
     
-    func showAuth() {
-        /*
-        let authenticationCoordinator = AuthenticationCoordinator(rootController: rootController)
-        authenticationCoordinator.completionHandler = {
-            self.showItems()
+    func runSettingsCoordinator() {
+        
+        if settingsCoordinator == nil {
+            if let navController = presenter.viewControllers?[1] as? UINavigationController {
+                settingsCoordinator = SettingsCoordinator(presenter: navController)
+                settingsCoordinator?.start()
+                print("SettingsCoordinator start")
+            }
         }
-        authenticationCoordinator.start()*/
-    }
-    
-    func showItems() {
-        /*
-        let itemsCoordinator = ItemsCoordinator(rootController: rootController)
-        itemsCoordinator.completionHandler = {
-            // some
-        }
-        itemsCoordinator.start()*/
     }
 }

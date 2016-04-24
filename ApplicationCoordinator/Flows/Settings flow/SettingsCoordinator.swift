@@ -21,6 +21,7 @@ class SettingsCoordinator: NSObject, Coordinatable {
         
         self.presenter = presenter
         factory = SettingsFactory()
+        super.init()
     }
     
     func start() {

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E3CCF991CCBBB670022E830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF7D1CCBBB670022E830 /* AppDelegate.swift */; };
 		0E3CCF9A1CCBBB670022E830 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF7E1CCBBB670022E830 /* ApplicationCoordinator.swift */; };
-		0E3CCF9B1CCBBB670022E830 /* RootTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF7F1CCBBB670022E830 /* RootTabbarController.swift */; };
 		0E3CCF9D1CCBBB670022E830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF821CCBBB670022E830 /* LaunchScreen.storyboard */; };
 		0E3CCF9E1CCBBB670022E830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF841CCBBB670022E830 /* Main.storyboard */; };
 		0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */; };
@@ -19,7 +18,6 @@
 		0E3CCFA81CCBBB670022E830 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF971CCBBB670022E830 /* Auth.storyboard */; };
 		0E3CCFA91CCBBB670022E830 /* Items.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF981CCBBB670022E830 /* Items.storyboard */; };
 		0E3CCFAD1CCBBBFB0022E830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCFAB1CCBBBFB0022E830 /* Assets.xcassets */; };
-		0E3CCFAE1CCBBBFB0022E830 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCFAC1CCBBBFB0022E830 /* Info.plist */; };
 		0E3CCFB11CCBBC760022E830 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCFAF1CCBBC760022E830 /* Create.storyboard */; };
 		0E3CCFB21CCBBC760022E830 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCFB01CCBBC760022E830 /* Settings.storyboard */; };
 		0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFB31CCBBCA20022E830 /* ItemCoordinator.swift */; };
@@ -39,7 +37,6 @@
 /* Begin PBXFileReference section */
 		0E3CCF7D1CCBBB670022E830 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E3CCF7E1CCBBB670022E830 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
-		0E3CCF7F1CCBBB670022E830 /* RootTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabbarController.swift; sourceTree = "<group>"; };
 		0E3CCF831CCBBB670022E830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E3CCF851CCBBB670022E830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -83,7 +80,6 @@
 			children = (
 				0E3CCF7D1CCBBB670022E830 /* AppDelegate.swift */,
 				0E3CCF7E1CCBBB670022E830 /* ApplicationCoordinator.swift */,
-				0E3CCF7F1CCBBB670022E830 /* RootTabbarController.swift */,
 			);
 			name = Application;
 			path = ApplicationCoordinator/Application;
@@ -260,7 +256,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Andrey Panov";
 				TargetAttributes = {
 					D50F9EEE1C7A525E00C5A59F = {
@@ -296,7 +292,6 @@
 				0E3CCF9E1CCBBB670022E830 /* Main.storyboard in Resources */,
 				0E3CCF9D1CCBBB670022E830 /* LaunchScreen.storyboard in Resources */,
 				0E3CCFAD1CCBBBFB0022E830 /* Assets.xcassets in Resources */,
-				0E3CCFAE1CCBBBFB0022E830 /* Info.plist in Resources */,
 				0E3CCFA81CCBBB670022E830 /* Auth.storyboard in Resources */,
 				0E3CCFB21CCBBC760022E830 /* Settings.storyboard in Resources */,
 			);
@@ -312,7 +307,6 @@
 				0E3CCF991CCBBB670022E830 /* AppDelegate.swift in Sources */,
 				0E3CCFBA1CCBBFEF0022E830 /* LoginController.swift in Sources */,
 				0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */,
-				0E3CCF9B1CCBBB670022E830 /* RootTabbarController.swift in Sources */,
 				0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */,
 				0E3CCFBC1CCBC0210022E830 /* AuthCoordinator.swift in Sources */,
 				0E3CCFB81CCBBFD70022E830 /* ItemDetailController.swift in Sources */,

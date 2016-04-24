@@ -12,15 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-/*
+
     private lazy var applicationCoordinator: ApplicationCoordinator = {
-        return ApplicationCoordinator(rootController: self.window!.rootViewController as! UINavigationController)
+        return ApplicationCoordinator(presenter: self.window!.rootViewController as! UITabBarController)
     }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         applicationCoordinator.start()
+        
         return true
-    }*/
+    }
 }
 

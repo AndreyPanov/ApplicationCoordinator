@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="1379" y="-1307"/>
         </scene>
-        <!--Root Tabbar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="fGt-Vd-pEh">
             <objects>
-                <tabBarController id="dvL-vG-wNM" customClass="RootTabbarController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="dvL-vG-wNM" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="top-IN-Wys">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

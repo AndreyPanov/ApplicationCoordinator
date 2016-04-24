@@ -25,6 +25,7 @@ class ItemCoordinator: NSObject, Coordinatable {
         self.presenter = presenter
         factory = ItemFactory()
         coordinatorFactory = CoordinatorFactory()
+        super.init()
     }
     
     func start() {
