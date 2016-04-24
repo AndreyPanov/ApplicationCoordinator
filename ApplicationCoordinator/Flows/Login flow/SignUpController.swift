@@ -14,4 +14,13 @@ class SignUpController: UIViewController, FlowController {
     typealias T = AuthActions //enum Actions type
     var completionHandler: (T -> ())?
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "SignUp"
+    }
+    
+    @IBAction func signUpClicked(sender: AnyObject) {
+        completionHandler?(.Complete)
+    }
 }

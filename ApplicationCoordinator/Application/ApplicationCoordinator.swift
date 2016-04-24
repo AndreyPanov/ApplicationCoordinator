@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
     
     private(set) var presenter: UITabBarController
@@ -36,14 +35,12 @@ class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
         }
     }
 
-    
     func runItemCoordinator() {
         
         if itemCoordinator == nil {
             if let navController = presenter.viewControllers?[0] as? UINavigationController {
                 itemCoordinator = ItemCoordinator(presenter: navController)
                 itemCoordinator?.start()
-                print("ItemCoordinator start")
             }
         }
     }
@@ -54,7 +51,6 @@ class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
             if let navController = presenter.viewControllers?[1] as? UINavigationController {
                 settingsCoordinator = SettingsCoordinator(presenter: navController)
                 settingsCoordinator?.start()
-                print("SettingsCoordinator start")
             }
         }
     }

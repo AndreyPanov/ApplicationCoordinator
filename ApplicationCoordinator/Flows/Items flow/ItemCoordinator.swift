@@ -30,7 +30,6 @@ class ItemCoordinator: NSObject, Coordinatable {
     
     func start() {
         
-        //
         // Just example
         // In real project we would be call some AuthManager and check user valid session.
         let isUserAuth = false

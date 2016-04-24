@@ -20,7 +20,16 @@ class LoginController: UIViewController, FlowController {
         title = "Login"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .Plain, target: self, action: #selector(ItemCreateController.hideButtonClicked(_:)))
     }
+    
     @IBAction func hideButtonClicked(sender: UIBarButtonItem) {
+        completionHandler?(.Hide)
+    }
+    
+    @IBAction func loginButtonClicked(sender: AnyObject) {
         completionHandler?(.Complete)
+    }
+    
+    @IBAction func signUpClicked(sender: AnyObject) {
+        completionHandler?(.SignUp)
     }
 }

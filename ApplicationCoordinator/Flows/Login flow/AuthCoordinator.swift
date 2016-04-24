@@ -9,7 +9,7 @@
 import UIKit
 
 enum AuthActions {
-    case SignUp, Complete
+    case SignUp, Complete, Hide
 }
 
 class AuthCoordinator: NSObject, Coordinatable {
@@ -41,7 +41,11 @@ class AuthCoordinator: NSObject, Coordinatable {
             }
             else if case AuthActions.Complete = result {
                 //finish flow
-                self.flowCompletionHandler!()
+                self.flowCompletionHandler?()
+            }
+            else if case AuthActions.Hide = result {
+                //finish flow
+                self.flowCompletionHandler?()
             }
         }
         push(loginController, animated: false)
@@ -49,6 +53,15 @@ class AuthCoordinator: NSObject, Coordinatable {
     
     func showSignUp() {
         
+        let signUpController = factory.createSignUpController()
+        signUpController.completionHandler = { [unowned self] result in
+            
+            if case AuthActions.Complete = result {
+                //finish flow
+                self.flowCompletionHandler?()
+            }
+        }
+        push(signUpController)
     }
 }
 
@@ -58,5 +71,9 @@ class AuthFactory {
     
     func createLoginController() -> LoginController {
         return LoginController.controllerFromStoryboard(.Auth)
+    }
+    
+    func createSignUpController() -> SignUpController {
+        return SignUpController.controllerFromStoryboard(.Auth)
     }
 }
