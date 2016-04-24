@@ -37,7 +37,6 @@ class ItemCreateCoordinator: NSObject, Coordinatable {
         createController.completionHandler = { [weak self] result in
             
             if case CreateActions.Create = result {
-                print("Item was created")
                 self?.dismiss()
             }
             else if case CreateActions.Hide = result {
