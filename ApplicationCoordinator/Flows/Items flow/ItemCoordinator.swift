@@ -36,7 +36,7 @@ class ItemCoordinator: NSObject, Coordinatable {
         if isUserAuth {
             showItemList()
         } else {
-            dispatch_async(dispatch_get_main_queue(), {[unowned self] in
+            dispatch_async(dispatch_get_main_queue(), {
                 self.runAuthCoodrinator()
             })
         }
