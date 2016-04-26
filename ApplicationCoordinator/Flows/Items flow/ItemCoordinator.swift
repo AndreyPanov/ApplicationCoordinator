@@ -73,8 +73,8 @@ class ItemCoordinator: NSObject, Coordinatable {
     
     func runAuthCoodrinator() {
         
-        let authFlow = coordinatorFactory.createAuthCoordinator()
-        authCoordinator = authFlow.authCoordinator
+        let authTyple = coordinatorFactory.createAuthCoordinatorTyple()
+        authCoordinator = authTyple.authCoordinator
         authCoordinator!.flowCompletionHandler = { [unowned self] in
             
             self.dismiss()
@@ -82,20 +82,20 @@ class ItemCoordinator: NSObject, Coordinatable {
             self.showItemList()
         }
         authCoordinator?.start()
-        present(authFlow.presenter)
+        present(authTyple.presenter)
     }
     
     func runCreationCoordinator() {
         
-        let creationFlow = coordinatorFactory.createItemCreationCoordinator()
-        creationCoordinator = creationFlow.createCoordinator
+        let creationTyple = coordinatorFactory.createItemCreationCoordinatorTyple()
+        creationCoordinator = creationTyple.createCoordinator
         creationCoordinator?.flowCompletionHandler = { [unowned self] in
             
             self.dismiss()
             self.creationCoordinator = nil
         }
         creationCoordinator?.start()
-        present(creationFlow.presenter)
+        present(creationTyple.presenter)
     }
 }
 

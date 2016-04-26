@@ -9,19 +9,19 @@ import UIKit
 
 class CoordinatorFactory {
     
-    func createItemCoordinator() -> (creationCoordinator: ItemCoordinator, presenter: UINavigationController) {
+    func createItemCoordinatorTyple() -> (creationCoordinator: ItemCoordinator, presenter: UINavigationController) {
         
         let presenter = createNavigationController()
         return (ItemCoordinator(presenter: presenter), presenter)
     }
     
-    func createItemCreationCoordinator() -> (createCoordinator: ItemCreateCoordinator, presenter: UINavigationController) {
+    func createItemCreationCoordinatorTyple() -> (createCoordinator: ItemCreateCoordinator, presenter: UINavigationController) {
         
         let presenter = createNavigationController()
         return (ItemCreateCoordinator(presenter: presenter), presenter)
     }
     
-    func createAuthCoordinator() -> (authCoordinator: AuthCoordinator, presenter: UINavigationController) {
+    func createAuthCoordinatorTyple() -> (authCoordinator: AuthCoordinator, presenter: UINavigationController) {
         
         let presenter = createNavigationController()
         return (AuthCoordinator(presenter: presenter), presenter)
