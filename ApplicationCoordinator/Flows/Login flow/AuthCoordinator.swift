@@ -17,6 +17,7 @@ class AuthCoordinator: NSObject, Coordinatable {
     var flowCompletionHandler:CoordinatorHandler?
     var factory: AuthFactory
     private(set) weak var presenter: UINavigationController?
+    var childCoordinators: [Coordinatable] = []
     
     init(presenter: UINavigationController) {
         

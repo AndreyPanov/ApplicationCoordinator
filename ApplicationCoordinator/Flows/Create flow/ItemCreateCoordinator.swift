@@ -17,6 +17,7 @@ class ItemCreateCoordinator: NSObject, Coordinatable {
     var flowCompletionHandler:CoordinatorHandler?
     var factory: ItemCreateFactory
     private(set) weak var presenter: UINavigationController?
+    var childCoordinators: [Coordinatable] = []
     
     init(presenter: UINavigationController) {
         

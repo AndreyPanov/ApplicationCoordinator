@@ -17,8 +17,7 @@ class ItemCoordinator: NSObject, Coordinatable {
     var factory: ItemFactory
     var coordinatorFactory: CoordinatorFactory
     private(set) weak var presenter: UINavigationController?
-    private var creationCoordinator: ItemCreateCoordinator?
-    private var authCoordinator: AuthCoordinator?
+    var childCoordinators: [Coordinatable] = []
     
     init(presenter: UINavigationController) {
         
@@ -74,27 +73,29 @@ class ItemCoordinator: NSObject, Coordinatable {
     func runAuthCoodrinator() {
         
         let authTyple = coordinatorFactory.createAuthCoordinatorTyple()
-        authCoordinator = authTyple.authCoordinator
-        authCoordinator!.flowCompletionHandler = { [unowned self] in
+        let authCoordinator = authTyple.authCoordinator
+        authCoordinator.flowCompletionHandler = { [unowned self] in
             
             self.dismiss()
-            self.authCoordinator = nil
+            self.removeDependancy(authCoordinator)
             self.showItemList()
         }
-        authCoordinator?.start()
+        authCoordinator.start()
+        addDependancy(authCoordinator)
         present(authTyple.presenter)
     }
     
     func runCreationCoordinator() {
         
         let creationTyple = coordinatorFactory.createItemCreationCoordinatorTyple()
-        creationCoordinator = creationTyple.createCoordinator
-        creationCoordinator?.flowCompletionHandler = { [unowned self] in
+        let creationCoordinator = creationTyple.createCoordinator
+        creationCoordinator.flowCompletionHandler = { [unowned self] in
             
             self.dismiss()
-            self.creationCoordinator = nil
+            self.removeDependancy(creationCoordinator)
         }
-        creationCoordinator?.start()
+        creationCoordinator.start()
+        addDependancy(creationCoordinator)
         present(creationTyple.presenter)
     }
 }

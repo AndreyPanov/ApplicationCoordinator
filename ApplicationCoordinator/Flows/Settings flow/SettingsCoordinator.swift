@@ -16,6 +16,7 @@ class SettingsCoordinator: NSObject, Coordinatable {
     var flowCompletionHandler:CoordinatorHandler?
     var factory: SettingsFactory
     private(set) weak var presenter: UINavigationController?
+    var childCoordinators: [Coordinatable] = []
     
     init(presenter: UINavigationController) {
         
