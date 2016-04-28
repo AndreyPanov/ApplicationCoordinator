@@ -72,7 +72,7 @@ class ItemCoordinator: BaseCoordinator {
         let authCoordinator = authTuple.authCoordinator
         authCoordinator.flowCompletionHandler = { [unowned self] in
             
-            self.dismiss()
+            self.dismissController()
             self.removeDependancy(authCoordinator)
             self.showItemList()
         }
@@ -87,7 +87,7 @@ class ItemCoordinator: BaseCoordinator {
         let creationCoordinator = creationTuple.createCoordinator
         creationCoordinator.flowCompletionHandler = { [unowned self] in
             
-            self.dismiss()
+            self.dismissController()
             self.removeDependancy(creationCoordinator)
         }
         creationCoordinator.start()

@@ -13,8 +13,8 @@ protocol Router {
     weak var presenter:UINavigationController? {get}
     func present(controller:UIViewController, animated: Bool)
     func push(controller:UIViewController, animated: Bool)
-    func pop(animated: Bool)
-    func dismiss(animated: Bool)
+    func popController(animated: Bool)
+    func dismissController(animated: Bool)
 }
 
 extension Router {
@@ -27,11 +27,11 @@ extension Router {
         presenter?.pushViewController(controller, animated: animated)
     }
     
-    func pop(animated: Bool = true)  {
+    func popController(animated: Bool = true)  {
         presenter?.popViewControllerAnimated(animated)
     }
     
-    func dismiss(animated: Bool = true) {
+    func dismissController(animated: Bool = true) {
         presenter?.dismissViewControllerAnimated(true, completion: nil)
     }
 }

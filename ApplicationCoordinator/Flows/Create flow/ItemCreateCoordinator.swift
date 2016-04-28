@@ -34,10 +34,10 @@ class ItemCreateCoordinator: BaseCoordinator {
         createController.completionHandler = { [weak self] result in
             
             if case CreateActions.Create = result {
-                self?.dismiss()
+                self?.dismissController()
             }
             else if case CreateActions.Hide = result {
-                self?.dismiss()
+                self?.dismissController()
             }
         }
         push(createController, animated: false)
