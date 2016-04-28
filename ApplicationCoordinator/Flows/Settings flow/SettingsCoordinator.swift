@@ -11,21 +11,17 @@ import UIKit
 enum SettingsActions {
 }
 
-class SettingsCoordinator: NSObject, Coordinatable {
+class SettingsCoordinator: BaseCoordinator {
 
-    var flowCompletionHandler:CoordinatorHandler?
     var factory: SettingsFactory
-    private(set) weak var presenter: UINavigationController?
-    var childCoordinators: [Coordinatable] = []
     
-    init(presenter: UINavigationController) {
+    override init(presenter: UINavigationController) {
         
-        self.presenter = presenter
         factory = SettingsFactory()
-        super.init()
+        super.init(presenter: presenter)
     }
     
-    func start() {
+    override func start() {
         showSettings()
     }
     

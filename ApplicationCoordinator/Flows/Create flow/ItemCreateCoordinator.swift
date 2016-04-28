@@ -12,21 +12,17 @@ enum CreateActions {
     case Create, Hide
 }
 
-class ItemCreateCoordinator: NSObject, Coordinatable {
+class ItemCreateCoordinator: BaseCoordinator {
 
-    var flowCompletionHandler:CoordinatorHandler?
     var factory: ItemCreateFactory
-    private(set) weak var presenter: UINavigationController?
-    var childCoordinators: [Coordinatable] = []
     
-    init(presenter: UINavigationController) {
+    override init(presenter: UINavigationController) {
         
-        self.presenter = presenter
         factory = ItemCreateFactory()
-        super.init()
+        super.init(presenter: presenter)
     }
     
-    func start() {
+    override func start() {
         showCreate()
     }
     

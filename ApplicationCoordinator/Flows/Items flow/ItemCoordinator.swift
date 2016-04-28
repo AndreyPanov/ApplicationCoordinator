@@ -11,23 +11,19 @@ enum ItemListActions {
     case ItemSelect(ItemList), Create
 }
 
-class ItemCoordinator: NSObject, Coordinatable {
+class ItemCoordinator: BaseCoordinator {
 
-    var flowCompletionHandler:CoordinatorHandler?
     var factory: ItemFactory
     var coordinatorFactory: CoordinatorFactory
-    private(set) weak var presenter: UINavigationController?
-    var childCoordinators: [Coordinatable] = []
     
-    init(presenter: UINavigationController) {
+    override init(presenter: UINavigationController) {
         
-        self.presenter = presenter
         factory = ItemFactory()
         coordinatorFactory = CoordinatorFactory()
-        super.init()
+        super.init(presenter: presenter)
     }
     
-    func start() {
+    override func start() {
         
         // Just example
         // In real project we would be call some AuthManager and check user valid session.
@@ -36,7 +32,7 @@ class ItemCoordinator: NSObject, Coordinatable {
             showItemList()
         } else {
             dispatch_async(dispatch_get_main_queue(), {
-                self.runAuthCoodrinator()
+                self.runAuthCoordinator()
             })
         }
     }
@@ -70,10 +66,10 @@ class ItemCoordinator: NSObject, Coordinatable {
     
 //MARK: - Run coordinators (switch to another flow)
     
-    func runAuthCoodrinator() {
+    func runAuthCoordinator() {
         
-        let authTyple = coordinatorFactory.createAuthCoordinatorTyple()
-        let authCoordinator = authTyple.authCoordinator
+        let authTuple = coordinatorFactory.createAuthCoordinatorTuple()
+        let authCoordinator = authTuple.authCoordinator
         authCoordinator.flowCompletionHandler = { [unowned self] in
             
             self.dismiss()
@@ -82,13 +78,13 @@ class ItemCoordinator: NSObject, Coordinatable {
         }
         authCoordinator.start()
         addDependancy(authCoordinator)
-        present(authTyple.presenter)
+        present(authTuple.presenter)
     }
     
     func runCreationCoordinator() {
         
-        let creationTyple = coordinatorFactory.createItemCreationCoordinatorTyple()
-        let creationCoordinator = creationTyple.createCoordinator
+        let creationTuple = coordinatorFactory.createItemCreationCoordinatorTuple()
+        let creationCoordinator = creationTuple.createCoordinator
         creationCoordinator.flowCompletionHandler = { [unowned self] in
             
             self.dismiss()
@@ -96,7 +92,7 @@ class ItemCoordinator: NSObject, Coordinatable {
         }
         creationCoordinator.start()
         addDependancy(creationCoordinator)
-        present(creationTyple.presenter)
+        present(creationTuple.presenter)
     }
 }
 

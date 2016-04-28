@@ -32,6 +32,7 @@
 		0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC61CCBC6740022E830 /* ItemList.swift */; };
 		0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */; };
 		0E3CCFCB1CCBFB150022E830 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFCA1CCBFB150022E830 /* Setting.swift */; };
+		D545E4A21CD1FF40002B6F8F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		0E3CCFCA1CCBFB150022E830 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				0E3CCFC51CCBC6660022E830 /* Model */,
+				D545E4A01CD1FEFB002B6F8F /* Parents */,
 				0E3CCF861CCBBB670022E830 /* Extensions */,
 				0E3CCF921CCBBB670022E830 /* Protocols */,
 				0E3CCF7C1CCBBB670022E830 /* Application */,
@@ -228,6 +231,15 @@
 			name = ApplicationCoordinator;
 			path = ApplicationCoordinatorExample;
 			sourceTree = "<group>";
+		};
+		D545E4A01CD1FEFB002B6F8F /* Parents */ = {
+			isa = PBXGroup;
+			children = (
+				D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */,
+			);
+			name = Parents;
+			path = ApplicationCoordinator/Parents;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -319,6 +331,7 @@
 				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,
 				0E3CCFA71CCBBB670022E830 /* Router.swift in Sources */,
 				0E3CCF9A1CCBBB670022E830 /* ApplicationCoordinator.swift in Sources */,
+				D545E4A21CD1FF40002B6F8F /* BaseCoordinator.swift in Sources */,
 				0E3CCFBE1CCBC04B0022E830 /* SettingsCoordinator.swift in Sources */,
 				0E3CCFA61CCBBB670022E830 /* CoordinatorProtocols.swift in Sources */,
 				0E3CCFCB1CCBFB150022E830 /* Setting.swift in Sources */,

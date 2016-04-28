@@ -12,21 +12,17 @@ enum AuthActions {
     case SignUp, Complete, Hide
 }
 
-class AuthCoordinator: NSObject, Coordinatable {
+class AuthCoordinator: BaseCoordinator {
 
-    var flowCompletionHandler:CoordinatorHandler?
     var factory: AuthFactory
-    private(set) weak var presenter: UINavigationController?
-    var childCoordinators: [Coordinatable] = []
     
-    init(presenter: UINavigationController) {
+    override init(presenter: UINavigationController) {
         
-        self.presenter = presenter
         factory = AuthFactory()
-        super.init()
+        super.init(presenter: presenter)
     }
     
-    func start() {
+    override func start() {
         showLogin()
     }
     
