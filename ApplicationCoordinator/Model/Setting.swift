@@ -8,6 +8,6 @@
 
 struct Setting {
     
-    var title: String
-    var subtitle: String
+    let title: String
+    let subtitle: String
 }
