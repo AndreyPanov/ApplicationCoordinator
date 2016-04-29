@@ -29,6 +29,7 @@ class ItemsListController: UIViewController, FlowController {
         completionHandler?(.Create)
     }
 }
+
 extension ItemsListController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

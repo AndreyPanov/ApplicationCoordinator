@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BaseCoordinator: NSObject, Coordinatable {
+class BaseCoordinator: Coordinatable {
     
     var flowCompletionHandler:CoordinatorHandler?
     var childCoordinators: [Coordinatable] = []
@@ -16,7 +16,6 @@ class BaseCoordinator: NSObject, Coordinatable {
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
-        super.init()
     }
     
     func start() {

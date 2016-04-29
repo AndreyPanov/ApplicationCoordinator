@@ -10,7 +10,7 @@ import Foundation
 
 typealias CoordinatorHandler = () -> ()
 
-protocol Coordinatable: NSObjectProtocol, Router {
+protocol Coordinatable: class, Router {
     
     var flowCompletionHandler: CoordinatorHandler? {get set}
     func start()
