@@ -70,11 +70,11 @@ class ItemCoordinator: BaseCoordinator {
         
         let authTuple = coordinatorFactory.createAuthCoordinatorTuple()
         let authCoordinator = authTuple.authCoordinator
-        authCoordinator.flowCompletionHandler = { [unowned self] in
+        authCoordinator.flowCompletionHandler = { [weak self] in
             
-            self.dismissController()
-            self.removeDependancy(authCoordinator)
-            self.showItemList()
+            self?.dismissController()
+            self?.removeDependancy(authCoordinator)
+            self?.showItemList()
         }
         authCoordinator.start()
         addDependancy(authCoordinator)
@@ -85,10 +85,10 @@ class ItemCoordinator: BaseCoordinator {
         
         let creationTuple = coordinatorFactory.createItemCreationCoordinatorTuple()
         let creationCoordinator = creationTuple.createCoordinator
-        creationCoordinator.flowCompletionHandler = { [unowned self] in
+        creationCoordinator.flowCompletionHandler = { [weak self] in
             
-            self.dismissController()
-            self.removeDependancy(creationCoordinator)
+            self?.dismissController()
+            self?.removeDependancy(creationCoordinator)
         }
         creationCoordinator.start()
         addDependancy(creationCoordinator)

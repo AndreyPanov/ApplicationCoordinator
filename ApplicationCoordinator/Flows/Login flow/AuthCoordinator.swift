@@ -31,18 +31,18 @@ class AuthCoordinator: BaseCoordinator {
     func showLogin() {
         
         let loginController = factory.createLoginController()
-        loginController.completionHandler = { [unowned self] result in
+        loginController.completionHandler = { [weak self] result in
             
             if case AuthActions.SignUp = result {
-                self.showSignUp()
+                self?.showSignUp()
             }
             else if case AuthActions.Complete = result {
                 //finish flow
-                self.flowCompletionHandler?()
+                self?.flowCompletionHandler?()
             }
             else if case AuthActions.Hide = result {
                 //finish flow
-                self.flowCompletionHandler?()
+                self?.flowCompletionHandler?()
             }
         }
         push(loginController, animated: false)
@@ -51,11 +51,11 @@ class AuthCoordinator: BaseCoordinator {
     func showSignUp() {
         
         let signUpController = factory.createSignUpController()
-        signUpController.completionHandler = { [unowned self] result in
+        signUpController.completionHandler = { [weak self] result in
             
             if case AuthActions.Complete = result {
                 //finish flow
-                self.flowCompletionHandler?()
+                self?.flowCompletionHandler?()
             }
         }
         push(signUpController)

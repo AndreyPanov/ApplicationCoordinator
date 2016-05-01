@@ -11,6 +11,7 @@ import UIKit
 protocol Router {
     
     weak var presenter:UINavigationController? {get}
+    
     func present(controller:UIViewController, animated: Bool)
     func push(controller:UIViewController, animated: Bool)
     func popController(animated: Bool)
