@@ -1,7 +1,9 @@
 # ApplicationCoordinator
 Based on the post about Application Coordinators [khanlou.com](http://khanlou.com/2015/10/coordinators-redux/) and Application Controller pattern description [martinfowler.com](http://martinfowler.com/eaaCatalog/applicationController.html).
+
 My presentation and problem’s explanation: [speakerdeck.com](https://speakerdeck.com/andreypanov/introducing-application-coordinator)
-My example provides very basic structure with 3 controllers and 3 coordinators.
+
+Example provides very basic structure with 3 controllers and 3 coordinators.
 ![](/str.jpg)
 
 I created a protocol for coordinators:
