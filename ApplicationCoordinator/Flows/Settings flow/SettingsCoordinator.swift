@@ -15,7 +15,7 @@ class SettingsCoordinator: BaseCoordinator {
 
     var factory: SettingsFactory
     
-    override init(presenter: UINavigationController) {
+    override init(presenter: Presenter) {
         
         factory = SettingsFactory()
         super.init(presenter: presenter)
@@ -33,7 +33,7 @@ class SettingsCoordinator: BaseCoordinator {
         settingsController.completionHandler = { result in
             /* continue the flow */
         }
-        push(settingsController, animated: false)
+        presenter?.push(settingsController, animated: false)
     }
 }
 

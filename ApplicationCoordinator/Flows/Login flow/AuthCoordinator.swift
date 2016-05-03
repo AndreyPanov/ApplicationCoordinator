@@ -16,7 +16,7 @@ class AuthCoordinator: BaseCoordinator {
 
     var factory: AuthFactory
     
-    override init(presenter: UINavigationController) {
+    override init(presenter: Presenter) {
         
         factory = AuthFactory()
         super.init(presenter: presenter)
@@ -45,7 +45,7 @@ class AuthCoordinator: BaseCoordinator {
                 self?.flowCompletionHandler?()
             }
         }
-        push(loginController, animated: false)
+        presenter?.push(loginController, animated: false)
     }
     
     func showSignUp() {
@@ -58,7 +58,7 @@ class AuthCoordinator: BaseCoordinator {
                 self?.flowCompletionHandler?()
             }
         }
-        push(signUpController)
+        presenter?.push(signUpController)
     }
 }
 

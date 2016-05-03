@@ -16,7 +16,7 @@ class ItemCoordinator: BaseCoordinator {
     var factory: ItemFactory
     var coordinatorFactory: CoordinatorFactory
     
-    override init(presenter: UINavigationController) {
+    override init(presenter: Presenter) {
         
         factory = ItemFactory()
         coordinatorFactory = CoordinatorFactory()
@@ -51,7 +51,7 @@ class ItemCoordinator: BaseCoordinator {
                 self?.runCreationCoordinator()
             }
         }
-        push(itemListController, animated: false)
+        presenter?.push(itemListController, animated: false)
     }
     
     func showItemDetail(item: ItemList) {
@@ -61,7 +61,7 @@ class ItemCoordinator: BaseCoordinator {
         itemDetailController.completionHandler = { result in
             /* continue the flow */
         }
-        push(itemDetailController)
+        presenter?.push(itemDetailController)
     }
     
 //MARK: - Run coordinators (switch to another flow)
@@ -72,13 +72,13 @@ class ItemCoordinator: BaseCoordinator {
         let authCoordinator = authTuple.authCoordinator
         authCoordinator.flowCompletionHandler = { [weak self] in
             
-            self?.dismissController()
+            self?.presenter?.dismissController()
             self?.removeDependancy(authCoordinator)
             self?.showItemList()
         }
         authCoordinator.start()
         addDependancy(authCoordinator)
-        present(authTuple.presenter)
+        presenter?.present(authTuple.presenter.presenter!)
     }
     
     func runCreationCoordinator() {
@@ -87,12 +87,12 @@ class ItemCoordinator: BaseCoordinator {
         let creationCoordinator = creationTuple.createCoordinator
         creationCoordinator.flowCompletionHandler = { [weak self] in
             
-            self?.dismissController()
+            self?.presenter?.dismissController()
             self?.removeDependancy(creationCoordinator)
         }
         creationCoordinator.start()
         addDependancy(creationCoordinator)
-        present(creationTuple.presenter)
+        presenter?.present(creationTuple.presenter.presenter!)
     }
 }
 

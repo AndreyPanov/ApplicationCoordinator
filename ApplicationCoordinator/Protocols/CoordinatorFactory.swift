@@ -9,21 +9,21 @@ import UIKit
 
 class CoordinatorFactory {
     
-    func createItemCoordinatorTuple() -> (creationCoordinator: ItemCoordinator, presenter: UINavigationController) {
+    func createItemCoordinatorTuple() -> (creationCoordinator: ItemCoordinator, presenter: Presenter) {
         
-        let presenter = createNavigationController()
+        let presenter = Presenter(presenter: createNavigationController())
         return (ItemCoordinator(presenter: presenter), presenter)
     }
     
-    func createItemCreationCoordinatorTuple() -> (createCoordinator: ItemCreateCoordinator, presenter: UINavigationController) {
+    func createItemCreationCoordinatorTuple() -> (createCoordinator: ItemCreateCoordinator, presenter: Presenter) {
         
-        let presenter = createNavigationController()
+        let presenter = Presenter(presenter: createNavigationController())
         return (ItemCreateCoordinator(presenter: presenter), presenter)
     }
     
-    func createAuthCoordinatorTuple() -> (authCoordinator: AuthCoordinator, presenter: UINavigationController) {
+    func createAuthCoordinatorTuple() -> (authCoordinator: AuthCoordinator, presenter: Presenter) {
         
-        let presenter = createNavigationController()
+        let presenter = Presenter(presenter: createNavigationController())
         return (AuthCoordinator(presenter: presenter), presenter)
     }
     

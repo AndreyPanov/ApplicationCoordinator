@@ -16,7 +16,7 @@ class ItemCreateCoordinator: BaseCoordinator {
 
     var factory: ItemCreateFactory
     
-    override init(presenter: UINavigationController) {
+    override init(presenter: Presenter) {
         
         factory = ItemCreateFactory()
         super.init(presenter: presenter)
@@ -34,13 +34,13 @@ class ItemCreateCoordinator: BaseCoordinator {
         createController.completionHandler = { [weak self] result in
             
             if case CreateActions.Create = result {
-                self?.dismissController()
+                self?.presenter?.dismissController()
             }
             else if case CreateActions.Hide = result {
-                self?.dismissController()
+                self?.presenter?.dismissController()
             }
         }
-        push(createController, animated: false)
+        presenter?.push(createController, animated: false)
     }
 }
 

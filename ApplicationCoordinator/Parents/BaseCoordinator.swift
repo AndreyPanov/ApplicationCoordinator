@@ -12,9 +12,9 @@ class BaseCoordinator: Coordinatable {
     
     var flowCompletionHandler:CoordinatorHandler?
     var childCoordinators: [Coordinatable] = []
-    private(set) weak var presenter: UINavigationController?
+    private(set) weak var presenter: Presenter?
     
-    init(presenter: UINavigationController) {
+    init(presenter: Presenter) {
         self.presenter = presenter
     }
     

@@ -39,7 +39,7 @@ class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
         
         if itemCoordinator == nil {
             if let navController = presenter.viewControllers?[0] as? UINavigationController {
-                itemCoordinator = ItemCoordinator(presenter: navController)
+                itemCoordinator = ItemCoordinator(presenter: Presenter(presenter: navController))
                 itemCoordinator?.start()
             }
         }
@@ -49,7 +49,7 @@ class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
         
         if settingsCoordinator == nil {
             if let navController = presenter.viewControllers?[1] as? UINavigationController {
-                settingsCoordinator = SettingsCoordinator(presenter: navController)
+                settingsCoordinator = SettingsCoordinator(presenter: Presenter(presenter: navController))
                 settingsCoordinator?.start()
             }
         }
