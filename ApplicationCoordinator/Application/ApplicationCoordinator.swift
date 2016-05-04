@@ -8,38 +8,36 @@
 
 import UIKit
 
-class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
+class ApplicationCoordinator: Coordinator {
     
-    private(set) var presenter: UITabBarController
+    var tabbar: UITabBarController
+    lazy var presenter: TabbarPresenter = {
+        return TabbarPresenter(navigationController: self.tabbar, tabbarHandler: { [weak self] result in
+            switch result {
+            case .First:
+                self?.runItemCoordinator()
+            case .Second:
+                self?.runSettingsCoordinator()
+            } })
+    }()
+    var flowCompletionHandler: CoordinatorHandler?
+    
     var itemCoordinator: ItemCoordinator?
     var settingsCoordinator: SettingsCoordinator?
 
     init(presenter: UITabBarController) {
-        
-        self.presenter = presenter
-        super.init()
-        self.presenter.delegate = self
+        self.tabbar = presenter
     }
     
     func start() {
         runItemCoordinator()
     }
-    
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-        
-        if tabBarController.selectedIndex == 0 {
-            runItemCoordinator()
-        }
-        else if tabBarController.selectedIndex == 1 {
-            runSettingsCoordinator()
-        }
-    }
 
     func runItemCoordinator() {
         
         if itemCoordinator == nil {
-            if let navController = presenter.viewControllers?[0] as? UINavigationController {
-                itemCoordinator = ItemCoordinator(presenter: Presenter(presenter: navController))
+            if let navController = presenter.navigationController?.viewControllers?[0] as? UINavigationController {
+                itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(navigationController: navController))
                 itemCoordinator?.start()
             }
         }
@@ -48,8 +46,8 @@ class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
     func runSettingsCoordinator() {
         
         if settingsCoordinator == nil {
-            if let navController = presenter.viewControllers?[1] as? UINavigationController {
-                settingsCoordinator = SettingsCoordinator(presenter: Presenter(presenter: navController))
+            if let navController = presenter.navigationController?.viewControllers?[1] as? UINavigationController {
+                settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(navigationController: navController))
                 settingsCoordinator?.start()
             }
         }

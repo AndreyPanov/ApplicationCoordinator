@@ -14,11 +14,12 @@ enum SettingsActions {
 class SettingsCoordinator: BaseCoordinator {
 
     var factory: SettingsFactory
+    weak var presenter: NavigationPresenter?
     
-    override init(presenter: Presenter) {
+    init(presenter: NavigationPresenter) {
         
         factory = SettingsFactory()
-        super.init(presenter: presenter)
+        self.presenter = presenter
     }
     
     override func start() {

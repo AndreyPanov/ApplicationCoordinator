@@ -8,25 +8,20 @@
 import Foundation
 import UIKit
 
-class BaseCoordinator: Coordinatable {
+class BaseCoordinator: Coordinator {
     
     var flowCompletionHandler:CoordinatorHandler?
-    var childCoordinators: [Coordinatable] = []
-    private(set) weak var presenter: Presenter?
-    
-    init(presenter: Presenter) {
-        self.presenter = presenter
-    }
-    
+    var childCoordinators: [Coordinator] = []
+
     func start() {
         fatalError("must be overriden")
     }
     
-    func addDependancy(coordinator: Coordinatable) {
+    func addDependancy(coordinator: Coordinator) {
         childCoordinators.append(coordinator)
     }
     
-    func removeDependancy(coordinator: Coordinatable) {
+    func removeDependancy(coordinator: Coordinator) {
         guard childCoordinators.isEmpty == false else { return }
         
         for (index, element) in childCoordinators.enumerate() {

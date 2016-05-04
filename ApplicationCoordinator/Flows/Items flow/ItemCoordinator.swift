@@ -15,12 +15,13 @@ class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemFactory
     var coordinatorFactory: CoordinatorFactory
+    weak var presenter: NavigationPresenter?
     
-    override init(presenter: Presenter) {
+    init(presenter: NavigationPresenter) {
         
         factory = ItemFactory()
         coordinatorFactory = CoordinatorFactory()
-        super.init(presenter: presenter)
+        self.presenter = presenter
     }
     
     override func start() {
@@ -78,7 +79,7 @@ class ItemCoordinator: BaseCoordinator {
         }
         authCoordinator.start()
         addDependancy(authCoordinator)
-        presenter?.present(authTuple.presenter.presenter!)
+        presenter?.present(authTuple.presenter.navigationController!)
     }
     
     func runCreationCoordinator() {
@@ -92,7 +93,7 @@ class ItemCoordinator: BaseCoordinator {
         }
         creationCoordinator.start()
         addDependancy(creationCoordinator)
-        presenter?.present(creationTuple.presenter.presenter!)
+        presenter?.present(creationTuple.presenter.navigationController!)
     }
 }
 

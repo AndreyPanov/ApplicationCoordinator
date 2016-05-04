@@ -15,11 +15,12 @@ enum CreateActions {
 class ItemCreateCoordinator: BaseCoordinator {
 
     var factory: ItemCreateFactory
+    weak var presenter: NavigationPresenter?
     
-    override init(presenter: Presenter) {
+    init(presenter: NavigationPresenter) {
         
         factory = ItemCreateFactory()
-        super.init(presenter: presenter)
+        self.presenter = presenter
     }
     
     override func start() {

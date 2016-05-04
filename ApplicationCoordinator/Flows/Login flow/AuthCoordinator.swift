@@ -15,11 +15,12 @@ enum AuthActions {
 class AuthCoordinator: BaseCoordinator {
 
     var factory: AuthFactory
+    weak var presenter: NavigationPresenter?
     
-    override init(presenter: Presenter) {
+    init(presenter: NavigationPresenter) {
         
         factory = AuthFactory()
-        super.init(presenter: presenter)
+        self.presenter = presenter
     }
     
     override func start() {

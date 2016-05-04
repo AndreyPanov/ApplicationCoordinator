@@ -7,11 +7,7 @@
 //
 import UIKit
 
-class Presenter: Router {
-    
-    weak var presenter: UINavigationController?
-    
-    init(presenter: UINavigationController) {
-        self.presenter = presenter
-    }
+protocol Presenter: class {
+    associatedtype T
+    var navigationController: T? {get set}
 }
