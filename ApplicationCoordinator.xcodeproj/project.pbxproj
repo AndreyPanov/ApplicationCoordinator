@@ -13,7 +13,6 @@
 		0E3CCF9E1CCBBB670022E830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF841CCBBB670022E830 /* Main.storyboard */; };
 		0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */; };
 		0E3CCFA51CCBBB670022E830 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF931CCBBB670022E830 /* CoordinatorFactory.swift */; };
-		0E3CCFA71CCBBB670022E830 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCF951CCBBB670022E830 /* Router.swift */; };
 		0E3CCFA81CCBBB670022E830 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF971CCBBB670022E830 /* Auth.storyboard */; };
 		0E3CCFA91CCBBB670022E830 /* Items.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCF981CCBBB670022E830 /* Items.storyboard */; };
 		0E3CCFAD1CCBBBFB0022E830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CCFAB1CCBBBFB0022E830 /* Assets.xcassets */; };
@@ -46,7 +45,6 @@
 		0E3CCF851CCBBB670022E830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		0E3CCF931CCBBB670022E830 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CoordinatorFactory.swift; path = ../Protocols/CoordinatorFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		0E3CCF951CCBBB670022E830 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0E3CCF971CCBBB670022E830 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		0E3CCF981CCBBB670022E830 /* Items.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Items.storyboard; sourceTree = "<group>"; };
 		0E3CCFAB1CCBBBFB0022E830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 				D541E7631CD9126F004C38B3 /* Coordinator.swift */,
 				D541E7651CD9128B004C38B3 /* FlowController.swift */,
 				D541E7611CD8831A004C38B3 /* Presenter.swift */,
-				0E3CCF951CCBBB670022E830 /* Router.swift */,
 			);
 			name = Protocols;
 			path = ApplicationCoordinator/Protocols;
@@ -362,7 +359,6 @@
 				D541E76C1CD9134A004C38B3 /* TabbarPresenter.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
 				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,
-				0E3CCFA71CCBBB670022E830 /* Router.swift in Sources */,
 				D541E7621CD8831A004C38B3 /* Presenter.swift in Sources */,
 				0E3CCF9A1CCBBB670022E830 /* ApplicationCoordinator.swift in Sources */,
 				D545E4A21CD1FF40002B6F8F /* BaseCoordinator.swift in Sources */,

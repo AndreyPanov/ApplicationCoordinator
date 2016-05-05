@@ -77,9 +77,10 @@ class ItemCoordinator: BaseCoordinator {
             self?.removeDependancy(authCoordinator)
             self?.showItemList()
         }
-        authCoordinator.start()
+        
         addDependancy(authCoordinator)
         presenter?.present(authTuple.presenter.navigationController!)
+        authCoordinator.start()
     }
     
     func runCreationCoordinator() {

@@ -18,7 +18,8 @@ class ApplicationCoordinator: Coordinator {
                 self?.runItemCoordinator()
             case .Second:
                 self?.runSettingsCoordinator()
-            } })
+            }
+        })
     }()
     var flowCompletionHandler: CoordinatorHandler?
     
