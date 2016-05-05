@@ -8,6 +8,6 @@
 import UIKit
 
 protocol Presenter: class {
-    associatedtype T
-    var navigationController: T? {get set}
+    associatedtype ViewController: UIViewController
+    var rootController: ViewController? {get set}
 }
