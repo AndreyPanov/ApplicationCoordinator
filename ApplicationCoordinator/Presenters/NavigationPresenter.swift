@@ -17,8 +17,9 @@ class NavigationPresenter: Presenter {
         self.rootController = rootController
     }
     
-    func present(controller: UIViewController, animated: Bool = true) {
-        rootController?.presentViewController(controller, animated: animated, completion: nil)
+    func present(presenter: Presenter, animated: Bool = true) {
+        
+        rootController?.presentViewController(presenter.rootController!, animated: animated, completion: nil)
     }
     
     func push(controller: UIViewController, animated: Bool = true)  {
