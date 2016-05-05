@@ -79,7 +79,7 @@ class ItemCoordinator: BaseCoordinator {
         }
         
         addDependancy(authCoordinator)
-        presenter?.present(authTuple.presenter.navigationController!)
+        presenter?.present(authTuple.presenter.rootController!)
         authCoordinator.start()
     }
     
@@ -94,7 +94,7 @@ class ItemCoordinator: BaseCoordinator {
         }
         creationCoordinator.start()
         addDependancy(creationCoordinator)
-        presenter?.present(creationTuple.presenter.navigationController!)
+        presenter?.present(creationTuple.presenter.rootController!)
     }
 }
 

@@ -10,26 +10,26 @@ import UIKit
 
 class NavigationPresenter: Presenter {
     
-    typealias T = UINavigationController
-    var navigationController: T?
+    typealias ViewController = UINavigationController
+    var rootController: ViewController?
     
-    init(navigationController: T) {
-        self.navigationController = navigationController
+    init(rootController: ViewController) {
+        self.rootController = rootController
     }
     
     func present(controller: UIViewController, animated: Bool = true) {
-        navigationController?.presentViewController(controller, animated: animated, completion: nil)
+        rootController?.presentViewController(controller, animated: animated, completion: nil)
     }
     
     func push(controller: UIViewController, animated: Bool = true)  {
-        navigationController?.pushViewController(controller, animated: animated)
+        rootController?.pushViewController(controller, animated: animated)
     }
     
     func popController(animated: Bool = true)  {
-        navigationController?.popViewControllerAnimated(animated)
+        rootController?.popViewControllerAnimated(animated)
     }
     
     func dismissController(animated: Bool = true) {
-        navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        rootController?.dismissViewControllerAnimated(true, completion: nil)
     }
 }

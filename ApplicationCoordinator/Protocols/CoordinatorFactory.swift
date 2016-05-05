@@ -11,19 +11,19 @@ class CoordinatorFactory {
     
     func createItemCoordinatorTuple() -> (creationCoordinator: ItemCoordinator, presenter: NavigationPresenter) {
         
-        let presenter = NavigationPresenter(navigationController: createNavigationController())
+        let presenter = NavigationPresenter(rootController: createNavigationController())
         return (ItemCoordinator(presenter: presenter), presenter)
     }
     
     func createItemCreationCoordinatorTuple() -> (createCoordinator: ItemCreateCoordinator, presenter: NavigationPresenter) {
         
-        let presenter = NavigationPresenter(navigationController: createNavigationController())
+        let presenter = NavigationPresenter(rootController: createNavigationController())
         return (ItemCreateCoordinator(presenter: presenter), presenter)
     }
     
     func createAuthCoordinatorTuple() -> (authCoordinator: AuthCoordinator, presenter: NavigationPresenter) {
         
-        let presenter = NavigationPresenter(navigationController: createNavigationController())
+        let presenter = NavigationPresenter(rootController: createNavigationController())
         return (AuthCoordinator(presenter: presenter), presenter)
     }
     

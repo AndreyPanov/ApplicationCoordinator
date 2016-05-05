@@ -12,7 +12,7 @@ class ApplicationCoordinator: Coordinator {
     
     var tabbar: UITabBarController
     lazy var presenter: TabbarPresenter = {
-        return TabbarPresenter(navigationController: self.tabbar, tabbarHandler: { [weak self] result in
+        return TabbarPresenter(rootController: self.tabbar, tabbarHandler: { [weak self] result in
             switch result {
             case .First:
                 self?.runItemCoordinator()
@@ -37,8 +37,8 @@ class ApplicationCoordinator: Coordinator {
     func runItemCoordinator() {
         
         if itemCoordinator == nil {
-            if let navController = presenter.navigationController?.viewControllers?[0] as? UINavigationController {
-                itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(navigationController: navController))
+            if let navController = presenter.rootController?.viewControllers?[0] as? UINavigationController {
+                itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
                 itemCoordinator?.start()
             }
         }
@@ -47,8 +47,8 @@ class ApplicationCoordinator: Coordinator {
     func runSettingsCoordinator() {
         
         if settingsCoordinator == nil {
-            if let navController = presenter.navigationController?.viewControllers?[1] as? UINavigationController {
-                settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(navigationController: navController))
+            if let navController = presenter.rootController?.viewControllers?[1] as? UINavigationController {
+                settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
                 settingsCoordinator?.start()
             }
         }

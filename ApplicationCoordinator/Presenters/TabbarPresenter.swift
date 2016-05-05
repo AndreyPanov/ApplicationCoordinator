@@ -14,15 +14,15 @@ enum SelectedController {
 
 class TabbarPresenter: NSObject, Presenter, UITabBarControllerDelegate {
     
-    typealias T = UITabBarController
-    var navigationController: T?
+    typealias ViewController = UITabBarController
+    var rootController: ViewController?
     var tabbarHandler: SelectedController -> ()
     
-    init(navigationController: T, tabbarHandler: SelectedController -> ()) {
-        self.navigationController = navigationController
+    init(rootController: ViewController, tabbarHandler: SelectedController -> ()) {
+        self.rootController = rootController
         self.tabbarHandler = tabbarHandler
         super.init()
-        self.navigationController?.delegate = self
+        self.rootController?.delegate = self
     }
     
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
