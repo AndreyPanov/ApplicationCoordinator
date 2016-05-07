@@ -37,7 +37,7 @@ class ApplicationCoordinator: Coordinator {
     func runItemCoordinator() {
         
         if itemCoordinator == nil {
-            if let navController = presenter.rootController?.viewControllers?[0] as? UINavigationController {
+            if let navController = presenter.itemTabController() {
                 itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
                 itemCoordinator?.start()
             }
@@ -47,7 +47,7 @@ class ApplicationCoordinator: Coordinator {
     func runSettingsCoordinator() {
         
         if settingsCoordinator == nil {
-            if let navController = presenter.rootController?.viewControllers?[1] as? UINavigationController {
+            if let navController = presenter.settingsTabController() {
                 settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
                 settingsCoordinator?.start()
             }

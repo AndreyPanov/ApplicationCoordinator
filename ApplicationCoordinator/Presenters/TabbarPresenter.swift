@@ -34,4 +34,12 @@ class TabbarPresenter: NSObject, Presenter, UITabBarControllerDelegate {
             tabbarHandler(.Second)
         }
     }
+    
+    func itemTabController() -> UINavigationController? {
+        return rootController?.viewControllers?[0] as? UINavigationController
+    }
+    
+    func settingsTabController() -> UINavigationController? {
+        return rootController?.viewControllers?[0] as? UINavigationController
+    }
 }
