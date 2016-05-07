@@ -17,9 +17,18 @@ class NavigationPresenter: Presenter {
         self.rootController = rootController
     }
     
-    func present(presenter: Presenter, animated: Bool = true) {
-        
-        rootController?.presentViewController(presenter.rootController!, animated: animated, completion: nil)
+    func present<T: Presenter>(presenter: T, animated: Bool = true) {
+        guard let controller = presenter.rootController else { return }
+        present(controller, animated: animated)
+    }
+    
+    func present(controller: UIViewController, animated: Bool = true) {
+        rootController?.presentViewController(controller, animated: animated, completion: nil)
+    }
+    
+    func push<T: Presenter>(presenter: T, animated: Bool = true)  {
+        guard let controller = presenter.rootController else { return }
+        push(controller, animated: animated)
     }
     
     func push(controller: UIViewController, animated: Bool = true)  {
@@ -31,6 +40,6 @@ class NavigationPresenter: Presenter {
     }
     
     func dismissController(animated: Bool = true) {
-        rootController?.dismissViewControllerAnimated(true, completion: nil)
+        rootController?.dismissViewControllerAnimated(animated, completion: nil)
     }
 }
