@@ -40,6 +40,6 @@ class TabbarPresenter: NSObject, Presenter, UITabBarControllerDelegate {
     }
     
     func settingsTabController() -> UINavigationController? {
-        return rootController?.viewControllers?[0] as? UINavigationController
+        return rootController?.viewControllers?[1] as? UINavigationController
     }
 }
