@@ -11,16 +11,16 @@ import UIKit
 class ApplicationCoordinator: BaseCoordinator {
     
     var tabbar: UITabBarController
+    
     lazy var presenter: TabbarPresenter = {
-        
-        return TabbarPresenter(rootController: self.tabbar, tabbarHandler: { [weak self] result in
+        return TabbarPresenter(rootController: self.tabbar) { [weak self] result in
             switch result {
-            case .First:
+            case .FirstTab:
                 self?.runItemCoordinator()
-            case .Second:
+            case .SecondTab:
                 self?.runSettingsCoordinator()
             }
-        })
+        }
     }()
 
     init(presenter: UITabBarController) {

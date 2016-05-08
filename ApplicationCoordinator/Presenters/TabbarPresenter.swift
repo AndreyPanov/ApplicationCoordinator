@@ -9,7 +9,7 @@
 import UIKit
 
 enum SelectedController {
-    case First, Second
+    case FirstTab, SecondTab
 }
 
 class TabbarPresenter: NSObject, Presenter, UITabBarControllerDelegate {
@@ -28,10 +28,10 @@ class TabbarPresenter: NSObject, Presenter, UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
         
         if tabBarController.selectedIndex == 0 {
-            tabbarHandler(.First)
+            tabbarHandler(.FirstTab)
         }
         else if tabBarController.selectedIndex == 1 {
-            tabbarHandler(.Second)
+            tabbarHandler(.SecondTab)
         }
     }
     

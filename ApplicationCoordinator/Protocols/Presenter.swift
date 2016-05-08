@@ -8,6 +8,7 @@
 import UIKit
 
 protocol Presenter: class {
+    
     associatedtype ViewController: UIViewController
-    weak var rootController: ViewController? {get set}
+    weak var rootController: ViewController? {get set} // UINavigationController, UITabbarController, UIPageViewController etc
 }
