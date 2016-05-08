@@ -40,6 +40,8 @@
 		D5505CC11CDF673D0012CBA6 /* ItemCreateControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactory.swift */; };
 		D5505CC31CDF67650012CBA6 /* AuthControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC21CDF67650012CBA6 /* AuthControllersFactory.swift */; };
 		D5505CC51CDF67860012CBA6 /* SettingsControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC41CDF67860012CBA6 /* SettingsControllersFactory.swift */; };
+		D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC61CDF67F60012CBA6 /* UIViewExtensions.swift */; };
+		D5505CC91CDF68260012CBA6 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateControllersFactory.swift; sourceTree = "<group>"; };
 		D5505CC21CDF67650012CBA6 /* AuthControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthControllersFactory.swift; sourceTree = "<group>"; };
 		D5505CC41CDF67860012CBA6 /* SettingsControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsControllersFactory.swift; sourceTree = "<group>"; };
+		D5505CC61CDF67F60012CBA6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */,
+				D5505CC61CDF67F60012CBA6 /* UIViewExtensions.swift */,
+				D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */,
 			);
 			name = Extensions;
 			path = ApplicationCoordinator/Extensions;
@@ -366,11 +372,13 @@
 				0E3CCFA51CCBBB670022E830 /* CoordinatorFactory.swift in Sources */,
 				D5505CC31CDF67650012CBA6 /* AuthControllersFactory.swift in Sources */,
 				0E3CCFB61CCBBFC10022E830 /* ItemsListController.swift in Sources */,
+				D5505CC91CDF68260012CBA6 /* NSObjectExtensions.swift in Sources */,
 				D541E76A1CD91304004C38B3 /* NavigationPresenter.swift in Sources */,
 				D5505CC51CDF67860012CBA6 /* SettingsControllersFactory.swift in Sources */,
 				D5505CC11CDF673D0012CBA6 /* ItemCreateControllersFactory.swift in Sources */,
 				0E3CCFC41CCBC0C00022E830 /* ItemCreateController.swift in Sources */,
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
+				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,
 				D541E76C1CD9134A004C38B3 /* TabbarPresenter.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
 				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,
