@@ -15,7 +15,7 @@ enum SelectedController {
 class TabbarPresenter: NSObject, Presenter, UITabBarControllerDelegate {
     
     typealias ViewController = UITabBarController
-    var rootController: ViewController?
+    weak var rootController: ViewController?
     var tabbarHandler: SelectedController -> ()
     
     init(rootController: ViewController, tabbarHandler: SelectedController -> ()) {

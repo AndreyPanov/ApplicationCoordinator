@@ -11,7 +11,7 @@ import UIKit
 class NavigationPresenter: Presenter {
     
     typealias ViewController = UINavigationController
-    var rootController: ViewController?
+    weak var rootController: ViewController?
     
     init(rootController: ViewController) {
         self.rootController = rootController

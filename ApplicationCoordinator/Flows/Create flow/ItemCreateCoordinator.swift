@@ -15,7 +15,7 @@ enum CreateActions {
 class ItemCreateCoordinator: BaseCoordinator {
 
     var factory: ItemCreateFactory
-    weak var presenter: NavigationPresenter?
+    var presenter: NavigationPresenter?
     
     init(presenter: NavigationPresenter) {
         

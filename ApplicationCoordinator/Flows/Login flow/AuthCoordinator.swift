@@ -15,7 +15,7 @@ enum AuthActions {
 class AuthCoordinator: BaseCoordinator {
 
     var factory: AuthFactory
-    weak var presenter: NavigationPresenter?
+    var presenter: NavigationPresenter?
     
     init(presenter: NavigationPresenter) {
         

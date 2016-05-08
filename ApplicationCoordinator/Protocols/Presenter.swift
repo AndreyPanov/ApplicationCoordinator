@@ -9,5 +9,5 @@ import UIKit
 
 protocol Presenter: class {
     associatedtype ViewController: UIViewController
-    var rootController: ViewController? {get set}
+    weak var rootController: ViewController? {get set}
 }

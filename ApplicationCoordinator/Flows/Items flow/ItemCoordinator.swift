@@ -15,7 +15,7 @@ class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemFactory
     var coordinatorFactory: CoordinatorFactory
-    weak var presenter: NavigationPresenter?
+    var presenter: NavigationPresenter?
     
     init(presenter: NavigationPresenter) {
         
@@ -92,9 +92,9 @@ class ItemCoordinator: BaseCoordinator {
             self?.presenter?.dismissController()
             self?.removeDependancy(creationCoordinator)
         }
-        creationCoordinator.start()
         addDependancy(creationCoordinator)
         presenter?.present(creationTuple.presenter)
+        creationCoordinator.start()
     }
 }
 

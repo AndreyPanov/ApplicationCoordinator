@@ -14,7 +14,7 @@ enum SettingsActions {
 class SettingsCoordinator: BaseCoordinator {
 
     var factory: SettingsFactory
-    weak var presenter: NavigationPresenter?
+    var presenter: NavigationPresenter?
     
     init(presenter: NavigationPresenter) {
         
