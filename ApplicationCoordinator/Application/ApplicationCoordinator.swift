@@ -32,24 +32,19 @@ class ApplicationCoordinator: BaseCoordinator {
 
     func runItemCoordinator() {
         
-        if coordinatorStarted(ItemCoordinator) == false {
-            if let navController = presenter.itemTabController() {
-                let itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
-                itemCoordinator.start()
-                addDependancy(itemCoordinator)
-            }
+        if let navController = presenter.itemTabController() where navController.viewControllers.count == 0 {
+            let itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
+            itemCoordinator.start()
+            addDependancy(itemCoordinator)
         }
     }
     
     func runSettingsCoordinator() {
         
-        if coordinatorStarted(SettingsCoordinator) == false {
-            
-            if let navController = presenter.settingsTabController() {
-                let settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
-                settingsCoordinator.start()
-                addDependancy(settingsCoordinator)
-            }
+        if let navController = presenter.settingsTabController() where navController.viewControllers.count == 0 {
+            let settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
+            settingsCoordinator.start()
+            addDependancy(settingsCoordinator)
         }
     }
 }

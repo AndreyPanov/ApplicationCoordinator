@@ -28,7 +28,7 @@ class ItemCoordinator: BaseCoordinator {
         
         // Just example
         // In real project we would be call some AuthManager and check user valid session.
-        let isUserAuth = true
+        let isUserAuth = false
         if isUserAuth {
             showItemList()
         } else {
