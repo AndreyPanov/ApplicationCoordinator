@@ -242,13 +242,13 @@
 		D50F9EF11C7A525E00C5A59F /* ApplicationCoordinator */ = {
 			isa = PBXGroup;
 			children = (
+				0E3CCF7C1CCBBB670022E830 /* Application */,
 				0E3CCF921CCBBB670022E830 /* Protocols */,
 				D541E7681CD912F3004C38B3 /* Presenters */,
 				0E3CCF861CCBBB670022E830 /* Extensions */,
 				0E3CCFC51CCBC6660022E830 /* Model */,
 				D541E7671CD912BD004C38B3 /* Factories */,
 				D545E4A01CD1FEFB002B6F8F /* Parents */,
-				0E3CCF7C1CCBBB670022E830 /* Application */,
 				0E3CCF891CCBBB670022E830 /* Flows */,
 				0E3CCF961CCBBB670022E830 /* Storyboards */,
 				0E3CCFAA1CCBBBFB0022E830 /* Resources */,
