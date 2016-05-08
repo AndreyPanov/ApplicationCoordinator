@@ -1,22 +1,26 @@
 # ApplicationCoordinator
 Based on the post about Application Coordinators [khanlou.com](http://khanlou.com/2015/10/coordinators-redux/) and Application Controller pattern description [martinfowler.com](http://martinfowler.com/eaaCatalog/applicationController.html).
-My example provides very basic structure with 3 controllers and 3 coordinators.
+
+My presentation and problem’s explanation: [speakerdeck.com](https://speakerdeck.com/andreypanov/introducing-application-coordinator)
+
+Example provides very basic structure with 6 controllers and 5 coordinators with mock data and logic.
 ![](/str.jpg)
 
 I created a protocol for coordinators:
 ```swift
-@objc protocol Coordinatable {
+typealias CoordinatorHandler = () -> ()
+
+protocol Coordinatable: class, Router {
     
-    var childCoorditators: [Coordinatable] {get}
-    optional var completionHandler:CompletionBlock? {get set}
-    init(rootController: UINavigationController)
+    var flowCompletionHandler: CoordinatorHandler? {get set}
     func start()
 }
 ```
 And a protocol for controllers:
 ```swift
-protocol Controllerable: NSObjectProtocol {
-    typealias T
+protocol FlowController: NSObjectProtocol {
+    
+    associatedtype T //enum Actions type
     var completionHandler: (T -> ())? {get set}
 }
 ```
@@ -24,7 +28,46 @@ All controllers and coordinators have optional completionHandlers.
 ```swift
 var completionHandler: (T -> ())?
 ```
-The main Application Coordinator stores dependancies of child coordinators
+The base coordinator stores dependancies of child coordinators
 ```swift
-private(set) lazy var childCoorditators = [Coordinatable]()
+class BaseCoordinator: Coordinatable {
+    
+    var flowCompletionHandler:CoordinatorHandler?
+    var childCoordinators: [Coordinatable] = []
+    private(set) weak var presenter: UINavigationController?
+    
+    init(presenter: UINavigationController) {
+        self.presenter = presenter
+    }
+    
+    func start() {
+        fatalError("must be overriden")
+    }
+    
+    func addDependancy(coordinator: Coordinatable) {
+        childCoordinators.append(coordinator)
+    }
+    
+    func removeDependancy(coordinator: Coordinatable) {
+        guard childCoordinators.isEmpty == false else { return }
+        
+        for (index, element) in childCoordinators.enumerate() {
+            if unsafeAddressOf(element) == unsafeAddressOf(coordinator) {
+                childCoordinators.removeAtIndex(index)
+            }
+        }
+    }
+}
+```
+AppDelegate store lazy reference for the Application Coordinator
+```swift
+private lazy var applicationCoordinator: ApplicationCoordinator = {
+        return ApplicationCoordinator(presenter: self.window!.rootViewController as! UITabBarController)
+    }()
+
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        applicationCoordinator.start()
+        return true
+    }
 ```
