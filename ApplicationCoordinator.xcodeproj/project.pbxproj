@@ -42,6 +42,7 @@
 		D5505CC51CDF67860012CBA6 /* SettingsControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC41CDF67860012CBA6 /* SettingsControllersFactory.swift */; };
 		D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC61CDF67F60012CBA6 /* UIViewExtensions.swift */; };
 		D5505CC91CDF68260012CBA6 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */; };
+		D5505CCB1CDF68D10012CBA6 /* StoryboardsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CCA1CDF68D10012CBA6 /* StoryboardsEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		D5505CC41CDF67860012CBA6 /* SettingsControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsControllersFactory.swift; sourceTree = "<group>"; };
 		D5505CC61CDF67F60012CBA6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
+		D5505CCA1CDF68D10012CBA6 /* StoryboardsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardsEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 		0E3CCF961CCBBB670022E830 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D5505CCA1CDF68D10012CBA6 /* StoryboardsEnum.swift */,
 				0E3CCF841CCBBB670022E830 /* Main.storyboard */,
 				0E3CCF971CCBBB670022E830 /* Auth.storyboard */,
 				0E3CCF981CCBBB670022E830 /* Items.storyboard */,
@@ -366,6 +369,7 @@
 				0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */,
 				D541E7661CD9128B004C38B3 /* FlowController.swift in Sources */,
 				0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */,
+				D5505CCB1CDF68D10012CBA6 /* StoryboardsEnum.swift in Sources */,
 				0E3CCFBC1CCBC0210022E830 /* AuthCoordinator.swift in Sources */,
 				0E3CCFB81CCBBFD70022E830 /* ItemDetailController.swift in Sources */,
 				0E3CCFC01CCBC0600022E830 /* SettingsController.swift in Sources */,
