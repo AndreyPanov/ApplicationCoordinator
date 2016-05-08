@@ -14,12 +14,12 @@ enum CreateActions {
 
 class ItemCreateCoordinator: BaseCoordinator {
 
-    var factory: ItemCreateFactory
+    var factory: ItemCreateControllersFactory
     var presenter: NavigationPresenter?
     
     init(presenter: NavigationPresenter) {
         
-        factory = ItemCreateFactory()
+        factory = ItemCreateControllersFactory()
         self.presenter = presenter
     }
     
@@ -42,14 +42,5 @@ class ItemCreateCoordinator: BaseCoordinator {
             }
         }
         presenter?.push(createController, animated: false)
-    }
-}
-
-//MARK: - Factory
-
-class ItemCreateFactory {
-    
-    func createItemsListController() -> ItemCreateController {
-        return ItemCreateController.controllerFromStoryboard(.Create)
     }
 }

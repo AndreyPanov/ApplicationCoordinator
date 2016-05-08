@@ -14,12 +14,12 @@ enum AuthActions {
 
 class AuthCoordinator: BaseCoordinator {
 
-    var factory: AuthFactory
+    var factory: AuthControllersFactory
     var presenter: NavigationPresenter?
     
     init(presenter: NavigationPresenter) {
         
-        factory = AuthFactory()
+        factory = AuthControllersFactory()
         self.presenter = presenter
     }
     
@@ -60,18 +60,5 @@ class AuthCoordinator: BaseCoordinator {
             }
         }
         presenter?.push(signUpController)
-    }
-}
-
-//MARK: - Factory
-
-class AuthFactory {
-    
-    func createLoginController() -> LoginController {
-        return LoginController.controllerFromStoryboard(.Auth)
-    }
-    
-    func createSignUpController() -> SignUpController {
-        return SignUpController.controllerFromStoryboard(.Auth)
     }
 }

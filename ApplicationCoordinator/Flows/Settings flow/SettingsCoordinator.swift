@@ -13,12 +13,12 @@ enum SettingsActions {
 
 class SettingsCoordinator: BaseCoordinator {
 
-    var factory: SettingsFactory
+    var factory: SettingsControllersFactory
     var presenter: NavigationPresenter?
     
     init(presenter: NavigationPresenter) {
         
-        factory = SettingsFactory()
+        factory = SettingsControllersFactory()
         self.presenter = presenter
     }
     
@@ -35,14 +35,5 @@ class SettingsCoordinator: BaseCoordinator {
             /* continue the flow */
         }
         presenter?.push(settingsController, animated: false)
-    }
-}
-
-//MARK: - Factory
-
-class SettingsFactory {
-    
-    func createSettingsController() -> SettingsController {
-        return SettingsController.controllerFromStoryboard(.Settings)
     }
 }
