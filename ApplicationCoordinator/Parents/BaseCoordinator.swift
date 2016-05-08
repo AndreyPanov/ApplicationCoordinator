@@ -2,7 +2,7 @@
 //  BaseCoordinator.swift
 //  ApplicationCoordinator
 //
-//  Created by Панов Андрей on 28.04.16.
+//  Created by Andrey Panov on 28.04.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 import Foundation
@@ -29,5 +29,15 @@ class BaseCoordinator: Coordinator {
                 childCoordinators.removeAtIndex(index)
             }
         }
+    }
+    
+    func coordinatorStarted<T: Coordinator>(coordinator: T.Type) -> Bool {
+    
+        for element in childCoordinators.enumerate() {
+            if element.dynamicType == coordinator {
+                return true
+            }
+        }
+        return false
     }
 }

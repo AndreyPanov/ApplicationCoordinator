@@ -2,7 +2,7 @@
 //  CoordinatorFactory.swift
 //  Services
 //
-//  Created by Панов Андрей on 21.04.16.
+//  Created by Andrey Panov on 21.04.16.
 //  Copyright © 2016 Avito. All rights reserved.
 //
 import UIKit

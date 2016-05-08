@@ -2,7 +2,7 @@
 //  ItemCoordinator.swift
 //  Services
 //
-//  Created by Панов Андрей on 19.04.16.
+//  Created by Andrey Panov on 19.04.16.
 //  Copyright © 2016 Avito. All rights reserved.
 //
 import UIKit
@@ -79,7 +79,7 @@ class ItemCoordinator: BaseCoordinator {
         }
         
         addDependancy(authCoordinator)
-        presenter?.present(authTuple.presenter.rootController!)
+        presenter?.present(authTuple.presenter)
         authCoordinator.start()
     }
     
@@ -94,7 +94,7 @@ class ItemCoordinator: BaseCoordinator {
         }
         creationCoordinator.start()
         addDependancy(creationCoordinator)
-        presenter?.present(creationTuple.presenter.rootController!)
+        presenter?.present(creationTuple.presenter)
     }
 }
 

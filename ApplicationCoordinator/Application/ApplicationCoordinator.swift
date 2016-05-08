@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ApplicationCoordinator: Coordinator {
+class ApplicationCoordinator: BaseCoordinator {
     
     var tabbar: UITabBarController
     lazy var presenter: TabbarPresenter = {
@@ -21,35 +21,34 @@ class ApplicationCoordinator: Coordinator {
             }
         })
     }()
-    var flowCompletionHandler: CoordinatorHandler?
-    
-    var itemCoordinator: ItemCoordinator?
-    var settingsCoordinator: SettingsCoordinator?
 
     init(presenter: UITabBarController) {
         self.tabbar = presenter
     }
     
-    func start() {
+    override func start() {
         runItemCoordinator()
     }
 
     func runItemCoordinator() {
         
-        if itemCoordinator == nil {
+        if coordinatorStarted(ItemCoordinator) == false {
             if let navController = presenter.itemTabController() {
-                itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
-                itemCoordinator?.start()
+                let itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
+                itemCoordinator.start()
+                addDependancy(itemCoordinator)
             }
         }
     }
     
     func runSettingsCoordinator() {
         
-        if settingsCoordinator == nil {
+        if coordinatorStarted(SettingsCoordinator) == false {
+            
             if let navController = presenter.settingsTabController() {
-                settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
-                settingsCoordinator?.start()
+                let settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
+                settingsCoordinator.start()
+                addDependancy(settingsCoordinator)
             }
         }
     }
