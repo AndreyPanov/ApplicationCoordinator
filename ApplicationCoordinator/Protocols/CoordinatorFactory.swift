@@ -2,28 +2,28 @@
 //  CoordinatorFactory.swift
 //  Services
 //
-//  Created by Панов Андрей on 21.04.16.
+//  Created by Andrey Panov on 21.04.16.
 //  Copyright © 2016 Avito. All rights reserved.
 //
 import UIKit
 
 class CoordinatorFactory {
     
-    func createItemCoordinatorTuple() -> (creationCoordinator: ItemCoordinator, presenter: UINavigationController) {
+    func createItemCoordinatorTuple() -> (creationCoordinator: ItemCoordinator, presenter: NavigationPresenter) {
         
-        let presenter = createNavigationController()
+        let presenter = NavigationPresenter(rootController: createNavigationController())
         return (ItemCoordinator(presenter: presenter), presenter)
     }
     
-    func createItemCreationCoordinatorTuple() -> (createCoordinator: ItemCreateCoordinator, presenter: UINavigationController) {
+    func createItemCreationCoordinatorTuple() -> (createCoordinator: ItemCreateCoordinator, presenter: NavigationPresenter) {
         
-        let presenter = createNavigationController()
+        let presenter = NavigationPresenter(rootController: createNavigationController())
         return (ItemCreateCoordinator(presenter: presenter), presenter)
     }
     
-    func createAuthCoordinatorTuple() -> (authCoordinator: AuthCoordinator, presenter: UINavigationController) {
+    func createAuthCoordinatorTuple() -> (authCoordinator: AuthCoordinator, presenter: NavigationPresenter) {
         
-        let presenter = createNavigationController()
+        let presenter = NavigationPresenter(rootController: createNavigationController())
         return (AuthCoordinator(presenter: presenter), presenter)
     }
     

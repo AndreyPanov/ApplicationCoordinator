@@ -13,12 +13,13 @@ enum SettingsActions {
 
 class SettingsCoordinator: BaseCoordinator {
 
-    var factory: SettingsFactory
+    var factory: SettingsControllersFactory
+    var presenter: NavigationPresenter?
     
-    override init(presenter: UINavigationController) {
+    init(presenter: NavigationPresenter) {
         
-        factory = SettingsFactory()
-        super.init(presenter: presenter)
+        factory = SettingsControllersFactory()
+        self.presenter = presenter
     }
     
     override func start() {
@@ -33,15 +34,6 @@ class SettingsCoordinator: BaseCoordinator {
         settingsController.completionHandler = { result in
             /* continue the flow */
         }
-        push(settingsController, animated: false)
-    }
-}
-
-//MARK: - Factory
-
-class SettingsFactory {
-    
-    func createSettingsController() -> SettingsController {
-        return SettingsController.controllerFromStoryboard(.Settings)
+        presenter?.push(settingsController, animated: false)
     }
 }

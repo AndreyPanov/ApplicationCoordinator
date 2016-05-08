@@ -14,12 +14,13 @@ enum CreateActions {
 
 class ItemCreateCoordinator: BaseCoordinator {
 
-    var factory: ItemCreateFactory
+    var factory: ItemCreateControllersFactory
+    var presenter: NavigationPresenter?
     
-    override init(presenter: UINavigationController) {
+    init(presenter: NavigationPresenter) {
         
-        factory = ItemCreateFactory()
-        super.init(presenter: presenter)
+        factory = ItemCreateControllersFactory()
+        self.presenter = presenter
     }
     
     override func start() {
@@ -34,21 +35,12 @@ class ItemCreateCoordinator: BaseCoordinator {
         createController.completionHandler = { [weak self] result in
             
             if case CreateActions.Create = result {
-                self?.dismissController()
+                self?.presenter?.dismissController()
             }
             else if case CreateActions.Hide = result {
-                self?.dismissController()
+                self?.presenter?.dismissController()
             }
         }
-        push(createController, animated: false)
-    }
-}
-
-//MARK: - Factory
-
-class ItemCreateFactory {
-    
-    func createItemsListController() -> ItemCreateController {
-        return ItemCreateController.controllerFromStoryboard(.Create)
+        presenter?.push(createController, animated: false)
     }
 }

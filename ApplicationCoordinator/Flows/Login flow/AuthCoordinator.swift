@@ -14,12 +14,13 @@ enum AuthActions {
 
 class AuthCoordinator: BaseCoordinator {
 
-    var factory: AuthFactory
+    var factory: AuthControllersFactory
+    var presenter: NavigationPresenter?
     
-    override init(presenter: UINavigationController) {
+    init(presenter: NavigationPresenter) {
         
-        factory = AuthFactory()
-        super.init(presenter: presenter)
+        factory = AuthControllersFactory()
+        self.presenter = presenter
     }
     
     override func start() {
@@ -45,7 +46,7 @@ class AuthCoordinator: BaseCoordinator {
                 self?.flowCompletionHandler?()
             }
         }
-        push(loginController, animated: false)
+        presenter?.push(loginController, animated: false)
     }
     
     func showSignUp() {
@@ -58,19 +59,6 @@ class AuthCoordinator: BaseCoordinator {
                 self?.flowCompletionHandler?()
             }
         }
-        push(signUpController)
-    }
-}
-
-//MARK: - Factory
-
-class AuthFactory {
-    
-    func createLoginController() -> LoginController {
-        return LoginController.controllerFromStoryboard(.Auth)
-    }
-    
-    func createSignUpController() -> SignUpController {
-        return SignUpController.controllerFromStoryboard(.Auth)
+        presenter?.push(signUpController)
     }
 }

@@ -1,6 +1,6 @@
 //
 //  ApplicationCoordinator.swift
-//  ApplicationCoordinatorExample
+//  ApplicationCoordinator
 //
 //  Created by Andrey Panov on 21.02.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
@@ -8,50 +8,44 @@
 
 import UIKit
 
-class ApplicationCoordinator: NSObject, UITabBarControllerDelegate {
+class ApplicationCoordinator: BaseCoordinator {
     
-    private(set) var presenter: UITabBarController
-    var itemCoordinator: ItemCoordinator?
-    var settingsCoordinator: SettingsCoordinator?
+    var tabbar: UITabBarController
+    
+    lazy var presenter: TabbarPresenter = {
+        return TabbarPresenter(rootController: self.tabbar) { [weak self] result in
+            switch result {
+            case .FirstTab:
+                self?.runItemCoordinator()
+            case .SecondTab:
+                self?.runSettingsCoordinator()
+            }
+        }
+    }()
 
     init(presenter: UITabBarController) {
-        
-        self.presenter = presenter
-        super.init()
-        self.presenter.delegate = self
+        self.tabbar = presenter
     }
     
-    func start() {
+    override func start() {
         runItemCoordinator()
-    }
-    
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-        
-        if tabBarController.selectedIndex == 0 {
-            runItemCoordinator()
-        }
-        else if tabBarController.selectedIndex == 1 {
-            runSettingsCoordinator()
-        }
     }
 
     func runItemCoordinator() {
         
-        if itemCoordinator == nil {
-            if let navController = presenter.viewControllers?[0] as? UINavigationController {
-                itemCoordinator = ItemCoordinator(presenter: navController)
-                itemCoordinator?.start()
-            }
+        if let navController = presenter.itemTabController() where navController.viewControllers.isEmpty {
+            let itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
+            itemCoordinator.start()
+            addDependancy(itemCoordinator)
         }
     }
     
     func runSettingsCoordinator() {
         
-        if settingsCoordinator == nil {
-            if let navController = presenter.viewControllers?[1] as? UINavigationController {
-                settingsCoordinator = SettingsCoordinator(presenter: navController)
-                settingsCoordinator?.start()
-            }
+        if let navController = presenter.settingsTabController() where navController.viewControllers.isEmpty {
+            let settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
+            settingsCoordinator.start()
+            addDependancy(settingsCoordinator)
         }
     }
 }
