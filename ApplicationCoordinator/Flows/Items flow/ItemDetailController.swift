@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailController: UIViewController, FlowController {
+class ItemDetailController: UIViewController, FlowControllerOutput {
 
     //controller handler
     typealias T = ItemListActions //enum Actions type

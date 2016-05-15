@@ -8,7 +8,7 @@
 
 class ItemControllersFactory {
     
-    func createItemsListController() -> ItemsListController {
+    func createItemFlowOutput() -> ItemsFlowOutput {
         return ItemsListController.controllerFromStoryboard(.Items)
     }
     

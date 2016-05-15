@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemCreateController: UIViewController, FlowController {
+class ItemCreateController: UIViewController, FlowControllerOutput {
 
     //controller handler
     typealias T = CreateActions //enum Actions type

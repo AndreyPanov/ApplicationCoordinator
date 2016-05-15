@@ -42,17 +42,14 @@ class ItemCoordinator: BaseCoordinator {
     
     func showItemList() {
         
-        let itemListController = factory.createItemsListController()
-        itemListController.completionHandler = { [weak self] result in
-            
-            if case let ItemListActions.ItemSelect(list) = result {
-                self?.showItemDetail(list)
-            }
-            else if case ItemListActions.Create = result {
-                self?.runCreationCoordinator()
-            }
+        let itemFlowOutput = factory.createItemFlowOutput()
+        itemFlowOutput.itemDidSelected = { [weak self] (item) in
+            self?.showItemDetail(item)
         }
-        presenter?.push(itemListController, animated: false)
+        itemFlowOutput.onTapCreateButton = { [weak self] in
+            self?.runCreationCoordinator()
+        }
+        presenter?.push(itemFlowOutput as! UIViewController, animated: false)
     }
     
     func showItemDetail(item: ItemList) {

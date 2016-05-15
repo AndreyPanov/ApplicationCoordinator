@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ItemsListController: UIViewController, FlowController {
+class ItemsListController: UIViewController, ItemsFlowOutput {
     
     //controller handler
-    typealias T = ItemListActions //enum Actions type
-    var completionHandler: (T -> ())?
+    var itemDidSelected: (ItemList -> ())?
+    var onTapCreateButton: (() -> ())?
     
     @IBOutlet weak var tableView: UITableView!
     //mock datasource
@@ -26,7 +26,7 @@ class ItemsListController: UIViewController, FlowController {
     }
     
     @IBAction func addItemButtonClicked(sender: UIBarButtonItem) {
-        completionHandler?(.Create)
+        onTapCreateButton?()
     }
 }
 
@@ -50,6 +50,6 @@ extension ItemsListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        completionHandler?(.ItemSelect(items[indexPath.row]))
+        itemDidSelected?(items[indexPath.row])
     }
 }

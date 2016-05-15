@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginController: UIViewController, FlowController {
+class LoginController: UIViewController, FlowControllerOutput {
 
     //controller handler
     typealias T = AuthActions //enum Actions type
