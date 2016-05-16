@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationPresenter: Presenter {
+final class NavigationPresenter: Presenter {
     
     typealias ViewController = UINavigationController
     weak var rootController: ViewController?

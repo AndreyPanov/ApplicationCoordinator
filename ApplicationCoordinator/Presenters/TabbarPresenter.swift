@@ -12,7 +12,7 @@ enum SelectedController {
     case FirstTab, SecondTab
 }
 
-class TabbarPresenter: NSObject, Presenter, UITabBarControllerDelegate {
+final class TabbarPresenter: NSObject, Presenter, UITabBarControllerDelegate {
     
     typealias ViewController = UITabBarController
     weak var rootController: ViewController?

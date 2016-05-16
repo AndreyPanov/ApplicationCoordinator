@@ -10,12 +10,17 @@ import UIKit
 
 class ItemControllersFactory {
     
-    func createItemFlowOutput() -> (controller: UIViewController, output: ItemsFlowOutput) {
+    func createItemsFlow() -> (controller: UIViewController, output: ItemsFlowOutput) {
         let controller = ItemsListController.controllerFromStoryboard(.Items)
         return (controller, controller)
     }
     
-    func createItemDetailController() -> ItemDetailController {
-        return ItemDetailController.controllerFromStoryboard(.Items)
+    func createItemDetailFlow() -> (
+        controller: UIViewController,
+        input: ItemDetailFlowInput,
+        output: ItemDetailFlowOutput) {
+            
+            let controller = ItemDetailController.controllerFromStoryboard(.Items)
+            return (controller, controller, controller)
     }
 }

@@ -9,3 +9,4 @@
 import Foundation
 
 protocol FlowControllerOutput: NSObjectProtocol { }
+protocol FlowControllerInput: NSObjectProtocol { }

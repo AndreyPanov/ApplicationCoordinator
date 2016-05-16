@@ -42,7 +42,7 @@ class ItemCoordinator: BaseCoordinator {
     
     func showItemList() {
         
-        let itemFlow = factory.createItemFlowOutput()
+        let itemFlow = factory.createItemsFlow()
         itemFlow.output.itemDidSelected = { [weak self] (item) in
             self?.showItemDetail(item)
         }
@@ -54,12 +54,9 @@ class ItemCoordinator: BaseCoordinator {
     
     func showItemDetail(item: ItemList) {
         
-        let itemDetailController = factory.createItemDetailController()
-        itemDetailController.item = item
-        itemDetailController.completionHandler = { result in
-            /* continue the flow */
-        }
-        presenter?.push(itemDetailController)
+        let itemDetailFlow = factory.createItemDetailFlow()
+        itemDetailFlow.input.itemList = item
+        presenter?.push(itemDetailFlow.controller)
     }
     
 //MARK: - Run coordinators (switch to another flow)
