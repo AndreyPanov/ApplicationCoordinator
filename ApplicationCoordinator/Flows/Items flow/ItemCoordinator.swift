@@ -42,14 +42,14 @@ class ItemCoordinator: BaseCoordinator {
     
     func showItemList() {
         
-        let itemFlowOutput = factory.createItemFlowOutput()
-        itemFlowOutput.itemDidSelected = { [weak self] (item) in
+        let itemFlow = factory.createItemFlowOutput()
+        itemFlow.output.itemDidSelected = { [weak self] (item) in
             self?.showItemDetail(item)
         }
-        itemFlowOutput.onTapCreateButton = { [weak self] in
+        itemFlow.output.onTapCreateButton = { [weak self] in
             self?.runCreationCoordinator()
         }
-        presenter?.push(itemFlowOutput as! UIViewController, animated: false)
+        presenter?.push(itemFlow.controller, animated: false)
     }
     
     func showItemDetail(item: ItemList) {

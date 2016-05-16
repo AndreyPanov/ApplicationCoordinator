@@ -6,10 +6,13 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
+import UIKit
+
 class ItemControllersFactory {
     
-    func createItemFlowOutput() -> ItemsFlowOutput {
-        return ItemsListController.controllerFromStoryboard(.Items)
+    func createItemFlowOutput() -> (controller: UIViewController, output: ItemsFlowOutput) {
+        let controller = ItemsListController.controllerFromStoryboard(.Items)
+        return (controller, controller)
     }
     
     func createItemDetailController() -> ItemDetailController {
