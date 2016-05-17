@@ -11,13 +11,15 @@ class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemControllersFactory
     var coordinatorFactory: CoordinatorFactory
-    var presenter: NavigationPresenter?
+    var presenter: PresenterBox
     
-    init(presenter: NavigationPresenter) {
+    init(presenter: PresenterBox,
+         factory: ItemControllersFactory,
+         coordinatorFactory: CoordinatorFactory) {
         
-        factory = ItemControllersFactory()
-        coordinatorFactory = CoordinatorFactory()
         self.presenter = presenter
+        self.factory = factory
+        self.coordinatorFactory = coordinatorFactory
     }
     
     override func start() {
