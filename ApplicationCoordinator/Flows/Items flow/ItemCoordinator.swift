@@ -11,13 +11,13 @@ class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemControllersFactory
     var coordinatorFactory: CoordinatorFactory
-    var presenter: PresenterBox
+    var presenterBox: PresenterBox
     
-    init(presenter: PresenterBox,
+    init(presenterBox: PresenterBox,
          factory: ItemControllersFactory,
          coordinatorFactory: CoordinatorFactory) {
         
-        self.presenter = presenter
+        self.presenterBox = presenterBox
         self.factory = factory
         self.coordinatorFactory = coordinatorFactory
     }
@@ -47,14 +47,14 @@ class ItemCoordinator: BaseCoordinator {
         itemFlowBox.output.onCreateButtonTap = { [weak self] in
             self?.runCreationCoordinator()
         }
-        presenter?.push(itemFlowBox.controller, animated: false)
+        presenterBox.presenter()?.push(itemFlowBox.controller, animated: false)
     }
     
     func showItemDetail(item: ItemList) {
         
         let itemDetailFlowBox = factory.createItemDetailBox()
         itemDetailFlowBox.input.itemList = item
-        presenter?.push(itemDetailFlowBox.controller)
+        presenterBox.presenter()?.push(itemDetailFlowBox.controller)
     }
     
 //MARK: - Run coordinators (switch to another flow)
@@ -65,13 +65,13 @@ class ItemCoordinator: BaseCoordinator {
         let authCoordinator = authTuple.authCoordinator
         authCoordinator.flowCompletionHandler = { [weak self] in
             
-            self?.presenter?.dismissController()
+            self?.presenterBox.presenter()?.dismissController()
             self?.removeDependancy(authCoordinator)
             self?.showItemList()
         }
         
         addDependancy(authCoordinator)
-        presenter?.present(authTuple.presenter)
+        presenterBox.presenter()?.present(authTuple.presenter)
         authCoordinator.start()
     }
     
@@ -81,11 +81,11 @@ class ItemCoordinator: BaseCoordinator {
         let creationCoordinator = creationTuple.createCoordinator
         creationCoordinator.flowCompletionHandler = { [weak self] in
             
-            self?.presenter?.dismissController()
+            self?.presenterBox.presenter()?.dismissController()
             self?.removeDependancy(creationCoordinator)
         }
         addDependancy(creationCoordinator)
-        presenter?.present(creationTuple.presenter)
+        presenterBox.presenter()?.present(creationTuple.presenter)
         creationCoordinator.start()
     }
 }

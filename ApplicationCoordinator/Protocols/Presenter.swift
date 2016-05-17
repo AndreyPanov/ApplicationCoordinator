@@ -25,4 +25,21 @@ enum PresenterBox {
     init(tabBarPresenter: TabbarPresenter) {
         self = .TabBar(tabBarPresenter)
     }
+
+    func presenter() -> NavigationPresenter? {
+        switch self {
+        case .Navigation(let navigationPresenter):
+            return navigationPresenter
+        default: return nil
+        }
+    }
+    
+    func presenter() -> TabbarPresenter? {
+        switch self {
+        case .TabBar(let tabbarPresenter):
+            return tabbarPresenter
+        default: return nil
+        }
+    }
+    
 }
