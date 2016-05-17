@@ -7,10 +7,6 @@
 //
 import UIKit
 
-enum ItemListActions {
-    case ItemSelect(ItemList), Create
-}
-
 class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemControllersFactory

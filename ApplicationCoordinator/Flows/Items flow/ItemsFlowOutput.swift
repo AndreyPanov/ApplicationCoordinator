@@ -7,6 +7,6 @@
 //
 
 protocol ItemsFlowOutput: FlowControllerOutput {
-    var itemDidSelected: (ItemList -> ())? { get set }
-    var onTapCreateButton: (() -> ())? { get set }
+    var onItemSelect: (ItemList -> ())? { get set }
+    var onCreateButtonTap: (() -> ())? { get set }
 }

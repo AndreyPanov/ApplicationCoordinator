@@ -45,6 +45,8 @@
 		D5505CC91CDF68260012CBA6 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */; };
 		D5505CCB1CDF68D10012CBA6 /* StoryboardsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CCA1CDF68D10012CBA6 /* StoryboardsEnum.swift */; };
 		D5B302D71CE8C85800F587AA /* ItemsFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B302D61CE8C85800F587AA /* ItemsFlowOutput.swift */; };
+		D5FDC84E1CEB3579001C3DF3 /* LoginFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC84D1CEB3579001C3DF3 /* LoginFlowOutput.swift */; };
+		D5FDC8501CEB3AE0001C3DF3 /* SignUpFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC84F1CEB3AE0001C3DF3 /* SignUpFlowOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 		D5505CCA1CDF68D10012CBA6 /* StoryboardsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardsEnum.swift; sourceTree = "<group>"; };
 		D5B302D61CE8C85800F587AA /* ItemsFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsFlowOutput.swift; sourceTree = "<group>"; };
+		D5FDC84D1CEB3579001C3DF3 /* LoginFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowOutput.swift; sourceTree = "<group>"; };
+		D5FDC84F1CEB3AE0001C3DF3 /* SignUpFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFlowOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				0E3CCFBB1CCBC0210022E830 /* AuthCoordinator.swift */,
+				D5FDC84D1CEB3579001C3DF3 /* LoginFlowOutput.swift */,
 				0E3CCFB91CCBBFEF0022E830 /* LoginController.swift */,
+				D5FDC84F1CEB3AE0001C3DF3 /* SignUpFlowOutput.swift */,
 				0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */,
 			);
 			path = "Login flow";
@@ -388,6 +394,8 @@
 				D5505CC51CDF67860012CBA6 /* SettingsControllersFactory.swift in Sources */,
 				D5505CC11CDF673D0012CBA6 /* ItemCreateControllersFactory.swift in Sources */,
 				0E3CCFC41CCBC0C00022E830 /* ItemCreateController.swift in Sources */,
+				D5FDC8501CEB3AE0001C3DF3 /* SignUpFlowOutput.swift in Sources */,
+				D5FDC84E1CEB3579001C3DF3 /* LoginFlowOutput.swift in Sources */,
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
 				0EB348381CEA42DD001DEBE4 /* ItemDetailFlowInputOutput.swift in Sources */,
 				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,

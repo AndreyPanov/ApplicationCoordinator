@@ -6,13 +6,16 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
+import UIKit
+
 class AuthControllersFactory {
     
-    func createLoginController() -> LoginController {
-        return LoginController.controllerFromStoryboard(.Auth)
+    func createLoginBox() -> (controller: UIViewController, output: LoginFlowOutput) {
+        let controller = LoginController.controllerFromStoryboard(.Auth)
+        return (controller, controller)
     }
     
-    func createSignUpController() -> SignUpController {
+    func createSignUpBox() -> (controller: UIViewController, output: SignUpFlowOutput) {
         return SignUpController.controllerFromStoryboard(.Auth)
     }
 }

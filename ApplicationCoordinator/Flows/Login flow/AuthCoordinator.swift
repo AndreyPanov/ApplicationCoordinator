@@ -31,34 +31,25 @@ class AuthCoordinator: BaseCoordinator {
     
     func showLogin() {
         
-        let loginController = factory.createLoginController()
-        loginController.completionHandler = { [weak self] result in
-            
-            if case AuthActions.SignUp = result {
-                self?.showSignUp()
-            }
-            else if case AuthActions.Complete = result {
-                //finish flow
-                self?.flowCompletionHandler?()
-            }
-            else if case AuthActions.Hide = result {
-                //finish flow
-                self?.flowCompletionHandler?()
-            }
+        let loginBox = factory.createLoginBox()
+        loginBox.output.onHideButtonTap = { [weak self] in
+            self?.flowCompletionHandler?()
         }
-        presenter?.push(loginController, animated: false)
+        loginBox.output.onCompleteCreateItem = { [weak self] in
+            self?.flowCompletionHandler?()
+        }
+        loginBox.output.onSignUpButtonTap = { [weak self] in
+            self?.showSignUp()
+        }
+        presenter?.push(loginBox.controller, animated: false)
     }
     
     func showSignUp() {
         
-        let signUpController = factory.createSignUpController()
-        signUpController.completionHandler = { [weak self] result in
-            
-            if case AuthActions.Complete = result {
-                //finish flow
-                self?.flowCompletionHandler?()
-            }
+        let signUpBox = factory.createSignUpBox()
+        signUpBox.output.onSignUpComplete = { [weak self] in
+            self?.flowCompletionHandler?()
         }
-        presenter?.push(signUpController)
+        presenter?.push(signUpBox.controller)
     }
 }
