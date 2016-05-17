@@ -6,12 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
-enum AuthActions {
-    case SignUp, Complete, Hide
-}
-
 class AuthCoordinator: BaseCoordinator {
 
     var factory: AuthControllersFactory
@@ -35,7 +29,7 @@ class AuthCoordinator: BaseCoordinator {
         loginBox.output.onHideButtonTap = { [weak self] in
             self?.flowCompletionHandler?()
         }
-        loginBox.output.onCompleteCreateItem = { [weak self] in
+        loginBox.output.onCompleteAuth = { [weak self] in
             self?.flowCompletionHandler?()
         }
         loginBox.output.onSignUpButtonTap = { [weak self] in

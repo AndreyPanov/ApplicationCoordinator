@@ -12,7 +12,7 @@ class LoginController: UIViewController, LoginFlowOutput {
 
     //controller handler
     var onHideButtonTap: (() -> ())?
-    var onCompleteCreateItem: (() -> ())?
+    var onCompleteAuth: (() -> ())?
     var onSignUpButtonTap: (() -> ())?
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class LoginController: UIViewController, LoginFlowOutput {
     }
     
     @IBAction func loginButtonClicked(sender: AnyObject) {
-        onCompleteCreateItem?()
+        onCompleteAuth?()
     }
     
     @IBAction func signUpClicked(sender: AnyObject) {

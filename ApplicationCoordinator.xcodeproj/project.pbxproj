@@ -47,6 +47,8 @@
 		D5B302D71CE8C85800F587AA /* ItemsFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B302D61CE8C85800F587AA /* ItemsFlowOutput.swift */; };
 		D5FDC84E1CEB3579001C3DF3 /* LoginFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC84D1CEB3579001C3DF3 /* LoginFlowOutput.swift */; };
 		D5FDC8501CEB3AE0001C3DF3 /* SignUpFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC84F1CEB3AE0001C3DF3 /* SignUpFlowOutput.swift */; };
+		D5FDC8521CEB4C4E001C3DF3 /* ItemCreateFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC8511CEB4C4E001C3DF3 /* ItemCreateFlowOutput.swift */; };
+		D5FDC8541CEB56A8001C3DF3 /* SettingsFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC8531CEB56A8001C3DF3 /* SettingsFlowOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		D5B302D61CE8C85800F587AA /* ItemsFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsFlowOutput.swift; sourceTree = "<group>"; };
 		D5FDC84D1CEB3579001C3DF3 /* LoginFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlowOutput.swift; sourceTree = "<group>"; };
 		D5FDC84F1CEB3AE0001C3DF3 /* SignUpFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFlowOutput.swift; sourceTree = "<group>"; };
+		D5FDC8511CEB4C4E001C3DF3 /* ItemCreateFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateFlowOutput.swift; sourceTree = "<group>"; };
+		D5FDC8531CEB56A8001C3DF3 /* SettingsFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFlowOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				0E3CCFC11CCBC0AA0022E830 /* ItemCreateCoordinator.swift */,
+				D5FDC8511CEB4C4E001C3DF3 /* ItemCreateFlowOutput.swift */,
 				0E3CCFC31CCBC0C00022E830 /* ItemCreateController.swift */,
 			);
 			path = "Create flow";
@@ -184,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				0E3CCFBD1CCBC04B0022E830 /* SettingsCoordinator.swift */,
+				D5FDC8531CEB56A8001C3DF3 /* SettingsFlowOutput.swift */,
 				0E3CCFBF1CCBC0600022E830 /* SettingsController.swift */,
 			);
 			path = "Settings flow";
@@ -381,6 +387,7 @@
 				0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */,
 				D541E7661CD9128B004C38B3 /* FlowControllerOutput.swift in Sources */,
 				0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */,
+				D5FDC8521CEB4C4E001C3DF3 /* ItemCreateFlowOutput.swift in Sources */,
 				D5505CCB1CDF68D10012CBA6 /* StoryboardsEnum.swift in Sources */,
 				D5B302D71CE8C85800F587AA /* ItemsFlowOutput.swift in Sources */,
 				0E3CCFBC1CCBC0210022E830 /* AuthCoordinator.swift in Sources */,
@@ -405,6 +412,7 @@
 				D5505CBF1CDF671A0012CBA6 /* ItemControllersFactory.swift in Sources */,
 				D541E7621CD8831A004C38B3 /* Presenter.swift in Sources */,
 				0E3CCF9A1CCBBB670022E830 /* ApplicationCoordinator.swift in Sources */,
+				D5FDC8541CEB56A8001C3DF3 /* SettingsFlowOutput.swift in Sources */,
 				D545E4A21CD1FF40002B6F8F /* BaseCoordinator.swift in Sources */,
 				0E3CCFBE1CCBC04B0022E830 /* SettingsCoordinator.swift in Sources */,
 				0E3CCFCB1CCBFB150022E830 /* Setting.swift in Sources */,

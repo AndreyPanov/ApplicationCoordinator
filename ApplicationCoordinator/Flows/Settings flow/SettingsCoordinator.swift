@@ -6,11 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
-enum SettingsActions {
-}
-
 class SettingsCoordinator: BaseCoordinator {
 
     var factory: SettingsControllersFactory
@@ -30,10 +25,7 @@ class SettingsCoordinator: BaseCoordinator {
     
     func showSettings() {
         
-        let settingsController = factory.createSettingsController()
-        settingsController.completionHandler = { result in
-            /* continue the flow */
-        }
-        presenter?.push(settingsController, animated: false)
+        let settingsFlowBox = factory.createSettingsBox()
+        presenter?.push(settingsFlowBox.controller, animated: false)
     }
 }

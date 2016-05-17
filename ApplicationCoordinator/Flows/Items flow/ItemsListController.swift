@@ -11,8 +11,8 @@ import UIKit
 class ItemsListController: UIViewController, ItemsFlowOutput {
     
     //controller handler
-    var itemDidSelected: (ItemList -> ())?
-    var onTapCreateButton: (() -> ())?
+    var onItemSelect: (ItemList -> ())?
+    var onCreateButtonTap: (() -> ())?
     
     @IBOutlet weak var tableView: UITableView!
     //mock datasource
@@ -26,7 +26,7 @@ class ItemsListController: UIViewController, ItemsFlowOutput {
     }
     
     @IBAction func addItemButtonClicked(sender: UIBarButtonItem) {
-        onTapCreateButton?()
+        onCreateButtonTap?()
     }
 }
 
@@ -50,6 +50,6 @@ extension ItemsListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        itemDidSelected?(items[indexPath.row])
+        onItemSelect?(items[indexPath.row])
     }
 }

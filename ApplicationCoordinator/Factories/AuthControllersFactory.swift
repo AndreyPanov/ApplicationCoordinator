@@ -16,6 +16,8 @@ class AuthControllersFactory {
     }
     
     func createSignUpBox() -> (controller: UIViewController, output: SignUpFlowOutput) {
-        return SignUpController.controllerFromStoryboard(.Auth)
+        
+        let controller = SignUpController.controllerFromStoryboard(.Auth)
+        return (controller, controller)
     }
 }

@@ -6,9 +6,12 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
+import UIKit
+
 class SettingsControllersFactory {
     
-    func createSettingsController() -> SettingsController {
-        return SettingsController.controllerFromStoryboard(.Settings)
+    func createSettingsBox() -> (controller: UIViewController, output: SettingsFlowOutput) {
+        let controller = SettingsController.controllerFromStoryboard(.Settings)
+        return (controller, controller)
     }
 }

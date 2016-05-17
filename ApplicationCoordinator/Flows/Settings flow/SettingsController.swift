@@ -8,11 +8,9 @@
 
 import UIKit
 
-class SettingsController: UIViewController {
+class SettingsController: UIViewController, SettingsFlowOutput {
 
     //controller handler
-    typealias T = SettingsActions //enum Actions type
-    var completionHandler: (T -> ())?
     
     @IBOutlet weak var tableView: UITableView!
     //mock datasource

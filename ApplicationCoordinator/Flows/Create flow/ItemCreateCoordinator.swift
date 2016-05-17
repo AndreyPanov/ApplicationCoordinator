@@ -6,12 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
-enum CreateActions {
-    case Create, Hide
-}
-
 class ItemCreateCoordinator: BaseCoordinator {
 
     var factory: ItemCreateControllersFactory
@@ -31,16 +25,13 @@ class ItemCreateCoordinator: BaseCoordinator {
     
     func showCreate() {
         
-        let createController = factory.createItemsListController()
-        createController.completionHandler = { [weak self] result in
-            
-            if case CreateActions.Create = result {
-                self?.presenter?.dismissController()
-            }
-            else if case CreateActions.Hide = result {
-                self?.presenter?.dismissController()
-            }
+        let createItemFlow = factory.createItemAddBox()
+        createItemFlow.output.onCompleteCreateItem = { [weak self] in
+            self?.presenter?.dismissController()
         }
-        presenter?.push(createController, animated: false)
+        createItemFlow.output.onHideButtonTap = { [weak self] in
+            self?.presenter?.dismissController()
+        }
+        presenter?.push(createItemFlow.controller, animated: false)
     }
 }

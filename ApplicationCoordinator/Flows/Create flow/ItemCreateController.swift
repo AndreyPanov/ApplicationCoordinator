@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ItemCreateController: UIViewController, FlowControllerOutput {
+class ItemCreateController: UIViewController, ItemCreateFlowOutput {
 
     //controller handler
-    typealias T = CreateActions //enum Actions type
-    var completionHandler: (T -> ())?
+    var onHideButtonTap: (() -> ())?
+    var onCompleteCreateItem: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +22,10 @@ class ItemCreateController: UIViewController, FlowControllerOutput {
     }
     
     @IBAction func hideButtonClicked(sender: UIBarButtonItem) {
-        completionHandler?(.Hide)
+        onHideButtonTap?()
     }
     
     @IBAction func createButtonClicked(sender: UIBarButtonItem) {
-        completionHandler?(.Create)
+        onCompleteCreateItem?()
     }
 }
