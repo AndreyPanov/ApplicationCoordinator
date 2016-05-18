@@ -61,7 +61,7 @@ class ItemCoordinator: BaseCoordinator {
     
     func runAuthCoordinator() {
         
-        let authTuple = coordinatorFactory.createAuthCoordinatorTuple()
+        let authTuple = coordinatorFactory.createAuthCoordinatorBox()
         let authCoordinator = authTuple.authCoordinator
         authCoordinator.flowCompletionHandler = { [weak self] in
             
@@ -77,7 +77,7 @@ class ItemCoordinator: BaseCoordinator {
     
     func runCreationCoordinator() {
         
-        let creationTuple = coordinatorFactory.createItemCreationCoordinatorTuple()
+        let creationTuple = coordinatorFactory.createItemCreationCoordinatorBox()
         let creationCoordinator = creationTuple.createCoordinator
         creationCoordinator.flowCompletionHandler = { [weak self] in
             

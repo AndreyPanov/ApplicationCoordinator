@@ -35,7 +35,7 @@
 		D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7631CD9126F004C38B3 /* Coordinator.swift */; };
 		D541E7661CD9128B004C38B3 /* FlowControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7651CD9128B004C38B3 /* FlowControllerOutput.swift */; };
 		D541E76A1CD91304004C38B3 /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7691CD91304004C38B3 /* NavigationPresenter.swift */; };
-		D541E76C1CD9134A004C38B3 /* TabbarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E76B1CD9134A004C38B3 /* TabbarPresenter.swift */; };
+		D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E76B1CD9134A004C38B3 /* TabbarController.swift */; };
 		D545E4A21CD1FF40002B6F8F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */; };
 		D5505CBF1CDF671A0012CBA6 /* ItemControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CBE1CDF671A0012CBA6 /* ItemControllersFactory.swift */; };
 		D5505CC11CDF673D0012CBA6 /* ItemCreateControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactory.swift */; };
@@ -82,7 +82,7 @@
 		D541E7631CD9126F004C38B3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D541E7651CD9128B004C38B3 /* FlowControllerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowControllerOutput.swift; sourceTree = "<group>"; };
 		D541E7691CD91304004C38B3 /* NavigationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NavigationPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D541E76B1CD9134A004C38B3 /* TabbarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarPresenter.swift; sourceTree = "<group>"; };
+		D541E76B1CD9134A004C38B3 /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabbarController.swift; path = ../Presenters/TabbarController.swift; sourceTree = "<group>"; };
 		D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		D5505CBE1CDF671A0012CBA6 /* ItemControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemControllersFactory.swift; sourceTree = "<group>"; };
 		D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateControllersFactory.swift; sourceTree = "<group>"; };
@@ -114,6 +114,7 @@
 			children = (
 				0E3CCF7D1CCBBB670022E830 /* AppDelegate.swift */,
 				0E3CCF7E1CCBBB670022E830 /* ApplicationCoordinator.swift */,
+				D541E76B1CD9134A004C38B3 /* TabbarController.swift */,
 			);
 			name = Application;
 			path = ApplicationCoordinator/Application;
@@ -292,7 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				D541E7691CD91304004C38B3 /* NavigationPresenter.swift */,
-				D541E76B1CD9134A004C38B3 /* TabbarPresenter.swift */,
 			);
 			name = Presenters;
 			path = ApplicationCoordinator/Presenters;
@@ -406,7 +406,7 @@
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
 				0EB348381CEA42DD001DEBE4 /* ItemDetailFlowInputOutput.swift in Sources */,
 				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,
-				D541E76C1CD9134A004C38B3 /* TabbarPresenter.swift in Sources */,
+				D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
 				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,
 				D5505CBF1CDF671A0012CBA6 /* ItemControllersFactory.swift in Sources */,

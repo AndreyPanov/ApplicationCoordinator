@@ -9,9 +9,9 @@ import UIKit
 
 class CoordinatorFactory {
     
-    func createItemCoordinatorTuple() -> (creationCoordinator: ItemCoordinator, presenterBox: PresenterBox) {
+    func createItemCoordinatorBox(navController navController: UINavigationController?) -> (creationCoordinator: ItemCoordinator, presenterBox: PresenterBox) {
         
-        let navController = createNavigationController()
+        let navController = (navController != nil) ? navController! : createNavigationController()
         let presenterBox: PresenterBox = .init(navigationPresenter: NavigationPresenter(rootController: navController))
         let coordinator = ItemCoordinator(presenterBox: presenterBox,
                                           factory: ItemControllersFactory(),
@@ -19,13 +19,13 @@ class CoordinatorFactory {
         return (coordinator, presenterBox)
     }
     
-    func createItemCreationCoordinatorTuple() -> (createCoordinator: ItemCreateCoordinator, presenter: NavigationPresenter) {
+    func createItemCreationCoordinatorBox() -> (createCoordinator: ItemCreateCoordinator, presenter: NavigationPresenter) {
         
         let presenter = NavigationPresenter(rootController: createNavigationController())
         return (ItemCreateCoordinator(presenter: presenter), presenter)
     }
     
-    func createAuthCoordinatorTuple() -> (authCoordinator: AuthCoordinator, presenter: NavigationPresenter) {
+    func createAuthCoordinatorBox() -> (authCoordinator: AuthCoordinator, presenter: NavigationPresenter) {
         
         let presenter = NavigationPresenter(rootController: createNavigationController())
         return (AuthCoordinator(presenter: presenter), presenter)

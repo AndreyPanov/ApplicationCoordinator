@@ -14,7 +14,7 @@ class BaseCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
 
     func start() {
-        fatalError("must be overriden")
+        assertionFailure("must be overriden")
     }
     
     func addDependancy(coordinator: Coordinator) {
