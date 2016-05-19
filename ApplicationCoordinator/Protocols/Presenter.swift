@@ -14,7 +14,7 @@ protocol Presenter: class {
 }
 
 enum PresenterBox {
-    
+    /*
     case Navigation(NavigationPresenter)
     
     init(navigationPresenter: NavigationPresenter) {
@@ -28,5 +28,5 @@ enum PresenterBox {
         default: return nil
         }
     }
-    
+    */
 }

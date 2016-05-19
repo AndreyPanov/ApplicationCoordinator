@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ApplicationCoordinator: BaseCoordinator {
+final class ApplicationCoordinator: BaseCoordinator {
     
     var tabbarController: TabbarController
     var coordinatorFactory: CoordinatorFactory
@@ -18,6 +18,33 @@ class ApplicationCoordinator: BaseCoordinator {
         
         self.tabbarController = tabbarController
         self.coordinatorFactory = coordinatorFactory
+        super.init()
+        configureTabbar()
+    }
+    
+    func configureTabbar() {
+        
+        tabbarController.onItemFlowSelect = { result in
+            if result?.viewControllers.isEmpty == true {
+                let ff = self.coordinatorFactory.createItemCoordinatorBox(navController: result)
+                ff.itemCoordinator.start()
+                self.addDependancy(ff.itemCoordinator)
+            }
+        }
+        tabbarController.onSettingsFlowSelect = { result in
+            if result?.viewControllers.isEmpty == true {
+                let ff = self.coordinatorFactory.createSettingsCoordinatorBox(navController: result)
+                ff.settingsCoordinator.start()
+                self.addDependancy(ff.settingsCoordinator)
+            }
+        }
+        tabbarController.onViewDidLoad = { result in
+            if result?.viewControllers.isEmpty == true {
+                let ff = self.coordinatorFactory.createItemCoordinatorBox(navController: result)
+                ff.itemCoordinator.start()
+                self.addDependancy(ff.itemCoordinator)
+            }
+        }
     }
     
     override func start() {

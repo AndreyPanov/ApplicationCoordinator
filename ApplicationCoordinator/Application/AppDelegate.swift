@@ -12,14 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-/*
+
     private lazy var applicationCoordinator: ApplicationCoordinator = {
-        return ApplicationCoordinator(presenter: self.window!.rootViewController as! TabbarController)
+        return ApplicationCoordinator(tabbarController: self.window!.rootViewController as! TabbarController, coordinatorFactory: CoordinatorFactory())
     }()
-*/
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-  //      applicationCoordinator.start()
+        applicationCoordinator.start()
         return true
     }
 }

@@ -7,7 +7,7 @@
 //
 
 class AuthCoordinator: BaseCoordinator {
-
+/*
     var factory: AuthControllersFactory
     var presenter: NavigationPresenter?
     
@@ -45,5 +45,5 @@ class AuthCoordinator: BaseCoordinator {
             self?.flowCompletionHandler?()
         }
         presenter?.push(signUpBox.controller)
-    }
+    }*/
 }

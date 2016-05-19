@@ -11,13 +11,13 @@ class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemControllersFactory
     var coordinatorFactory: CoordinatorFactory
-    var presenterBox: PresenterBox
+    weak var router: Router?
     
-    init(presenterBox: PresenterBox,
+    init(router: Router,
          factory: ItemControllersFactory,
          coordinatorFactory: CoordinatorFactory) {
         
-        self.presenterBox = presenterBox
+        self.router = router
         self.factory = factory
         self.coordinatorFactory = coordinatorFactory
     }
@@ -39,7 +39,7 @@ class ItemCoordinator: BaseCoordinator {
 //MARK: - Run current flow's controllers
     
     func showItemList() {
-        
+      
         let itemFlowBox = factory.createItemsBox()
         itemFlowBox.output.onItemSelect = { [weak self] (item) in
             self?.showItemDetail(item)
@@ -47,20 +47,20 @@ class ItemCoordinator: BaseCoordinator {
         itemFlowBox.output.onCreateButtonTap = { [weak self] in
             self?.runCreationCoordinator()
         }
-        presenterBox.presenter()?.push(itemFlowBox.controller, animated: false)
+        router?.push(itemFlowBox.controller, animated: false)
     }
     
     func showItemDetail(item: ItemList) {
         
         let itemDetailFlowBox = factory.createItemDetailBox()
         itemDetailFlowBox.input.itemList = item
-        presenterBox.presenter()?.push(itemDetailFlowBox.controller)
+        router?.push(itemDetailFlowBox.controller)
     }
     
 //MARK: - Run coordinators (switch to another flow)
     
     func runAuthCoordinator() {
-        
+    /*
         let authTuple = coordinatorFactory.createAuthCoordinatorBox()
         let authCoordinator = authTuple.authCoordinator
         authCoordinator.flowCompletionHandler = { [weak self] in
@@ -72,11 +72,11 @@ class ItemCoordinator: BaseCoordinator {
         
         addDependancy(authCoordinator)
         presenterBox.presenter()?.present(authTuple.presenter)
-        authCoordinator.start()
+        authCoordinator.start()*/
     }
     
     func runCreationCoordinator() {
-        
+        /*
         let creationTuple = coordinatorFactory.createItemCreationCoordinatorBox()
         let creationCoordinator = creationTuple.createCoordinator
         creationCoordinator.flowCompletionHandler = { [weak self] in
@@ -86,6 +86,6 @@ class ItemCoordinator: BaseCoordinator {
         }
         addDependancy(creationCoordinator)
         presenterBox.presenter()?.present(creationTuple.presenter)
-        creationCoordinator.start()
+        creationCoordinator.start()*/
     }
 }

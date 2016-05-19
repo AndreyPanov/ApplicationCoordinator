@@ -12,15 +12,18 @@ protocol TabbarFlowOutput {
     
     var onItemFlowSelect: (UINavigationController? -> ())? { get set }
     var onSettingsFlowSelect: (UINavigationController? -> ())? { get set }
+    var onViewDidLoad: (UINavigationController? -> ())? { get set }
 }
 
 final class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarFlowOutput {
     
     var onItemFlowSelect: (UINavigationController? -> ())?
     var onSettingsFlowSelect: (UINavigationController? -> ())?
+    var onViewDidLoad: (UINavigationController? -> ())?
     
     override func viewDidLoad() {
         delegate = self
+        onViewDidLoad?(selectedViewController as? UINavigationController)
     }
 
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {

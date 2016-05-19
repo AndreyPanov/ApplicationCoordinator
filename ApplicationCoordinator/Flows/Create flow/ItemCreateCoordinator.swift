@@ -7,7 +7,7 @@
 //
 
 class ItemCreateCoordinator: BaseCoordinator {
-
+/*
     var factory: ItemCreateControllersFactory
     var presenter: NavigationPresenter?
     
@@ -33,5 +33,5 @@ class ItemCreateCoordinator: BaseCoordinator {
             self?.presenter?.dismissController()
         }
         presenter?.push(createItemFlow.controller, animated: false)
-    }
+    }*/
 }

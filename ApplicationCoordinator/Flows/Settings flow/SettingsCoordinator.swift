@@ -9,12 +9,12 @@
 class SettingsCoordinator: BaseCoordinator {
 
     var factory: SettingsControllersFactory
-    var presenter: NavigationPresenter?
+    var router: Router?
     
-    init(presenter: NavigationPresenter) {
+    init(router: Router, factory: SettingsControllersFactory) {
         
-        factory = SettingsControllersFactory()
-        self.presenter = presenter
+        self.factory = factory
+        self.router = router
     }
     
     override func start() {
@@ -26,6 +26,6 @@ class SettingsCoordinator: BaseCoordinator {
     func showSettings() {
         
         let settingsFlowBox = factory.createSettingsBox()
-        presenter?.push(settingsFlowBox.controller, animated: false)
+        router?.push(settingsFlowBox.controller, animated: false)
     }
 }

@@ -9,16 +9,25 @@ import UIKit
 
 class CoordinatorFactory {
     
-    func createItemCoordinatorBox(navController navController: UINavigationController?) -> (creationCoordinator: ItemCoordinator, presenterBox: PresenterBox) {
+    func createItemCoordinatorBox(navController navController: UINavigationController?) -> (itemCoordinator: ItemCoordinator, router: Router) {
         
         let navController = (navController != nil) ? navController! : createNavigationController()
-        let presenterBox: PresenterBox = .init(navigationPresenter: NavigationPresenter(rootController: navController))
-        let coordinator = ItemCoordinator(presenterBox: presenterBox,
+        let router = RouterImp(rootController: navController)
+        let coordinator = ItemCoordinator(router: router,
                                           factory: ItemControllersFactory(),
                                           coordinatorFactory: CoordinatorFactory())
-        return (coordinator, presenterBox)
+        return (coordinator, router)
     }
     
+    func createSettingsCoordinatorBox(navController navController: UINavigationController?) -> (settingsCoordinator: SettingsCoordinator, router: Router) {
+        
+        let navController = (navController != nil) ? navController! : createNavigationController()
+        let router = RouterImp(rootController: navController)
+        let coordinator = SettingsCoordinator(router: router,
+                                          factory: SettingsControllersFactory())
+        return (coordinator, router)
+    }
+    /*
     func createItemCreationCoordinatorBox() -> (createCoordinator: ItemCreateCoordinator, presenter: NavigationPresenter) {
         
         let presenter = NavigationPresenter(rootController: createNavigationController())
@@ -30,7 +39,7 @@ class CoordinatorFactory {
         let presenter = NavigationPresenter(rootController: createNavigationController())
         return (AuthCoordinator(presenter: presenter), presenter)
     }
-    
+    */
     private func createNavigationController() -> UINavigationController {
         return UINavigationController.controllerFromStoryboard(.Main)
     }
