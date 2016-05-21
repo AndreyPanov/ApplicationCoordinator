@@ -19,53 +19,31 @@ final class ApplicationCoordinator: BaseCoordinator {
         self.tabbarController = tabbarController
         self.coordinatorFactory = coordinatorFactory
         super.init()
-        configureTabbar()
-    }
-    
-    func configureTabbar() {
-        
-        tabbarController.onItemFlowSelect = { result in
-            if result?.viewControllers.isEmpty == true {
-                let ff = self.coordinatorFactory.createItemCoordinatorBox(navController: result)
-                ff.itemCoordinator.start()
-                self.addDependancy(ff.itemCoordinator)
-            }
-        }
-        tabbarController.onSettingsFlowSelect = { result in
-            if result?.viewControllers.isEmpty == true {
-                let ff = self.coordinatorFactory.createSettingsCoordinatorBox(navController: result)
-                ff.settingsCoordinator.start()
-                self.addDependancy(ff.settingsCoordinator)
-            }
-        }
-        tabbarController.onViewDidLoad = { result in
-            if result?.viewControllers.isEmpty == true {
-                let ff = self.coordinatorFactory.createItemCoordinatorBox(navController: result)
-                ff.itemCoordinator.start()
-                self.addDependancy(ff.itemCoordinator)
-            }
-        }
     }
     
     override func start() {
-        runItemCoordinator()
-    }
-
-    func runItemCoordinator() {
-        /*
-        if let navController = presenter.itemTabController() where navController.viewControllers.isEmpty {
-            let itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
-            itemCoordinator.start()
-            addDependancy(itemCoordinator)
-        }*/
+        tabbarController.onViewDidLoad = runItemCoordinator()
+        tabbarController.onItemFlowSelect = runItemCoordinator()
+        tabbarController.onSettingsFlowSelect = runSettingsCoordinator()
     }
     
-    func runSettingsCoordinator() {
-        /*
-        if let navController = presenter.settingsTabController() where navController.viewControllers.isEmpty {
-            let settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
-            settingsCoordinator.start()
-            addDependancy(settingsCoordinator)
-        }*/
+    func runItemCoordinator() -> ((UINavigationController?) -> ()) {
+        return { result in
+            if result?.viewControllers.isEmpty == true {
+                let itemCoordinatorBox = self.coordinatorFactory.createItemCoordinatorBox(navController: result)
+                itemCoordinatorBox.itemCoordinator.start()
+                self.addDependancy(itemCoordinatorBox.itemCoordinator)
+            }
+        }
+    }
+    
+    func runSettingsCoordinator() -> ((UINavigationController?) -> ()) {
+        return { result in
+            if result?.viewControllers.isEmpty == true {
+                let settingsCoordinatorBox = self.coordinatorFactory.createSettingsCoordinatorBox(navController: result)
+                settingsCoordinatorBox.settingsCoordinator.start()
+                self.addDependancy(settingsCoordinatorBox.settingsCoordinator)
+            }
+        }
     }
 }

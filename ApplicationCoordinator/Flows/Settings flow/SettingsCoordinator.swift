@@ -11,8 +11,8 @@ class SettingsCoordinator: BaseCoordinator {
     var factory: SettingsControllersFactory
     var router: Router?
     
-    init(router: Router, factory: SettingsControllersFactory) {
-        
+    init(router: Router,
+         factory: SettingsControllersFactory) {
         self.factory = factory
         self.router = router
     }
@@ -24,7 +24,6 @@ class SettingsCoordinator: BaseCoordinator {
     //MARK: - Run current flow's controllers
     
     func showSettings() {
-        
         let settingsFlowBox = factory.createSettingsBox()
         router?.push(settingsFlowBox.controller, animated: false)
     }

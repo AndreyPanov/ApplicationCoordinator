@@ -9,7 +9,9 @@
 import UIKit
 
 protocol Router: class {
+    
     weak var rootController: UINavigationController? { get }
+    
     func present(controller: UIViewController, animated: Bool)
     func push(controller: UIViewController, animated: Bool)
     func popController(animated: Bool)

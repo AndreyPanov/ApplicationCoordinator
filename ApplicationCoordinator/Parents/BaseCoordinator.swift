@@ -10,14 +10,16 @@ import UIKit
 
 class BaseCoordinator: Coordinator {
     
-    var flowCompletionHandler:CoordinatorHandler?
     var childCoordinators: [Coordinator] = []
 
-    func start() {
-        assertionFailure("must be overriden")
-    }
+    func start() { }
     
+    // add only unique object
     func addDependancy(coordinator: Coordinator) {
+        
+        for element in childCoordinators {
+            if ObjectIdentifier(element) == ObjectIdentifier(coordinator) { return }
+        }
         childCoordinators.append(coordinator)
     }
     
@@ -27,6 +29,7 @@ class BaseCoordinator: Coordinator {
         for (index, element) in childCoordinators.enumerate() {
             if ObjectIdentifier(element) == ObjectIdentifier(coordinator) {
                 childCoordinators.removeAtIndex(index)
+                break
             }
         }
     }

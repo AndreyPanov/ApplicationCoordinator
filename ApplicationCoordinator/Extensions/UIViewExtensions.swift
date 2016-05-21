@@ -19,11 +19,9 @@ extension UIView {
     }
     
     class func nib(frame: CGRect) -> Self {
-        
         let view = nib()
         view.frame = frame
         view.layoutIfNeeded()
-        
         return view
     }
 }
