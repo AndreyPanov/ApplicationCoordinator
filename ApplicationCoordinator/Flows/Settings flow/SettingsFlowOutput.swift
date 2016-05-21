@@ -6,6 +6,5 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol SettingsFlowOutput: FlowControllerOutput {
-}
+protocol SettingsFlowOutput: FlowControllerOutput { }
 

@@ -10,37 +10,36 @@ import UIKit
 
 final class ApplicationCoordinator: BaseCoordinator {
     
-    var tabbarController: TabbarController
+    var tabbarFlowOutput: TabbarFlowOutput
     var coordinatorFactory: CoordinatorFactory
 
-    init(tabbarController: TabbarController,
+    init(tabbarFlowOutput: TabbarFlowOutput,
          coordinatorFactory: CoordinatorFactory) {
         
-        self.tabbarController = tabbarController
+        self.tabbarFlowOutput = tabbarFlowOutput
         self.coordinatorFactory = coordinatorFactory
-        super.init()
     }
     
     override func start() {
-        tabbarController.onViewDidLoad = runItemCoordinator()
-        tabbarController.onItemFlowSelect = runItemCoordinator()
-        tabbarController.onSettingsFlowSelect = runSettingsCoordinator()
+        tabbarFlowOutput.onViewDidLoad = runItemCoordinator()
+        tabbarFlowOutput.onItemFlowSelect = runItemCoordinator()
+        tabbarFlowOutput.onSettingsFlowSelect = runSettingsCoordinator()
     }
     
-    func runItemCoordinator() -> ((UINavigationController?) -> ()) {
-        return { result in
-            if result?.viewControllers.isEmpty == true {
-                let itemCoordinatorBox = self.coordinatorFactory.createItemCoordinatorBox(navController: result)
+    func runItemCoordinator() -> ((UINavigationController) -> ()) {
+        return { navController in
+            if navController.viewControllers.isEmpty == true {
+                let itemCoordinatorBox = self.coordinatorFactory.createItemCoordinatorBox(navController: navController)
                 itemCoordinatorBox.itemCoordinator.start()
                 self.addDependancy(itemCoordinatorBox.itemCoordinator)
             }
         }
     }
     
-    func runSettingsCoordinator() -> ((UINavigationController?) -> ()) {
-        return { result in
-            if result?.viewControllers.isEmpty == true {
-                let settingsCoordinatorBox = self.coordinatorFactory.createSettingsCoordinatorBox(navController: result)
+    func runSettingsCoordinator() -> ((UINavigationController) -> ()) {
+        return { navController in
+            if navController.viewControllers.isEmpty == true {
+                let settingsCoordinatorBox = self.coordinatorFactory.createSettingsCoordinatorBox(navController: navController)
                 settingsCoordinatorBox.settingsCoordinator.start()
                 self.addDependancy(settingsCoordinatorBox.settingsCoordinator)
             }

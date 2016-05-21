@@ -10,39 +10,34 @@ import UIKit
 
 protocol TabbarFlowOutput {
     
-    var onItemFlowSelect: (UINavigationController? -> ())? { get set }
-    var onSettingsFlowSelect: (UINavigationController? -> ())? { get set }
-    var onViewDidLoad: (UINavigationController? -> ())? { get set }
+    var onItemFlowSelect: (UINavigationController -> ())? { get set }
+    var onSettingsFlowSelect: (UINavigationController -> ())? { get set }
+    var onViewDidLoad: (UINavigationController -> ())? { get set }
 }
 
 final class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarFlowOutput {
     
-    var onItemFlowSelect: (UINavigationController? -> ())?
-    var onSettingsFlowSelect: (UINavigationController? -> ())?
-    var onViewDidLoad: (UINavigationController? -> ())?
+    var onItemFlowSelect: (UINavigationController -> ())?
+    var onSettingsFlowSelect: (UINavigationController -> ())?
+    var onViewDidLoad: (UINavigationController -> ())?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         delegate = self
-        onViewDidLoad?(customizableViewControllers?[0] as? UINavigationController)
+        if let controller = customizableViewControllers?.first as? UINavigationController {
+            onViewDidLoad?(controller)
+        }
     }
 
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        guard let controller = viewControllers?[selectedIndex] as? UINavigationController else { return }
         
-        if tabBarController.selectedIndex == 0 {
-            onItemFlowSelect?(viewControllers?[0] as? UINavigationController)
-            //tabbarHandler(.FirstTab)
+        if selectedIndex == 0 {
+            onItemFlowSelect?(controller)
         }
-        else if tabBarController.selectedIndex == 1 {
-            //tabbarHandler(.SecondTab)
-            onSettingsFlowSelect?(viewControllers?[0] as? UINavigationController)
+        else if selectedIndex == 1 {
+            onSettingsFlowSelect?(controller)
         }
-    }
-    
-    func itemTabController() -> UINavigationController? {
-        return viewControllers?[0] as? UINavigationController
-    }
-    
-    func settingsTabController() -> UINavigationController? {
-        return viewControllers?[1] as? UINavigationController
     }
 }
