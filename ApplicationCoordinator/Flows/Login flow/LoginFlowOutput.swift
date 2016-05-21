@@ -7,7 +7,6 @@
 //
 
 protocol LoginFlowOutput: FlowControllerOutput {
-    var onHideButtonTap: (() -> ())? { get set }
     var onCompleteAuth: (() -> ())? { get set }
     var onSignUpButtonTap: (() -> ())? { get set }
 }

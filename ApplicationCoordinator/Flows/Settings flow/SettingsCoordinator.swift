@@ -9,7 +9,7 @@
 class SettingsCoordinator: BaseCoordinator {
 
     var factory: SettingsControllersFactory
-    var router: Router?
+    var router: Router
     
     init(router: Router,
          factory: SettingsControllersFactory) {
@@ -25,6 +25,6 @@ class SettingsCoordinator: BaseCoordinator {
     
     func showSettings() {
         let settingsFlowBox = factory.createSettingsBox()
-        router?.push(settingsFlowBox.controller, animated: false)
+        router.push(settingsFlowBox.controller, animated: false)
     }
 }

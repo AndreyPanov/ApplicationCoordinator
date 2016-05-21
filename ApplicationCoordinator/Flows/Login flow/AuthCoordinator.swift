@@ -6,15 +6,21 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-class AuthCoordinator: BaseCoordinator {
-/*
+protocol AuthCoordinatorOutput {
+    var finishFlow: (()->())? { get set }
+}
+
+class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
+
     var factory: AuthControllersFactory
-    var presenter: NavigationPresenter?
+    var router: Router
+    var finishFlow: (()->())?
     
-    init(presenter: NavigationPresenter) {
+    init(router: Router,
+         factory: AuthControllersFactory) {
         
-        factory = AuthControllersFactory()
-        self.presenter = presenter
+        self.factory = factory
+        self.router = router
     }
     
     override func start() {
@@ -26,24 +32,21 @@ class AuthCoordinator: BaseCoordinator {
     func showLogin() {
         
         let loginBox = factory.createLoginBox()
-        loginBox.output.onHideButtonTap = { [weak self] in
-            self?.flowCompletionHandler?()
-        }
         loginBox.output.onCompleteAuth = { [weak self] in
-            self?.flowCompletionHandler?()
+            self?.finishFlow?()
         }
         loginBox.output.onSignUpButtonTap = { [weak self] in
             self?.showSignUp()
         }
-        presenter?.push(loginBox.controller, animated: false)
+        router.push(loginBox.controller, animated: false)
     }
     
     func showSignUp() {
         
         let signUpBox = factory.createSignUpBox()
         signUpBox.output.onSignUpComplete = { [weak self] in
-            self?.flowCompletionHandler?()
+            self?.finishFlow?()
         }
-        presenter?.push(signUpBox.controller)
-    }*/
+        router.push(signUpBox.controller)
+    }
 }

@@ -11,7 +11,7 @@ class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemControllersFactory
     var coordinatorFactory: CoordinatorFactory
-    var router: Router?
+    var router: Router
     
     init(router: Router,
          factory: ItemControllersFactory,
@@ -23,17 +23,7 @@ class ItemCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        
-        // Just example
-        // In real project we would be call some AuthManager and check user valid session.
-        let isUserAuth = true
-        if isUserAuth {
-            showItemList()
-        } else {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.runAuthCoordinator()
-            })
-        }
+        showItemList()
     }
     
 //MARK: - Run current flow's controllers
@@ -41,38 +31,36 @@ class ItemCoordinator: BaseCoordinator {
     func showItemList() {
       
         let itemFlowBox = factory.createItemsBox()
+        itemFlowBox.output.authCheckNeed = { [weak self] in
+            self?.runAuthCoordinator()
+        }
         itemFlowBox.output.onItemSelect = { [weak self] (item) in
             self?.showItemDetail(item)
         }
         itemFlowBox.output.onCreateButtonTap = { [weak self] in
             self?.runCreationCoordinator()
         }
-        router?.push(itemFlowBox.controller, animated: false)
+        router.push(itemFlowBox.controller, animated: false)
     }
     
     func showItemDetail(item: ItemList) {
         
         let itemDetailFlowBox = factory.createItemDetailBox()
         itemDetailFlowBox.input.itemList = item
-        router?.push(itemDetailFlowBox.controller)
+        router.push(itemDetailFlowBox.controller)
     }
     
 //MARK: - Run coordinators (switch to another flow)
     
     func runAuthCoordinator() {
-    /*
-        let authTuple = coordinatorFactory.createAuthCoordinatorBox()
-        let authCoordinator = authTuple.authCoordinator
-        authCoordinator.flowCompletionHandler = { [weak self] in
-            
-            self?.presenterBox.presenter()?.dismissController()
-            self?.removeDependancy(authCoordinator)
-            self?.showItemList()
+        let authFlowBox = coordinatorFactory.createAuthCoordinatorBox()
+        authFlowBox.authCoordinator.finishFlow = { [weak self] in
+            self?.router.dismissController()
+            self?.removeDependancy(authFlowBox.authCoordinator)
         }
-        
-        addDependancy(authCoordinator)
-        presenterBox.presenter()?.present(authTuple.presenter)
-        authCoordinator.start()*/
+        addDependancy(authFlowBox.authCoordinator)
+        router.present(authFlowBox.router.rootController, animated: false)
+        authFlowBox.authCoordinator.start()
     }
     
     func runCreationCoordinator() {

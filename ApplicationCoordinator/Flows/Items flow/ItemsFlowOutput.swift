@@ -7,6 +7,7 @@
 //
 
 protocol ItemsFlowOutput: FlowControllerOutput {
+    var authCheckNeed: (() -> ())? { get set }
     var onItemSelect: (ItemList -> ())? { get set }
     var onCreateButtonTap: (() -> ())? { get set }
 }

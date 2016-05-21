@@ -11,18 +11,28 @@ import UIKit
 class ItemsListController: UIViewController, ItemsFlowOutput {
     
     //controller handler
+    var authCheckNeed: (() -> ())?
     var onItemSelect: (ItemList -> ())?
     var onCreateButtonTap: (() -> ())?
     
     @IBOutlet weak var tableView: UITableView!
     //mock datasource
     var items = (0...10).map { index in return ItemList(title: "Item № \(index)", subtitle: "Item descripton") }
+    var authCheck = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Items"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(ItemsListController.addItemButtonClicked(_:)))
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if !authCheck {
+            authCheckNeed?()
+            authCheck = true
+        }
     }
     
     @IBAction func addItemButtonClicked(sender: UIBarButtonItem) {
