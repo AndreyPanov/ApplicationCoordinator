@@ -9,21 +9,17 @@ import UIKit
 
 class CoordinatorFactory {
     
-    func createItemCoordinatorBox(navController navController: UINavigationController? = nil) ->
-        (itemCoordinator: ItemCoordinator,
-        router: Router) {
+    func createItemCoordinator(navController navController: UINavigationController? = nil) -> Coordinator {
         let coordinator = ItemCoordinator(router: router(navController),
                                          factory: ItemControllersFactory(),
                               coordinatorFactory: CoordinatorFactory())
-        return (coordinator, coordinator.router)
+        return coordinator
     }
     
-    func createSettingsCoordinatorBox(navController navController: UINavigationController? = nil) ->
-        (settingsCoordinator: SettingsCoordinator,
-        router: Router) {
+    func createSettingsCoordinator(navController navController: UINavigationController? = nil) -> Coordinator {
         let coordinator = SettingsCoordinator(router: router(navController),
                                              factory: SettingsControllersFactory())
-        return (coordinator, coordinator.router)
+        return coordinator
     }
     
     func createItemCreationCoordinatorBox(navController navController: UINavigationController? = nil) ->
@@ -36,11 +32,13 @@ class CoordinatorFactory {
     }
     
     func createAuthCoordinatorBox(navController navController: UINavigationController? = nil) ->
-        (authCoordinator: AuthCoordinator,
-        router: Router) {
-        let coordinator = AuthCoordinator(router: router(navController),
+        (coordinator: Coordinator,
+        output: AuthCoordinatorOutput,
+        controllerForPresent: UIViewController?) {
+            let router = self.router(navController)
+            let coordinator = AuthCoordinator(router: router,
                                          factory: AuthControllersFactory())
-        return (coordinator, coordinator.router)
+        return (coordinator, coordinator, router.rootController)
     }
     
     private func router(navController: UINavigationController?) -> Router {

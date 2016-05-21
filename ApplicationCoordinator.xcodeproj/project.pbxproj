@@ -30,7 +30,7 @@
 		0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC61CCBC6740022E830 /* ItemList.swift */; };
 		0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */; };
 		0E3CCFCB1CCBFB150022E830 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFCA1CCBFB150022E830 /* Setting.swift */; };
-		0EB348381CEA42DD001DEBE4 /* ItemDetailFlowInputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB348371CEA42DD001DEBE4 /* ItemDetailFlowInputOutput.swift */; };
+		0EB348381CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB348371CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift */; };
 		0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCA2F41CEE365300A6E385 /* Router.swift */; };
 		D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7631CD9126F004C38B3 /* Coordinator.swift */; };
 		D541E7661CD9128B004C38B3 /* FlowControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7651CD9128B004C38B3 /* FlowControllerOutput.swift */; };
@@ -76,7 +76,7 @@
 		0E3CCFC61CCBC6740022E830 /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		0E3CCFCA1CCBFB150022E830 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
-		0EB348371CEA42DD001DEBE4 /* ItemDetailFlowInputOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailFlowInputOutput.swift; sourceTree = "<group>"; };
+		0EB348371CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailFlowOutput.swift; sourceTree = "<group>"; };
 		0EDCA2F41CEE365300A6E385 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D541E7631CD9126F004C38B3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 				0E3CCFB31CCBBCA20022E830 /* ItemCoordinator.swift */,
 				D5B302D61CE8C85800F587AA /* ItemsFlowOutput.swift */,
 				0E3CCFB51CCBBFC10022E830 /* ItemsListController.swift */,
-				0EB348371CEA42DD001DEBE4 /* ItemDetailFlowInputOutput.swift */,
+				0EB348371CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift */,
 				0E3CCFB71CCBBFD70022E830 /* ItemDetailController.swift */,
 			);
 			path = "Items flow";
@@ -405,7 +405,7 @@
 				D5FDC8501CEB3AE0001C3DF3 /* SignUpFlowOutput.swift in Sources */,
 				D5FDC84E1CEB3579001C3DF3 /* LoginFlowOutput.swift in Sources */,
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
-				0EB348381CEA42DD001DEBE4 /* ItemDetailFlowInputOutput.swift in Sources */,
+				0EB348381CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift in Sources */,
 				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,
 				D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,

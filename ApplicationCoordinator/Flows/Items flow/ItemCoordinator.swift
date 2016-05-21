@@ -45,22 +45,21 @@ class ItemCoordinator: BaseCoordinator {
     
     func showItemDetail(item: ItemList) {
         
-        let itemDetailFlowBox = factory.createItemDetailBox()
-        itemDetailFlowBox.input.itemList = item
+        let itemDetailFlowBox = factory.createItemDetailBox(item: item)
         router.push(itemDetailFlowBox.controller)
     }
     
 //MARK: - Run coordinators (switch to another flow)
     
     func runAuthCoordinator() {
-        let authFlowBox = coordinatorFactory.createAuthCoordinatorBox()
-        authFlowBox.authCoordinator.finishFlow = { [weak self] in
+        var authFlowBox = coordinatorFactory.createAuthCoordinatorBox()
+        authFlowBox.output.finishFlow = { [weak self] in
             self?.router.dismissController()
-            self?.removeDependancy(authFlowBox.authCoordinator)
+            self?.removeDependancy(authFlowBox.coordinator)
         }
-        addDependancy(authFlowBox.authCoordinator)
-        router.present(authFlowBox.router.rootController, animated: false)
-        authFlowBox.authCoordinator.start()
+        addDependancy(authFlowBox.coordinator)
+        router.present(authFlowBox.controllerForPresent, animated: false)
+        authFlowBox.coordinator.start()
     }
     
     func runCreationCoordinator() {

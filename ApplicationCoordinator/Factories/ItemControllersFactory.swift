@@ -15,12 +15,12 @@ class ItemControllersFactory {
         return (controller, controller)
     }
     
-    func createItemDetailBox() -> (
+    func createItemDetailBox(item item: ItemList) -> (
         controller: UIViewController,
-        input: ItemDetailFlowInput,
         output: ItemDetailFlowOutput) {
             
             let controller = ItemDetailController.controllerFromStoryboard(.Items)
-            return (controller, controller, controller)
+            controller.itemList = item
+            return (controller, controller)
     }
 }
