@@ -11,7 +11,7 @@ import UIKit
 class ItemsListController: UIViewController, ItemsFlowOutput {
     
     //controller handler
-    var authCheckNeed: (() -> ())?
+    var authNeed: (() -> ())?
     var onItemSelect: (ItemList -> ())?
     var onCreateButtonTap: (() -> ())?
     
@@ -30,7 +30,7 @@ class ItemsListController: UIViewController, ItemsFlowOutput {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if !authCheck {
-            authCheckNeed?()
+            authNeed?()
             authCheck = true
         }
     }

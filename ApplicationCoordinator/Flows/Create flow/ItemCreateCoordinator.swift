@@ -6,15 +6,21 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-class ItemCreateCoordinator: BaseCoordinator {
-/*
+protocol ItemCreateCoordinatorOutput {
+    var finishFlow: (()->())? { get set }
+}
+
+class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
+
     var factory: ItemCreateControllersFactory
-    var presenter: NavigationPresenter?
+    var router: Router
+    var finishFlow: (()->())?
     
-    init(presenter: NavigationPresenter) {
+    init(router: Router,
+        factory: ItemCreateControllersFactory) {
         
-        factory = ItemCreateControllersFactory()
-        self.presenter = presenter
+        self.factory = ItemCreateControllersFactory()
+        self.router = router
     }
     
     override func start() {
@@ -27,11 +33,11 @@ class ItemCreateCoordinator: BaseCoordinator {
         
         let createItemFlow = factory.createItemAddBox()
         createItemFlow.output.onCompleteCreateItem = { [weak self] in
-            self?.presenter?.dismissController()
+            self?.finishFlow?()
         }
         createItemFlow.output.onHideButtonTap = { [weak self] in
-            self?.presenter?.dismissController()
+            self?.finishFlow?()
         }
-        presenter?.push(createItemFlow.controller, animated: false)
-    }*/
+        router.push(createItemFlow.controller, animated: false)
+    }
 }

@@ -31,7 +31,7 @@ class ItemCoordinator: BaseCoordinator {
     func showItemList() {
       
         let itemFlowBox = factory.createItemsBox()
-        itemFlowBox.output.authCheckNeed = { [weak self] in
+        itemFlowBox.output.authNeed = { [weak self] in
             self?.runAuthCoordinator()
         }
         itemFlowBox.output.onItemSelect = { [weak self] (item) in
@@ -64,16 +64,15 @@ class ItemCoordinator: BaseCoordinator {
     }
     
     func runCreationCoordinator() {
-        /*
-        let creationTuple = coordinatorFactory.createItemCreationCoordinatorBox()
-        let creationCoordinator = creationTuple.createCoordinator
-        creationCoordinator.flowCompletionHandler = { [weak self] in
+        
+        let creationBox = coordinatorFactory.createItemCreationCoordinatorBox()
+        creationBox.createCoordinator.finishFlow = { [weak self] in
             
-            self?.presenterBox.presenter()?.dismissController()
-            self?.removeDependancy(creationCoordinator)
+            self?.router.dismissController()
+            self?.removeDependancy(creationBox.createCoordinator)
         }
-        addDependancy(creationCoordinator)
-        presenterBox.presenter()?.present(creationTuple.presenter)
-        creationCoordinator.start()*/
+        addDependancy(creationBox.createCoordinator)
+        router.present(creationBox.router.rootController)
+        creationBox.createCoordinator.start()
     }
 }
