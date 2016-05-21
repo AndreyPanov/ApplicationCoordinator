@@ -51,5 +51,6 @@ extension ItemsListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         onItemSelect?(items[indexPath.row])
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

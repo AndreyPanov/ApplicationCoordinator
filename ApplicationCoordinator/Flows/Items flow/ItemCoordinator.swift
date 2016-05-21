@@ -11,7 +11,7 @@ class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemControllersFactory
     var coordinatorFactory: CoordinatorFactory
-    weak var router: Router?
+    var router: Router?
     
     init(router: Router,
          factory: ItemControllersFactory,
