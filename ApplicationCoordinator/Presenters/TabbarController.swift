@@ -23,7 +23,7 @@ final class TabbarController: UITabBarController, UITabBarControllerDelegate, Ta
     
     override func viewDidLoad() {
         delegate = self
-        onViewDidLoad?(selectedViewController as? UINavigationController)
+        onViewDidLoad?(customizableViewControllers?[0] as? UINavigationController)
     }
 
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
