@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemCreateControllersFactoryImp: ItemCreateControllersFactory {
+final class ItemCreateControllersFactoryImp: ItemCreateControllersFactory {
     
     func createItemAddBox() ->
         (controllerForPresent: UIViewController,

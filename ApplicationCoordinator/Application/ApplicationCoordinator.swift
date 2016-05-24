@@ -26,7 +26,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         tabbarFlowOutput.onSettingsFlowSelect = runSettingsCoordinator()
     }
     
-    func runItemCoordinator() -> ((UINavigationController) -> ()) {
+    private func runItemCoordinator() -> ((UINavigationController) -> ()) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
                 let itemCoordinator = self.coordinatorFactory.createItemCoordinator(navController: navController)
@@ -36,7 +36,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         }
     }
     
-    func runSettingsCoordinator() -> ((UINavigationController) -> ()) {
+    private func runSettingsCoordinator() -> ((UINavigationController) -> ()) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
                 let settingsCoordinator = self.coordinatorFactory.createSettingsCoordinator(navController: navController)

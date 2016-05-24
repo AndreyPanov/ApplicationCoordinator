@@ -6,11 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol AuthCoordinatorOutput {
-    var finishFlow: (()->())? { get set }
-}
-
-class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
+final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
 
     var factory: AuthControllersFactory
     var router: Router
@@ -29,7 +25,7 @@ class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     //MARK: - Run current flow's controllers
     
-    func showLogin() {
+    private func showLogin() {
         
         let loginBox = factory.createLoginBox()
         loginBox.output.onCompleteAuth = { [weak self] in
@@ -41,7 +37,7 @@ class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         router.push(loginBox.controllerForPresent, animated: false)
     }
     
-    func showSignUp() {
+    private func showSignUp() {
         
         let signUpBox = factory.createSignUpBox()
         signUpBox.output.onSignUpComplete = { [weak self] in

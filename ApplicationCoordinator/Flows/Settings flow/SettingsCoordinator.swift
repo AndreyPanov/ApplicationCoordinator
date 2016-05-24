@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-class SettingsCoordinator: BaseCoordinator {
+final class SettingsCoordinator: BaseCoordinator {
 
     var factory: SettingsControllersFactory
     var router: Router
@@ -23,7 +23,7 @@ class SettingsCoordinator: BaseCoordinator {
     
     //MARK: - Run current flow's controllers
     
-    func showSettings() {
+    private func showSettings() {
         let settingsFlowBox = factory.createSettingsBox()
         router.push(settingsFlowBox.controllerForPresent, animated: false)
     }

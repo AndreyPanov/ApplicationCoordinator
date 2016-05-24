@@ -12,7 +12,9 @@ class BaseCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
 
-    func start() { }
+    func start() {
+        assertionFailure("must be overriden")
+    }
     
     // add only unique object
     func addDependancy(coordinator: Coordinator) {

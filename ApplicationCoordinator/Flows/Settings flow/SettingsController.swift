@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsController: UIViewController, SettingsFlowOutput {
+final class SettingsController: UIViewController, SettingsFlowOutput {
 
     //controller handler
     

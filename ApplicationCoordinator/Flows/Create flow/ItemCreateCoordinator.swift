@@ -6,11 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol ItemCreateCoordinatorOutput {
-    var finishFlow: (()->())? { get set }
-}
-
-class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
+final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
 
     var factory: ItemCreateControllersFactory
     var router: Router
@@ -29,7 +25,7 @@ class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
     
 //MARK: - Run current flow's controllers
     
-    func showCreate() {
+    private func showCreate() {
         
         let createItemFlow = factory.createItemAddBox()
         createItemFlow.output.onCompleteCreateItem = { [weak self] in

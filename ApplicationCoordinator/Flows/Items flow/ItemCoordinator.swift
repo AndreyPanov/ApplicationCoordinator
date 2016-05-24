@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ItemCoordinator: BaseCoordinator {
+final class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemControllersFactory
     var coordinatorFactory: CoordinatorFactory
@@ -28,7 +28,7 @@ class ItemCoordinator: BaseCoordinator {
     
 //MARK: - Run current flow's controllers
     
-    func showItemList() {
+    private func showItemList() {
       
         let itemFlowBox = factory.createItemsBox()
         itemFlowBox.output.authNeed = { [weak self] in
@@ -43,7 +43,7 @@ class ItemCoordinator: BaseCoordinator {
         router.push(itemFlowBox.controllerForPresent, animated: false)
     }
     
-    func showItemDetail(item: ItemList) {
+    private func showItemDetail(item: ItemList) {
         
         let itemDetailFlowBox = factory.createItemDetailBox(item: item)
         router.push(itemDetailFlowBox.controllerForPresent)
@@ -51,7 +51,7 @@ class ItemCoordinator: BaseCoordinator {
     
 //MARK: - Run coordinators (switch to another flow)
     
-    func runAuthCoordinator() {
+    private func runAuthCoordinator() {
         var authFlowBox = coordinatorFactory.createAuthCoordinatorBox()
         authFlowBox.output.finishFlow = { [weak self] in
             self?.router.dismissController()
@@ -62,7 +62,7 @@ class ItemCoordinator: BaseCoordinator {
         authFlowBox.coordinator.start()
     }
     
-    func runCreationCoordinator() {
+    private func runCreationCoordinator() {
         
         var creationBox = coordinatorFactory.createItemCreationCoordinatorBox()
         creationBox.output.finishFlow = { [weak self] in

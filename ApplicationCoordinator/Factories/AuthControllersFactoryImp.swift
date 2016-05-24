@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthControllersFactoryImp: AuthControllersFactory {
+final class AuthControllersFactoryImp: AuthControllersFactory {
     
     func createLoginBox() ->
         (controllerForPresent: UIViewController,

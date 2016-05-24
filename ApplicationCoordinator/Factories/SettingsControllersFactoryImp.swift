@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsControllersFactoryImp: SettingsControllersFactory {
+final class SettingsControllersFactoryImp: SettingsControllersFactory {
     
     func createSettingsBox() ->
         (controllerForPresent: UIViewController,
