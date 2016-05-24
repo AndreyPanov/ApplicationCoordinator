@@ -15,7 +15,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     
     func createItemCoordinator(navController navController: UINavigationController?) -> Coordinator {
         let coordinator = ItemCoordinator(router: router(navController),
-                                          factory: ItemControllersFactory(),
+                                          factory: ItemControllersFactoryImp(),
                                           coordinatorFactory: CoordinatorFactoryImp())
         return coordinator
     }
@@ -26,7 +26,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     
     func createSettingsCoordinator(navController navController: UINavigationController? = nil) -> Coordinator {
         let coordinator = SettingsCoordinator(router: router(navController),
-                                              factory: SettingsControllersFactory())
+                                              factory: SettingsControllersFactoryImp())
         return coordinator
     }
     
@@ -42,7 +42,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
             
             let router = self.router(navController)
             let coordinator = ItemCreateCoordinator(router: router,
-                                                    factory: ItemCreateControllersFactory())
+                                                    factory: ItemCreateControllersFactoryImp())
             return (coordinator, router.rootController)
     }
     
@@ -60,7 +60,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
         controllerForPresent: UIViewController?) {
             let router = self.router(navController)
             let coordinator = AuthCoordinator(router: router,
-                                              factory: AuthControllersFactory())
+                                              factory: AuthControllersFactoryImp())
             return (coordinator, coordinator, router.rootController)
     }
     

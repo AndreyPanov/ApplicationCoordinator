@@ -31,6 +31,10 @@
 		0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */; };
 		0E3CCFCB1CCBFB150022E830 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFCA1CCBFB150022E830 /* Setting.swift */; };
 		0E6A42BE1CF4DE62005746EC /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42BD1CF4DE62005746EC /* CoordinatorFactory.swift */; };
+		0E6A42C01CF4E06C005746EC /* ItemControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42BF1CF4E06C005746EC /* ItemControllersFactory.swift */; };
+		0E6A42C21CF4E29F005746EC /* ItemCreateControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C11CF4E29F005746EC /* ItemCreateControllersFactory.swift */; };
+		0E6A42C41CF4E300005746EC /* AuthControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C31CF4E300005746EC /* AuthControllersFactory.swift */; };
+		0E6A42C61CF4E45F005746EC /* SettingsControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C51CF4E45F005746EC /* SettingsControllersFactory.swift */; };
 		0EB348381CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB348371CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift */; };
 		0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCA2F41CEE365300A6E385 /* Router.swift */; };
 		D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7631CD9126F004C38B3 /* Coordinator.swift */; };
@@ -38,10 +42,10 @@
 		D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7691CD91304004C38B3 /* RouterImp.swift */; };
 		D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E76B1CD9134A004C38B3 /* TabbarController.swift */; };
 		D545E4A21CD1FF40002B6F8F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */; };
-		D5505CBF1CDF671A0012CBA6 /* ItemControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CBE1CDF671A0012CBA6 /* ItemControllersFactory.swift */; };
-		D5505CC11CDF673D0012CBA6 /* ItemCreateControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactory.swift */; };
-		D5505CC31CDF67650012CBA6 /* AuthControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC21CDF67650012CBA6 /* AuthControllersFactory.swift */; };
-		D5505CC51CDF67860012CBA6 /* SettingsControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC41CDF67860012CBA6 /* SettingsControllersFactory.swift */; };
+		D5505CBF1CDF671A0012CBA6 /* ItemControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CBE1CDF671A0012CBA6 /* ItemControllersFactoryImp.swift */; };
+		D5505CC11CDF673D0012CBA6 /* ItemCreateControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactoryImp.swift */; };
+		D5505CC31CDF67650012CBA6 /* AuthControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC21CDF67650012CBA6 /* AuthControllersFactoryImp.swift */; };
+		D5505CC51CDF67860012CBA6 /* SettingsControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC41CDF67860012CBA6 /* SettingsControllersFactoryImp.swift */; };
 		D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC61CDF67F60012CBA6 /* UIViewExtensions.swift */; };
 		D5505CC91CDF68260012CBA6 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */; };
 		D5505CCB1CDF68D10012CBA6 /* StoryboardsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5505CCA1CDF68D10012CBA6 /* StoryboardsEnum.swift */; };
@@ -58,7 +62,7 @@
 		0E3CCF831CCBBB670022E830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E3CCF851CCBBB670022E830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		0E3CCF881CCBBB670022E830 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		0E3CCF931CCBBB670022E830 /* CoordinatorFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CoordinatorFactoryImp.swift; path = ../Protocols/CoordinatorFactoryImp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0E3CCF931CCBBB670022E830 /* CoordinatorFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CoordinatorFactoryImp.swift; path = ../../Protocols/CoordinatorFactoryImp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0E3CCF971CCBBB670022E830 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		0E3CCF981CCBBB670022E830 /* Items.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Items.storyboard; sourceTree = "<group>"; };
 		0E3CCFAB1CCBBBFB0022E830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +82,10 @@
 		0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		0E3CCFCA1CCBFB150022E830 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		0E6A42BD1CF4DE62005746EC /* CoordinatorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		0E6A42BF1CF4E06C005746EC /* ItemControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemControllersFactory.swift; sourceTree = "<group>"; };
+		0E6A42C11CF4E29F005746EC /* ItemCreateControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateControllersFactory.swift; sourceTree = "<group>"; };
+		0E6A42C31CF4E300005746EC /* AuthControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthControllersFactory.swift; sourceTree = "<group>"; };
+		0E6A42C51CF4E45F005746EC /* SettingsControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsControllersFactory.swift; sourceTree = "<group>"; };
 		0EB348371CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailFlowOutput.swift; sourceTree = "<group>"; };
 		0EDCA2F41CEE365300A6E385 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,10 +94,10 @@
 		D541E7691CD91304004C38B3 /* RouterImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RouterImp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D541E76B1CD9134A004C38B3 /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabbarController.swift; path = ../Presenters/TabbarController.swift; sourceTree = "<group>"; };
 		D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		D5505CBE1CDF671A0012CBA6 /* ItemControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemControllersFactory.swift; sourceTree = "<group>"; };
-		D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateControllersFactory.swift; sourceTree = "<group>"; };
-		D5505CC21CDF67650012CBA6 /* AuthControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthControllersFactory.swift; sourceTree = "<group>"; };
-		D5505CC41CDF67860012CBA6 /* SettingsControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsControllersFactory.swift; sourceTree = "<group>"; };
+		D5505CBE1CDF671A0012CBA6 /* ItemControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemControllersFactoryImp.swift; path = ../ItemControllersFactoryImp.swift; sourceTree = "<group>"; };
+		D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateControllersFactoryImp.swift; path = ../ItemCreateControllersFactoryImp.swift; sourceTree = "<group>"; };
+		D5505CC21CDF67650012CBA6 /* AuthControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthControllersFactoryImp.swift; path = ../AuthControllersFactoryImp.swift; sourceTree = "<group>"; };
+		D5505CC41CDF67860012CBA6 /* SettingsControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsControllersFactoryImp.swift; path = ../SettingsControllersFactoryImp.swift; sourceTree = "<group>"; };
 		D5505CC61CDF67F60012CBA6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D5505CC81CDF68260012CBA6 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 		D5505CCA1CDF68D10012CBA6 /* StoryboardsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardsEnum.swift; sourceTree = "<group>"; };
@@ -243,6 +251,18 @@
 			path = ApplicationCoordinator/Model;
 			sourceTree = SOURCE_ROOT;
 		};
+		0E6A42C71CF4E4C4005746EC /* Imp */ = {
+			isa = PBXGroup;
+			children = (
+				0E3CCF931CCBBB670022E830 /* CoordinatorFactoryImp.swift */,
+				D5505CBE1CDF671A0012CBA6 /* ItemControllersFactoryImp.swift */,
+				D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactoryImp.swift */,
+				D5505CC21CDF67650012CBA6 /* AuthControllersFactoryImp.swift */,
+				D5505CC41CDF67860012CBA6 /* SettingsControllersFactoryImp.swift */,
+			);
+			path = Imp;
+			sourceTree = "<group>";
+		};
 		D50F9EE61C7A525E00C5A59F = {
 			isa = PBXGroup;
 			children = (
@@ -280,12 +300,12 @@
 		D541E7671CD912BD004C38B3 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				0E6A42C71CF4E4C4005746EC /* Imp */,
 				0E6A42BD1CF4DE62005746EC /* CoordinatorFactory.swift */,
-				0E3CCF931CCBBB670022E830 /* CoordinatorFactoryImp.swift */,
-				D5505CBE1CDF671A0012CBA6 /* ItemControllersFactory.swift */,
-				D5505CC01CDF673D0012CBA6 /* ItemCreateControllersFactory.swift */,
-				D5505CC21CDF67650012CBA6 /* AuthControllersFactory.swift */,
-				D5505CC41CDF67860012CBA6 /* SettingsControllersFactory.swift */,
+				0E6A42BF1CF4E06C005746EC /* ItemControllersFactory.swift */,
+				0E6A42C11CF4E29F005746EC /* ItemCreateControllersFactory.swift */,
+				0E6A42C31CF4E300005746EC /* AuthControllersFactory.swift */,
+				0E6A42C51CF4E45F005746EC /* SettingsControllersFactory.swift */,
 			);
 			name = Factories;
 			path = ApplicationCoordinator/Factories;
@@ -386,9 +406,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E3CCF991CCBBB670022E830 /* AppDelegate.swift in Sources */,
+				0E6A42C01CF4E06C005746EC /* ItemControllersFactory.swift in Sources */,
 				0E3CCFBA1CCBBFEF0022E830 /* LoginController.swift in Sources */,
 				0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */,
+				0E6A42C41CF4E300005746EC /* AuthControllersFactory.swift in Sources */,
 				D541E7661CD9128B004C38B3 /* FlowControllerInputOutput.swift in Sources */,
+				0E6A42C21CF4E29F005746EC /* ItemCreateControllersFactory.swift in Sources */,
 				0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */,
 				0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */,
 				D5FDC8521CEB4C4E001C3DF3 /* ItemCreateFlowOutput.swift in Sources */,
@@ -398,13 +421,13 @@
 				0E3CCFB81CCBBFD70022E830 /* ItemDetailController.swift in Sources */,
 				0E3CCFC01CCBC0600022E830 /* SettingsController.swift in Sources */,
 				0E3CCFA51CCBBB670022E830 /* CoordinatorFactoryImp.swift in Sources */,
-				D5505CC31CDF67650012CBA6 /* AuthControllersFactory.swift in Sources */,
+				D5505CC31CDF67650012CBA6 /* AuthControllersFactoryImp.swift in Sources */,
 				0E3CCFB61CCBBFC10022E830 /* ItemsListController.swift in Sources */,
 				0E6A42BE1CF4DE62005746EC /* CoordinatorFactory.swift in Sources */,
 				D5505CC91CDF68260012CBA6 /* NSObjectExtensions.swift in Sources */,
 				D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */,
-				D5505CC51CDF67860012CBA6 /* SettingsControllersFactory.swift in Sources */,
-				D5505CC11CDF673D0012CBA6 /* ItemCreateControllersFactory.swift in Sources */,
+				D5505CC51CDF67860012CBA6 /* SettingsControllersFactoryImp.swift in Sources */,
+				D5505CC11CDF673D0012CBA6 /* ItemCreateControllersFactoryImp.swift in Sources */,
 				0E3CCFC41CCBC0C00022E830 /* ItemCreateController.swift in Sources */,
 				D5FDC8501CEB3AE0001C3DF3 /* SignUpFlowOutput.swift in Sources */,
 				D5FDC84E1CEB3579001C3DF3 /* LoginFlowOutput.swift in Sources */,
@@ -412,9 +435,10 @@
 				0EB348381CEA42DD001DEBE4 /* ItemDetailFlowOutput.swift in Sources */,
 				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,
 				D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */,
+				0E6A42C61CF4E45F005746EC /* SettingsControllersFactory.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
 				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,
-				D5505CBF1CDF671A0012CBA6 /* ItemControllersFactory.swift in Sources */,
+				D5505CBF1CDF671A0012CBA6 /* ItemControllersFactoryImp.swift in Sources */,
 				0E3CCF9A1CCBBB670022E830 /* ApplicationCoordinator.swift in Sources */,
 				D5FDC8541CEB56A8001C3DF3 /* SettingsFlowOutput.swift in Sources */,
 				D545E4A21CD1FF40002B6F8F /* BaseCoordinator.swift in Sources */,

@@ -19,7 +19,7 @@ class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
     init(router: Router,
         factory: ItemCreateControllersFactory) {
         
-        self.factory = ItemCreateControllersFactory()
+        self.factory = ItemCreateControllersFactoryImp()
         self.router = router
     }
     
