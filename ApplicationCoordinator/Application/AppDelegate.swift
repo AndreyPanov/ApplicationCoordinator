@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private lazy var applicationCoordinator: ApplicationCoordinator = {
-        return ApplicationCoordinator(tabbarFlowOutput: self.window!.rootViewController as! TabbarController,
+        return ApplicationCoordinator(tabbarFlowOutput: self.window!.rootViewController as! TabbarFlowOutput,
                                       coordinatorFactory: CoordinatorFactoryImp())
     }()
 
