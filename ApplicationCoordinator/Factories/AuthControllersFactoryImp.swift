@@ -8,16 +8,21 @@
 
 import UIKit
 
-class AuthControllersFactory {
+class AuthControllersFactoryImp: AuthControllersFactory {
     
-    func createLoginBox() -> (controllerForPresent: UIViewController, output: LoginFlowOutput) {
-        let controller = LoginController.controllerFromStoryboard(.Auth)
-        return (controller, controller)
+    func createLoginBox() ->
+        (controllerForPresent: UIViewController,
+        output: LoginFlowOutput) {
+            
+            let controller = LoginController.controllerFromStoryboard(.Auth)
+            return (controller, controller)
     }
     
-    func createSignUpBox() -> (controllerForPresent: UIViewController, output: SignUpFlowOutput) {
-        
-        let controller = SignUpController.controllerFromStoryboard(.Auth)
-        return (controller, controller)
+    func createSignUpBox() ->
+        (controllerForPresent: UIViewController,
+        output: SignUpFlowOutput) {
+            
+            let controller = SignUpController.controllerFromStoryboard(.Auth)
+            return (controller, controller)
     }
 }
