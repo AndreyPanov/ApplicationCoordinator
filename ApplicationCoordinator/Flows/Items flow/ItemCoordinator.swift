@@ -64,14 +64,14 @@ class ItemCoordinator: BaseCoordinator {
     
     func runCreationCoordinator() {
         
-        let creationBox = coordinatorFactory.createItemCreationCoordinatorBox()
-        creationBox.createCoordinator.finishFlow = { [weak self] in
+        var creationBox = coordinatorFactory.createItemCreationCoordinatorBox()
+        creationBox.output.finishFlow = { [weak self] in
             
             self?.router.dismissController()
-            self?.removeDependancy(creationBox.createCoordinator)
+            self?.removeDependancy(creationBox.coordinator)
         }
-        addDependancy(creationBox.createCoordinator)
+        addDependancy(creationBox.coordinator)
         router.present(creationBox.controllerForPresent)
-        creationBox.createCoordinator.start()
+        creationBox.coordinator.start()
     }
 }

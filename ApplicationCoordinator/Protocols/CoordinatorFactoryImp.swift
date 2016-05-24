@@ -31,19 +31,21 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     }
     
     func createItemCreationCoordinatorBox() ->
-        (createCoordinator: ItemCreateCoordinator,
+        (coordinator: Coordinator,
+         output: ItemCreateCoordinatorOutput,
         controllerForPresent: UIViewController?) {
             
             return createItemCreationCoordinatorBox(navController: nil)
     }
     func createItemCreationCoordinatorBox(navController navController: UINavigationController? = nil) ->
-        (createCoordinator: ItemCreateCoordinator,
+        (coordinator: Coordinator,
+        output: ItemCreateCoordinatorOutput,
         controllerForPresent: UIViewController?) {
             
             let router = self.router(navController)
             let coordinator = ItemCreateCoordinator(router: router,
                                                     factory: ItemCreateControllersFactoryImp())
-            return (coordinator, router.rootController)
+            return (coordinator, coordinator, router.rootController)
     }
     
     func createAuthCoordinatorBox() ->

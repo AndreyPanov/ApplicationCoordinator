@@ -17,11 +17,13 @@ protocol CoordinatorFactory {
     func createSettingsCoordinator(navController navController: UINavigationController?) -> Coordinator
     
     func createItemCreationCoordinatorBox() ->
-        (createCoordinator: ItemCreateCoordinator,
+        (coordinator: Coordinator,
+        output: ItemCreateCoordinatorOutput,
         controllerForPresent: UIViewController?)
     
     func createItemCreationCoordinatorBox(navController navController: UINavigationController?) ->
-        (createCoordinator: ItemCreateCoordinator,
+        (coordinator: Coordinator,
+        output: ItemCreateCoordinatorOutput,
         controllerForPresent: UIViewController?)
     
     func createAuthCoordinatorBox() ->
