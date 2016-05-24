@@ -24,11 +24,11 @@ class CoordinatorFactory {
     
     func createItemCreationCoordinatorBox(navController navController: UINavigationController? = nil) ->
         (createCoordinator: ItemCreateCoordinator,
-        router: Router) {
-        
-        let coordinator = ItemCreateCoordinator(router: router(navController),
+        controllerForPresent: UIViewController?) {
+        let router = self.router(navController)
+        let coordinator = ItemCreateCoordinator(router: router,
                                                factory: ItemCreateControllersFactory())
-        return (coordinator, coordinator.router)
+        return (coordinator, router.rootController)
     }
     
     func createAuthCoordinatorBox(navController navController: UINavigationController? = nil) ->
