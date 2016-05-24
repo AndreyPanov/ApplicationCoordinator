@@ -40,13 +40,13 @@ class ItemCoordinator: BaseCoordinator {
         itemFlowBox.output.onCreateButtonTap = { [weak self] in
             self?.runCreationCoordinator()
         }
-        router.push(itemFlowBox.controller, animated: false)
+        router.push(itemFlowBox.controllerForPresent, animated: false)
     }
     
     func showItemDetail(item: ItemList) {
         
         let itemDetailFlowBox = factory.createItemDetailBox(item: item)
-        router.push(itemDetailFlowBox.controller)
+        router.push(itemDetailFlowBox.controllerForPresent)
     }
     
 //MARK: - Run coordinators (switch to another flow)
@@ -71,7 +71,7 @@ class ItemCoordinator: BaseCoordinator {
             self?.removeDependancy(creationBox.createCoordinator)
         }
         addDependancy(creationBox.createCoordinator)
-        router.present(creationBox.router.rootController)
+        router.present(creationBox.controllerForPresent)
         creationBox.createCoordinator.start()
     }
 }

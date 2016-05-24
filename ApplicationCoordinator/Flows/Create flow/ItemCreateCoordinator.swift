@@ -38,6 +38,6 @@ class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
         createItemFlow.output.onHideButtonTap = { [weak self] in
             self?.finishFlow?()
         }
-        router.push(createItemFlow.controller, animated: false)
+        router.push(createItemFlow.controllerForPresent, animated: false)
     }
 }

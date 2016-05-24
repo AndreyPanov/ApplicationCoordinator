@@ -15,4 +15,37 @@ final class RouterImp: Router {
     init(rootController: UINavigationController) {
         self.rootController = rootController
     }
+    
+    func present(controller: UIViewController?) {
+        present(controller, animated: true)
+    }
+    func present(controller: UIViewController?, animated: Bool) {
+        guard let controller = controller else { return }
+        rootController?.presentViewController(controller, animated: animated, completion: nil)
+    }
+    
+    func push(controller: UIViewController?)  {
+        push(controller, animated: true)
+    }
+    
+    func push(controller: UIViewController?, animated: Bool)  {
+        guard let controller = controller else { return }
+        rootController?.pushViewController(controller, animated: animated)
+    }
+    
+    func popController()  {
+        popController(true)
+    }
+    
+    func popController(animated: Bool)  {
+        rootController?.popViewControllerAnimated(animated)
+    }
+    
+    func dismissController() {
+        dismissController(true)
+    }
+    
+    func dismissController(animated: Bool) {
+        rootController?.dismissViewControllerAnimated(animated, completion: nil)
+    }
 }

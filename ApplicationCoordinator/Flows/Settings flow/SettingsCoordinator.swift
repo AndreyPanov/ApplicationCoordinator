@@ -25,6 +25,6 @@ class SettingsCoordinator: BaseCoordinator {
     
     func showSettings() {
         let settingsFlowBox = factory.createSettingsBox()
-        router.push(settingsFlowBox.controller, animated: false)
+        router.push(settingsFlowBox.controllerForPresent, animated: false)
     }
 }

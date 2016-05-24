@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsControllersFactory {
     
-    func createSettingsBox() -> (controller: UIViewController, output: SettingsFlowOutput) {
+    func createSettingsBox() -> (controllerForPresent: UIViewController, output: SettingsFlowOutput) {
         let controller = SettingsController.controllerFromStoryboard(.Settings)
         return (controller, controller)
     }

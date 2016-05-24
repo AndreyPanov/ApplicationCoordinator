@@ -38,7 +38,7 @@ class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         loginBox.output.onSignUpButtonTap = { [weak self] in
             self?.showSignUp()
         }
-        router.push(loginBox.controller, animated: false)
+        router.push(loginBox.controllerForPresent, animated: false)
     }
     
     func showSignUp() {
@@ -47,6 +47,6 @@ class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         signUpBox.output.onSignUpComplete = { [weak self] in
             self?.finishFlow?()
         }
-        router.push(signUpBox.controller)
+        router.push(signUpBox.controllerForPresent)
     }
 }

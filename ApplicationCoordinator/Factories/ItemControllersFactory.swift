@@ -11,14 +11,14 @@ import UIKit
 class ItemControllersFactory {
     
     func createItemsBox() ->
-        (controller: UIViewController,
+        (controllerForPresent: UIViewController,
         output: ItemsFlowOutput) {
         let controller = ItemsListController.controllerFromStoryboard(.Items)
         return (controller, controller)
     }
     
     func createItemDetailBox(item item: ItemList) ->
-        (controller: UIViewController,
+        (controllerForPresent: UIViewController,
         output: ItemDetailFlowOutput) {
             
             let controller = ItemDetailController.controllerFromStoryboard(.Items)

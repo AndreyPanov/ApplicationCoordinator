@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class CoordinatorFactory {
+final class CoordinatorFactory {
     
     func createItemCoordinator(navController navController: UINavigationController? = nil) -> Coordinator {
         let coordinator = ItemCoordinator(router: router(navController),

@@ -10,7 +10,7 @@ import UIKit
 
 class ItemCreateControllersFactory {
     
-    func createItemAddBox() -> (controller: UIViewController, output: ItemCreateFlowOutput) {
+    func createItemAddBox() -> (controllerForPresent: UIViewController, output: ItemCreateFlowOutput) {
         let controller = ItemCreateController.controllerFromStoryboard(.Create)
         return (controller, controller)
     }
