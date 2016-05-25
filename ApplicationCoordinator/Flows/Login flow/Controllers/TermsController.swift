@@ -8,8 +8,18 @@
 
 import UIKit
 
-class TermsController: UIViewController {
-
+class TermsController: UIViewController, TermsControllerOutput {
+    
+    var onPopController: ((Bool) -> ())?
+    var confirmed = false
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        onPopController?(confirmed)
+    }
+    
     @IBAction func termsSwitchValueChanged(sender: UISwitch) {
+        confirmed = sender.on
     }
 }
