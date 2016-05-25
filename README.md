@@ -6,43 +6,37 @@ My presentation and problem’s explanation: [speakerdeck.com](https://speakerde
 Example provides very basic structure with 6 controllers and 5 coordinators with mock data and logic.
 ![](/str.jpg)
 
-I created a protocol for coordinators:
+I used a protocol for coordinators in this example:
 ```swift
-typealias CoordinatorHandler = () -> ()
-
 protocol Coordinatable: class {
-    
-    var flowCompletionHandler: CoordinatorHandler? {get set}
     func start()
 }
 ```
-And a protocol for controllers:
+All flow controllers have a protocols (we need to configure blocks and handle callbacks in coordinators):
 ```swift
-protocol FlowController: NSObjectProtocol {
-    
-    associatedtype T //enum Actions type
-    var completionHandler: (T -> ())? {get set}
+protocol ItemsFlowOutput: FlowControllerOutput {
+    var authNeed: (() -> ())? { get set }
+    var onItemSelect: (ItemList -> ())? { get set }
+    var onCreateButtonTap: (() -> ())? { get set }
 }
 ```
-All controllers and coordinators have optional completionHandlers.
+In this example I use factories for creating  coordinators and controllers (we can mock them in tests).
 ```swift
-var completionHandler: (T -> ())?
+protocol CoordinatorFactory {
+    func createItemCoordinator(navController navController: UINavigationController?) -> Coordinator
+    func createItemCoordinator() -> Coordinator
+    
+    func createItemCreationCoordinatorBox() ->
+        (coordinator: Coordinator,
+        output: ItemCreateCoordinatorOutput,
+        controllerForPresent: UIViewController?)
+}
 ```
 The base coordinator stores dependancies of child coordinators
 ```swift
-class BaseCoordinator: Coordinatable {
+class BaseCoordinator {
     
-    var flowCompletionHandler:CoordinatorHandler?
     var childCoordinators: [Coordinatable] = []
-    private(set) weak var presenter: UINavigationController?
-    
-    init(presenter: UINavigationController) {
-        self.presenter = presenter
-    }
-    
-    func start() {
-        fatalError("must be overriden")
-    }
     
     func addDependancy(coordinator: Coordinatable) {
         childCoordinators.append(coordinator)
@@ -52,7 +46,7 @@ class BaseCoordinator: Coordinatable {
         guard childCoordinators.isEmpty == false else { return }
         
         for (index, element) in childCoordinators.enumerate() {
-            if unsafeAddressOf(element) == unsafeAddressOf(coordinator) {
+            if ObjectIdentifier(element) == ObjectIdentifier(coordinator) {
                 childCoordinators.removeAtIndex(index)
             }
         }
@@ -62,7 +56,8 @@ class BaseCoordinator: Coordinatable {
 AppDelegate store lazy reference for the Application Coordinator
 ```swift
 private lazy var applicationCoordinator: ApplicationCoordinator = {
-        return ApplicationCoordinator(presenter: self.window!.rootViewController as! UITabBarController)
+        return ApplicationCoordinator(tabbarFlowOutput: self.window!.rootViewController as! TabbarFlowOutput,
+                                      coordinatorFactory: CoordinatorFactoryImp())
     }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
