@@ -45,4 +45,8 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         }
         router.push(signUpBox.controllerForPresent)
     }
+    
+    private func showTerms(completionHandler: ((Bool) -> ())) {
+        
+    }
 }

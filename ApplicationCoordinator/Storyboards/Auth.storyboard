@@ -57,10 +57,22 @@
                                     <action selector="signUpClicked:" destination="zQv-zS-ySU" eventType="touchUpInside" id="4aS-6e-Aze"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZE-sn-IA8">
+                                <rect key="frame" x="205" y="390" width="191" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bik-CD-vrL"/>
+                                    <constraint firstAttribute="width" constant="191" id="gty-GC-rHk"/>
+                                </constraints>
+                                <state key="normal" title="Terms"/>
+                                <connections>
+                                    <action selector="termsButtonClicked:" destination="zQv-zS-ySU" eventType="touchUpInside" id="zvO-Qy-zjn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VUZ-zN-Uo1" firstAttribute="centerX" secondItem="rsE-DJ-HJd" secondAttribute="centerX" id="Cwr-sq-KkW"/>
+                            <constraint firstItem="aZE-sn-IA8" firstAttribute="centerX" secondItem="rsE-DJ-HJd" secondAttribute="centerX" id="GFI-UW-2RG"/>
                             <constraint firstItem="ee5-zy-TeX" firstAttribute="centerX" secondItem="rsE-DJ-HJd" secondAttribute="centerX" id="HdR-Jk-myI"/>
                             <constraint firstItem="XFP-wV-idQ" firstAttribute="top" secondItem="ee5-zy-TeX" secondAttribute="bottom" constant="20" id="NMG-hR-wXR"/>
                             <constraint firstItem="ee5-zy-TeX" firstAttribute="top" secondItem="VUZ-zN-Uo1" secondAttribute="bottom" constant="48" id="OkB-dd-MVl"/>
@@ -68,7 +80,7 @@
                             <constraint firstItem="jeV-I6-cyS" firstAttribute="top" secondItem="Smv-k4-wkp" secondAttribute="bottom" constant="102" id="QEX-lR-2lJ"/>
                             <constraint firstItem="XFP-wV-idQ" firstAttribute="centerX" secondItem="rsE-DJ-HJd" secondAttribute="centerX" id="SNw-CP-2qt"/>
                             <constraint firstItem="VUZ-zN-Uo1" firstAttribute="top" secondItem="jeV-I6-cyS" secondAttribute="bottom" constant="60" id="efh-Vb-5pO"/>
-                            <constraint firstItem="I5k-N2-1xf" firstAttribute="top" relation="lessThanOrEqual" secondItem="XFP-wV-idQ" secondAttribute="bottom" priority="990" constant="230" id="rnm-Pm-G8N"/>
+                            <constraint firstItem="aZE-sn-IA8" firstAttribute="top" secondItem="XFP-wV-idQ" secondAttribute="bottom" constant="20" id="tGV-xi-d9r"/>
                         </constraints>
                     </view>
                 </viewController>
