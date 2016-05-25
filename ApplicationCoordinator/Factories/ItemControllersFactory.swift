@@ -2,17 +2,19 @@
 //  ItemControllersFactory.swift
 //  ApplicationCoordinator
 //
-//  Created by Andrey Panov on 08.05.16.
+//  Created by Andrey Panov on 24/05/16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-class ItemControllersFactory {
+import UIKit
+
+protocol ItemControllersFactory {
     
-    func createItemsListController() -> ItemsListController {
-        return ItemsListController.controllerFromStoryboard(.Items)
-    }
+    func createItemsBox() ->
+        (controllerForPresent: UIViewController,
+        output: ItemsFlowOutput)
     
-    func createItemDetailController() -> ItemDetailController {
-        return ItemDetailController.controllerFromStoryboard(.Items)
-    }
+    func createItemDetailBox(item item: ItemList) ->
+        (controllerForPresent: UIViewController,
+        output: ItemDetailFlowOutput)
 }

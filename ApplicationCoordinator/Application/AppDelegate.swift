@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private lazy var applicationCoordinator: ApplicationCoordinator = {
-        return ApplicationCoordinator(presenter: self.window!.rootViewController as! UITabBarController)
+        return ApplicationCoordinator(tabbarFlowOutput: self.window!.rootViewController as! TabbarFlowOutput,
+                                      coordinatorFactory: CoordinatorFactoryImp())
     }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

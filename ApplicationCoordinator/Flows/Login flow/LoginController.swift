@@ -8,28 +8,23 @@
 
 import UIKit
 
-class LoginController: UIViewController, FlowController {
+final class LoginController: UIViewController, LoginFlowOutput {
 
     //controller handler
-    typealias T = AuthActions //enum Actions type
-    var completionHandler: (T -> ())?
+    var onCompleteAuth: (() -> ())?
+    var onSignUpButtonTap: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Login"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .Plain, target: self, action: #selector(ItemCreateController.hideButtonClicked(_:)))
-    }
-    
-    @IBAction func hideButtonClicked(sender: UIBarButtonItem) {
-        completionHandler?(.Hide)
     }
     
     @IBAction func loginButtonClicked(sender: AnyObject) {
-        completionHandler?(.Complete)
+        onCompleteAuth?()
     }
     
     @IBAction func signUpClicked(sender: AnyObject) {
-        completionHandler?(.SignUp)
+        onSignUpButtonTap?()
     }
 }

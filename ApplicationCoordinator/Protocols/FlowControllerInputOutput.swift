@@ -8,8 +8,5 @@
 
 import Foundation
 
-protocol FlowController: NSObjectProtocol {
-    
-    associatedtype T //enum Actions type
-    var completionHandler: (T -> ())? {get set}
-}
+protocol FlowControllerOutput: NSObjectProtocol { }
+protocol FlowControllerInput: NSObjectProtocol { }

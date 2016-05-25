@@ -6,20 +6,15 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
-enum SettingsActions {
-}
-
-class SettingsCoordinator: BaseCoordinator {
+final class SettingsCoordinator: BaseCoordinator {
 
     var factory: SettingsControllersFactory
-    var presenter: NavigationPresenter?
+    var router: Router
     
-    init(presenter: NavigationPresenter) {
-        
-        factory = SettingsControllersFactory()
-        self.presenter = presenter
+    init(router: Router,
+         factory: SettingsControllersFactory) {
+        self.factory = factory
+        self.router = router
     }
     
     override func start() {
@@ -28,12 +23,8 @@ class SettingsCoordinator: BaseCoordinator {
     
     //MARK: - Run current flow's controllers
     
-    func showSettings() {
-        
-        let settingsController = factory.createSettingsController()
-        settingsController.completionHandler = { result in
-            /* continue the flow */
-        }
-        presenter?.push(settingsController, animated: false)
+    private func showSettings() {
+        let settingsFlowBox = factory.createSettingsBox()
+        router.push(settingsFlowBox.controllerForPresent, animated: false)
     }
 }

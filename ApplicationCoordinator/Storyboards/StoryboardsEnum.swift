@@ -2,7 +2,7 @@
 //  StoryboardsEnum.swift
 //  ApplicationCoordinator
 //
-//  Created by Панов Андрей on 08.05.16.
+//  Created by Andrey Panov on 08.05.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 

@@ -2,13 +2,15 @@
 //  SettingsControllersFactory.swift
 //  ApplicationCoordinator
 //
-//  Created by Andrey Panov on 08.05.16.
+//  Created by Andrey Panov on 24/05/16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-class SettingsControllersFactory {
+import UIKit
+
+protocol SettingsControllersFactory {
     
-    func createSettingsController() -> SettingsController {
-        return SettingsController.controllerFromStoryboard(.Settings)
-    }
+    func createSettingsBox() ->
+        (controllerForPresent: UIViewController,
+         output: SettingsFlowOutput)
 }

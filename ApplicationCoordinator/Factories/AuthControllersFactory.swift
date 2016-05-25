@@ -2,17 +2,19 @@
 //  AuthControllersFactory.swift
 //  ApplicationCoordinator
 //
-//  Created by Andrey Panov on 08.05.16.
+//  Created by Andrey Panov on 24/05/16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-class AuthControllersFactory {
+import UIKit
+
+protocol AuthControllersFactory {
     
-    func createLoginController() -> LoginController {
-        return LoginController.controllerFromStoryboard(.Auth)
-    }
+    func createLoginBox() ->
+        (controllerForPresent: UIViewController,
+        output: LoginFlowOutput)
     
-    func createSignUpController() -> SignUpController {
-        return SignUpController.controllerFromStoryboard(.Auth)
-    }
+    func createSignUpBox() ->
+        (controllerForPresent: UIViewController,
+        output: SignUpFlowOutput)
 }

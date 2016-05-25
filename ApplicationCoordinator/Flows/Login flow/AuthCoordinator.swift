@@ -6,21 +6,17 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
-enum AuthActions {
-    case SignUp, Complete, Hide
-}
-
-class AuthCoordinator: BaseCoordinator {
+final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
 
     var factory: AuthControllersFactory
-    var presenter: NavigationPresenter?
+    var router: Router
+    var finishFlow: (()->())?
     
-    init(presenter: NavigationPresenter) {
+    init(router: Router,
+         factory: AuthControllersFactory) {
         
-        factory = AuthControllersFactory()
-        self.presenter = presenter
+        self.factory = factory
+        self.router = router
     }
     
     override func start() {
@@ -29,36 +25,24 @@ class AuthCoordinator: BaseCoordinator {
     
     //MARK: - Run current flow's controllers
     
-    func showLogin() {
+    private func showLogin() {
         
-        let loginController = factory.createLoginController()
-        loginController.completionHandler = { [weak self] result in
-            
-            if case AuthActions.SignUp = result {
-                self?.showSignUp()
-            }
-            else if case AuthActions.Complete = result {
-                //finish flow
-                self?.flowCompletionHandler?()
-            }
-            else if case AuthActions.Hide = result {
-                //finish flow
-                self?.flowCompletionHandler?()
-            }
+        let loginBox = factory.createLoginBox()
+        loginBox.output.onCompleteAuth = { [weak self] in
+            self?.finishFlow?()
         }
-        presenter?.push(loginController, animated: false)
+        loginBox.output.onSignUpButtonTap = { [weak self] in
+            self?.showSignUp()
+        }
+        router.push(loginBox.controllerForPresent, animated: false)
     }
     
-    func showSignUp() {
+    private func showSignUp() {
         
-        let signUpController = factory.createSignUpController()
-        signUpController.completionHandler = { [weak self] result in
-            
-            if case AuthActions.Complete = result {
-                //finish flow
-                self?.flowCompletionHandler?()
-            }
+        let signUpBox = factory.createSignUpBox()
+        signUpBox.output.onSignUpComplete = { [weak self] in
+            self?.finishFlow?()
         }
-        presenter?.push(signUpController)
+        router.push(signUpBox.controllerForPresent)
     }
 }

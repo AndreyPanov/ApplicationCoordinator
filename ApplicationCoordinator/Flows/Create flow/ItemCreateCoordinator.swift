@@ -6,21 +6,17 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
-enum CreateActions {
-    case Create, Hide
-}
-
-class ItemCreateCoordinator: BaseCoordinator {
+final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
 
     var factory: ItemCreateControllersFactory
-    var presenter: NavigationPresenter?
+    var router: Router
+    var finishFlow: (()->())?
     
-    init(presenter: NavigationPresenter) {
+    init(router: Router,
+        factory: ItemCreateControllersFactory) {
         
-        factory = ItemCreateControllersFactory()
-        self.presenter = presenter
+        self.factory = ItemCreateControllersFactoryImp()
+        self.router = router
     }
     
     override func start() {
@@ -29,18 +25,15 @@ class ItemCreateCoordinator: BaseCoordinator {
     
 //MARK: - Run current flow's controllers
     
-    func showCreate() {
+    private func showCreate() {
         
-        let createController = factory.createItemsListController()
-        createController.completionHandler = { [weak self] result in
-            
-            if case CreateActions.Create = result {
-                self?.presenter?.dismissController()
-            }
-            else if case CreateActions.Hide = result {
-                self?.presenter?.dismissController()
-            }
+        let createItemFlow = factory.createItemAddBox()
+        createItemFlow.output.onCompleteCreateItem = { [weak self] in
+            self?.finishFlow?()
         }
-        presenter?.push(createController, animated: false)
+        createItemFlow.output.onHideButtonTap = { [weak self] in
+            self?.finishFlow?()
+        }
+        router.push(createItemFlow.controllerForPresent, animated: false)
     }
 }

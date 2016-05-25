@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ItemsListController: UIViewController, FlowController {
+final class ItemsListController: UIViewController, ItemsFlowOutput {
     
     //controller handler
-    typealias T = ItemListActions //enum Actions type
-    var completionHandler: (T -> ())?
+    var authNeed: (() -> ())?
+    var onItemSelect: (ItemList -> ())?
+    var onCreateButtonTap: (() -> ())?
     
     @IBOutlet weak var tableView: UITableView!
     //mock datasource
     var items = (0...10).map { index in return ItemList(title: "Item № \(index)", subtitle: "Item descripton") }
+    var authCheck = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +27,16 @@ class ItemsListController: UIViewController, FlowController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(ItemsListController.addItemButtonClicked(_:)))
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if !authCheck {
+            authNeed?()
+            authCheck = true
+        }
+    }
+    
     @IBAction func addItemButtonClicked(sender: UIBarButtonItem) {
-        completionHandler?(.Create)
+        onCreateButtonTap?()
     }
 }
 
@@ -50,6 +60,7 @@ extension ItemsListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        completionHandler?(.ItemSelect(items[indexPath.row]))
+        onItemSelect?(items[indexPath.row])
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

@@ -7,93 +7,71 @@
 //
 import UIKit
 
-enum ItemListActions {
-    case ItemSelect(ItemList), Create
-}
-
-class ItemCoordinator: BaseCoordinator {
+final class ItemCoordinator: BaseCoordinator {
 
     var factory: ItemControllersFactory
     var coordinatorFactory: CoordinatorFactory
-    var presenter: NavigationPresenter?
+    var router: Router
     
-    init(presenter: NavigationPresenter) {
+    init(router: Router,
+         factory: ItemControllersFactory,
+         coordinatorFactory: CoordinatorFactory) {
         
-        factory = ItemControllersFactory()
-        coordinatorFactory = CoordinatorFactory()
-        self.presenter = presenter
+        self.router = router
+        self.factory = factory
+        self.coordinatorFactory = coordinatorFactory
     }
     
     override func start() {
-        
-        // Just example
-        // In real project we would be call some AuthManager and check user valid session.
-        let isUserAuth = false
-        if isUserAuth {
-            showItemList()
-        } else {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.runAuthCoordinator()
-            })
-        }
+        showItemList()
     }
     
 //MARK: - Run current flow's controllers
     
-    func showItemList() {
-        
-        let itemListController = factory.createItemsListController()
-        itemListController.completionHandler = { [weak self] result in
-            
-            if case let ItemListActions.ItemSelect(list) = result {
-                self?.showItemDetail(list)
-            }
-            else if case ItemListActions.Create = result {
-                self?.runCreationCoordinator()
-            }
+    private func showItemList() {
+      
+        let itemFlowBox = factory.createItemsBox()
+        itemFlowBox.output.authNeed = { [weak self] in
+            self?.runAuthCoordinator()
         }
-        presenter?.push(itemListController, animated: false)
+        itemFlowBox.output.onItemSelect = { [weak self] (item) in
+            self?.showItemDetail(item)
+        }
+        itemFlowBox.output.onCreateButtonTap = { [weak self] in
+            self?.runCreationCoordinator()
+        }
+        router.push(itemFlowBox.controllerForPresent, animated: false)
     }
     
-    func showItemDetail(item: ItemList) {
+    private func showItemDetail(item: ItemList) {
         
-        let itemDetailController = factory.createItemDetailController()
-        itemDetailController.item = item
-        itemDetailController.completionHandler = { result in
-            /* continue the flow */
-        }
-        presenter?.push(itemDetailController)
+        let itemDetailFlowBox = factory.createItemDetailBox(item: item)
+        router.push(itemDetailFlowBox.controllerForPresent)
     }
     
 //MARK: - Run coordinators (switch to another flow)
     
-    func runAuthCoordinator() {
-        
-        let authTuple = coordinatorFactory.createAuthCoordinatorTuple()
-        let authCoordinator = authTuple.authCoordinator
-        authCoordinator.flowCompletionHandler = { [weak self] in
-            
-            self?.presenter?.dismissController()
-            self?.removeDependancy(authCoordinator)
-            self?.showItemList()
+    private func runAuthCoordinator() {
+        var authFlowBox = coordinatorFactory.createAuthCoordinatorBox()
+        authFlowBox.output.finishFlow = { [weak self] in
+            self?.router.dismissController()
+            self?.removeDependancy(authFlowBox.coordinator)
         }
-        
-        addDependancy(authCoordinator)
-        presenter?.present(authTuple.presenter)
-        authCoordinator.start()
+        addDependancy(authFlowBox.coordinator)
+        router.present(authFlowBox.controllerForPresent, animated: false)
+        authFlowBox.coordinator.start()
     }
     
-    func runCreationCoordinator() {
+    private func runCreationCoordinator() {
         
-        let creationTuple = coordinatorFactory.createItemCreationCoordinatorTuple()
-        let creationCoordinator = creationTuple.createCoordinator
-        creationCoordinator.flowCompletionHandler = { [weak self] in
+        var creationBox = coordinatorFactory.createItemCreationCoordinatorBox()
+        creationBox.output.finishFlow = { [weak self] in
             
-            self?.presenter?.dismissController()
-            self?.removeDependancy(creationCoordinator)
+            self?.router.dismissController()
+            self?.removeDependancy(creationBox.coordinator)
         }
-        addDependancy(creationCoordinator)
-        presenter?.present(creationTuple.presenter)
-        creationCoordinator.start()
+        addDependancy(creationBox.coordinator)
+        router.present(creationBox.controllerForPresent)
+        creationBox.coordinator.start()
     }
 }

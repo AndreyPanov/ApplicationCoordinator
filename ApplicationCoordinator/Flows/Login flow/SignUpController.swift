@@ -8,11 +8,10 @@
 
 import UIKit
 
-class SignUpController: UIViewController, FlowController {
+final class SignUpController: UIViewController, SignUpFlowOutput {
     
     //controller handler
-    typealias T = AuthActions //enum Actions type
-    var completionHandler: (T -> ())?
+    var onSignUpComplete: (() -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +20,6 @@ class SignUpController: UIViewController, FlowController {
     }
     
     @IBAction func signUpClicked(sender: AnyObject) {
-        completionHandler?(.Complete)
+        onSignUpComplete?()
     }
 }

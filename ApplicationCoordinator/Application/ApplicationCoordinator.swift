@@ -8,44 +8,41 @@
 
 import UIKit
 
-class ApplicationCoordinator: BaseCoordinator {
+final class ApplicationCoordinator: BaseCoordinator {
     
-    var tabbar: UITabBarController
-    
-    lazy var presenter: TabbarPresenter = {
-        return TabbarPresenter(rootController: self.tabbar) { [weak self] result in
-            switch result {
-            case .FirstTab:
-                self?.runItemCoordinator()
-            case .SecondTab:
-                self?.runSettingsCoordinator()
-            }
-        }
-    }()
+    var tabbarFlowOutput: TabbarFlowOutput
+    var coordinatorFactory: CoordinatorFactory
 
-    init(presenter: UITabBarController) {
-        self.tabbar = presenter
+    init(tabbarFlowOutput: TabbarFlowOutput,
+         coordinatorFactory: CoordinatorFactory) {
+        
+        self.tabbarFlowOutput = tabbarFlowOutput
+        self.coordinatorFactory = coordinatorFactory
     }
     
     override func start() {
-        runItemCoordinator()
+        tabbarFlowOutput.onViewDidLoad = runItemCoordinator()
+        tabbarFlowOutput.onItemFlowSelect = runItemCoordinator()
+        tabbarFlowOutput.onSettingsFlowSelect = runSettingsCoordinator()
     }
-
-    func runItemCoordinator() {
-        
-        if let navController = presenter.itemTabController() where navController.viewControllers.isEmpty {
-            let itemCoordinator = ItemCoordinator(presenter: NavigationPresenter(rootController: navController))
-            itemCoordinator.start()
-            addDependancy(itemCoordinator)
+    
+    private func runItemCoordinator() -> ((UINavigationController) -> ()) {
+        return { navController in
+            if navController.viewControllers.isEmpty == true {
+                let itemCoordinator = self.coordinatorFactory.createItemCoordinator(navController: navController)
+                itemCoordinator.start()
+                self.addDependancy(itemCoordinator)
+            }
         }
     }
     
-    func runSettingsCoordinator() {
-        
-        if let navController = presenter.settingsTabController() where navController.viewControllers.isEmpty {
-            let settingsCoordinator = SettingsCoordinator(presenter: NavigationPresenter(rootController: navController))
-            settingsCoordinator.start()
-            addDependancy(settingsCoordinator)
+    private func runSettingsCoordinator() -> ((UINavigationController) -> ()) {
+        return { navController in
+            if navController.viewControllers.isEmpty == true {
+                let settingsCoordinator = self.coordinatorFactory.createSettingsCoordinator(navController: navController)
+                settingsCoordinator.start()
+                self.addDependancy(settingsCoordinator)
+            }
         }
     }
 }
