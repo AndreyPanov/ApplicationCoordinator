@@ -57,22 +57,10 @@
                                     <action selector="signUpClicked:" destination="zQv-zS-ySU" eventType="touchUpInside" id="4aS-6e-Aze"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZE-sn-IA8">
-                                <rect key="frame" x="205" y="390" width="191" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Bik-CD-vrL"/>
-                                    <constraint firstAttribute="width" constant="191" id="gty-GC-rHk"/>
-                                </constraints>
-                                <state key="normal" title="Terms"/>
-                                <connections>
-                                    <action selector="termsButtonClicked:" destination="zQv-zS-ySU" eventType="touchUpInside" id="zvO-Qy-zjn"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VUZ-zN-Uo1" firstAttribute="centerX" secondItem="rsE-DJ-HJd" secondAttribute="centerX" id="Cwr-sq-KkW"/>
-                            <constraint firstItem="aZE-sn-IA8" firstAttribute="centerX" secondItem="rsE-DJ-HJd" secondAttribute="centerX" id="GFI-UW-2RG"/>
                             <constraint firstItem="ee5-zy-TeX" firstAttribute="centerX" secondItem="rsE-DJ-HJd" secondAttribute="centerX" id="HdR-Jk-myI"/>
                             <constraint firstItem="XFP-wV-idQ" firstAttribute="top" secondItem="ee5-zy-TeX" secondAttribute="bottom" constant="20" id="NMG-hR-wXR"/>
                             <constraint firstItem="ee5-zy-TeX" firstAttribute="top" secondItem="VUZ-zN-Uo1" secondAttribute="bottom" constant="48" id="OkB-dd-MVl"/>
@@ -80,7 +68,6 @@
                             <constraint firstItem="jeV-I6-cyS" firstAttribute="top" secondItem="Smv-k4-wkp" secondAttribute="bottom" constant="102" id="QEX-lR-2lJ"/>
                             <constraint firstItem="XFP-wV-idQ" firstAttribute="centerX" secondItem="rsE-DJ-HJd" secondAttribute="centerX" id="SNw-CP-2qt"/>
                             <constraint firstItem="VUZ-zN-Uo1" firstAttribute="top" secondItem="jeV-I6-cyS" secondAttribute="bottom" constant="60" id="efh-Vb-5pO"/>
-                            <constraint firstItem="aZE-sn-IA8" firstAttribute="top" secondItem="XFP-wV-idQ" secondAttribute="bottom" constant="20" id="tGV-xi-d9r"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -100,36 +87,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="More field to fill 😃 Just tap &quot;SignUp&quot;" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqG-XE-N8b">
-                                <rect key="frame" x="171" y="119" width="259" height="37"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXS-6b-MFP">
+                                <rect key="frame" x="160" y="84" width="280" height="432"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VX-Fv-Fek">
+                                        <rect key="frame" x="45" y="213" width="191" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="191" id="ToC-av-QbD"/>
+                                            <constraint firstAttribute="height" constant="30" id="utk-NM-kpk"/>
+                                        </constraints>
+                                        <state key="normal" title="SignUp"/>
+                                        <connections>
+                                            <action selector="signUpClicked:" destination="Mxu-2P-E0E" eventType="touchUpInside" id="sKw-qE-EFi"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of the agreement accepted!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yU-gB-Djc">
+                                        <rect key="frame" x="45" y="354" width="191" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="eri-DV-aqI"/>
+                                            <constraint firstAttribute="width" constant="191" id="jzU-5m-arJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.1669482246" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZE-sn-IA8">
+                                        <rect key="frame" x="45" y="278" width="191" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="CcZ-pL-tdg"/>
+                                            <constraint firstAttribute="width" constant="191" id="bn8-7r-ivy"/>
+                                        </constraints>
+                                        <state key="normal" title="Terms"/>
+                                        <connections>
+                                            <action selector="termsButtonClicked:" destination="Mxu-2P-E0E" eventType="touchUpInside" id="39b-4g-az0"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="More field to fill 😃 Just tap &quot;SignUp&quot;" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqG-XE-N8b">
+                                        <rect key="frame" x="11" y="74" width="259" height="37"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="2O4-gW-6F7"/>
+                                            <constraint firstAttribute="width" constant="259" id="UwM-w5-zPy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="259" id="fMq-jM-tGq"/>
+                                    <constraint firstItem="0VX-Fv-Fek" firstAttribute="centerX" secondItem="RXS-6b-MFP" secondAttribute="centerX" id="0Om-Wl-hb8"/>
+                                    <constraint firstItem="1yU-gB-Djc" firstAttribute="centerX" secondItem="RXS-6b-MFP" secondAttribute="centerX" id="1ej-a0-SYF"/>
+                                    <constraint firstAttribute="height" constant="432" id="4cZ-vI-C6T"/>
+                                    <constraint firstItem="aZE-sn-IA8" firstAttribute="top" secondItem="0VX-Fv-Fek" secondAttribute="bottom" constant="35" id="Be3-Ze-ao7"/>
+                                    <constraint firstItem="aZE-sn-IA8" firstAttribute="centerX" secondItem="RXS-6b-MFP" secondAttribute="centerX" id="IBD-Sa-GdI"/>
+                                    <constraint firstAttribute="bottom" secondItem="1yU-gB-Djc" secondAttribute="bottom" constant="31" id="IZk-xt-pYz"/>
+                                    <constraint firstItem="1yU-gB-Djc" firstAttribute="top" secondItem="aZE-sn-IA8" secondAttribute="bottom" constant="46" id="PfF-xy-QrB"/>
+                                    <constraint firstItem="pqG-XE-N8b" firstAttribute="centerX" secondItem="RXS-6b-MFP" secondAttribute="centerX" id="RUJ-CO-CqI"/>
+                                    <constraint firstAttribute="width" constant="280" id="Uvm-TR-5qM"/>
+                                    <constraint firstItem="pqG-XE-N8b" firstAttribute="top" secondItem="RXS-6b-MFP" secondAttribute="top" constant="74" id="mJU-25-BsF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VX-Fv-Fek">
-                                <rect key="frame" x="205" y="228" width="191" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="191" id="Ybp-z2-lgy"/>
-                                    <constraint firstAttribute="height" constant="30" id="oYd-aw-jRY"/>
-                                </constraints>
-                                <state key="normal" title="SignUp"/>
-                                <connections>
-                                    <action selector="signUpClicked:" destination="Mxu-2P-E0E" eventType="touchUpInside" id="sKw-qE-EFi"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pqG-XE-N8b" firstAttribute="top" secondItem="vq1-T2-Hrw" secondAttribute="bottom" constant="99" id="3fu-TA-j6I"/>
-                            <constraint firstItem="pqG-XE-N8b" firstAttribute="centerX" secondItem="4Yj-UV-vc6" secondAttribute="centerX" id="9tH-sL-9kp"/>
-                            <constraint firstItem="0VX-Fv-Fek" firstAttribute="top" secondItem="pqG-XE-N8b" secondAttribute="bottom" constant="72" id="ZNW-Rc-4Wm"/>
-                            <constraint firstItem="Ahm-sO-W7N" firstAttribute="top" secondItem="0VX-Fv-Fek" secondAttribute="bottom" constant="342" id="hZd-tJ-CzJ"/>
-                            <constraint firstItem="0VX-Fv-Fek" firstAttribute="centerX" secondItem="4Yj-UV-vc6" secondAttribute="centerX" id="o1F-pq-aiN"/>
+                            <constraint firstItem="RXS-6b-MFP" firstAttribute="centerY" secondItem="4Yj-UV-vc6" secondAttribute="centerY" id="P1q-qQ-Gh6"/>
+                            <constraint firstItem="RXS-6b-MFP" firstAttribute="centerX" secondItem="4Yj-UV-vc6" secondAttribute="centerX" id="Stq-5t-dlJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="termsLabel" destination="1yU-gB-Djc" id="q7q-aM-yzu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pto-xY-y8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,20 +173,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm the terms of the agreement:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1r-VS-Ybi">
-                                <rect key="frame" x="27" y="113" width="229" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the terms of the agreement:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1r-VS-Ybi">
+                                <rect key="frame" x="20" y="100" width="509" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RgU-EG-Djt">
-                                <rect key="frame" x="295" y="118" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RgU-EG-Djt">
+                                <rect key="frame" x="537" y="95" width="51" height="31"/>
                                 <connections>
                                     <action selector="termsSwitchValueChanged:" destination="ZVD-Q4-MCA" eventType="valueChanged" id="xBl-LZ-MXV"/>
                                 </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RgU-EG-Djt" secondAttribute="trailing" constant="14" id="H48-f3-Uwz"/>
+                            <constraint firstItem="k1r-VS-Ybi" firstAttribute="top" secondItem="kRl-Mv-RBz" secondAttribute="bottom" constant="80" id="d6Q-KA-WDG"/>
+                            <constraint firstItem="RgU-EG-Djt" firstAttribute="centerY" secondItem="k1r-VS-Ybi" secondAttribute="centerY" id="new-HO-4nb"/>
+                            <constraint firstItem="RgU-EG-Djt" firstAttribute="leading" secondItem="k1r-VS-Ybi" secondAttribute="trailing" constant="8" id="obg-Fz-SwV"/>
+                            <constraint firstItem="k1r-VS-Ybi" firstAttribute="leading" secondItem="xAG-zk-zS8" secondAttribute="leading" constant="20" id="rMJ-Kw-PA0"/>
+                            <constraint firstItem="RgU-EG-Djt" firstAttribute="leading" secondItem="k1r-VS-Ybi" secondAttribute="trailing" constant="8" id="zJ4-cy-US2"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbE-aN-28j" userLabel="First Responder" sceneMemberID="firstResponder"/>

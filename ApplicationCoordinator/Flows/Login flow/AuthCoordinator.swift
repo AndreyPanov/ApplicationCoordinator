@@ -34,9 +34,6 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         loginBox.output.onSignUpButtonTap = { [weak self] in
             self?.showSignUp()
         }
-        loginBox.output.onTermsButtonTap = { [weak self] completionHandler in
-            self?.showTerms(completionHandler)
-        }
         router.push(loginBox.controllerForPresent, animated: false)
     }
     
@@ -45,6 +42,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         let signUpBox = factory.createSignUpBox()
         signUpBox.output.onSignUpComplete = { [weak self] in
             self?.finishFlow?()
+        }
+        signUpBox.output.onTermsButtonTap = { [weak self] completionHandler in
+            self?.showTerms(completionHandler)
         }
         router.push(signUpBox.controllerForPresent)
     }
