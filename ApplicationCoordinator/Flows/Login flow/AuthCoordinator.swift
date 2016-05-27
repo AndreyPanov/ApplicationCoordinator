@@ -34,6 +34,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         loginBox.output.onSignUpButtonTap = { [weak self] in
             self?.showSignUp()
         }
+        loginBox.output.onTermsButtonTap = { [weak self] completionHandler in
+            self?.showTerms(completionHandler)
+        }
         router.push(loginBox.controllerForPresent, animated: false)
     }
     
@@ -48,5 +51,8 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     private func showTerms(completionHandler: ((Bool) -> ())) {
         
+        let termsBox = factory.createTermsBox()
+        termsBox.output.onPopController = completionHandler
+        router.push(termsBox.controller)
     }
 }

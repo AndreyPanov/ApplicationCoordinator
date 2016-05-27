@@ -25,4 +25,12 @@ final class AuthControllersFactoryImp: AuthControllersFactory {
             let controller = SignUpController.controllerFromStoryboard(.Auth)
             return (controller, controller)
     }
+    
+    func createTermsBox() ->
+        (controller: UIViewController,
+        output: TermsControllerOutput) {
+            
+            let controller = TermsController.controllerFromStoryboard(.Auth)
+            return (controller, controller)
+    }
 }

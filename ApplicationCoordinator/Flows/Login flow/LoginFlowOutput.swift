@@ -9,5 +9,5 @@
 protocol LoginFlowOutput: FlowControllerOutput {
     var onCompleteAuth: (() -> ())? { get set }
     var onSignUpButtonTap: (() -> ())? { get set }
-    var onTermsButtonTap: (() -> ())? { get set }
+    var onTermsButtonTap: (((Bool)->()) -> ())? { get set }
 }

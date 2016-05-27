@@ -13,7 +13,7 @@ final class LoginController: UIViewController, LoginFlowOutput {
     //controller handler
     var onCompleteAuth: (() -> ())?
     var onSignUpButtonTap: (() -> ())?
-    var onTermsButtonTap: (() -> ())?
+    var onTermsButtonTap: (((Bool)->()) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,8 @@ final class LoginController: UIViewController, LoginFlowOutput {
     }
     
     @IBAction func termsButtonClicked(sender: AnyObject) {
-        onTermsButtonTap?()
+        onTermsButtonTap?() { success in
+            if success { print("huuuraa") }
+        }
     }
 }
