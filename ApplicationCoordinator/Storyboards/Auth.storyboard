@@ -154,6 +154,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="signUpButton" destination="0VX-Fv-Fek" id="NLW-p1-D6y"/>
                         <outlet property="termsLabel" destination="1yU-gB-Djc" id="q7q-aM-yzu"/>
                     </connections>
                 </viewController>

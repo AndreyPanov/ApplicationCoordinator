@@ -7,5 +7,5 @@
 //
 
 protocol ItemCreateCoordinatorOutput {
-    var finishFlow: (()->())? { get set }
+    var finishFlow: ((ItemList?)->())? { get set }
 }
