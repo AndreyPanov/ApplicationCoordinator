@@ -17,4 +17,8 @@ protocol AuthControllersFactory {
     func createSignUpBox() ->
         (controllerForPresent: UIViewController,
         output: SignUpFlowOutput)
+    
+    func createTermsBox() ->
+        (controller: UIViewController,
+        output: TermsControllerOutput)
 }

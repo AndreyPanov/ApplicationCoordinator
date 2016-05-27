@@ -12,14 +12,35 @@ final class SignUpController: UIViewController, SignUpFlowOutput {
     
     //controller handler
     var onSignUpComplete: (() -> ())?
+    var onTermsButtonTap: (((Bool)->()) -> ())?
 
+    @IBOutlet weak var termsLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    var confirmed = false {
+        didSet {
+            termsLabel.hidden = !confirmed
+            signUpButton.enabled = confirmed
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "SignUp"
+        termsLabel.hidden = true
+        signUpButton.enabled = false
     }
     
     @IBAction func signUpClicked(sender: AnyObject) {
-        onSignUpComplete?()
+        if confirmed {
+            onSignUpComplete?()
+        }
+    }
+    
+    @IBAction func termsButtonClicked(sender: AnyObject) {
+        onTermsButtonTap?() { [weak self] confirmed in
+            self?.confirmed = confirmed
+        }
     }
 }

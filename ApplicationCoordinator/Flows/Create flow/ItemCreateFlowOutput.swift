@@ -8,5 +8,5 @@
 
 protocol ItemCreateFlowOutput: FlowControllerOutput {
     var onHideButtonTap: (() -> ())? { get set }
-    var onCompleteCreateItem: (() -> ())? { get set }
+    var onCompleteCreateItem: ((ItemList) -> ())? { get set }
 }

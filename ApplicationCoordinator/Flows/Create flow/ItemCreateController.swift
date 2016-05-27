@@ -12,7 +12,7 @@ final class ItemCreateController: UIViewController, ItemCreateFlowOutput {
 
     //controller handler
     var onHideButtonTap: (() -> ())?
-    var onCompleteCreateItem: (() -> ())?
+    var onCompleteCreateItem: ((ItemList) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,6 @@ final class ItemCreateController: UIViewController, ItemCreateFlowOutput {
     }
     
     @IBAction func createButtonClicked(sender: UIBarButtonItem) {
-        onCompleteCreateItem?()
+        onCompleteCreateItem?(ItemList(title: "", subtitle: ""))
     }
 }

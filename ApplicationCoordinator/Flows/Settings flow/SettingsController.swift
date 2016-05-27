@@ -26,7 +26,7 @@ final class SettingsController: UIViewController, SettingsFlowOutput {
     func createMockData() {
         
         let settings1 = (0...3).map { index in return Setting(title: "Setting № \(index)", subtitle: "Setting descripton") }
-        let settings2 = (0...3).map { index in return Setting(title: "Setting № \(index)", subtitle: "Setting descripton") }
+        let settings2 = (0...5).map { index in return Setting(title: "Setting № \(index)", subtitle: "Setting descripton") }
         settings.append(settings1)
         settings.append(settings2)
     }

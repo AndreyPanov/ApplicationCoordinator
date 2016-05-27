@@ -10,7 +10,7 @@ final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput 
 
     var factory: ItemCreateControllersFactory
     var router: Router
-    var finishFlow: (()->())?
+    var finishFlow: ((ItemList?)->())?
     
     init(router: Router,
         factory: ItemCreateControllersFactory) {
@@ -28,11 +28,11 @@ final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput 
     private func showCreate() {
         
         let createItemFlow = factory.createItemAddBox()
-        createItemFlow.output.onCompleteCreateItem = { [weak self] in
-            self?.finishFlow?()
+        createItemFlow.output.onCompleteCreateItem = { [weak self] item in
+            self?.finishFlow?(item)
         }
         createItemFlow.output.onHideButtonTap = { [weak self] in
-            self?.finishFlow?()
+            self?.finishFlow?(nil)
         }
         router.push(createItemFlow.controllerForPresent, animated: false)
     }
