@@ -16,7 +16,9 @@ class TermsController: UIViewController, TermsControllerOutput {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        onPopController?(confirmed)
+        if isMovingFromParentViewController() {
+            onPopController?(confirmed)
+        }
     }
     
     @IBAction func termsSwitchValueChanged(sender: UISwitch) {
