@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ItemsListController: UIViewController, ItemsFlowOutput {
+final class ItemsListController: UIViewController, ItemsListFlowOutput {
     
     //controller handler
     var authNeed: (() -> ())?
