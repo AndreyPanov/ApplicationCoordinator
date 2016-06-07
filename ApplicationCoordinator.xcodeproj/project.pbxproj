@@ -38,6 +38,7 @@
 		0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCA2F41CEE365300A6E385 /* Router.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateFlowOutput.swift */; };
+		D538B0981D0722490073895D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D538B0971D0722490073895D /* Info.plist */; };
 		D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7631CD9126F004C38B3 /* Coordinator.swift */; };
 		D541E7661CD9128B004C38B3 /* FlowControllerInputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */; };
 		D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7691CD91304004C38B3 /* RouterImp.swift */; };
@@ -58,8 +59,7 @@
 		D5FE33351D071F6300CE38B1 /* ItemDetailFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33311D071F6300CE38B1 /* ItemDetailFlowOutput.swift */; };
 		D5FE33361D071F6300CE38B1 /* ItemsListOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33321D071F6300CE38B1 /* ItemsListOutput.swift */; };
 		D5FE33371D071F6300CE38B1 /* ItemsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33331D071F6300CE38B1 /* ItemsListController.swift */; };
-		D5FE333E1D071FCA00CE38B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FE333C1D071FCA00CE38B1 /* Assets.xcassets */; };
-		D5FE333F1D071FCA00CE38B1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5FE333D1D071FCA00CE38B1 /* Info.plist */; };
+		D5FE33431D0720E500CE38B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FE33421D0720E500CE38B1 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +95,7 @@
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateController.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateController.swift"; sourceTree = SOURCE_ROOT; };
 		D5311AAE1CF8566D00777B87 /* ItemCreateFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateFlowOutput.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateFlowOutput.swift"; sourceTree = SOURCE_ROOT; };
+		D538B0971D0722490073895D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ApplicationCoordinator/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D541E7631CD9126F004C38B3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowControllerInputOutput.swift; sourceTree = "<group>"; };
 		D541E7691CD91304004C38B3 /* RouterImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RouterImp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -115,8 +116,7 @@
 		D5FE33311D071F6300CE38B1 /* ItemDetailFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailFlowOutput.swift; path = "ApplicationCoordinator/Flows/Items flow/ItemDetailFlowOutput.swift"; sourceTree = SOURCE_ROOT; };
 		D5FE33321D071F6300CE38B1 /* ItemsListOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemsListOutput.swift; path = "ApplicationCoordinator/Flows/Items flow/ItemsListOutput.swift"; sourceTree = SOURCE_ROOT; };
 		D5FE33331D071F6300CE38B1 /* ItemsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemsListController.swift; path = "ApplicationCoordinator/Flows/Items flow/ItemsListController.swift"; sourceTree = SOURCE_ROOT; };
-		D5FE333C1D071FCA00CE38B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D5FE333D1D071FCA00CE38B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5FE33421D0720E500CE38B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ApplicationCoordinator/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,8 +240,7 @@
 		0E3CCFAA1CCBBBFB0022E830 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D5FE333C1D071FCA00CE38B1 /* Assets.xcassets */,
-				D5FE333D1D071FCA00CE38B1 /* Info.plist */,
+				D538B0971D0722490073895D /* Info.plist */,
 				0E3CCF811CCBBB670022E830 /* Base.lproj */,
 			);
 			name = Resources;
@@ -332,6 +331,7 @@
 				0E3CCF891CCBBB670022E830 /* Flows */,
 				0E3CCF961CCBBB670022E830 /* Storyboards */,
 				0E3CCFAA1CCBBBFB0022E830 /* Resources */,
+				D5FE33421D0720E500CE38B1 /* Images.xcassets */,
 			);
 			name = ApplicationCoordinator;
 			path = ApplicationCoordinatorExample;
@@ -428,12 +428,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5FE333F1D071FCA00CE38B1 /* Info.plist in Resources */,
+				D538B0981D0722490073895D /* Info.plist in Resources */,
 				0E3CCFB11CCBBC760022E830 /* Create.storyboard in Resources */,
 				0E3CCFA91CCBBB670022E830 /* Items.storyboard in Resources */,
+				D5FE33431D0720E500CE38B1 /* Images.xcassets in Resources */,
 				0E3CCF9E1CCBBB670022E830 /* Main.storyboard in Resources */,
 				0E3CCF9D1CCBBB670022E830 /* LaunchScreen.storyboard in Resources */,
-				D5FE333E1D071FCA00CE38B1 /* Assets.xcassets in Resources */,
 				0E3CCFA81CCBBB670022E830 /* Auth.storyboard in Resources */,
 				0E3CCFB21CCBBC760022E830 /* Settings.storyboard in Resources */,
 			);
@@ -602,6 +602,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ApplicationCoordinator/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -615,6 +616,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ApplicationCoordinator/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
