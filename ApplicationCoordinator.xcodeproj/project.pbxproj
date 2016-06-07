@@ -239,6 +239,7 @@
 		0E3CCFAA1CCBBBFB0022E830 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D5FE33421D0720E500CE38B1 /* Images.xcassets */,
 				D538B0971D0722490073895D /* Info.plist */,
 				0E3CCF811CCBBB670022E830 /* Base.lproj */,
 			);
@@ -330,7 +331,6 @@
 				0E3CCF891CCBBB670022E830 /* Flows */,
 				0E3CCF961CCBBB670022E830 /* Storyboards */,
 				0E3CCFAA1CCBBBFB0022E830 /* Resources */,
-				D5FE33421D0720E500CE38B1 /* Images.xcassets */,
 			);
 			name = ApplicationCoordinator;
 			path = ApplicationCoordinatorExample;
