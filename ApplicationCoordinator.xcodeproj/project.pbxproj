@@ -38,7 +38,6 @@
 		0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCA2F41CEE365300A6E385 /* Router.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateFlowOutput.swift */; };
-		D538B0981D0722490073895D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D538B0971D0722490073895D /* Info.plist */; };
 		D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7631CD9126F004C38B3 /* Coordinator.swift */; };
 		D541E7661CD9128B004C38B3 /* FlowControllerInputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */; };
 		D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7691CD91304004C38B3 /* RouterImp.swift */; };
@@ -428,7 +427,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D538B0981D0722490073895D /* Info.plist in Resources */,
 				0E3CCFB11CCBBC760022E830 /* Create.storyboard in Resources */,
 				0E3CCFA91CCBBB670022E830 /* Items.storyboard in Resources */,
 				D5FE33431D0720E500CE38B1 /* Images.xcassets in Resources */,
