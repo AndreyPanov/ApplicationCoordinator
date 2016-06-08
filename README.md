@@ -14,7 +14,7 @@ protocol Coordinatable: class {
 ```
 All flow controllers have a protocols (we need to configure blocks and handle callbacks in coordinators):
 ```swift
-protocol ItemsFlowOutput: FlowControllerOutput {
+protocol ItemsListFlowOutput: FlowControllerOutput {
     var authNeed: (() -> ())? { get set }
     var onItemSelect: (ItemList -> ())? { get set }
     var onCreateButtonTap: (() -> ())? { get set }
@@ -55,8 +55,9 @@ class BaseCoordinator {
 ```
 AppDelegate store lazy reference for the Application Coordinator
 ```swift
-private lazy var applicationCoordinator: ApplicationCoordinator = {
-        return ApplicationCoordinator(tabbarFlowOutput: self.window!.rootViewController as! TabbarFlowOutput,
+private lazy var applicationCoordinator: Coordinator = {
+        let tabbarFlowOutput = self.window!.rootViewController as! TabbarFlowOutput
+        return ApplicationCoordinator(tabbarFlowOutput: tabbarFlowOutput,
                                       coordinatorFactory: CoordinatorFactoryImp())
     }()
 
