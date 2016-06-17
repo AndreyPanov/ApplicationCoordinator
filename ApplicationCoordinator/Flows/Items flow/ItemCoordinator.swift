@@ -53,9 +53,10 @@ final class ItemCoordinator: BaseCoordinator {
     
     private func runAuthCoordinator() {
         var authFlowBox = coordinatorFactory.createAuthCoordinatorBox()
-        authFlowBox.output.finishFlow = { [weak self] in
+        let coordinator = authFlowBox.coordinator
+        authFlowBox.output.finishFlow = { [weak self, weak coordinator] in
             self?.router.dismissController()
-            self?.removeDependancy(authFlowBox.coordinator)
+            self?.removeDependancy(coordinator)
         }
         addDependancy(authFlowBox.coordinator)
         router.present(authFlowBox.controllerForPresent, animated: false)
@@ -65,10 +66,11 @@ final class ItemCoordinator: BaseCoordinator {
     private func runCreationCoordinator() {
         
         var creationBox = coordinatorFactory.createItemCreationCoordinatorBox()
-        creationBox.output.finishFlow = { [weak self] item in
+        let coordinator = creationBox.coordinator
+        creationBox.output.finishFlow = { [weak self, weak coordinator] item in
             
             self?.router.dismissController()
-            self?.removeDependancy(creationBox.coordinator)
+            self?.removeDependancy(coordinator)
             if let item = item {
                 self?.showItemDetail(item)
             }

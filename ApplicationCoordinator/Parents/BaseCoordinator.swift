@@ -25,8 +25,8 @@ class BaseCoordinator: Coordinator {
         childCoordinators.append(coordinator)
     }
     
-    func removeDependancy(coordinator: Coordinator) {
-        guard childCoordinators.isEmpty == false else { return }
+    func removeDependancy(coordinator: Coordinator?) {
+        guard childCoordinators.isEmpty == false, let coordinator = coordinator else { return }
         
         for (index, element) in childCoordinators.enumerate() {
             if ObjectIdentifier(element) == ObjectIdentifier(coordinator) {
