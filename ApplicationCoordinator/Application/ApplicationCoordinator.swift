@@ -31,7 +31,7 @@ final class ApplicationCoordinator: BaseCoordinator {
             if navController.viewControllers.isEmpty == true {
                 let itemCoordinator = self.coordinatorFactory.createItemCoordinator(navController: navController)
                 itemCoordinator.start()
-                self.addDependancy(itemCoordinator)
+                self.addDependency(itemCoordinator)
             }
         }
     }
@@ -41,7 +41,7 @@ final class ApplicationCoordinator: BaseCoordinator {
             if navController.viewControllers.isEmpty == true {
                 let settingsCoordinator = self.coordinatorFactory.createSettingsCoordinator(navController: navController)
                 settingsCoordinator.start()
-                self.addDependancy(settingsCoordinator)
+                self.addDependency(settingsCoordinator)
             }
         }
     }
