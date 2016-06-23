@@ -20,7 +20,7 @@ class BaseCoordinator: Coordinator {
     func addDependancy(coordinator: Coordinator) {
         
         for element in childCoordinators {
-            if ObjectIdentifier(element) == ObjectIdentifier(coordinator) { return }
+            if element === coordinator { return }
         }
         childCoordinators.append(coordinator)
     }
@@ -29,7 +29,7 @@ class BaseCoordinator: Coordinator {
         guard childCoordinators.isEmpty == false, let coordinator = coordinator else { return }
         
         for (index, element) in childCoordinators.enumerate() {
-            if ObjectIdentifier(element) == ObjectIdentifier(coordinator) {
+            if element === coordinator {
                 childCoordinators.removeAtIndex(index)
                 break
             }
