@@ -30,23 +30,23 @@ final class ItemCoordinator: BaseCoordinator {
     
     private func showItemList() {
       
-        let itemFlowBox = factory.createItemsBox()
-        itemFlowBox.output.authNeed = { [weak self] in
+        let itemsOutput = factory.createItemsOutput()
+        itemsOutput.authNeed = { [weak self] in
             self?.runAuthCoordinator()
         }
-        itemFlowBox.output.onItemSelect = { [weak self] (item) in
+        itemsOutput.onItemSelect = { [weak self] (item) in
             self?.showItemDetail(item)
         }
-        itemFlowBox.output.onCreateButtonTap = { [weak self] in
+        itemsOutput.onCreateButtonTap = { [weak self] in
             self?.runCreationCoordinator()
         }
-        router.push(itemFlowBox.controllerForPresent, animated: false)
+        router.push(itemsOutput.toPresent(), animated: false)
     }
     
     private func showItemDetail(item: ItemList) {
         
-        let itemDetailFlowBox = factory.createItemDetailBox(item: item)
-        router.push(itemDetailFlowBox.controllerForPresent)
+        let itemDetailFlowOutput = factory.createItemDetailOutput(item: item)
+        router.push(itemDetailFlowOutput.toPresent())
     }
     
 //MARK: - Run coordinators (switch to another flow)

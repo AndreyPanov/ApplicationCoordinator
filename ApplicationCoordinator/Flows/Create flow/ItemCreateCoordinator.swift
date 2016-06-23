@@ -15,7 +15,7 @@ final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput 
     init(router: Router,
         factory: ItemCreateControllersFactory) {
         
-        self.factory = ItemCreateControllersFactoryImp()
+        self.factory = factory
         self.router = router
     }
     
@@ -27,13 +27,13 @@ final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput 
     
     private func showCreate() {
         
-        let createItemFlow = factory.createItemAddBox()
-        createItemFlow.output.onCompleteCreateItem = { [weak self] item in
+        let createItemOutput = factory.createItemAddOutput()
+        createItemOutput.onCompleteCreateItem = { [weak self] item in
             self?.finishFlow?(item)
         }
-        createItemFlow.output.onHideButtonTap = { [weak self] in
+        createItemOutput.onHideButtonTap = { [weak self] in
             self?.finishFlow?(nil)
         }
-        router.push(createItemFlow.controllerForPresent, animated: false)
+        router.push(createItemOutput.toPresent(), animated: false)
     }
 }

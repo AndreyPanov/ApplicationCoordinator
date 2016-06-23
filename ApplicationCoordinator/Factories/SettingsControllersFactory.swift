@@ -9,8 +9,5 @@
 import UIKit
 
 protocol SettingsControllersFactory {
-    
-    func createSettingsBox() ->
-        (controllerForPresent: UIViewController,
-         output: SettingsFlowOutput)
+    func createSettingsOutput() -> SettingsFlowOutput
 }

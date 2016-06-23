@@ -9,8 +9,5 @@
 import UIKit
 
 protocol ItemCreateControllersFactory {
-    
-    func createItemAddBox() ->
-        (controllerForPresent: UIViewController,
-        output: ItemCreateFlowOutput)
+    func createItemAddOutput() -> ItemCreateFlowOutput
 }

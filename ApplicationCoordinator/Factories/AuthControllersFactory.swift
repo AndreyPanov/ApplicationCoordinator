@@ -9,16 +9,7 @@
 import UIKit
 
 protocol AuthControllersFactory {
-    
-    func createLoginBox() ->
-        (controllerForPresent: UIViewController,
-        output: LoginFlowOutput)
-    
-    func createSignUpBox() ->
-        (controllerForPresent: UIViewController,
-        output: SignUpFlowOutput)
-    
-    func createTermsBox() ->
-        (controller: UIViewController,
-        output: TermsControllerOutput)
+    func createLoginOutput() -> LoginFlowOutput
+    func createSignUpOutput() -> SignUpFlowOutput
+    func createTermsOutput() -> TermsControllerOutput
 }

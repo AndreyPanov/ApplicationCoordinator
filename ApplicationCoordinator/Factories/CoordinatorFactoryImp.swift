@@ -15,7 +15,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     
     func createItemCoordinator(navController navController: UINavigationController?) -> Coordinator {
         let coordinator = ItemCoordinator(router: router(navController),
-                                          factory: ItemControllersFactoryImp(),
+                                          factory: ControllersFactoryImp(),
                                           coordinatorFactory: CoordinatorFactoryImp())
         return coordinator
     }
@@ -26,7 +26,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     
     func createSettingsCoordinator(navController navController: UINavigationController? = nil) -> Coordinator {
         let coordinator = SettingsCoordinator(router: router(navController),
-                                              factory: SettingsControllersFactoryImp())
+                                              factory: ControllersFactoryImp())
         return coordinator
     }
     
@@ -44,7 +44,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
             
             let router = self.router(navController)
             let coordinator = ItemCreateCoordinator(router: router,
-                                                    factory: ItemCreateControllersFactoryImp())
+                                                    factory: ControllersFactoryImp())
             return (coordinator, coordinator, router.rootController)
     }
     
@@ -62,7 +62,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
         controllerForPresent: UIViewController?) {
             let router = self.router(navController)
             let coordinator = AuthCoordinator(router: router,
-                                              factory: AuthControllersFactoryImp())
+                                              factory: ControllersFactoryImp())
             return (coordinator, coordinator, router.rootController)
     }
     
@@ -71,10 +71,8 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     }
     
     private func navigationController(navController: UINavigationController?) -> UINavigationController {
-        if let navController = navController {
-            return navController
-        } else {
-            return UINavigationController.controllerFromStoryboard(.Main)
-        }
+        
+        if let navController = navController { return navController }
+        else { return UINavigationController.controllerFromStoryboard(.Main) }
     }
 }

@@ -38,6 +38,7 @@
 		0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCA2F41CEE365300A6E385 /* Router.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateFlowOutput.swift */; };
+		D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C00B91D1BBADA00573E71 /* Presentable.swift */; };
 		D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7631CD9126F004C38B3 /* Coordinator.swift */; };
 		D541E7661CD9128B004C38B3 /* FlowControllerInputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */; };
 		D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7691CD91304004C38B3 /* RouterImp.swift */; };
@@ -49,10 +50,7 @@
 		D5FDC84E1CEB3579001C3DF3 /* LoginFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC84D1CEB3579001C3DF3 /* LoginFlowOutput.swift */; };
 		D5FDC8501CEB3AE0001C3DF3 /* SignUpFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC84F1CEB3AE0001C3DF3 /* SignUpFlowOutput.swift */; };
 		D5FDC8541CEB56A8001C3DF3 /* SettingsFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC8531CEB56A8001C3DF3 /* SettingsFlowOutput.swift */; };
-		D5FE332A1D071ED900CE38B1 /* AuthControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33261D071ED900CE38B1 /* AuthControllersFactoryImp.swift */; };
-		D5FE332B1D071ED900CE38B1 /* ItemControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33271D071ED900CE38B1 /* ItemControllersFactoryImp.swift */; };
-		D5FE332C1D071ED900CE38B1 /* ItemCreateControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33281D071ED900CE38B1 /* ItemCreateControllersFactoryImp.swift */; };
-		D5FE332D1D071ED900CE38B1 /* SettingsControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33291D071ED900CE38B1 /* SettingsControllersFactoryImp.swift */; };
+		D5FE332A1D071ED900CE38B1 /* ControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33261D071ED900CE38B1 /* ControllersFactoryImp.swift */; };
 		D5FE332F1D071F4100CE38B1 /* CoordinatorFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE332E1D071F4100CE38B1 /* CoordinatorFactoryImp.swift */; };
 		D5FE33341D071F6300CE38B1 /* ItemDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33301D071F6300CE38B1 /* ItemDetailController.swift */; };
 		D5FE33351D071F6300CE38B1 /* ItemDetailFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33311D071F6300CE38B1 /* ItemDetailFlowOutput.swift */; };
@@ -95,6 +93,7 @@
 		D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateController.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateController.swift"; sourceTree = SOURCE_ROOT; };
 		D5311AAE1CF8566D00777B87 /* ItemCreateFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateFlowOutput.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateFlowOutput.swift"; sourceTree = SOURCE_ROOT; };
 		D538B0971D0722490073895D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ApplicationCoordinator/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		D53C00B91D1BBADA00573E71 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		D541E7631CD9126F004C38B3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowControllerInputOutput.swift; sourceTree = "<group>"; };
 		D541E7691CD91304004C38B3 /* RouterImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RouterImp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -106,10 +105,7 @@
 		D5FDC84D1CEB3579001C3DF3 /* LoginFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginFlowOutput.swift; path = ../LoginFlowOutput.swift; sourceTree = "<group>"; };
 		D5FDC84F1CEB3AE0001C3DF3 /* SignUpFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpFlowOutput.swift; path = ../SignUpFlowOutput.swift; sourceTree = "<group>"; };
 		D5FDC8531CEB56A8001C3DF3 /* SettingsFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFlowOutput.swift; sourceTree = "<group>"; };
-		D5FE33261D071ED900CE38B1 /* AuthControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthControllersFactoryImp.swift; path = ApplicationCoordinator/Factories/AuthControllersFactoryImp.swift; sourceTree = SOURCE_ROOT; };
-		D5FE33271D071ED900CE38B1 /* ItemControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemControllersFactoryImp.swift; path = ApplicationCoordinator/Factories/ItemControllersFactoryImp.swift; sourceTree = SOURCE_ROOT; };
-		D5FE33281D071ED900CE38B1 /* ItemCreateControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateControllersFactoryImp.swift; path = ApplicationCoordinator/Factories/ItemCreateControllersFactoryImp.swift; sourceTree = SOURCE_ROOT; };
-		D5FE33291D071ED900CE38B1 /* SettingsControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsControllersFactoryImp.swift; path = ApplicationCoordinator/Factories/SettingsControllersFactoryImp.swift; sourceTree = SOURCE_ROOT; };
+		D5FE33261D071ED900CE38B1 /* ControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControllersFactoryImp.swift; path = ApplicationCoordinator/Factories/ControllersFactoryImp.swift; sourceTree = SOURCE_ROOT; };
 		D5FE332E1D071F4100CE38B1 /* CoordinatorFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinatorFactoryImp.swift; path = ApplicationCoordinator/Factories/CoordinatorFactoryImp.swift; sourceTree = SOURCE_ROOT; };
 		D5FE33301D071F6300CE38B1 /* ItemDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailController.swift; path = "ApplicationCoordinator/Flows/Items flow/ItemDetailController.swift"; sourceTree = SOURCE_ROOT; };
 		D5FE33311D071F6300CE38B1 /* ItemDetailFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailFlowOutput.swift; path = "ApplicationCoordinator/Flows/Items flow/ItemDetailFlowOutput.swift"; sourceTree = SOURCE_ROOT; };
@@ -217,6 +213,7 @@
 			children = (
 				D541E7631CD9126F004C38B3 /* Coordinator.swift */,
 				D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */,
+				D53C00B91D1BBADA00573E71 /* Presentable.swift */,
 			);
 			name = MainProtocols;
 			path = ApplicationCoordinator/Protocols;
@@ -261,10 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				D5FE332E1D071F4100CE38B1 /* CoordinatorFactoryImp.swift */,
-				D5FE33261D071ED900CE38B1 /* AuthControllersFactoryImp.swift */,
-				D5FE33271D071ED900CE38B1 /* ItemControllersFactoryImp.swift */,
-				D5FE33281D071ED900CE38B1 /* ItemCreateControllersFactoryImp.swift */,
-				D5FE33291D071ED900CE38B1 /* SettingsControllersFactoryImp.swift */,
+				D5FE33261D071ED900CE38B1 /* ControllersFactoryImp.swift */,
 			);
 			path = Imp;
 			sourceTree = "<group>";
@@ -451,6 +445,7 @@
 				0E6A42C41CF4E300005746EC /* AuthControllersFactory.swift in Sources */,
 				D541E7661CD9128B004C38B3 /* FlowControllerInputOutput.swift in Sources */,
 				0E6A42C21CF4E29F005746EC /* ItemCreateControllersFactory.swift in Sources */,
+				D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */,
 				0E6A42D21CF627CC005746EC /* TermsController.swift in Sources */,
 				0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */,
 				0E3CCFB41CCBBCA20022E830 /* ItemCoordinator.swift in Sources */,
@@ -463,18 +458,15 @@
 				D5505CC91CDF68260012CBA6 /* NSObjectExtensions.swift in Sources */,
 				0E6A42CA1CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift in Sources */,
 				D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */,
-				D5FE332C1D071ED900CE38B1 /* ItemCreateControllersFactoryImp.swift in Sources */,
 				D5FDC8501CEB3AE0001C3DF3 /* SignUpFlowOutput.swift in Sources */,
 				0E6A42D41CF62EA2005746EC /* TermsControllerOutput.swift in Sources */,
 				D5FDC84E1CEB3579001C3DF3 /* LoginFlowOutput.swift in Sources */,
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
 				D5FE33361D071F6300CE38B1 /* ItemsListOutput.swift in Sources */,
 				D5311AB01CF8566D00777B87 /* ItemCreateFlowOutput.swift in Sources */,
-				D5FE332A1D071ED900CE38B1 /* AuthControllersFactoryImp.swift in Sources */,
+				D5FE332A1D071ED900CE38B1 /* ControllersFactoryImp.swift in Sources */,
 				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,
-				D5FE332D1D071ED900CE38B1 /* SettingsControllersFactoryImp.swift in Sources */,
 				D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */,
-				D5FE332B1D071ED900CE38B1 /* ItemControllersFactoryImp.swift in Sources */,
 				D5FE332F1D071F4100CE38B1 /* CoordinatorFactoryImp.swift in Sources */,
 				0E6A42C61CF4E45F005746EC /* SettingsControllersFactory.swift in Sources */,
 				0E6A42D01CF4E8F1005746EC /* TabbarFlowOutput.swift in Sources */,

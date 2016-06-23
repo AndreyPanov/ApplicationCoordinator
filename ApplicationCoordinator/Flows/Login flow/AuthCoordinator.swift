@@ -27,32 +27,32 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     private func showLogin() {
         
-        let loginBox = factory.createLoginBox()
-        loginBox.output.onCompleteAuth = { [weak self] in
+        let loginOutput = factory.createLoginOutput()
+        loginOutput.onCompleteAuth = { [weak self] in
             self?.finishFlow?()
         }
-        loginBox.output.onSignUpButtonTap = { [weak self] in
+        loginOutput.onSignUpButtonTap = { [weak self] in
             self?.showSignUp()
         }
-        router.push(loginBox.controllerForPresent, animated: false)
+        router.push(loginOutput.toPresent(), animated: false)
     }
     
     private func showSignUp() {
         
-        let signUpBox = factory.createSignUpBox()
-        signUpBox.output.onSignUpComplete = { [weak self] in
+        let signUpOutput = factory.createSignUpOutput()
+        signUpOutput.onSignUpComplete = { [weak self] in
             self?.finishFlow?()
         }
-        signUpBox.output.onTermsButtonTap = { [weak self] completionHandler in
+        signUpOutput.onTermsButtonTap = { [weak self] completionHandler in
             self?.showTerms(completionHandler)
         }
-        router.push(signUpBox.controllerForPresent)
+        router.push(signUpOutput.toPresent())
     }
     
     private func showTerms(completionHandler: ((Bool) -> ())) {
         
-        let termsBox = factory.createTermsBox()
-        termsBox.output.onPopController = completionHandler
-        router.push(termsBox.controller)
+        let termsOutput = factory.createTermsOutput()
+        termsOutput.onPopController = completionHandler
+        router.push(termsOutput.toPresent())
     }
 }
