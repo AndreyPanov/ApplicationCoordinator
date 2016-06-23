@@ -31,7 +31,7 @@ protocol CoordinatorFactory {
         toPresent: UIViewController?)
 }
 ```
-The base coordinator stores dependancies of child coordinators
+The base coordinator stores dependencies of child coordinators
 ```swift
 class BaseCoordinator {
     
