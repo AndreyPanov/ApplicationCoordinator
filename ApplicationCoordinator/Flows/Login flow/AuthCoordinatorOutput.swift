@@ -6,6 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol AuthCoordinatorOutput {
+protocol AuthCoordinatorOutput: class {
     var finishFlow: (()->())? { get set }
 }

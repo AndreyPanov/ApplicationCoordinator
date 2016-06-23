@@ -6,6 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol ItemCreateCoordinatorOutput {
+protocol ItemCreateCoordinatorOutput: class {
     var finishFlow: ((ItemList?)->())? { get set }
 }

@@ -31,39 +31,35 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     }
     
     func createItemCreationCoordinatorBox() ->
-        (coordinator: Coordinator,
-         output: ItemCreateCoordinatorOutput,
-        controllerForPresent: UIViewController?) {
+        (configurator: protocol<Coordinator, ItemCreateCoordinatorOutput>,
+        toPresent: UIViewController?) {
             
             return createItemCreationCoordinatorBox(navController: nil)
     }
-    func createItemCreationCoordinatorBox(navController navController: UINavigationController? = nil) ->
-        (coordinator: Coordinator,
-        output: ItemCreateCoordinatorOutput,
-        controllerForPresent: UIViewController?) {
+    func createItemCreationCoordinatorBox(navController navController: UINavigationController?) ->
+        (configurator: protocol<Coordinator, ItemCreateCoordinatorOutput>,
+        toPresent: UIViewController?) {
             
             let router = self.router(navController)
             let coordinator = ItemCreateCoordinator(router: router,
                                                     factory: ControllersFactoryImp())
-            return (coordinator, coordinator, router.rootController)
+            return (coordinator, router.rootController)
     }
     
     func createAuthCoordinatorBox() ->
-        (coordinator: Coordinator,
-        output: AuthCoordinatorOutput,
-        controllerForPresent: UIViewController?) {
-            
+        (configurator: protocol<Coordinator, AuthCoordinatorOutput>,
+        toPresent: UIViewController?) {
             return createAuthCoordinatorBox(navController: nil)
     }
     
-    func createAuthCoordinatorBox(navController navController: UINavigationController? = nil) ->
-        (coordinator: Coordinator,
-        output: AuthCoordinatorOutput,
-        controllerForPresent: UIViewController?) {
+    func createAuthCoordinatorBox(navController navController: UINavigationController?) ->
+        (configurator: protocol<Coordinator, AuthCoordinatorOutput>,
+        toPresent: UIViewController?) {
+            
             let router = self.router(navController)
             let coordinator = AuthCoordinator(router: router,
                                               factory: ControllersFactoryImp())
-            return (coordinator, coordinator, router.rootController)
+            return (coordinator, router.rootController)
     }
     
     private func router(navController: UINavigationController?) -> Router {

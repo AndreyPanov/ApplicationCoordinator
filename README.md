@@ -26,10 +26,9 @@ protocol CoordinatorFactory {
     func createItemCoordinator(navController navController: UINavigationController?) -> Coordinator
     func createItemCoordinator() -> Coordinator
     
-    func createItemCreationCoordinatorBox() ->
-        (coordinator: Coordinator,
-        output: ItemCreateCoordinatorOutput,
-        controllerForPresent: UIViewController?)
+    func createItemCreationCoordinatorBox(navController navController: UINavigationController?) ->
+        (configurator: protocol<Coordinator, ItemCreateCoordinatorOutput>,
+        toPresent: UIViewController?)
 }
 ```
 The base coordinator stores dependancies of child coordinators
@@ -38,16 +37,21 @@ class BaseCoordinator {
     
     var childCoordinators: [Coordinatable] = []
     
-    func addDependancy(coordinator: Coordinatable) {
+    func addDependency(coordinator: Coordinator) {
+        
+        for element in childCoordinators {
+            if element === coordinator { return }
+        }
         childCoordinators.append(coordinator)
     }
     
-    func removeDependancy(coordinator: Coordinatable) {
-        guard childCoordinators.isEmpty == false else { return }
+    func removeDependency(coordinator: Coordinator?) {
+        guard childCoordinators.isEmpty == false, let coordinator = coordinator else { return }
         
         for (index, element) in childCoordinators.enumerate() {
-            if ObjectIdentifier(element) == ObjectIdentifier(coordinator) {
+            if element === coordinator {
                 childCoordinators.removeAtIndex(index)
+                break
             }
         }
     }
