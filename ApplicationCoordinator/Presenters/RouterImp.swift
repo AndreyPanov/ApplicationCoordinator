@@ -29,7 +29,10 @@ final class RouterImp: Router {
     }
     
     func push(controller: UIViewController?, animated: Bool)  {
-        guard let controller = controller else { return }
+        guard
+            let controller = controller
+            where (controller is UINavigationController == false)
+            else { assertionFailure("Deprecated push UINavigationController."); return }
         rootController?.pushViewController(controller, animated: animated)
     }
     
