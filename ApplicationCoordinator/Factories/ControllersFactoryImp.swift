@@ -18,7 +18,7 @@ final class ControllersFactoryImp:
         return LoginController.controllerFromStoryboard(.Auth)
     }
     
-    func createSignUpOutput() -> SignUpFlowOutput {
+    func createSignUpHandler() -> protocol<SignUpFlowInput, SignUpFlowOutput> {
         return SignUpController.controllerFromStoryboard(.Auth)
     }
     

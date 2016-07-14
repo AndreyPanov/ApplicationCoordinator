@@ -10,6 +10,6 @@ import UIKit
 
 protocol AuthControllersFactory {
     func createLoginOutput() -> LoginFlowOutput
-    func createSignUpOutput() -> SignUpFlowOutput
+    func createSignUpHandler() -> protocol<SignUpFlowInput, SignUpFlowOutput>
     func createTermsOutput() -> TermsControllerOutput
 }

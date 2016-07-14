@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class SignUpController: UIViewController, SignUpFlowOutput {
+final class SignUpController: UIViewController, SignUpFlowInput, SignUpFlowOutput {
     
     //controller handler
     var onSignUpComplete: (() -> ())?
-    var onTermsButtonTap: (((Bool)->()) -> ())?
+    var onTermsButtonTap: (() -> ())?
 
     @IBOutlet weak var termsLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
@@ -39,8 +39,10 @@ final class SignUpController: UIViewController, SignUpFlowOutput {
     }
     
     @IBAction func termsButtonClicked(sender: AnyObject) {
-        onTermsButtonTap?() { [weak self] confirmed in
-            self?.confirmed = confirmed
-        }
+        onTermsButtonTap?()
+    }
+    
+    func conformTermsAgreement(agree: Bool) {
+        confirmed = agree
     }
 }

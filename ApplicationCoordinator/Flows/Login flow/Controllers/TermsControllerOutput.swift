@@ -7,5 +7,5 @@
 //
 
 protocol TermsControllerOutput: FlowControllerOutput {
-    var onPopController: ((Bool) -> ())? { get set }
+    var onPopController: (Bool -> ())? { get set }
 }
