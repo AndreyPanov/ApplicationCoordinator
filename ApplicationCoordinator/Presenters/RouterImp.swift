@@ -33,6 +33,7 @@ final class RouterImp: Router {
             let controller = controller
             where (controller is UINavigationController == false)
             else { assertionFailure("Deprecated push UINavigationController."); return }
+        
         rootController?.pushViewController(controller, animated: animated)
     }
     

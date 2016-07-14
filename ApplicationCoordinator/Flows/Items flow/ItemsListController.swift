@@ -24,7 +24,9 @@ final class ItemsListController: UIViewController, ItemsListFlowOutput {
         super.viewDidLoad()
 
         title = "Items"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(ItemsListController.addItemButtonClicked(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add,
+                                                            target: self,
+                                                            action: #selector(ItemsListController.addItemButtonClicked(_:)))
     }
     
     override func viewDidAppear(animated: Bool) {

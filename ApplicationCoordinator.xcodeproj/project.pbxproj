@@ -277,8 +277,8 @@
 		0E6A42CB1CF4E84D005746EC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */,
 				D5311AAE1CF8566D00777B87 /* ItemCreateFlowOutput.swift */,
+				D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
