@@ -61,15 +61,19 @@ class BaseCoordinator {
 ```
 AppDelegate store lazy reference for the Application Coordinator
 ```swift
-private lazy var applicationCoordinator: Coordinator = {
-        let tabbarFlowOutput = self.window!.rootViewController as! TabbarFlowOutput
-        return ApplicationCoordinator(tabbarFlowOutput: tabbarFlowOutput,
-                                      coordinatorFactory: CoordinatorFactoryImp())
-    }()
+private lazy var applicationCoordinator: Coordinator = self.createCoordinator()()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         applicationCoordinator.start()
         return true
+    }
+    
+    private func createCoordinator() -> (() -> Coordinator) {
+        return {
+            let tabbarFlowOutput = self.window!.rootViewController as! TabbarFlowOutput
+            return ApplicationCoordinator(tabbarFlowOutput: tabbarFlowOutput,
+                                          coordinatorFactory: CoordinatorFactoryImp())
+        }
     }
 ```
