@@ -40,7 +40,7 @@ final class ItemCoordinator: BaseCoordinator {
         itemsOutput.onCreateButtonTap = { [weak self] in
             self?.runCreationCoordinator()
         }
-        router.push(itemsOutput.toPresent(), animated: false)
+        router.setRootController(itemsOutput.toPresent())
     }
     
     private func showItemDetail(item: ItemList) {

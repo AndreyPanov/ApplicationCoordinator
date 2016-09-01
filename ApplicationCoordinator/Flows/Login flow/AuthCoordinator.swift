@@ -36,7 +36,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         loginOutput.onSignUpButtonTap = { [weak self] in
             self?.showSignUp()
         }
-        router.push(loginOutput.toPresent(), animated: false)
+        router.setRootController(loginOutput.toPresent())
     }
     
     private func showSignUp() {

@@ -25,6 +25,6 @@ final class SettingsCoordinator: BaseCoordinator {
     
     private func showSettings() {
         let settingsFlowOutput = factory.createSettingsOutput()
-        router.push(settingsFlowOutput.toPresent(), animated: false)
+        router.setRootController(settingsFlowOutput.toPresent())
     }
 }

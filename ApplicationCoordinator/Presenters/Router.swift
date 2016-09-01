@@ -23,4 +23,6 @@ protocol Router: class {
     
     func dismissController()
     func dismissController(animated: Bool)
+    
+    func setRootController(controller: UIViewController?)
 }
