@@ -61,4 +61,8 @@ class RouterMock: Router {
         
         rootController?.setViewControllers([controller], animated: false)
     }
+    
+    func popToRootController(animated: Bool) {
+        rootController?.popToRootViewControllerAnimated(false)
+    }
 }

@@ -23,13 +23,6 @@ class RouterTest: XCTestCase {
         super.tearDown()
     }
     
-    func testRouterPushViewController() {
-        
-        let controller = ItemsListController.controllerFromStoryboard(.Items)
-        router?.push(controller)
-        XCTAssertTrue(router?.rootController?.viewControllers.first is ItemsListController)
-    }
-    
     func testRouterSetRootController() {
         
         let controller = ItemsListController.controllerFromStoryboard(.Items)
@@ -37,52 +30,54 @@ class RouterTest: XCTestCase {
         XCTAssertTrue(router?.rootController?.viewControllers.first is ItemsListController)
     }
     
+    func testRouterPushViewController() {
+        
+        let firstController = ItemsListController.controllerFromStoryboard(.Items)
+        let secondController = ItemDetailController.controllerFromStoryboard(.Items)
+        
+        router?.setRootController(firstController)
+        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
+        router?.push(secondController)
+        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemDetailController)
+    }
     
+    func testRouterPopViewController() {
+        
+        let firstController = ItemsListController.controllerFromStoryboard(.Items)
+        let secondController = ItemDetailController.controllerFromStoryboard(.Items)
+        
+        router?.setRootController(firstController)
+        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
+        router?.push(secondController)
+        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemDetailController)
+        
+        router?.popController()
+        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
+    }
+    
+    func testRouterPopToRootViewController() {
+        
+        let firstController = ItemsListController.controllerFromStoryboard(.Items)
+        let secondController = ItemDetailController.controllerFromStoryboard(.Items)
+        let thirdController = SettingsController.controllerFromStoryboard(.Settings)
+        
+        router?.setRootController(firstController)
+        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
+        router?.push(secondController)
+        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemDetailController)
+        router?.push(thirdController)
+        XCTAssertTrue(router?.rootController?.viewControllers.last is SettingsController)
+        
+        router?.popToRootController(false)
+        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
+    }
+    
+    func testPresentViewController() {
+        
+        let controller = ItemsListController.controllerFromStoryboard(.Items)
+        let secondController = ItemDetailController.controllerFromStoryboard(.Items)
+        router?.push(controller)
+        router?.present(secondController)
+        XCTAssertTrue(router?.rootController?.presentedViewController is ItemsListController)
+    }
 }
-
-
-/*
- unc present(controller: UIViewController?) {
- present(controller, animated: false)
- }
- func present(controller: UIViewController?, animated: Bool) {
- guard let controller = controller else { return }
- rootController?.presentViewController(controller, animated: false, completion: nil)
- }
- 
- func push(controller: UIViewController?)  {
- push(controller, animated: false)
- }
- 
- func push(controller: UIViewController?, animated: Bool)  {
- guard
- let controller = controller
- where (controller is UINavigationController == false)
- else { assertionFailure("Deprecated push UINavigationController."); return }
- 
- rootController?.pushViewController(controller, animated: false)
- }
- 
- func popController()  {
- popController(false)
- }
- 
- func popController(animated: Bool)  {
- rootController?.popViewControllerAnimated(false)
- }
- 
- func dismissController() {
- dismissController(false)
- }
- 
- func dismissController(animated: Bool) {
- rootController?.dismissViewControllerAnimated(false, completion: nil)
- }
- 
- func setRootController(controller: UIViewController?) {
- guard let controller = controller else { return }
- 
- rootController?.setViewControllers([controller], animated: false)
- }
-
- */
