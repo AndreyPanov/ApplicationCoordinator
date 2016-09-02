@@ -11,12 +11,14 @@ import UIKit
 
 class RouterMock: Router {
     
-    private(set) weak var rootController: UINavigationController?
+    // in test cases router store the rootController referense
+    private(set) var rootController: UINavigationController?
     
     init(rootController: UINavigationController) {
         self.rootController = rootController
     }
     
+    //all of the actions without animation
     func present(controller: UIViewController?) {
         present(controller, animated: false)
     }
