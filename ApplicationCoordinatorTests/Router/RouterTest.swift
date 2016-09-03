@@ -13,27 +13,56 @@ class RouterTest: XCTestCase {
     
     var router: Router?
     
+    var currentRootController: UIViewController?
+    var window = UIWindow()
+    var currentWindow: UIWindow!
+    
+    var firstController: UIViewController!
+    var secondController: UIViewController!
+    var thirdController: UIViewController!
+    
     override func setUp() {
         super.setUp()
-        router = RouterMock(rootController: UINavigationController())
+        
+        // our rootController is UITabBarController, but we need to test
+        // present and dismiss Router protocol methods
+        // we create new window and set rootController as UINavigationController
+        let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        currentWindow = delegate?.window
+        currentRootController =  window.rootViewController
+        let navigationController = UINavigationController()
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+
+        router = RouterMock(rootController: navigationController)
+        
+        firstController = ItemsListController.controllerFromStoryboard(.Items)
+        secondController = ItemDetailController.controllerFromStoryboard(.Items)
+        thirdController = SettingsController.controllerFromStoryboard(.Settings)
     }
     
     override func tearDown() {
+        // after tests finished we need to restore window state for using in another tests
         router = nil
+        window.rootViewController = currentRootController
+        window.resignKeyWindow()
+        window.hidden = true
+        currentWindow.makeKeyAndVisible()
+        
+        firstController = nil
+        secondController = nil
+        thirdController = nil
+        
         super.tearDown()
     }
     
     func testRouterSetRootController() {
         
-        let controller = ItemsListController.controllerFromStoryboard(.Items)
-        router?.setRootController(controller)
+        router?.setRootController(firstController)
         XCTAssertTrue(router?.rootController?.viewControllers.first is ItemsListController)
     }
     
     func testRouterPushViewController() {
-        
-        let firstController = ItemsListController.controllerFromStoryboard(.Items)
-        let secondController = ItemDetailController.controllerFromStoryboard(.Items)
         
         router?.setRootController(firstController)
         XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
@@ -42,9 +71,6 @@ class RouterTest: XCTestCase {
     }
     
     func testRouterPopViewController() {
-        
-        let firstController = ItemsListController.controllerFromStoryboard(.Items)
-        let secondController = ItemDetailController.controllerFromStoryboard(.Items)
         
         router?.setRootController(firstController)
         XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
@@ -56,10 +82,6 @@ class RouterTest: XCTestCase {
     }
     
     func testRouterPopToRootViewController() {
-        
-        let firstController = ItemsListController.controllerFromStoryboard(.Items)
-        let secondController = ItemDetailController.controllerFromStoryboard(.Items)
-        let thirdController = SettingsController.controllerFromStoryboard(.Settings)
         
         router?.setRootController(firstController)
         XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
@@ -74,10 +96,8 @@ class RouterTest: XCTestCase {
     
     func testPresentViewController() {
         
-        let controller = ItemsListController.controllerFromStoryboard(.Items)
-        let secondController = ItemDetailController.controllerFromStoryboard(.Items)
-        router?.push(controller)
+        router?.push(firstController)
         router?.present(secondController)
-        XCTAssertTrue(router?.rootController?.presentedViewController is ItemsListController)
+        XCTAssertTrue(router?.rootController?.presentedViewController is ItemDetailController)
     }
 }
