@@ -104,7 +104,7 @@ class RouterTest: XCTestCase {
         let expectation = expectationWithDescription("dismissBlock")
         router?.present(secondController)
         XCTAssertTrue(router?.rootController?.presentedViewController is ItemDetailController)
-        router?.dismissController(false) { [weak self] in
+        self.router?.dismissController(false) { [weak self] in
             XCTAssertTrue(self?.router?.rootController?.presentedViewController == nil)
             expectation.fulfill()
         }
