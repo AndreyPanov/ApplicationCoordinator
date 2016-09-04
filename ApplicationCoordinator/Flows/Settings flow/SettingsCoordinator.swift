@@ -8,8 +8,8 @@
 
 final class SettingsCoordinator: BaseCoordinator {
 
-    var factory: SettingsControllersFactory
-    var router: Router
+    private var factory: SettingsControllersFactory
+    private var router: Router
     
     init(router: Router,
         factory: SettingsControllersFactory) {
