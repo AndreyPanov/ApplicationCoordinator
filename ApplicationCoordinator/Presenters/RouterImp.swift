@@ -46,11 +46,11 @@ final class RouterImp: Router {
     }
     
     func dismissController() {
-        dismissController(true)
+        dismissController(true, completion: nil)
     }
     
-    func dismissController(animated: Bool) {
-        rootController?.dismissViewControllerAnimated(animated, completion: nil)
+    func dismissController(animated: Bool, completion: (() -> ())?) {
+        rootController?.dismissViewControllerAnimated(animated, completion: completion)
     }
     
     func setRootController(controller: UIViewController?) {

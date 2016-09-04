@@ -95,9 +95,19 @@ class RouterTest: XCTestCase {
     }
     
     func testPresentViewController() {
-        
-        router?.push(firstController)
         router?.present(secondController)
         XCTAssertTrue(router?.rootController?.presentedViewController is ItemDetailController)
+    }
+    
+    func testDismissViewController() {
+        
+        let expectation = expectationWithDescription("dismissBlock")
+        router?.present(secondController)
+        XCTAssertTrue(router?.rootController?.presentedViewController is ItemDetailController)
+        router?.dismissController(false) { [weak self] in
+            XCTAssertTrue(self?.router?.rootController?.presentedViewController == nil)
+            expectation.fulfill()
+        }
+        waitForExpectationsWithTimeout(15, handler: nil)
     }
 }

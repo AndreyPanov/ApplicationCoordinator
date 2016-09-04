@@ -49,11 +49,11 @@ class RouterMock: Router {
     }
     
     func dismissController() {
-        dismissController(false)
+        dismissController(false, completion: nil)
     }
     
-    func dismissController(animated: Bool) {
-        rootController?.dismissViewControllerAnimated(false, completion: nil)
+    func dismissController(animated: Bool, completion: (() -> ())?) {
+        rootController?.dismissViewControllerAnimated(false, completion: completion)
     }
     
     func setRootController(controller: UIViewController?) {
