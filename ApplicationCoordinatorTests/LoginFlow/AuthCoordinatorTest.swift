@@ -11,7 +11,7 @@ import XCTest
 
 class AuthCoordinatorTest: XCTestCase {
     
-    private var coordinator: Coordinator!
+    private var coordinator: protocol<Coordinator, AuthCoordinatorOutput>!
     private var router: Router!
     private var loginOutput: LoginFlowOutput!
     private var signUpOutput: SignUpFlowOutput!
@@ -49,7 +49,7 @@ class AuthCoordinatorTest: XCTestCase {
         
         coordinator.start()
         // showLogin() must call
-        XCTAssertTrue(router.rootController!.viewControllers.first is LoginController)
+        XCTAssertTrue(router.rootController!.viewControllers.first is LoginFlowOutput)
         XCTAssertTrue(router.rootController!.viewControllers.count == 1)
     }
     
@@ -58,7 +58,7 @@ class AuthCoordinatorTest: XCTestCase {
         coordinator.start()
         // onSignUpButtonTap event
         loginOutput.onSignUpButtonTap!()
-        XCTAssertTrue(router.rootController!.viewControllers.last is SignUpController)
+        XCTAssertTrue(router.rootController!.viewControllers.last is SignUpFlowOutput)
     }
     
     func testShowTerms() {
@@ -69,7 +69,7 @@ class AuthCoordinatorTest: XCTestCase {
         loginOutput.onSignUpButtonTap!()
         //show terms controller
         signUpOutput.onTermsButtonTap!()
-        XCTAssertTrue(router.rootController!.viewControllers.last is TermsController)
+        XCTAssertTrue(router.rootController!.viewControllers.last is TermsOutput)
     }
     
     func testTermsAgreementSendToSignUpControllerSuccess() {
@@ -83,6 +83,29 @@ class AuthCoordinatorTest: XCTestCase {
         termsOutput.onPopController!(true)
         router.popController()
         XCTAssertTrue(signUpController.confirmed)
+    }
+    
+    func testTermsAgreementSendToSignUpControllerFail() {
+        
+        coordinator.start()
+        // show signUp controller
+        loginOutput.onSignUpButtonTap!()
+        //show terms controller
+        signUpOutput.onTermsButtonTap!()
+        //terms confirmAgreement
+        termsOutput.onPopController!(false)
+        router.popController()
+        XCTAssertFalse(signUpController.confirmed)
+    }
+    
+    func testAuthCoordinatorFinishFlow() {
+        
+        coordinator.start()
+        coordinator.finishFlow = {
+            
+        }
+        loginOutput.onCompleteAuth!()
+        
     }
 }
 
