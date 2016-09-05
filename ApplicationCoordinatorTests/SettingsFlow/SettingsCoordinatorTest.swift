@@ -31,5 +31,6 @@ class SettingsCoordinatorTest: XCTestCase {
         coordinator.start()
         // after start() call coordinator must push SettingsController
         XCTAssertTrue(router.rootController?.viewControllers.first is SettingsController)
+        XCTAssertTrue(router.rootController?.viewControllers.count == 1)
     }
 }

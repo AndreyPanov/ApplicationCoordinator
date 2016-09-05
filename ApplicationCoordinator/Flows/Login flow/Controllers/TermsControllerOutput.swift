@@ -6,6 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol TermsControllerOutput: FlowControllerOutput {
+protocol TermsOutput: FlowControllerOutput {
     var onPopController: (Bool -> ())? { get set }
 }

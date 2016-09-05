@@ -6,10 +6,8 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
 protocol AuthControllersFactory {
     func createLoginOutput() -> LoginFlowOutput
     func createSignUpHandler() -> protocol<SignUpFlowInput, SignUpFlowOutput>
-    func createTermsOutput() -> TermsControllerOutput
+    func createTermsOutput() -> TermsOutput
 }

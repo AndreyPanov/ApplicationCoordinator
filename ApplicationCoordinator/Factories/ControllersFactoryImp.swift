@@ -22,7 +22,7 @@ final class ControllersFactoryImp:
         return SignUpController.controllerFromStoryboard(.Auth)
     }
     
-    func createTermsOutput() -> TermsControllerOutput {
+    func createTermsOutput() -> TermsOutput {
         return TermsController.controllerFromStoryboard(.Auth)
     }
     

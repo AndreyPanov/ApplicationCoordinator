@@ -8,8 +8,8 @@
 
 final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
 
-    var factory: AuthControllersFactory
-    var router: Router
+    private var factory: AuthControllersFactory
+    private var router: Router
     var finishFlow: (()->())?
     
     private weak var signUpInput: SignUpFlowInput?
