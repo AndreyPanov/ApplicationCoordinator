@@ -10,8 +10,6 @@ import UIKit
 
 protocol Router: class {
     
-    weak var rootController: UINavigationController? { get }
-    
     func present(_ controller: UIViewController?)
     func present(_ controller: UIViewController?, animated: Bool)
     
@@ -19,11 +17,11 @@ protocol Router: class {
     func push(_ controller: UIViewController?, animated: Bool)
     
     func popController()
-    func popController(_ animated: Bool)
+    func popController(animated: Bool)
     
     func dismissController()
-    func dismissController(_ animated: Bool, completion: (() -> ())?)
+    func dismissController(animated: Bool, completion: (() -> ())?)
     
     func setRootController(_ controller: UIViewController?)
-    func popToRootController(_ animated: Bool)
+    func popToRootController(animated: Bool)
 }

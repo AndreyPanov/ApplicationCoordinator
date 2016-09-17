@@ -10,7 +10,7 @@ import UIKit
 
 final class RouterImp: Router {
     
-    fileprivate(set) weak var rootController: UINavigationController?
+    fileprivate weak var rootController: UINavigationController?
     
     init(rootController: UINavigationController) {
         self.rootController = rootController
@@ -38,18 +38,18 @@ final class RouterImp: Router {
     }
     
     func popController()  {
-        popController(true)
+        popController(animated: true)
     }
     
-    func popController(_ animated: Bool)  {
+    func popController(animated: Bool)  {
         let _ = rootController?.popViewController(animated: animated)
     }
     
     func dismissController() {
-        dismissController(true, completion: nil)
+        dismissController(animated: true, completion: nil)
     }
     
-    func dismissController(_ animated: Bool, completion: (() -> ())?) {
+    func dismissController(animated: Bool, completion: (() -> ())?) {
         rootController?.dismiss(animated: animated, completion: completion)
     }
     
@@ -59,7 +59,7 @@ final class RouterImp: Router {
         rootController?.setViewControllers([controller], animated: false)
     }
     
-    func popToRootController(_ animated: Bool) {
+    func popToRootController(animated: Bool) {
         let _ = rootController?.popToRootViewController(animated: animated)
     }
 }
