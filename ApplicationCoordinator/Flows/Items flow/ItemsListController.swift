@@ -12,7 +12,7 @@ final class ItemsListController: UIViewController, ItemsListFlowOutput {
     
     //controller handler
     var authNeed: (() -> ())?
-    var onItemSelect: (ItemList -> ())?
+    var onItemSelect: ((ItemList) -> ())?
     var onCreateButtonTap: (() -> ())?
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,12 +24,12 @@ final class ItemsListController: UIViewController, ItemsListFlowOutput {
         super.viewDidLoad()
 
         title = "Items"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(ItemsListController.addItemButtonClicked(_:)))
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !authCheck {
             authNeed?()
@@ -37,32 +37,32 @@ final class ItemsListController: UIViewController, ItemsListFlowOutput {
         }
     }
     
-    @IBAction func addItemButtonClicked(sender: UIBarButtonItem) {
+    @IBAction func addItemButtonClicked(_ sender: UIBarButtonItem) {
         onCreateButtonTap?()
     }
 }
 
 extension ItemsListController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let item = items[indexPath.row]
+        let item = items[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = item.title
         cell.detailTextLabel?.text = item.subtitle
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        onItemSelect?(items[indexPath.row])
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onItemSelect?(items[(indexPath as NSIndexPath).row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

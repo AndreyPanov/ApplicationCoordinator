@@ -27,7 +27,7 @@ class RouterTest: XCTestCase {
         // our rootController is UITabBarController, but we need to test
         // present and dismiss Router protocol methods
         // we create new window and set rootController as UINavigationController
-        let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        let delegate = UIApplication.shared.delegate as? AppDelegate
         currentWindow = delegate?.window
         currentRootController =  window.rootViewController
         let navigationController = UINavigationController()
@@ -45,8 +45,8 @@ class RouterTest: XCTestCase {
         // after tests finished we need to restore window state for using in another tests
         router = nil
         window.rootViewController = currentRootController
-        window.resignKeyWindow()
-        window.hidden = true
+        window.resignKey()
+        window.isHidden = true
         currentWindow.makeKeyAndVisible()
         
         firstController = nil
@@ -101,13 +101,13 @@ class RouterTest: XCTestCase {
     
     func testDismissViewController() {
         
-        let expectation = expectationWithDescription("dismissBlock")
+        let expectation = self.expectation(description: "dismissBlock")
         router?.present(secondController)
         XCTAssertTrue(router?.rootController?.presentedViewController is ItemDetailController)
         self.router?.dismissController(false) { [weak self] in
             XCTAssertTrue(self?.router?.rootController?.presentedViewController == nil)
             expectation.fulfill()
         }
-        waitForExpectationsWithTimeout(15, handler: nil)
+        waitForExpectations(timeout: 15, handler: nil)
     }
 }

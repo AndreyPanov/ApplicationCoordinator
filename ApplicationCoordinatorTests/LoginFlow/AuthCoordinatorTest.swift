@@ -11,12 +11,12 @@ import XCTest
 
 class AuthCoordinatorTest: XCTestCase {
     
-    private var coordinator: protocol<Coordinator, AuthCoordinatorOutput>!
-    private var router: Router!
-    private var loginOutput: LoginFlowOutput!
-    private var signUpOutput: SignUpFlowOutput!
-    private var signUpController: SignUpController!
-    private var termsOutput: TermsOutput!
+    fileprivate var coordinator: Coordinator!
+    fileprivate var router: Router!
+    fileprivate var loginOutput: LoginFlowOutput!
+    fileprivate var signUpOutput: SignUpFlowOutput!
+    fileprivate var signUpController: SignUpController!
+    fileprivate var termsOutput: TermsOutput!
 
     override func setUp() {
         super.setUp()
@@ -24,7 +24,7 @@ class AuthCoordinatorTest: XCTestCase {
         router = RouterMock(rootController: UINavigationController())
         let loginController = LoginController.controllerFromStoryboard(.Auth)
         signUpController = SignUpController.controllerFromStoryboard(.Auth)
-        signUpController.view.hidden = false
+        signUpController.view.isHidden = false
         let termsController = TermsController.controllerFromStoryboard(.Auth)
         let factory = AuthControllersFactoryMock(loginController: loginController,
                                                  signUpController: signUpController,
@@ -49,7 +49,7 @@ class AuthCoordinatorTest: XCTestCase {
         
         coordinator.start()
         // showLogin() must call
-        XCTAssertTrue(router.rootController!.viewControllers.first is LoginFlowOutput)
+        XCTAssertTrue(router.rootController!.viewControllers.first is LoginController)
         XCTAssertTrue(router.rootController!.viewControllers.count == 1)
     }
     
@@ -58,7 +58,7 @@ class AuthCoordinatorTest: XCTestCase {
         coordinator.start()
         // onSignUpButtonTap event
         loginOutput.onSignUpButtonTap!()
-        XCTAssertTrue(router.rootController!.viewControllers.last is SignUpFlowOutput)
+        XCTAssertTrue(router.rootController!.viewControllers.last is SignUpController)
     }
     
     func testShowTerms() {
@@ -69,7 +69,7 @@ class AuthCoordinatorTest: XCTestCase {
         loginOutput.onSignUpButtonTap!()
         //show terms controller
         signUpOutput.onTermsButtonTap!()
-        XCTAssertTrue(router.rootController!.viewControllers.last is TermsOutput)
+        XCTAssertTrue(router.rootController!.viewControllers.last is TermsController)
     }
     
     func testTermsAgreementSendToSignUpControllerSuccess() {
@@ -84,36 +84,13 @@ class AuthCoordinatorTest: XCTestCase {
         router.popController()
         XCTAssertTrue(signUpController.confirmed)
     }
-    
-    func testTermsAgreementSendToSignUpControllerFail() {
-        
-        coordinator.start()
-        // show signUp controller
-        loginOutput.onSignUpButtonTap!()
-        //show terms controller
-        signUpOutput.onTermsButtonTap!()
-        //terms confirmAgreement
-        termsOutput.onPopController!(false)
-        router.popController()
-        XCTAssertFalse(signUpController.confirmed)
-    }
-    
-    func testAuthCoordinatorFinishFlow() {
-        
-        coordinator.start()
-        coordinator.finishFlow = {
-            
-        }
-        loginOutput.onCompleteAuth!()
-        
-    }
 }
 
 final class AuthControllersFactoryMock: AuthControllersFactory {
     
-    private let loginController: LoginController
-    private let signUpController: SignUpController
-    private let termsController: TermsController
+    fileprivate let loginController: LoginController
+    fileprivate let signUpController: SignUpController
+    fileprivate let termsController: TermsController
     
     init(loginController: LoginController, signUpController: SignUpController, termsController: TermsController) {
         
@@ -126,7 +103,7 @@ final class AuthControllersFactoryMock: AuthControllersFactory {
         return loginController
     }
     
-    func createSignUpHandler() -> protocol<SignUpFlowInput, SignUpFlowOutput> {
+    func createSignUpHandler() -> SignUpFlowInput & SignUpFlowOutput {
         return signUpController
     }
     

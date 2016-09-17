@@ -7,7 +7,7 @@
 //
 
 protocol SignUpFlowInput: FlowControllerInput {
-    func conformTermsAgreement(agree: Bool)
+    func conformTermsAgreement(_ agree: Bool)
 }
 
 protocol SignUpFlowOutput: FlowControllerOutput {

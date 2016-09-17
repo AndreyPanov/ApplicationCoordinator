@@ -18,7 +18,7 @@ final class ControllersFactoryImp:
         return LoginController.controllerFromStoryboard(.Auth)
     }
     
-    func createSignUpHandler() -> protocol<SignUpFlowInput, SignUpFlowOutput> {
+    func createSignUpHandler() -> SignUpFlowInput & SignUpFlowOutput {
         return SignUpController.controllerFromStoryboard(.Auth)
     }
     
@@ -30,7 +30,7 @@ final class ControllersFactoryImp:
         return ItemsListController.controllerFromStoryboard(.Items)
     }
     
-    func createItemDetailOutput(item item: ItemList) -> ItemDetailFlowOutput {
+    func createItemDetailOutput(item: ItemList) -> ItemDetailFlowOutput {
         
         let controller = ItemDetailController.controllerFromStoryboard(.Items)
         controller.itemList = item

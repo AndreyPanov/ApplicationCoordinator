@@ -10,9 +10,9 @@ import UIKit
 
 final class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarFlowOutput {
     
-    var onItemFlowSelect: (UINavigationController -> ())?
-    var onSettingsFlowSelect: (UINavigationController -> ())?
-    var onViewDidLoad: (UINavigationController -> ())?
+    var onItemFlowSelect: ((UINavigationController) -> ())?
+    var onSettingsFlowSelect: ((UINavigationController) -> ())?
+    var onViewDidLoad: ((UINavigationController) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ final class TabbarController: UITabBarController, UITabBarControllerDelegate, Ta
         }
     }
 
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         guard let controller = viewControllers?[selectedIndex] as? UINavigationController else { return }
         
         if selectedIndex == 0 {

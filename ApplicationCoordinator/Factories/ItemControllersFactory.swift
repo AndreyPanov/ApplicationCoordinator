@@ -10,5 +10,5 @@ import UIKit
 
 protocol ItemControllersFactory {
     func createItemsOutput() -> ItemsListFlowOutput
-    func createItemDetailOutput(item item: ItemList) -> ItemDetailFlowOutput
+    func createItemDetailOutput(item: ItemList) -> ItemDetailFlowOutput
 }

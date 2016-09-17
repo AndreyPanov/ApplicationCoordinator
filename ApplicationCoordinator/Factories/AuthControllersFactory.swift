@@ -8,6 +8,6 @@
 
 protocol AuthControllersFactory {
     func createLoginOutput() -> LoginFlowOutput
-    func createSignUpHandler() -> protocol<SignUpFlowInput, SignUpFlowOutput>
+    func createSignUpHandler() -> SignUpFlowInput & SignUpFlowOutput
     func createTermsOutput() -> TermsOutput
 }

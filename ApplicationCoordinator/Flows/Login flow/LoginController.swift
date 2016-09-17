@@ -20,11 +20,11 @@ final class LoginController: UIViewController, LoginFlowOutput {
         title = "Login"
     }
     
-    @IBAction func loginButtonClicked(sender: AnyObject) {
+    @IBAction func loginButtonClicked(_ sender: AnyObject) {
         onCompleteAuth?()
     }
     
-    @IBAction func signUpClicked(sender: AnyObject) {
+    @IBAction func signUpClicked(_ sender: AnyObject) {
         onSignUpButtonTap?()
     }
 }

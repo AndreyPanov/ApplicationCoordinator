@@ -28,7 +28,7 @@ final class ItemCoordinator: BaseCoordinator {
     
 //MARK: - Run current flow's controllers
     
-    private func showItemList() {
+    fileprivate func showItemList() {
       
         let itemsOutput = factory.createItemsOutput()
         itemsOutput.authNeed = { [weak self] in
@@ -43,7 +43,7 @@ final class ItemCoordinator: BaseCoordinator {
         router.setRootController(itemsOutput.toPresent())
     }
     
-    private func showItemDetail(item: ItemList) {
+    fileprivate func showItemDetail(_ item: ItemList) {
         
         let itemDetailFlowOutput = factory.createItemDetailOutput(item: item)
         router.push(itemDetailFlowOutput.toPresent())
@@ -51,7 +51,7 @@ final class ItemCoordinator: BaseCoordinator {
     
 //MARK: - Run coordinators (switch to another flow)
     
-    private func runAuthCoordinator() {
+    fileprivate func runAuthCoordinator() {
         let (coordinator, controller) = coordinatorFactory.createAuthCoordinatorBox()
         coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.router.dismissController()
@@ -62,7 +62,7 @@ final class ItemCoordinator: BaseCoordinator {
         coordinator.start()
     }
     
-    private func runCreationCoordinator() {
+    fileprivate func runCreationCoordinator() {
         
         let (coordinator, controller) = coordinatorFactory.createItemCreationCoordinatorBox()
         coordinator.finishFlow = { [weak self, weak coordinator] item in
