@@ -16,50 +16,51 @@ final class RouterImp: Router {
         self.rootController = rootController
     }
     
-    func present(_ controller: UIViewController?) {
-        present(controller, animated: true)
+    func present(_ module: Presentable?) {
+        present(module, animated: true)
     }
-    func present(_ controller: UIViewController?, animated: Bool) {
-        guard let controller = controller else { return }
+    
+    func present(_ module: Presentable?, animated: Bool) {
+        guard let controller = module?.toPresent() else { return }
         rootController?.present(controller, animated: animated, completion: nil)
     }
     
-    func push(_ controller: UIViewController?)  {
-        push(controller, animated: true)
+    func push(_ module: Presentable?)  {
+        push(module, animated: true)
     }
     
-    func push(_ controller: UIViewController?, animated: Bool)  {
+    func push(_ module: Presentable?, animated: Bool)  {
         guard
-            let controller = controller
+            let controller = module?.toPresent()
             , (controller is UINavigationController == false)
             else { assertionFailure("Deprecated push UINavigationController."); return }
         
         rootController?.pushViewController(controller, animated: animated)
     }
     
-    func popController()  {
-        popController(animated: true)
+    func popModule()  {
+        popModule(animated: true)
     }
     
-    func popController(animated: Bool)  {
+    func popModule(animated: Bool)  {
         let _ = rootController?.popViewController(animated: animated)
     }
     
-    func dismissController() {
-        dismissController(animated: true, completion: nil)
+    func dismissModule() {
+        dismissModule(animated: true, completion: nil)
     }
     
-    func dismissController(animated: Bool, completion: (() -> ())?) {
+    func dismissModule(animated: Bool, completion: (() -> ())?) {
         rootController?.dismiss(animated: animated, completion: completion)
     }
     
-    func setRootController(_ controller: UIViewController?) {
-        guard let controller = controller else { return }
+    func setRootModule(_ module: Presentable?) {
+        guard let controller = module?.toPresent() else { return }
         
         rootController?.setViewControllers([controller], animated: false)
     }
     
-    func popToRootController(animated: Bool) {
+    func popToRootModule(animated: Bool) {
         let _ = rootController?.popToRootViewController(animated: animated)
     }
 }

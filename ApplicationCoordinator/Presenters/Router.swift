@@ -10,18 +10,18 @@ import UIKit
 
 protocol Router: class {
     
-    func present(_ controller: UIViewController?)
-    func present(_ controller: UIViewController?, animated: Bool)
+    func present(_ module: Presentable?)
+    func present(_ module: Presentable?, animated: Bool)
     
-    func push(_ controller: UIViewController?)
-    func push(_ controller: UIViewController?, animated: Bool)
+    func push(_ module: Presentable?)
+    func push(_ module: Presentable?, animated: Bool)
     
-    func popController()
-    func popController(animated: Bool)
+    func popModule()
+    func popModule(animated: Bool)
     
-    func dismissController()
-    func dismissController(animated: Bool, completion: (() -> ())?)
+    func dismissModule()
+    func dismissModule(animated: Bool, completion: (() -> ())?)
     
-    func setRootController(_ controller: UIViewController?)
-    func popToRootController(animated: Bool)
+    func setRootModule(_ module: Presentable?)
+    func popToRootModule(animated: Bool)
 }
