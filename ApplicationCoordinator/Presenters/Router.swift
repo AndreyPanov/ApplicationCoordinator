@@ -12,18 +12,18 @@ protocol Router: class {
     
     weak var rootController: UINavigationController? { get }
     
-    func present(controller: UIViewController?)
-    func present(controller: UIViewController?, animated: Bool)
+    func present(_ controller: UIViewController?)
+    func present(_ controller: UIViewController?, animated: Bool)
     
-    func push(controller: UIViewController?)
-    func push(controller: UIViewController?, animated: Bool)
+    func push(_ controller: UIViewController?)
+    func push(_ controller: UIViewController?, animated: Bool)
     
     func popController()
-    func popController(animated: Bool)
+    func popController(_ animated: Bool)
     
     func dismissController()
-    func dismissController(animated: Bool, completion: (() -> ())?)
+    func dismissController(_ animated: Bool, completion: (() -> ())?)
     
-    func setRootController(controller: UIViewController?)
-    func popToRootController(animated: Bool)
+    func setRootController(_ controller: UIViewController?)
+    func popToRootController(_ animated: Bool)
 }

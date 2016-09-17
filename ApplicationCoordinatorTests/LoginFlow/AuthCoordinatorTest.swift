@@ -11,12 +11,12 @@ import XCTest
 
 class AuthCoordinatorTest: XCTestCase {
     
-    private var coordinator: Coordinator!
-    private var router: Router!
-    private var loginOutput: LoginFlowOutput!
-    private var signUpOutput: SignUpFlowOutput!
-    private var signUpController: SignUpController!
-    private var termsOutput: TermsOutput!
+    fileprivate var coordinator: Coordinator!
+    fileprivate var router: Router!
+    fileprivate var loginOutput: LoginFlowOutput!
+    fileprivate var signUpOutput: SignUpFlowOutput!
+    fileprivate var signUpController: SignUpController!
+    fileprivate var termsOutput: TermsOutput!
 
     override func setUp() {
         super.setUp()
@@ -24,7 +24,7 @@ class AuthCoordinatorTest: XCTestCase {
         router = RouterMock(rootController: UINavigationController())
         let loginController = LoginController.controllerFromStoryboard(.Auth)
         signUpController = SignUpController.controllerFromStoryboard(.Auth)
-        signUpController.view.hidden = false
+        signUpController.view.isHidden = false
         let termsController = TermsController.controllerFromStoryboard(.Auth)
         let factory = AuthControllersFactoryMock(loginController: loginController,
                                                  signUpController: signUpController,
@@ -88,9 +88,9 @@ class AuthCoordinatorTest: XCTestCase {
 
 final class AuthControllersFactoryMock: AuthControllersFactory {
     
-    private let loginController: LoginController
-    private let signUpController: SignUpController
-    private let termsController: TermsController
+    fileprivate let loginController: LoginController
+    fileprivate let signUpController: SignUpController
+    fileprivate let termsController: TermsController
     
     init(loginController: LoginController, signUpController: SignUpController, termsController: TermsController) {
         
@@ -103,7 +103,7 @@ final class AuthControllersFactoryMock: AuthControllersFactory {
         return loginController
     }
     
-    func createSignUpHandler() -> protocol<SignUpFlowInput, SignUpFlowOutput> {
+    func createSignUpHandler() -> SignUpFlowInput & SignUpFlowOutput {
         return signUpController
     }
     

@@ -18,14 +18,14 @@ final class ItemCreateController: UIViewController, ItemCreateFlowOutput {
         super.viewDidLoad()
 
         title = "Create"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .Plain, target: self, action: #selector(ItemCreateController.hideButtonClicked(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: self, action: #selector(ItemCreateController.hideButtonClicked(_:)))
     }
     
-    @IBAction func hideButtonClicked(sender: UIBarButtonItem) {
+    @IBAction func hideButtonClicked(_ sender: UIBarButtonItem) {
         onHideButtonTap?()
     }
     
-    @IBAction func createButtonClicked(sender: UIBarButtonItem) {
+    @IBAction func createButtonClicked(_ sender: UIBarButtonItem) {
         onCompleteCreateItem?(ItemList(title: "", subtitle: ""))
     }
 }

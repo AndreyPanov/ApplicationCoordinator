@@ -8,11 +8,11 @@
 
 final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
 
-    private var factory: AuthControllersFactory
-    private var router: Router
+    fileprivate var factory: AuthControllersFactory
+    fileprivate var router: Router
     var finishFlow: (()->())?
     
-    private weak var signUpInput: SignUpFlowInput?
+    fileprivate weak var signUpInput: SignUpFlowInput?
     
     init(router: Router,
          factory: AuthControllersFactory) {
@@ -27,7 +27,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     //MARK: - Run current flow's controllers
     
-    private func showLogin() {
+    fileprivate func showLogin() {
         
         let loginOutput = factory.createLoginOutput()
         loginOutput.onCompleteAuth = { [weak self] in
@@ -39,7 +39,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         router.setRootController(loginOutput.toPresent())
     }
     
-    private func showSignUp() {
+    fileprivate func showSignUp() {
         
         let signUp = factory.createSignUpHandler()
         signUpInput = signUp
@@ -52,7 +52,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         router.push(signUp.toPresent())
     }
     
-    private func showTerms() {
+    fileprivate func showTerms() {
         
         let termsOutput = factory.createTermsOutput()
         termsOutput.onPopController = { [weak self] agree in

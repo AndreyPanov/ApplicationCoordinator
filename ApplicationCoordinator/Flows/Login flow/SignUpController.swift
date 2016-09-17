@@ -19,8 +19,8 @@ final class SignUpController: UIViewController, SignUpFlowInput, SignUpFlowOutpu
     
     var confirmed = false {
         didSet {
-            termsLabel.hidden = !confirmed
-            signUpButton.enabled = confirmed
+            termsLabel.isHidden = !confirmed
+            signUpButton.isEnabled = confirmed
         }
     }
     
@@ -28,21 +28,21 @@ final class SignUpController: UIViewController, SignUpFlowInput, SignUpFlowOutpu
         super.viewDidLoad()
         
         title = "SignUp"
-        termsLabel.hidden = true
-        signUpButton.enabled = false
+        termsLabel.isHidden = true
+        signUpButton.isEnabled = false
     }
     
-    @IBAction func signUpClicked(sender: AnyObject) {
+    @IBAction func signUpClicked(_ sender: AnyObject) {
         if confirmed {
             onSignUpComplete?()
         }
     }
     
-    @IBAction func termsButtonClicked(sender: AnyObject) {
+    @IBAction func termsButtonClicked(_ sender: AnyObject) {
         onTermsButtonTap?()
     }
     
-    func conformTermsAgreement(agree: Bool) {
+    func conformTermsAgreement(_ agree: Bool) {
         confirmed = agree
     }
 }

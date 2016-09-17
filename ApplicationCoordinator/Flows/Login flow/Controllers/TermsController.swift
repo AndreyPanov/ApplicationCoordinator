@@ -10,18 +10,18 @@ import UIKit
 
 class TermsController: UIViewController, TermsOutput {
     
-    var onPopController: (Bool -> ())?
+    var onPopController: ((Bool) -> ())?
     var confirmed = false
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if isMovingFromParentViewController() {
+        if isMovingFromParentViewController {
             onPopController?(confirmed)
         }
     }
 
-    @IBAction func termsSwitchValueChanged(sender: UISwitch) {
-        confirmed = sender.on
+    @IBAction func termsSwitchValueChanged(_ sender: UISwitch) {
+        confirmed = sender.isOn
     }
 }

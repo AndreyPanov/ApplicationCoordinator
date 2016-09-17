@@ -17,7 +17,7 @@ class BaseCoordinator: Coordinator {
     }
     
     // add only unique object
-    func addDependency(coordinator: Coordinator) {
+    func addDependency(_ coordinator: Coordinator) {
         
         for element in childCoordinators {
             if element === coordinator { return }
@@ -25,15 +25,15 @@ class BaseCoordinator: Coordinator {
         childCoordinators.append(coordinator)
     }
     
-    func removeDependency(coordinator: Coordinator?) {
+    func removeDependency(_ coordinator: Coordinator?) {
         guard
             childCoordinators.isEmpty == false,
             let coordinator = coordinator
             else { return }
         
-        for (index, element) in childCoordinators.enumerate() {
+        for (index, element) in childCoordinators.enumerated() {
             if element === coordinator {
-                childCoordinators.removeAtIndex(index)
+                childCoordinators.remove(at: index)
                 break
             }
         }

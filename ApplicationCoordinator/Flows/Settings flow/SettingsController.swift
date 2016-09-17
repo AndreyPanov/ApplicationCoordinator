@@ -34,18 +34,18 @@ final class SettingsController: UIViewController, SettingsFlowOutput {
 
 extension SettingsController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return settings.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settings[section].count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let setting = settings[indexPath.section][indexPath.row]
+        let setting = settings[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
         cell.textLabel?.text = setting.title
         cell.detailTextLabel?.text = setting.subtitle
         return cell

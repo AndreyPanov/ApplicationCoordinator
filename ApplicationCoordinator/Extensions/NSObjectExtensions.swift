@@ -11,6 +11,6 @@ import Foundation
 extension NSObject {
     
     class var nameOfClass: String {
-        return NSStringFromClass(self).componentsSeparatedByString(".").last!
+        return NSStringFromClass(self).components(separatedBy: ".").last!
     }
 }
