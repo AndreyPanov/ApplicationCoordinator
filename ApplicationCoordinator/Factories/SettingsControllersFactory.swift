@@ -6,8 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
 protocol SettingsControllersFactory {
     func createSettingsOutput() -> SettingsFlowOutput
 }

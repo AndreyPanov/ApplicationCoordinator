@@ -5,7 +5,6 @@
 //  Created by Andrey Panov on 19.04.16.
 //  Copyright © 2016 Avito. All rights reserved.
 //
-import UIKit
 
 final class ItemCoordinator: BaseCoordinator {
 
