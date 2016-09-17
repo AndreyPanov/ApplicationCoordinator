@@ -28,18 +28,23 @@ protocol CoordinatorFactory {
     func createItemCoordinator(navController navController: UINavigationController?) -> Coordinator
     func createItemCoordinator() -> Coordinator
     
-    func createItemCreationCoordinatorBox(navController navController: UINavigationController?) ->
-        (configurator: protocol<Coordinator, ItemCreateCoordinatorOutput>,
+    func createItemCreationCoordinatorBox(navController: UINavigationController?) ->
+        (configurator: Coordinator & ItemCreateCoordinatorOutput,
         toPresent: UIViewController?)
 }
 ```
 The base coordinator stores dependencies of child coordinators
 ```swift
-class BaseCoordinator {
+class BaseCoordinator: Coordinator {
     
-    var childCoordinators: [Coordinatable] = []
+    var childCoordinators: [Coordinator] = []
+
+    func start() {
+        assertionFailure("must be overriden")
+    }
     
-    func addDependency(coordinator: Coordinator) {
+    // add only unique object
+    func addDependency(_ coordinator: Coordinator) {
         
         for element in childCoordinators {
             if element === coordinator { return }
@@ -47,12 +52,15 @@ class BaseCoordinator {
         childCoordinators.append(coordinator)
     }
     
-    func removeDependency(coordinator: Coordinator?) {
-        guard childCoordinators.isEmpty == false, let coordinator = coordinator else { return }
+    func removeDependency(_ coordinator: Coordinator?) {
+        guard
+            childCoordinators.isEmpty == false,
+            let coordinator = coordinator
+            else { return }
         
-        for (index, element) in childCoordinators.enumerate() {
+        for (index, element) in childCoordinators.enumerated() {
             if element === coordinator {
-                childCoordinators.removeAtIndex(index)
+                childCoordinators.remove(at: index)
                 break
             }
         }
@@ -61,15 +69,15 @@ class BaseCoordinator {
 ```
 AppDelegate store lazy reference for the Application Coordinator
 ```swift
-private lazy var applicationCoordinator: Coordinator = self.createCoordinator()()
+fileprivate lazy var applicationCoordinator: Coordinator = self.createCoordinator()()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         applicationCoordinator.start()
         return true
     }
     
-    private func createCoordinator() -> (() -> Coordinator) {
+    fileprivate func createCoordinator() -> (() -> Coordinator) {
         return {
             let tabbarFlowOutput = self.window!.rootViewController as! TabbarFlowOutput
             return ApplicationCoordinator(tabbarFlowOutput: tabbarFlowOutput,

@@ -5,8 +5,6 @@
 //  Created by Andrey Panov on 28.04.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
-import Foundation
-import UIKit
 
 class BaseCoordinator: Coordinator {
     
