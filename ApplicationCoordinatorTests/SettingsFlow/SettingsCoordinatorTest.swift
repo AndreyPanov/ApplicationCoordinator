@@ -12,23 +12,18 @@ import XCTest
 class SettingsCoordinatorTest: XCTestCase {
     
     fileprivate var coordinator: Coordinator!
-    fileprivate var routerNavigationStack: [UIViewController]!
-    fileprivate var routerPresentedController: UIViewController?
+    fileprivate var router: RouterMock!
 
     override func setUp() {
         super.setUp()
         
-        let routerMock = RouterMock()
-        routerNavigationStack = routerMock.navigationStack
-        routerPresentedController = routerMock.presented
-        
-        coordinator = SettingsCoordinator(router: routerMock, factory: ControllersFactoryImp())
+        router = RouterMockImp()
+        coordinator = SettingsCoordinator(router: router, factory: ControllersFactoryImp())
     }
     
     override func tearDown() {
         coordinator = nil
-        routerNavigationStack = nil
-        routerPresentedController = nil
+        router = nil
         
         super.tearDown()
     }
@@ -36,7 +31,7 @@ class SettingsCoordinatorTest: XCTestCase {
     func testStart() {
         coordinator.start()
         // after start() call coordinator must push SettingsController
-        XCTAssertTrue(routerNavigationStack.first is SettingsController)
-        XCTAssertTrue(routerNavigationStack.count == 1)
+        XCTAssertTrue(router.navigationStack.first is SettingsController)
+        XCTAssertTrue(router.navigationStack.count == 1)
     }
 }

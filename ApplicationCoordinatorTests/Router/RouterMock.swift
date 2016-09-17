@@ -9,7 +9,12 @@
 import UIKit
 @testable import ApplicationCoordinator
 
-class RouterMock: Router {
+protocol RouterMock: Router {
+    var navigationStack: [UIViewController] {get}
+    var presented: UIViewController? {get}
+}
+
+final class RouterMockImp: RouterMock {
     
     // in test cases router store the rootController referense
     fileprivate(set) var navigationStack: [UIViewController] = []
