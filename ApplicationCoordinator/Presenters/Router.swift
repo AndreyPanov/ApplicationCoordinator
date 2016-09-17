@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Router: class {
+protocol Router: class, Presentable {
     
     func present(_ module: Presentable?)
     func present(_ module: Presentable?, animated: Bool)

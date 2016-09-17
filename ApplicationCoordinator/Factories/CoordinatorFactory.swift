@@ -18,17 +18,17 @@ protocol CoordinatorFactory {
     
     func createItemCreationCoordinatorBox() ->
         (configurator: Coordinator & ItemCreateCoordinatorOutput,
-        toPresent: UIViewController?)
+        toPresent: Presentable?)
     
     func createItemCreationCoordinatorBox(navController: UINavigationController?) ->
         (configurator: Coordinator & ItemCreateCoordinatorOutput,
-        toPresent: UIViewController?)
+        toPresent: Presentable?)
     
     func createAuthCoordinatorBox() ->
         (configurator: Coordinator & AuthCoordinatorOutput,
-        toPresent: UIViewController?)
+        toPresent: Presentable?)
     
     func createAuthCoordinatorBox(navController: UINavigationController?) ->
         (configurator: Coordinator & AuthCoordinatorOutput,
-        toPresent: UIViewController?)
+        toPresent: Presentable?)
 }

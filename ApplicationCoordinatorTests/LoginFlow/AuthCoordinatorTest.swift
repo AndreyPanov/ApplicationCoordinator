@@ -84,7 +84,7 @@ class AuthCoordinatorTest: XCTestCase {
         signUpOutput.onTermsButtonTap!()
         //terms confirmAgreement
         termsOutput.onPopController!(true)
-        router.popController()
+        router.popModule()
         XCTAssertTrue(signUpController.confirmed)
     }
 }

@@ -16,6 +16,10 @@ final class RouterImp: Router {
         self.rootController = rootController
     }
     
+    func toPresent() -> UIViewController? {
+        return rootController
+    }
+    
     func present(_ module: Presentable?) {
         present(module, animated: true)
     }
