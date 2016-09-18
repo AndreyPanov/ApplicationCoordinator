@@ -12,7 +12,6 @@ import XCTest
 class AuthCoordinatorTest: XCTestCase {
     
     fileprivate var coordinator: Coordinator!
-    
     fileprivate var router: RouterMock!
     
     fileprivate var loginOutput: LoginFlowOutput!

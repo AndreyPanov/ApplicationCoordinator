@@ -11,12 +11,42 @@ import XCTest
 
 class ItemCoordinatorTest: XCTestCase {
     
+    fileprivate var coordinator: Coordinator!
+    fileprivate var router: RouterMock!
+    
+    fileprivate var itemListOutput: ItemsListFlowOutput!
+    fileprivate var itemDetailOutput: ItemDetailFlowOutput!
+    
     override func setUp() {
         super.setUp()
+        
+        router = RouterMockImp()
+        let itemListController = ItemsListController.controllerFromStoryboard(.Items)
+        let itemDetailController = ItemDetailController.controllerFromStoryboard(.Items)
+        let factory = ItemControllersFactoryMock(itemListController: itemListController, itemDetailCntroller: itemDetailController)
+        coordinator = ItemCoordinator(router: router,
+                                      factory: factory,
+                                      coordinatorFactory: CoordinatorFactoryImp())
+        itemListOutput = itemListController
+        itemDetailOutput = itemDetailController
+        
     }
     
     override func tearDown() {
+        coordinator = nil
+        router = nil
+        itemListOutput = nil
+        itemDetailOutput = nil
+        
         super.tearDown()
+    }
+    
+    func testStart() {
+        
+        coordinator.start()
+        // login controller must be in navigation stack
+        XCTAssertTrue(router.navigationStack.first is ItemsListController)
+        XCTAssertTrue(router.navigationStack.count == 1)
     }
 }
 
