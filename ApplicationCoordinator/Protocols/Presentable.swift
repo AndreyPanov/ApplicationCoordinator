@@ -18,3 +18,5 @@ extension Presentable where Self: UIViewController {
         return self
     }
 }
+
+extension UIViewController: Presentable { }

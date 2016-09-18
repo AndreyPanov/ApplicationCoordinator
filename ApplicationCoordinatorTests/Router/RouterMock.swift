@@ -20,50 +20,54 @@ final class RouterMockImp: RouterMock {
     fileprivate(set) var navigationStack: [UIViewController] = []
     fileprivate(set) var presented: UIViewController?
     
-    //all of the actions without animation
-    func present(_ controller: UIViewController?) {
-        present(controller, animated: false)
+    func toPresent() -> UIViewController? {
+        return nil
     }
-    func present(_ controller: UIViewController?, animated: Bool) {
-        guard let controller = controller else { return }
+    
+    //all of the actions without animation
+    func present(_ module: Presentable?) {
+        present(module, animated: false)
+    }
+    func present(_ module: Presentable?, animated: Bool) {
+        guard let controller = module?.toPresent() else { return }
         presented = controller
     }
     
-    func push(_ controller: UIViewController?)  {
-        push(controller, animated: false)
+    func push(_ module: Presentable?)  {
+        push(module, animated: false)
     }
     
-    func push(_ controller: UIViewController?, animated: Bool)  {
+    func push(_ module: Presentable?, animated: Bool)  {
         guard
-            let controller = controller,
+            let controller = module?.toPresent(),
             (controller is UINavigationController == false)
             else { assertionFailure("Deprecated push UINavigationController."); return }
         
         navigationStack.append(controller)
     }
     
-    func popController()  {
-        popController(animated: false)
+    func popModule()  {
+        popModule(animated: false)
     }
     
-    func popController(animated: Bool)  {
+    func popModule(animated: Bool)  {
         navigationStack.removeLast()
     }
     
-    func dismissController() {
-        dismissController(animated: false, completion: nil)
+    func dismissModule() {
+        dismissModule(animated: false, completion: nil)
     }
     
-    func dismissController(animated: Bool, completion: (() -> ())?) {
+    func dismissModule(animated: Bool, completion: (() -> ())?) {
         presented = nil
     }
     
-    func setRootController(_ controller: UIViewController?) {
-        guard let controller = controller else { return }
+    func setRootModule(_ module: Presentable?) {
+        guard let controller = module?.toPresent() else { return }
         navigationStack.append(controller)
     }
     
-    func popToRootController(animated: Bool) {
+    func popToRootModule(animated: Bool) {
         guard let first = navigationStack.first else { return }
         navigationStack = [first]
     }
