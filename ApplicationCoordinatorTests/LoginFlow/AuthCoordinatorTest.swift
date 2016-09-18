@@ -95,7 +95,9 @@ final class AuthControllersFactoryMock: AuthControllersFactory {
     fileprivate let signUpController: SignUpController
     fileprivate let termsController: TermsController
     
-    init(loginController: LoginController, signUpController: SignUpController, termsController: TermsController) {
+    init(loginController: LoginController,
+         signUpController: SignUpController,
+         termsController: TermsController) {
         
         self.loginController = loginController
         self.signUpController = signUpController
