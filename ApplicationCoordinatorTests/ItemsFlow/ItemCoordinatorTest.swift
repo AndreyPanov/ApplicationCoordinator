@@ -48,8 +48,29 @@ class ItemCoordinatorTest: XCTestCase {
         XCTAssertTrue(router.navigationStack.first is ItemsListController)
         XCTAssertTrue(router.navigationStack.count == 1)
     }
+    
+    func testShowItemDetail() {
+        
+        coordinator.start()
+        itemListOutput.onItemSelect!(ItemList(title: "", subtitle: ""))
+        XCTAssertTrue(router.navigationStack.last is ItemDetailController)
+        XCTAssertTrue(router.navigationStack.count == 2)
+        
+    }
+    
+    
 }
-
+/*
+ itemsOutput.authNeed = { [weak self] in
+ self?.runAuthCoordinator()
+ }
+ itemsOutput.onItemSelect = { [weak self] (item) in
+ self?.showItemDetail(item)
+ }
+ itemsOutput.onCreateButtonTap = { [weak self] in
+ self?.runCreationCoordinator()
+ }
+ */
 final class ItemControllersFactoryMock: ItemControllersFactory {
     
     fileprivate let itemListController: ItemsListController

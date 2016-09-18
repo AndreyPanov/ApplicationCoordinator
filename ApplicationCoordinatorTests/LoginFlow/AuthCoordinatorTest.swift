@@ -61,6 +61,7 @@ class AuthCoordinatorTest: XCTestCase {
         // onSignUpButtonTap event
         loginOutput.onSignUpButtonTap!()
         XCTAssertTrue(router.navigationStack.last is SignUpController)
+        XCTAssertTrue(router.navigationStack.count == 2)
     }
     
     func testShowTerms() {
@@ -72,6 +73,7 @@ class AuthCoordinatorTest: XCTestCase {
         //show terms controller
         signUpOutput.onTermsButtonTap!()
         XCTAssertTrue(router.navigationStack.last is TermsController)
+        XCTAssertTrue(router.navigationStack.count == 3)
     }
     
     func testTermsAgreementSendToSignUpControllerSuccess() {

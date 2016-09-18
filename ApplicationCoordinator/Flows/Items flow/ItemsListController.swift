@@ -15,6 +15,8 @@ final class ItemsListController: UIViewController, ItemsListFlowOutput {
     var onItemSelect: ((ItemList) -> ())?
     var onCreateButtonTap: (() -> ())?
     
+    @IBAction func addItemButtonClicked(_ sender: UIBarButtonItem) { onCreateButtonTap?() }
+
     @IBOutlet weak var tableView: UITableView!
     //mock datasource
     var items = (0...10).map { index in return ItemList(title: "Item № \(index)", subtitle: "Item descripton") }
@@ -37,9 +39,6 @@ final class ItemsListController: UIViewController, ItemsListFlowOutput {
         }
     }
     
-    @IBAction func addItemButtonClicked(_ sender: UIBarButtonItem) {
-        onCreateButtonTap?()
-    }
 }
 
 extension ItemsListController: UITableViewDelegate, UITableViewDataSource {
