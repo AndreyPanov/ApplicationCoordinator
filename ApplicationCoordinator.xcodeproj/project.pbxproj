@@ -42,6 +42,7 @@
 		77B3E7911D8E90550095527A /* ItemCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3E7901D8E90550095527A /* ItemCoordinatorTest.swift */; };
 		77E054CB1D7937C900147DAE /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CA1D7937C900147DAE /* RouterTest.swift */; };
 		77E054CD1D79391600147DAE /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CC1D79391600147DAE /* RouterMock.swift */; };
+		AD205EB91E0C3D08004249D2 /* BaseNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD205EB81E0C3D08004249D2 /* BaseNavigationControllerViewController.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */; };
 		D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C00B91D1BBADA00573E71 /* Presentable.swift */; };
@@ -113,6 +114,7 @@
 		77E054B41D79312700147DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E054CA1D7937C900147DAE /* RouterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		77E054CC1D79391600147DAE /* RouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
+		AD205EB81E0C3D08004249D2 /* BaseNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateController.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateController.swift"; sourceTree = SOURCE_ROOT; };
 		D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateView.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateView.swift"; sourceTree = SOURCE_ROOT; };
@@ -460,6 +462,7 @@
 			children = (
 				0EDCA2F41CEE365300A6E385 /* Router.swift */,
 				D541E7691CD91304004C38B3 /* RouterImp.swift */,
+				AD205EB81E0C3D08004249D2 /* BaseNavigationControllerViewController.swift */,
 			);
 			name = Router;
 			path = ApplicationCoordinator/Presenters;
@@ -615,6 +618,7 @@
 				0E6A42CA1CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift in Sources */,
 				D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */,
 				D5FDC8501CEB3AE0001C3DF3 /* SignUpView.swift in Sources */,
+				AD205EB91E0C3D08004249D2 /* BaseNavigationControllerViewController.swift in Sources */,
 				0E6A42D41CF62EA2005746EC /* TermsControllerOutput.swift in Sources */,
 				D5FDC84E1CEB3579001C3DF3 /* LoginView.swift in Sources */,
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,

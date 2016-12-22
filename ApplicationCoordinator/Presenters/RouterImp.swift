@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RouterImp: Router {
+final class RouterImp: NSObject, Router, UINavigationControllerDelegate {
     
     fileprivate weak var rootController: UINavigationController?
     
@@ -67,4 +67,11 @@ final class RouterImp: Router {
     func popToRootModule(animated: Bool) {
         let _ = rootController?.popToRootViewController(animated: animated)
     }
+    /*
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationControllerOperation,
+                              from fromVC: UIViewController,
+                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+    }*/
 }
