@@ -8,8 +8,8 @@
 
 final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
 
-    var factory: ItemCreateControllersFactory
-    var router: Router
+    let factory: ItemCreateControllersFactory
+    let router: Router
     var finishFlow: ((ItemList?)->())?
     
     init(router: Router,

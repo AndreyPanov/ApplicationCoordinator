@@ -8,9 +8,9 @@
 
 final class ItemCoordinator: BaseCoordinator {
 
-    var factory: ItemControllersFactory
-    var coordinatorFactory: CoordinatorFactory
-    var router: Router
+    let factory: ItemControllersFactory
+    let coordinatorFactory: CoordinatorFactory
+    let router: Router
     
     init(router: Router,
          factory: ItemControllersFactory,

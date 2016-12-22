@@ -8,8 +8,8 @@
 
 final class SettingsCoordinator: BaseCoordinator {
 
-    fileprivate var factory: SettingsControllersFactory
-    fileprivate var router: Router
+    fileprivate let factory: SettingsControllersFactory
+    fileprivate let router: Router
     
     init(router: Router,
         factory: SettingsControllersFactory) {

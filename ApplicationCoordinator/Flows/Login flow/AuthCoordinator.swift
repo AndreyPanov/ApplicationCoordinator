@@ -8,8 +8,8 @@
 
 final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
 
-    fileprivate var factory: AuthControllersFactory
-    fileprivate var router: Router
+    fileprivate let factory: AuthControllersFactory
+    fileprivate let router: Router
     var finishFlow: (()->())?
     
     fileprivate weak var signUpView: SignUpView?
