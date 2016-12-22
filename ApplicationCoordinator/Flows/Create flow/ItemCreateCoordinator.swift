@@ -34,6 +34,6 @@ final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput 
         createItemOutput.onHideButtonTap = { [weak self] in
             self?.finishFlow?(nil)
         }
-        router.setRootController(createItemOutput.toPresent())
+        router.setRootModule(createItemOutput)
     }
 }

@@ -12,7 +12,8 @@ import XCTest
 class AuthCoordinatorTest: XCTestCase {
     
     fileprivate var coordinator: Coordinator!
-    fileprivate var router: Router!
+    fileprivate var router: RouterMock!
+    
     fileprivate var loginOutput: LoginFlowOutput!
     fileprivate var signUpOutput: SignUpFlowOutput!
     fileprivate var signUpController: SignUpController!
@@ -21,7 +22,7 @@ class AuthCoordinatorTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        router = RouterMock(rootController: UINavigationController())
+        router = RouterMockImp()
         let loginController = LoginController.controllerFromStoryboard(.Auth)
         signUpController = SignUpController.controllerFromStoryboard(.Auth)
         signUpController.view.isHidden = false
@@ -42,6 +43,7 @@ class AuthCoordinatorTest: XCTestCase {
         loginOutput = nil
         signUpOutput = nil
         termsOutput = nil
+        
         super.tearDown()
     }
     
@@ -49,8 +51,8 @@ class AuthCoordinatorTest: XCTestCase {
         
         coordinator.start()
         // showLogin() must call
-        XCTAssertTrue(router.rootController!.viewControllers.first is LoginController)
-        XCTAssertTrue(router.rootController!.viewControllers.count == 1)
+        XCTAssertTrue(router.navigationStack.first is LoginController)
+        XCTAssertTrue(router.navigationStack.count == 1)
     }
     
     func testShowSignUp() {
@@ -58,7 +60,8 @@ class AuthCoordinatorTest: XCTestCase {
         coordinator.start()
         // onSignUpButtonTap event
         loginOutput.onSignUpButtonTap!()
-        XCTAssertTrue(router.rootController!.viewControllers.last is SignUpController)
+        XCTAssertTrue(router.navigationStack.last is SignUpController)
+        XCTAssertTrue(router.navigationStack.count == 2)
     }
     
     func testShowTerms() {
@@ -69,7 +72,8 @@ class AuthCoordinatorTest: XCTestCase {
         loginOutput.onSignUpButtonTap!()
         //show terms controller
         signUpOutput.onTermsButtonTap!()
-        XCTAssertTrue(router.rootController!.viewControllers.last is TermsController)
+        XCTAssertTrue(router.navigationStack.last is TermsController)
+        XCTAssertTrue(router.navigationStack.count == 3)
     }
     
     func testTermsAgreementSendToSignUpControllerSuccess() {
@@ -81,7 +85,7 @@ class AuthCoordinatorTest: XCTestCase {
         signUpOutput.onTermsButtonTap!()
         //terms confirmAgreement
         termsOutput.onPopController!(true)
-        router.popController()
+        router.popModule()
         XCTAssertTrue(signUpController.confirmed)
     }
 }
@@ -92,7 +96,9 @@ final class AuthControllersFactoryMock: AuthControllersFactory {
     fileprivate let signUpController: SignUpController
     fileprivate let termsController: TermsController
     
-    init(loginController: LoginController, signUpController: SignUpController, termsController: TermsController) {
+    init(loginController: LoginController,
+         signUpController: SignUpController,
+         termsController: TermsController) {
         
         self.loginController = loginController
         self.signUpController = signUpController

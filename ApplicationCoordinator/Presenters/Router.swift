@@ -6,24 +6,20 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
-protocol Router: class {
+protocol Router: Presentable {
     
-    weak var rootController: UINavigationController? { get }
+    func present(_ module: Presentable?)
+    func present(_ module: Presentable?, animated: Bool)
     
-    func present(_ controller: UIViewController?)
-    func present(_ controller: UIViewController?, animated: Bool)
+    func push(_ module: Presentable?)
+    func push(_ module: Presentable?, animated: Bool)
     
-    func push(_ controller: UIViewController?)
-    func push(_ controller: UIViewController?, animated: Bool)
+    func popModule()
+    func popModule(animated: Bool)
     
-    func popController()
-    func popController(_ animated: Bool)
+    func dismissModule()
+    func dismissModule(animated: Bool, completion: (() -> ())?)
     
-    func dismissController()
-    func dismissController(_ animated: Bool, completion: (() -> ())?)
-    
-    func setRootController(_ controller: UIViewController?)
-    func popToRootController(_ animated: Bool)
+    func setRootModule(_ module: Presentable?)
+    func popToRootModule(animated: Bool)
 }

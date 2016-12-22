@@ -6,8 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-import UIKit
-
 protocol ItemControllersFactory {
     func createItemsOutput() -> ItemsListFlowOutput
     func createItemDetailOutput(item: ItemList) -> ItemDetailFlowOutput

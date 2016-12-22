@@ -9,60 +9,66 @@
 import UIKit
 @testable import ApplicationCoordinator
 
-class RouterMock: Router {
+protocol RouterMock: Router {
+    var navigationStack: [UIViewController] {get}
+    var presented: UIViewController? {get}
+}
+
+final class RouterMockImp: RouterMock {
     
     // in test cases router store the rootController referense
-    fileprivate(set) var rootController: UINavigationController?
+    fileprivate(set) var navigationStack: [UIViewController] = []
+    fileprivate(set) var presented: UIViewController?
     
-    init(rootController: UINavigationController) {
-        self.rootController = rootController
+    func toPresent() -> UIViewController? {
+        return nil
     }
     
     //all of the actions without animation
-    func present(_ controller: UIViewController?) {
-        present(controller, animated: false)
+    func present(_ module: Presentable?) {
+        present(module, animated: false)
     }
-    func present(_ controller: UIViewController?, animated: Bool) {
-        guard let controller = controller else { return }
-        rootController?.present(controller, animated: false, completion: nil)
-    }
-    
-    func push(_ controller: UIViewController?)  {
-        push(controller, animated: false)
+    func present(_ module: Presentable?, animated: Bool) {
+        guard let controller = module?.toPresent() else { return }
+        presented = controller
     }
     
-    func push(_ controller: UIViewController?, animated: Bool)  {
+    func push(_ module: Presentable?)  {
+        push(module, animated: false)
+    }
+    
+    func push(_ module: Presentable?, animated: Bool)  {
         guard
-            let controller = controller
-            , (controller is UINavigationController == false)
+            let controller = module?.toPresent(),
+            (controller is UINavigationController == false)
             else { assertionFailure("Deprecated push UINavigationController."); return }
         
-        rootController?.pushViewController(controller, animated: false)
+        navigationStack.append(controller)
     }
     
-    func popController()  {
-        popController(false)
+    func popModule()  {
+        popModule(animated: false)
     }
     
-    func popController(_ animated: Bool)  {
-        let _ = rootController?.popViewController(animated: false)
+    func popModule(animated: Bool)  {
+        navigationStack.removeLast()
     }
     
-    func dismissController() {
-        dismissController(false, completion: nil)
+    func dismissModule() {
+        dismissModule(animated: false, completion: nil)
     }
     
-    func dismissController(_ animated: Bool, completion: (() -> ())?) {
-        rootController?.dismiss(animated: false, completion: completion)
+    func dismissModule(animated: Bool, completion: (() -> ())?) {
+        presented = nil
     }
     
-    func setRootController(_ controller: UIViewController?) {
-        guard let controller = controller else { return }
-        
-        rootController?.setViewControllers([controller], animated: false)
+    func setRootModule(_ module: Presentable?) {
+        guard let controller = module?.toPresent() else { return }
+        navigationStack.append(controller)
     }
     
-    func popToRootController(_ animated: Bool) {
-        let _ = rootController?.popToRootViewController(animated: false)
+    func popToRootModule(animated: Bool) {
+        guard let first = navigationStack.first else { return }
+        navigationStack = [first]
     }
 }

@@ -36,7 +36,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         loginOutput.onSignUpButtonTap = { [weak self] in
             self?.showSignUp()
         }
-        router.setRootController(loginOutput.toPresent())
+        router.setRootModule(loginOutput)
     }
     
     fileprivate func showSignUp() {
@@ -49,7 +49,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         signUp.onTermsButtonTap = { [weak self] in
             self?.showTerms()
         }
-        router.push(signUp.toPresent())
+        router.push(signUp)
     }
     
     fileprivate func showTerms() {
@@ -58,6 +58,6 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         termsOutput.onPopController = { [weak self] agree in
             self?.signUpInput?.conformTermsAgreement(agree)
         }
-        router.push(termsOutput.toPresent())
+        router.push(termsOutput)
     }
 }

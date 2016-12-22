@@ -5,7 +5,6 @@
 //  Created by Andrey Panov on 19.04.16.
 //  Copyright © 2016 Avito. All rights reserved.
 //
-import UIKit
 
 final class ItemCoordinator: BaseCoordinator {
 
@@ -40,41 +39,41 @@ final class ItemCoordinator: BaseCoordinator {
         itemsOutput.onCreateButtonTap = { [weak self] in
             self?.runCreationCoordinator()
         }
-        router.setRootController(itemsOutput.toPresent())
+        router.setRootModule(itemsOutput)
     }
     
     fileprivate func showItemDetail(_ item: ItemList) {
         
         let itemDetailFlowOutput = factory.createItemDetailOutput(item: item)
-        router.push(itemDetailFlowOutput.toPresent())
+        router.push(itemDetailFlowOutput)
     }
     
 //MARK: - Run coordinators (switch to another flow)
     
     fileprivate func runAuthCoordinator() {
-        let (coordinator, controller) = coordinatorFactory.createAuthCoordinatorBox()
+        let (coordinator, module) = coordinatorFactory.createAuthCoordinatorBox()
         coordinator.finishFlow = { [weak self, weak coordinator] in
-            self?.router.dismissController()
+            self?.router.dismissModule()
             self?.removeDependency(coordinator)
         }
         addDependency(coordinator)
-        router.present(controller, animated: false)
+        router.present(module, animated: false)
         coordinator.start()
     }
     
     fileprivate func runCreationCoordinator() {
         
-        let (coordinator, controller) = coordinatorFactory.createItemCreationCoordinatorBox()
+        let (coordinator, module) = coordinatorFactory.createItemCreationCoordinatorBox()
         coordinator.finishFlow = { [weak self, weak coordinator] item in
             
-            self?.router.dismissController()
+            self?.router.dismissModule()
             self?.removeDependency(coordinator)
             if let item = item {
                 self?.showItemDetail(item)
             }
         }
         addDependency(coordinator)
-        router.present(controller)
+        router.present(module)
         coordinator.start()
     }
 }

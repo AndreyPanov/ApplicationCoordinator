@@ -11,44 +11,24 @@ import XCTest
 
 class RouterTest: XCTestCase {
     
-    var router: Router?
+    fileprivate var router: RouterMock!
     
-    var currentRootController: UIViewController?
-    var window = UIWindow()
-    var currentWindow: UIWindow!
-    
-    var firstController: UIViewController!
-    var secondController: UIViewController!
-    var thirdController: UIViewController!
+    fileprivate var firstController: UIViewController!
+    fileprivate var secondController: UIViewController!
+    fileprivate var thirdController: UIViewController!
     
     override func setUp() {
         super.setUp()
         
-        // our rootController is UITabBarController, but we need to test
-        // present and dismiss Router protocol methods
-        // we create new window and set rootController as UINavigationController
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        currentWindow = delegate?.window
-        currentRootController =  window.rootViewController
-        let navigationController = UINavigationController()
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-
-        router = RouterMock(rootController: navigationController)
-        
+        router = RouterMockImp()
         firstController = ItemsListController.controllerFromStoryboard(.Items)
         secondController = ItemDetailController.controllerFromStoryboard(.Items)
         thirdController = SettingsController.controllerFromStoryboard(.Settings)
     }
     
     override func tearDown() {
-        // after tests finished we need to restore window state for using in another tests
-        router = nil
-        window.rootViewController = currentRootController
-        window.resignKey()
-        window.isHidden = true
-        currentWindow.makeKeyAndVisible()
         
+        router = nil
         firstController = nil
         secondController = nil
         thirdController = nil
@@ -56,58 +36,54 @@ class RouterTest: XCTestCase {
         super.tearDown()
     }
     
-    func testRouterSetRootController() {
+    func testRouterSetRootModule() {
         
-        router?.setRootController(firstController)
-        XCTAssertTrue(router?.rootController?.viewControllers.first is ItemsListController)
+        router.setRootModule(firstController)
+        XCTAssertTrue(router.navigationStack.first is ItemsListController)
     }
     
-    func testRouterPushViewController() {
+    func testRouterPushViewModule() {
         
-        router?.setRootController(firstController)
-        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
-        router?.push(secondController)
-        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemDetailController)
+        router.setRootModule(firstController)
+        XCTAssertTrue(router.navigationStack.last is ItemsListController)
+        router.push(secondController)
+        XCTAssertTrue(router.navigationStack.last is ItemDetailController)
     }
     
-    func testRouterPopViewController() {
+    func testRouterPopViewModule() {
         
-        router?.setRootController(firstController)
-        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
-        router?.push(secondController)
-        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemDetailController)
+        router.setRootModule(firstController)
+        XCTAssertTrue(router.navigationStack.last is ItemsListController)
+        router.push(secondController)
+        XCTAssertTrue(router.navigationStack.last is ItemDetailController)
         
-        router?.popController()
-        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
+        router.popModule()
+        XCTAssertTrue(router.navigationStack.last is ItemsListController)
     }
     
-    func testRouterPopToRootViewController() {
+    func testRouterPopToRootViewModule() {
         
-        router?.setRootController(firstController)
-        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
-        router?.push(secondController)
-        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemDetailController)
-        router?.push(thirdController)
-        XCTAssertTrue(router?.rootController?.viewControllers.last is SettingsController)
+        router.setRootModule(firstController)
+        XCTAssertTrue(router.navigationStack.last is ItemsListController)
+        router.push(secondController)
+        XCTAssertTrue(router.navigationStack.last is ItemDetailController)
+        router.push(thirdController)
+        XCTAssertTrue(router.navigationStack.last is SettingsController)
         
-        router?.popToRootController(false)
-        XCTAssertTrue(router?.rootController?.viewControllers.last is ItemsListController)
+        router.popToRootModule(animated: false)
+        XCTAssertTrue(router.navigationStack.last is ItemsListController)
     }
     
-    func testPresentViewController() {
-        router?.present(secondController)
-        XCTAssertTrue(router?.rootController?.presentedViewController is ItemDetailController)
+    func testPresentViewModule() {
+        router.present(secondController)
+        XCTAssertTrue(router.presented is ItemDetailController)
     }
     
-    func testDismissViewController() {
+    func testDismissViewModule() {
         
-        let expectation = self.expectation(description: "dismissBlock")
-        router?.present(secondController)
-        XCTAssertTrue(router?.rootController?.presentedViewController is ItemDetailController)
-        self.router?.dismissController(false) { [weak self] in
-            XCTAssertTrue(self?.router?.rootController?.presentedViewController == nil)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 15, handler: nil)
+        router.present(secondController)
+        XCTAssertTrue(router.presented is ItemDetailController)
+        router.dismissModule()
+        XCTAssertTrue(router.presented == nil)
     }
 }
