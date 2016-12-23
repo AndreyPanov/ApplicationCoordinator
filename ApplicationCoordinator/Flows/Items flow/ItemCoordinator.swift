@@ -8,9 +8,9 @@
 
 final class ItemCoordinator: BaseCoordinator {
 
-    var factory: ItemControllersFactory
-    var coordinatorFactory: CoordinatorFactory
-    var router: Router
+    let factory: ItemControllersFactory
+    let coordinatorFactory: CoordinatorFactory
+    let router: Router
     
     init(router: Router,
          factory: ItemControllersFactory,
@@ -29,7 +29,7 @@ final class ItemCoordinator: BaseCoordinator {
     
     fileprivate func showItemList() {
       
-        let itemsOutput = factory.createItemsOutput()
+        let itemsOutput = factory.makeItemsOutput()
         itemsOutput.authNeed = { [weak self] in
             self?.runAuthCoordinator()
         }
@@ -44,14 +44,14 @@ final class ItemCoordinator: BaseCoordinator {
     
     fileprivate func showItemDetail(_ item: ItemList) {
         
-        let itemDetailFlowOutput = factory.createItemDetailOutput(item: item)
+        let itemDetailFlowOutput = factory.makeItemDetailOutput(item: item)
         router.push(itemDetailFlowOutput)
     }
     
 //MARK: - Run coordinators (switch to another flow)
     
     fileprivate func runAuthCoordinator() {
-        let (coordinator, module) = coordinatorFactory.createAuthCoordinatorBox()
+        let (coordinator, module) = coordinatorFactory.makeAuthCoordinatorBox()
         coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.router.dismissModule()
             self?.removeDependency(coordinator)
@@ -63,7 +63,7 @@ final class ItemCoordinator: BaseCoordinator {
     
     fileprivate func runCreationCoordinator() {
         
-        let (coordinator, module) = coordinatorFactory.createItemCreationCoordinatorBox()
+        let (coordinator, module) = coordinatorFactory.makeItemCreationCoordinatorBox()
         coordinator.finishFlow = { [weak self, weak coordinator] item in
             
             self?.router.dismissModule()

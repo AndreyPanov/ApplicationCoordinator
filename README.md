@@ -25,10 +25,10 @@ protocol ItemsListView: BaseView {
 In this example I use factories for creating  coordinators and controllers (we can mock them in tests).
 ```swift
 protocol CoordinatorFactory {
-    func createItemCoordinator(navController navController: UINavigationController?) -> Coordinator
-    func createItemCoordinator() -> Coordinator
+    func makeItemCoordinator(navController navController: UINavigationController?) -> Coordinator
+    func makeItemCoordinator() -> Coordinator
     
-    func createItemCreationCoordinatorBox(navController: UINavigationController?) ->
+    func makeItemCreationCoordinatorBox(navController: UINavigationController?) ->
         (configurator: Coordinator & ItemCreateCoordinatorOutput,
         toPresent: Presentable?)
 }
@@ -69,7 +69,7 @@ class BaseCoordinator: Coordinator {
 ```
 AppDelegate store lazy reference for the Application Coordinator
 ```swift
-fileprivate lazy var applicationCoordinator: Coordinator = self.createCoordinator()()
+fileprivate lazy var applicationCoordinator: Coordinator = self.makeCoordinator()()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -77,7 +77,7 @@ fileprivate lazy var applicationCoordinator: Coordinator = self.createCoordinato
         return true
     }
     
-    fileprivate func createCoordinator() -> (() -> Coordinator) {
+    fileprivate func makeCoordinator() -> (() -> Coordinator) {
         return {
             return ApplicationCoordinator(tabbarView: self.window!.rootViewController as! TabbarView,
                                           coordinatorFactory: CoordinatorFactoryImp())

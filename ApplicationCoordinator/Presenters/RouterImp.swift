@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RouterImp: Router {
+final class RouterImp: NSObject, Router, UINavigationControllerDelegate {
     
     fileprivate weak var rootController: UINavigationController?
     
@@ -35,8 +35,8 @@ final class RouterImp: Router {
     
     func push(_ module: Presentable?, animated: Bool)  {
         guard
-            let controller = module?.toPresent()
-            , (controller is UINavigationController == false)
+            let controller = module?.toPresent(),
+            (controller is UINavigationController == false)
             else { assertionFailure("Deprecated push UINavigationController."); return }
         
         rootController?.pushViewController(controller, animated: animated)

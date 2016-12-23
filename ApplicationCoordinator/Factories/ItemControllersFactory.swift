@@ -7,6 +7,6 @@
 //
 
 protocol ItemControllersFactory {
-    func createItemsOutput() -> ItemsListView
-    func createItemDetailOutput(item: ItemList) -> ItemDetailView
+    func makeItemsOutput() -> ItemsListView
+    func makeItemDetailOutput(item: ItemList) -> ItemDetailView
 }

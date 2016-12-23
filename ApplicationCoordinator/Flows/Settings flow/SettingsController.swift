@@ -20,10 +20,10 @@ final class SettingsController: UIViewController, SettingsView {
         super.viewDidLoad()
 
         title = "Settings"
-        createMockData()
+        makeMockData()
     }
     
-    func createMockData() {
+    func makeMockData() {
         
         let settings1 = (0...3).map { index in return Setting(title: "Setting № \(index)", subtitle: "Setting descripton") }
         let settings2 = (0...5).map { index in return Setting(title: "Setting № \(index)", subtitle: "Setting descripton") }

@@ -21,8 +21,8 @@ class ItemCoordinatorTest: XCTestCase {
         super.setUp()
         
         router = RouterMockImp()
-        let itemListController = ItemsListController.controllerFromStoryboard(.Items)
-        let itemDetailController = ItemDetailController.controllerFromStoryboard(.Items)
+        let itemListController = ItemsListController.controllerFromStoryboard(.items)
+        let itemDetailController = ItemDetailController.controllerFromStoryboard(.items)
         let factory = ItemControllersFactoryMock(itemListController: itemListController, itemDetailCntroller: itemDetailController)
         coordinator = ItemCoordinator(router: router,
                                       factory: factory,
@@ -83,11 +83,11 @@ final class ItemControllersFactoryMock: ItemControllersFactory {
         self.itemDetailCntroller = itemDetailCntroller
     }
     
-    func createItemsOutput() -> ItemsListView {
+    func makeItemsOutput() -> ItemsListView {
         return itemListController
     }
     
-    func createItemDetailOutput(item: ItemList) -> ItemDetailView {
+    func makeItemDetailOutput(item: ItemList) -> ItemDetailView {
         return itemDetailCntroller
     }
 }

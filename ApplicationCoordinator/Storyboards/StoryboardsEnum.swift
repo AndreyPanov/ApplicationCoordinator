@@ -8,9 +8,9 @@
 
 enum Storyboards: String {
     
-    case Main = "Main"
-    case Items = "Items"
-    case Auth = "Auth"
-    case Create = "Create"
-    case Settings = "Settings"
+    case main = "Main"
+    case items = "Items"
+    case auth = "Auth"
+    case create = "Create"
+    case settings = "Settings"
 }

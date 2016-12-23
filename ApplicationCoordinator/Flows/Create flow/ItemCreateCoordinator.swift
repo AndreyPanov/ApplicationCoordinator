@@ -8,8 +8,8 @@
 
 final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput {
 
-    var factory: ItemCreateControllersFactory
-    var router: Router
+    let factory: ItemCreateControllersFactory
+    let router: Router
     var finishFlow: ((ItemList?)->())?
     
     init(router: Router,
@@ -27,7 +27,7 @@ final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput 
     
     fileprivate func showCreate() {
         
-        let createItemOutput = factory.createItemAddOutput()
+        let createItemOutput = factory.makeItemAddOutput()
         createItemOutput.onCompleteCreateItem = { [weak self] item in
             self?.finishFlow?(item)
         }

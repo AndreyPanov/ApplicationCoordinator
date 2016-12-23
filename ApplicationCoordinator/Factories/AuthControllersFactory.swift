@@ -7,7 +7,7 @@
 //
 
 protocol AuthControllersFactory {
-    func createLoginOutput() -> LoginView
-    func createSignUpHandler() -> SignUpView
-    func createTermsOutput() -> TermsView
+    func makeLoginOutput() -> LoginView
+    func makeSignUpHandler() -> SignUpView
+    func makeTermsOutput() -> TermsView
 }
