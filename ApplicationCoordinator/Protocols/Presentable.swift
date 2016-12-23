@@ -2,7 +2,7 @@
 //  Presentable.swift
 //  ApplicationCoordinator
 //
-//  Created by Панов Андрей on 23.06.16.
+//  Created by Andrey Panov on 23.06.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
@@ -12,11 +12,9 @@ protocol Presentable {
     func toPresent() -> UIViewController?
 }
 
-extension Presentable where Self: UIViewController {
+extension UIViewController: Presentable {
     
     func toPresent() -> UIViewController? {
         return self
     }
 }
-
-extension UIViewController: Presentable { }

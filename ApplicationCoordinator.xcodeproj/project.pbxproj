@@ -32,7 +32,7 @@
 		0E6A42C61CF4E45F005746EC /* SettingsControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C51CF4E45F005746EC /* SettingsControllersFactory.swift */; };
 		0E6A42CA1CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C91CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift */; };
 		0E6A42CD1CF4E862005746EC /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42CC1CF4E862005746EC /* AuthCoordinatorOutput.swift */; };
-		0E6A42D01CF4E8F1005746EC /* TabbarFlowOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42CF1CF4E8F1005746EC /* TabbarFlowOutput.swift */; };
+		0E6A42D01CF4E8F1005746EC /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42CF1CF4E8F1005746EC /* TabbarView.swift */; };
 		0E6A42D21CF627CC005746EC /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42D11CF627CC005746EC /* TermsController.swift */; };
 		0E6A42D41CF62EA2005746EC /* TermsControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42D31CF62EA2005746EC /* TermsControllerOutput.swift */; };
 		0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCA2F41CEE365300A6E385 /* Router.swift */; };
@@ -46,7 +46,7 @@
 		D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */; };
 		D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C00B91D1BBADA00573E71 /* Presentable.swift */; };
 		D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7631CD9126F004C38B3 /* Coordinator.swift */; };
-		D541E7661CD9128B004C38B3 /* FlowControllerInputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */; };
+		D541E7661CD9128B004C38B3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7651CD9128B004C38B3 /* BaseView.swift */; };
 		D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E7691CD91304004C38B3 /* RouterImp.swift */; };
 		D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D541E76B1CD9134A004C38B3 /* TabbarController.swift */; };
 		D545E4A21CD1FF40002B6F8F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */; };
@@ -101,7 +101,7 @@
 		0E6A42C51CF4E45F005746EC /* SettingsControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsControllersFactory.swift; sourceTree = "<group>"; };
 		0E6A42C91CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateCoordinatorOutput.swift; sourceTree = "<group>"; };
 		0E6A42CC1CF4E862005746EC /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
-		0E6A42CF1CF4E8F1005746EC /* TabbarFlowOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarFlowOutput.swift; sourceTree = "<group>"; };
+		0E6A42CF1CF4E8F1005746EC /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		0E6A42D11CF627CC005746EC /* TermsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsController.swift; sourceTree = "<group>"; };
 		0E6A42D31CF62EA2005746EC /* TermsControllerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsControllerOutput.swift; sourceTree = "<group>"; };
 		0EDCA2F41CEE365300A6E385 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		D538B0971D0722490073895D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ApplicationCoordinator/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D53C00B91D1BBADA00573E71 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		D541E7631CD9126F004C38B3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowControllerInputOutput.swift; sourceTree = "<group>"; };
+		D541E7651CD9128B004C38B3 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		D541E7691CD91304004C38B3 /* RouterImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RouterImp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D541E76B1CD9134A004C38B3 /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabbarController.swift; path = ../Presenters/TabbarController.swift; sourceTree = "<group>"; };
 		D545E4A11CD1FF40002B6F8F /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 			children = (
 				0E3CCF7D1CCBBB670022E830 /* AppDelegate.swift */,
 				0E3CCF7E1CCBBB670022E830 /* ApplicationCoordinator.swift */,
-				0E6A42CF1CF4E8F1005746EC /* TabbarFlowOutput.swift */,
+				0E6A42CF1CF4E8F1005746EC /* TabbarView.swift */,
 				D541E76B1CD9134A004C38B3 /* TabbarController.swift */,
 			);
 			name = Application;
@@ -243,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				D541E7631CD9126F004C38B3 /* Coordinator.swift */,
-				D541E7651CD9128B004C38B3 /* FlowControllerInputOutput.swift */,
+				D541E7651CD9128B004C38B3 /* BaseView.swift */,
 				D53C00B91D1BBADA00573E71 /* Presentable.swift */,
 			);
 			name = MainProtocols;
@@ -599,7 +599,7 @@
 				0E3CCFBA1CCBBFEF0022E830 /* LoginController.swift in Sources */,
 				0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */,
 				0E6A42C41CF4E300005746EC /* AuthControllersFactory.swift in Sources */,
-				D541E7661CD9128B004C38B3 /* FlowControllerInputOutput.swift in Sources */,
+				D541E7661CD9128B004C38B3 /* BaseView.swift in Sources */,
 				0E6A42C21CF4E29F005746EC /* ItemCreateControllersFactory.swift in Sources */,
 				D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */,
 				0E6A42D21CF627CC005746EC /* TermsController.swift in Sources */,
@@ -625,7 +625,7 @@
 				D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */,
 				D5FE332F1D071F4100CE38B1 /* CoordinatorFactoryImp.swift in Sources */,
 				0E6A42C61CF4E45F005746EC /* SettingsControllersFactory.swift in Sources */,
-				0E6A42D01CF4E8F1005746EC /* TabbarFlowOutput.swift in Sources */,
+				0E6A42D01CF4E8F1005746EC /* TabbarView.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
 				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,
 				D5FE33351D071F6300CE38B1 /* ItemDetailView.swift in Sources */,
