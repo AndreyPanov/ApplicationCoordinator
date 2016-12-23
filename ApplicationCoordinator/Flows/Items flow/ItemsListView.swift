@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol ItemsListFlowOutput: FlowControllerOutput {
+protocol ItemsListView: BaseView {
     var authNeed: (() -> ())? { get set }
     var onItemSelect: ((ItemList) -> ())? { get set }
     var onCreateButtonTap: (() -> ())? { get set }

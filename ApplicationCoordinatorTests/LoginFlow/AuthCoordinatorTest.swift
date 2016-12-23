@@ -14,10 +14,10 @@ class AuthCoordinatorTest: XCTestCase {
     fileprivate var coordinator: Coordinator!
     fileprivate var router: RouterMock!
     
-    fileprivate var loginOutput: LoginFlowOutput!
-    fileprivate var signUpOutput: SignUpFlowOutput!
+    fileprivate var loginOutput: LoginView!
+    fileprivate var signUpOutput: SignUpView!
     fileprivate var signUpController: SignUpController!
-    fileprivate var termsOutput: TermsOutput!
+    fileprivate var termsOutput: TermsView!
 
     override func setUp() {
         super.setUp()
@@ -105,15 +105,15 @@ final class AuthControllersFactoryMock: AuthControllersFactory {
         self.termsController = termsController
     }
     
-    func createLoginOutput() -> LoginFlowOutput {
+    func createLoginOutput() -> LoginView {
         return loginController
     }
     
-    func createSignUpHandler() -> SignUpFlowInput & SignUpFlowOutput {
+    func createSignUpHandler() -> SignUpView {
         return signUpController
     }
     
-    func createTermsOutput() -> TermsOutput {
+    func createTermsOutput() -> TermsView {
         return termsController
     }
 }

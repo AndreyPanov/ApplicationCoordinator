@@ -7,5 +7,5 @@
 //
 
 protocol ItemCreateControllersFactory {
-    func createItemAddOutput() -> ItemCreateFlowOutput
+    func createItemAddOutput() -> ItemCreateView
 }

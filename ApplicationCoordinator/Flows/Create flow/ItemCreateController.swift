@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ItemCreateController: UIViewController, ItemCreateFlowOutput {
+final class ItemCreateController: UIViewController, ItemCreateView {
 
     //controller handler
     var onHideButtonTap: (() -> ())?

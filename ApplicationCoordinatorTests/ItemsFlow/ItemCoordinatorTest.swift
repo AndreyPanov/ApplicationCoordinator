@@ -14,8 +14,8 @@ class ItemCoordinatorTest: XCTestCase {
     fileprivate var coordinator: Coordinator!
     fileprivate var router: RouterMock!
     
-    fileprivate var itemListOutput: ItemsListFlowOutput!
-    fileprivate var itemDetailOutput: ItemDetailFlowOutput!
+    fileprivate var itemListOutput: ItemsListView!
+    fileprivate var itemDetailOutput: ItemDetailView!
     
     override func setUp() {
         super.setUp()
@@ -83,11 +83,11 @@ final class ItemControllersFactoryMock: ItemControllersFactory {
         self.itemDetailCntroller = itemDetailCntroller
     }
     
-    func createItemsOutput() -> ItemsListFlowOutput {
+    func createItemsOutput() -> ItemsListView {
         return itemListController
     }
     
-    func createItemDetailOutput(item: ItemList) -> ItemDetailFlowOutput {
+    func createItemDetailOutput(item: ItemList) -> ItemDetailView {
         return itemDetailCntroller
     }
 }

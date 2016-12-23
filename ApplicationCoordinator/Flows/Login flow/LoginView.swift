@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol LoginFlowOutput: FlowControllerOutput {
+protocol LoginView: BaseView {
     var onCompleteAuth: (() -> ())? { get set }
     var onSignUpButtonTap: (() -> ())? { get set }
 }

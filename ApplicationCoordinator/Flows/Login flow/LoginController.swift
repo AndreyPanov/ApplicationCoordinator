@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LoginController: UIViewController, LoginFlowOutput {
+final class LoginController: UIViewController, LoginView {
 
     //controller handler
     var onCompleteAuth: (() -> ())?

@@ -6,11 +6,10 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol SignUpFlowInput: FlowControllerInput {
-    func conformTermsAgreement(_ agree: Bool)
-}
-
-protocol SignUpFlowOutput: FlowControllerOutput {
+protocol SignUpView: BaseView {
+    
     var onSignUpComplete: (() -> ())? { get set }
     var onTermsButtonTap: (() -> ())? { get set }
+    
+    func conformTermsAgreement(_ agree: Bool)
 }

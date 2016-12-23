@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TermsController: UIViewController, TermsOutput {
+class TermsController: UIViewController, TermsView {
     
     var onPopController: ((Bool) -> ())?
     var confirmed = false
