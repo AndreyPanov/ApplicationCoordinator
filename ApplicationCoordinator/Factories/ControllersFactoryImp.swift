@@ -12,34 +12,34 @@ final class ControllersFactoryImp:
             ItemCreateControllersFactory,
             SettingsControllersFactory {
     
-    func createLoginOutput() -> LoginFlowOutput {
+    func createLoginOutput() -> LoginView {
         return LoginController.controllerFromStoryboard(.Auth)
     }
     
-    func createSignUpHandler() -> SignUpFlowInput & SignUpFlowOutput {
+    func createSignUpHandler() -> SignUpView {
         return SignUpController.controllerFromStoryboard(.Auth)
     }
     
-    func createTermsOutput() -> TermsOutput {
+    func createTermsOutput() -> TermsView {
         return TermsController.controllerFromStoryboard(.Auth)
     }
     
-    func createItemsOutput() -> ItemsListFlowOutput {
+    func createItemsOutput() -> ItemsListView {
         return ItemsListController.controllerFromStoryboard(.Items)
     }
     
-    func createItemDetailOutput(item: ItemList) -> ItemDetailFlowOutput {
+    func createItemDetailOutput(item: ItemList) -> ItemDetailView {
         
         let controller = ItemDetailController.controllerFromStoryboard(.Items)
         controller.itemList = item
         return controller
     }
     
-    func createItemAddOutput() -> ItemCreateFlowOutput {
+    func createItemAddOutput() -> ItemCreateView {
         return ItemCreateController.controllerFromStoryboard(.Create)
     }
     
-    func createSettingsOutput() -> SettingsFlowOutput {
+    func createSettingsOutput() -> SettingsView {
         return SettingsController.controllerFromStoryboard(.Settings)
     }
 }

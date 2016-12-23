@@ -6,4 +6,4 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol ItemDetailFlowOutput: FlowControllerOutput { }
+protocol ItemDetailView: BaseView { }

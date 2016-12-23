@@ -8,5 +8,4 @@
 
 import Foundation
 
-protocol FlowControllerOutput: NSObjectProtocol, Presentable { }
-protocol FlowControllerInput: NSObjectProtocol { }
+protocol BaseView: NSObjectProtocol, Presentable { }

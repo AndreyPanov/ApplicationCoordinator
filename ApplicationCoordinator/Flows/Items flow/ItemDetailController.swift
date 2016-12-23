@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ItemDetailController: UIViewController, ItemDetailFlowOutput {
+final class ItemDetailController: UIViewController, ItemDetailView {
 
     //controller handler
     var itemList: ItemList?

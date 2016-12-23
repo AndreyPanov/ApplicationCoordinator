@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func createCoordinator() -> (() -> Coordinator) {
         return {
-            let tabbarFlowOutput = self.window!.rootViewController as! TabbarFlowOutput
-            return ApplicationCoordinator(tabbarFlowOutput: tabbarFlowOutput,
+            return ApplicationCoordinator(tabbarView: self.window!.rootViewController as! TabbarView,
                                           coordinatorFactory: CoordinatorFactoryImp())
         }
     }

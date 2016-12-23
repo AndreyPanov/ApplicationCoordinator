@@ -16,7 +16,7 @@ protocol Coordinatable: class {
 ```
 All flow controllers have a protocols (we need to configure blocks and handle callbacks in coordinators):
 ```swift
-protocol ItemsListFlowOutput: FlowControllerOutput {
+protocol ItemsListView: BaseView {
     var authNeed: (() -> ())? { get set }
     var onItemSelect: (ItemList -> ())? { get set }
     var onCreateButtonTap: (() -> ())? { get set }
@@ -30,7 +30,7 @@ protocol CoordinatorFactory {
     
     func createItemCreationCoordinatorBox(navController: UINavigationController?) ->
         (configurator: Coordinator & ItemCreateCoordinatorOutput,
-        toPresent: UIViewController?)
+        toPresent: Presentable?)
 }
 ```
 The base coordinator stores dependencies of child coordinators
@@ -79,8 +79,7 @@ fileprivate lazy var applicationCoordinator: Coordinator = self.createCoordinato
     
     fileprivate func createCoordinator() -> (() -> Coordinator) {
         return {
-            let tabbarFlowOutput = self.window!.rootViewController as! TabbarFlowOutput
-            return ApplicationCoordinator(tabbarFlowOutput: tabbarFlowOutput,
+            return ApplicationCoordinator(tabbarView: self.window!.rootViewController as! TabbarView,
                                           coordinatorFactory: CoordinatorFactoryImp())
         }
     }

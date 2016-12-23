@@ -7,5 +7,5 @@
 //
 
 protocol SettingsControllersFactory {
-    func createSettingsOutput() -> SettingsFlowOutput
+    func createSettingsOutput() -> SettingsView
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SignUpController: UIViewController, SignUpFlowInput, SignUpFlowOutput {
+final class SignUpController: UIViewController, SignUpView {
     
     //controller handler
     var onSignUpComplete: (() -> ())?

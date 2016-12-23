@@ -12,7 +12,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     fileprivate var router: Router
     var finishFlow: (()->())?
     
-    fileprivate weak var signUpInput: SignUpFlowInput?
+    fileprivate weak var signUpView: SignUpView?
     
     init(router: Router,
          factory: AuthControllersFactory) {
@@ -41,22 +41,21 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     fileprivate func showSignUp() {
         
-        let signUp = factory.createSignUpHandler()
-        signUpInput = signUp
-        signUp.onSignUpComplete = { [weak self] in
+        signUpView = factory.createSignUpHandler()
+        signUpView?.onSignUpComplete = { [weak self] in
             self?.finishFlow?()
         }
-        signUp.onTermsButtonTap = { [weak self] in
+        signUpView?.onTermsButtonTap = { [weak self] in
             self?.showTerms()
         }
-        router.push(signUp)
+        router.push(signUpView)
     }
     
     fileprivate func showTerms() {
         
         let termsOutput = factory.createTermsOutput()
         termsOutput.onPopController = { [weak self] agree in
-            self?.signUpInput?.conformTermsAgreement(agree)
+            self?.signUpView?.conformTermsAgreement(agree)
         }
         router.push(termsOutput)
     }

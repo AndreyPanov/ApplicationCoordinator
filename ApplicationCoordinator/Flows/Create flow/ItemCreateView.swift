@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol ItemCreateFlowOutput: FlowControllerOutput {
+protocol ItemCreateView: BaseView {
     var onHideButtonTap: (() -> ())? { get set }
     var onCompleteCreateItem: ((ItemList) -> ())? { get set }
 }

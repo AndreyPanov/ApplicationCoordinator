@@ -10,20 +10,20 @@ import UIKit
 
 final class ApplicationCoordinator: BaseCoordinator {
     
-    var tabbarFlowOutput: TabbarFlowOutput
-    var coordinatorFactory: CoordinatorFactory
+    var tabbarView: TabbarView
+    let coordinatorFactory: CoordinatorFactory
 
-    init(tabbarFlowOutput: TabbarFlowOutput,
+    init(tabbarView: TabbarView,
          coordinatorFactory: CoordinatorFactory) {
         
-        self.tabbarFlowOutput = tabbarFlowOutput
+        self.tabbarView = tabbarView
         self.coordinatorFactory = coordinatorFactory
     }
     
     override func start() {
-        tabbarFlowOutput.onViewDidLoad = runItemCoordinator()
-        tabbarFlowOutput.onItemFlowSelect = runItemCoordinator()
-        tabbarFlowOutput.onSettingsFlowSelect = runSettingsCoordinator()
+        tabbarView.onViewDidLoad = runItemCoordinator()
+        tabbarView.onItemFlowSelect = runItemCoordinator()
+        tabbarView.onSettingsFlowSelect = runSettingsCoordinator()
     }
     
     fileprivate func runItemCoordinator() -> ((UINavigationController) -> ()) {
