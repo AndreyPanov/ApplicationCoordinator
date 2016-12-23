@@ -35,8 +35,8 @@ final class RouterImp: NSObject, Router, UINavigationControllerDelegate {
     
     func push(_ module: Presentable?, animated: Bool)  {
         guard
-            let controller = module?.toPresent()
-            , (controller is UINavigationController == false)
+            let controller = module?.toPresent(),
+            (controller is UINavigationController == false)
             else { assertionFailure("Deprecated push UINavigationController."); return }
         
         rootController?.pushViewController(controller, animated: animated)
@@ -67,11 +67,4 @@ final class RouterImp: NSObject, Router, UINavigationControllerDelegate {
     func popToRootModule(animated: Bool) {
         let _ = rootController?.popToRootViewController(animated: animated)
     }
-    /*
-    func navigationController(_ navigationController: UINavigationController,
-                              animationControllerFor operation: UINavigationControllerOperation,
-                              from fromVC: UIViewController,
-                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-    }*/
 }

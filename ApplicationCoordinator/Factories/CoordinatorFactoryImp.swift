@@ -9,34 +9,34 @@ import UIKit
 
 final class CoordinatorFactoryImp: CoordinatorFactory {
     
-    func createItemCoordinator() -> Coordinator {
-        return createItemCoordinator(navController: nil)
+    func makeItemCoordinator() -> Coordinator {
+        return makeItemCoordinator(navController: nil)
     }
     
-    func createItemCoordinator(navController: UINavigationController?) -> Coordinator {
+    func makeItemCoordinator(navController: UINavigationController?) -> Coordinator {
         let coordinator = ItemCoordinator(router: router(navController),
                                           factory: ControllersFactoryImp(),
                                           coordinatorFactory: CoordinatorFactoryImp())
         return coordinator
     }
     
-    func createSettingsCoordinator() -> Coordinator {
-        return createSettingsCoordinator(navController: nil)
+    func makeSettingsCoordinator() -> Coordinator {
+        return makeSettingsCoordinator(navController: nil)
     }
     
-    func createSettingsCoordinator(navController: UINavigationController? = nil) -> Coordinator {
+    func makeSettingsCoordinator(navController: UINavigationController? = nil) -> Coordinator {
         let coordinator = SettingsCoordinator(router: router(navController),
                                               factory: ControllersFactoryImp())
         return coordinator
     }
     
-    func createItemCreationCoordinatorBox() ->
+    func makeItemCreationCoordinatorBox() ->
         (configurator: Coordinator & ItemCreateCoordinatorOutput,
         toPresent: Presentable?) {
             
-            return createItemCreationCoordinatorBox(navController: navigationController(nil))
+            return makeItemCreationCoordinatorBox(navController: navigationController(nil))
     }
-    func createItemCreationCoordinatorBox(navController: UINavigationController?) ->
+    func makeItemCreationCoordinatorBox(navController: UINavigationController?) ->
         (configurator: Coordinator & ItemCreateCoordinatorOutput,
         toPresent: Presentable?) {
             
@@ -46,13 +46,13 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
             return (coordinator, router)
     }
     
-    func createAuthCoordinatorBox() ->
+    func makeAuthCoordinatorBox() ->
         (configurator: Coordinator & AuthCoordinatorOutput,
         toPresent: Presentable?) {
-            return createAuthCoordinatorBox(navController: navigationController(nil))
+            return makeAuthCoordinatorBox(navController: navigationController(nil))
     }
     
-    func createAuthCoordinatorBox(navController: UINavigationController?) ->
+    func makeAuthCoordinatorBox(navController: UINavigationController?) ->
         (configurator: Coordinator & AuthCoordinatorOutput,
         toPresent: Presentable?) {
             
@@ -69,6 +69,6 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     fileprivate func navigationController(_ navController: UINavigationController?) -> UINavigationController {
         
         if let navController = navController { return navController }
-        else { return UINavigationController.controllerFromStoryboard(.Main) }
+        else { return UINavigationController.controllerFromStoryboard(.main) }
     }
 }

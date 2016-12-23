@@ -29,7 +29,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     fileprivate func showLogin() {
         
-        let loginOutput = factory.createLoginOutput()
+        let loginOutput = factory.makeLoginOutput()
         loginOutput.onCompleteAuth = { [weak self] in
             self?.finishFlow?()
         }
@@ -41,7 +41,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     fileprivate func showSignUp() {
         
-        signUpView = factory.createSignUpHandler()
+        signUpView = factory.makeSignUpHandler()
         signUpView?.onSignUpComplete = { [weak self] in
             self?.finishFlow?()
         }
@@ -53,7 +53,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     fileprivate func showTerms() {
         
-        let termsOutput = factory.createTermsOutput()
+        let termsOutput = factory.makeTermsOutput()
         termsOutput.onPopController = { [weak self] agree in
             self?.signUpView?.conformTermsAgreement(agree)
         }

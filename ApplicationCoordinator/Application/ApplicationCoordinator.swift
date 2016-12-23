@@ -29,7 +29,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     fileprivate func runItemCoordinator() -> ((UINavigationController) -> ()) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
-                let itemCoordinator = self.coordinatorFactory.createItemCoordinator(navController: navController)
+                let itemCoordinator = self.coordinatorFactory.makeItemCoordinator(navController: navController)
                 itemCoordinator.start()
                 self.addDependency(itemCoordinator)
             }
@@ -39,7 +39,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     fileprivate func runSettingsCoordinator() -> ((UINavigationController) -> ()) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
-                let settingsCoordinator = self.coordinatorFactory.createSettingsCoordinator(navController: navController)
+                let settingsCoordinator = self.coordinatorFactory.makeSettingsCoordinator(navController: navController)
                 settingsCoordinator.start()
                 self.addDependency(settingsCoordinator)
             }

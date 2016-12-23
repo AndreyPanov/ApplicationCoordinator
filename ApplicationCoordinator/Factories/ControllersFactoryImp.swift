@@ -12,34 +12,34 @@ final class ControllersFactoryImp:
             ItemCreateControllersFactory,
             SettingsControllersFactory {
     
-    func createLoginOutput() -> LoginView {
-        return LoginController.controllerFromStoryboard(.Auth)
+    func makeLoginOutput() -> LoginView {
+        return LoginController.controllerFromStoryboard(.auth)
     }
     
-    func createSignUpHandler() -> SignUpView {
-        return SignUpController.controllerFromStoryboard(.Auth)
+    func makeSignUpHandler() -> SignUpView {
+        return SignUpController.controllerFromStoryboard(.auth)
     }
     
-    func createTermsOutput() -> TermsView {
-        return TermsController.controllerFromStoryboard(.Auth)
+    func makeTermsOutput() -> TermsView {
+        return TermsController.controllerFromStoryboard(.auth)
     }
     
-    func createItemsOutput() -> ItemsListView {
-        return ItemsListController.controllerFromStoryboard(.Items)
+    func makeItemsOutput() -> ItemsListView {
+        return ItemsListController.controllerFromStoryboard(.items)
     }
     
-    func createItemDetailOutput(item: ItemList) -> ItemDetailView {
+    func makeItemDetailOutput(item: ItemList) -> ItemDetailView {
         
-        let controller = ItemDetailController.controllerFromStoryboard(.Items)
+        let controller = ItemDetailController.controllerFromStoryboard(.items)
         controller.itemList = item
         return controller
     }
     
-    func createItemAddOutput() -> ItemCreateView {
-        return ItemCreateController.controllerFromStoryboard(.Create)
+    func makeItemAddOutput() -> ItemCreateView {
+        return ItemCreateController.controllerFromStoryboard(.create)
     }
     
-    func createSettingsOutput() -> SettingsView {
-        return SettingsController.controllerFromStoryboard(.Settings)
+    func makeSettingsOutput() -> SettingsView {
+        return SettingsController.controllerFromStoryboard(.settings)
     }
 }

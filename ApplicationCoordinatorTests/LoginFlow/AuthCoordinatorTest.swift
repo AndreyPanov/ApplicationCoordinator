@@ -23,10 +23,10 @@ class AuthCoordinatorTest: XCTestCase {
         super.setUp()
         
         router = RouterMockImp()
-        let loginController = LoginController.controllerFromStoryboard(.Auth)
-        signUpController = SignUpController.controllerFromStoryboard(.Auth)
+        let loginController = LoginController.controllerFromStoryboard(.auth)
+        signUpController = SignUpController.controllerFromStoryboard(.auth)
         signUpController.view.isHidden = false
-        let termsController = TermsController.controllerFromStoryboard(.Auth)
+        let termsController = TermsController.controllerFromStoryboard(.auth)
         let factory = AuthControllersFactoryMock(loginController: loginController,
                                                  signUpController: signUpController,
                                                  termsController: termsController)
@@ -105,15 +105,15 @@ final class AuthControllersFactoryMock: AuthControllersFactory {
         self.termsController = termsController
     }
     
-    func createLoginOutput() -> LoginView {
+    func makeLoginOutput() -> LoginView {
         return loginController
     }
     
-    func createSignUpHandler() -> SignUpView {
+    func makeSignUpHandler() -> SignUpView {
         return signUpController
     }
     
-    func createTermsOutput() -> TermsView {
+    func makeTermsOutput() -> TermsView {
         return termsController
     }
 }

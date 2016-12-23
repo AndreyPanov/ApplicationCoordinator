@@ -21,9 +21,9 @@ class RouterTest: XCTestCase {
         super.setUp()
         
         router = RouterMockImp()
-        firstController = ItemsListController.controllerFromStoryboard(.Items)
-        secondController = ItemDetailController.controllerFromStoryboard(.Items)
-        thirdController = SettingsController.controllerFromStoryboard(.Settings)
+        firstController = ItemsListController.controllerFromStoryboard(.items)
+        secondController = ItemDetailController.controllerFromStoryboard(.items)
+        thirdController = SettingsController.controllerFromStoryboard(.settings)
     }
     
     override func tearDown() {

@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    fileprivate lazy var applicationCoordinator: Coordinator = self.createCoordinator()()
+    fileprivate lazy var applicationCoordinator: Coordinator = self.makeCoordinator()()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    fileprivate func createCoordinator() -> (() -> Coordinator) {
+    fileprivate func makeCoordinator() -> (() -> Coordinator) {
         return {
             return ApplicationCoordinator(tabbarView: self.window!.rootViewController as! TabbarView,
                                           coordinatorFactory: CoordinatorFactoryImp())
