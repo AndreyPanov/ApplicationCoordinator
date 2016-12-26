@@ -45,6 +45,7 @@ final class RouterMockImp: RouterMock {
         
         navigationStack.append(controller)
     }
+    func push(_ module: Presentable?, animated: Bool, completion: (()->())?) {}
     
     func popModule()  {
         popModule(animated: false)
