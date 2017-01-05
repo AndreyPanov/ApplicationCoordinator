@@ -62,11 +62,11 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
             return (coordinator, router)
     }
     
-    fileprivate func router(_ navController: UINavigationController?) -> Router {
+    private func router(_ navController: UINavigationController?) -> Router {
         return RouterImp(rootController: navigationController(navController))
     }
     
-    fileprivate func navigationController(_ navController: UINavigationController?) -> UINavigationController {
+    private func navigationController(_ navController: UINavigationController?) -> UINavigationController {
         
         if let navController = navController { return navController }
         else { return UINavigationController.controllerFromStoryboard(.main) }

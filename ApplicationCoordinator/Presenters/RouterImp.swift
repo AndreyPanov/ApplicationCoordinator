@@ -10,8 +10,8 @@ import UIKit
 
 final class RouterImp: NSObject, Router, UINavigationControllerDelegate {
     
-    fileprivate weak var rootController: UINavigationController?
-    fileprivate var completions: [UIViewController : ()->()]
+    private weak var rootController: UINavigationController?
+    private var completions: [UIViewController : ()->()]
     
     init(rootController: UINavigationController) {
         self.rootController = rootController

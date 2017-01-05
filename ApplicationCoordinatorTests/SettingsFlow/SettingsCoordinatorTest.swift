@@ -11,8 +11,8 @@ import XCTest
 
 class SettingsCoordinatorTest: XCTestCase {
     
-    fileprivate var coordinator: Coordinator!
-    fileprivate var router: RouterMock!
+    private var coordinator: Coordinator!
+    private var router: RouterMock!
 
     override func setUp() {
         super.setUp()

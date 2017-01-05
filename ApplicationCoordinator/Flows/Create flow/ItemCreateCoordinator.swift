@@ -25,7 +25,7 @@ final class ItemCreateCoordinator: BaseCoordinator, ItemCreateCoordinatorOutput 
     
 //MARK: - Run current flow's controllers
     
-    fileprivate func showCreate() {
+    private func showCreate() {
         
         let createItemOutput = factory.makeItemAddOutput()
         createItemOutput.onCompleteCreateItem = { [weak self] item in

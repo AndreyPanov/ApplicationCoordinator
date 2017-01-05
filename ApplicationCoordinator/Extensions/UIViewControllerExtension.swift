@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     
-    fileprivate class func instantiateControllerInStoryboard<T: UIViewController>(_ storyboard: UIStoryboard, identifier: String) -> T {
+    private class func instantiateControllerInStoryboard<T: UIViewController>(_ storyboard: UIStoryboard, identifier: String) -> T {
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
     }
     

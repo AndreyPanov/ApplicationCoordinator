@@ -11,13 +11,13 @@ import XCTest
 
 class AuthCoordinatorTest: XCTestCase {
     
-    fileprivate var coordinator: Coordinator!
-    fileprivate var router: RouterMock!
+    private var coordinator: Coordinator!
+    private var router: RouterMock!
     
-    fileprivate var loginOutput: LoginView!
-    fileprivate var signUpOutput: SignUpView!
-    fileprivate var signUpController: SignUpController!
-    fileprivate var termsOutput: TermsView!
+    private var loginOutput: LoginView!
+    private var signUpOutput: SignUpView!
+    private var signUpController: SignUpController!
+    private var termsOutput: TermsView!
 
     override func setUp() {
         super.setUp()
@@ -92,9 +92,9 @@ class AuthCoordinatorTest: XCTestCase {
 
 final class AuthControllersFactoryMock: AuthControllersFactory {
     
-    fileprivate let loginController: LoginController
-    fileprivate let signUpController: SignUpController
-    fileprivate let termsController: TermsController
+    private let loginController: LoginController
+    private let signUpController: SignUpController
+    private let termsController: TermsController
     
     init(loginController: LoginController,
          signUpController: SignUpController,

@@ -17,8 +17,8 @@ protocol RouterMock: Router {
 final class RouterMockImp: RouterMock {
     
     // in test cases router store the rootController referense
-    fileprivate(set) var navigationStack: [UIViewController] = []
-    fileprivate(set) var presented: UIViewController?
+    private(set) var navigationStack: [UIViewController] = []
+    private(set) var presented: UIViewController?
     
     func toPresent() -> UIViewController? {
         return nil

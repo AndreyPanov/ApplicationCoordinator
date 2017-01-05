@@ -11,11 +11,11 @@ import XCTest
 
 class RouterTest: XCTestCase {
     
-    fileprivate var router: RouterMock!
+    private var router: RouterMock!
     
-    fileprivate var firstController: UIViewController!
-    fileprivate var secondController: UIViewController!
-    fileprivate var thirdController: UIViewController!
+    private var firstController: UIViewController!
+    private var secondController: UIViewController!
+    private var thirdController: UIViewController!
     
     override func setUp() {
         super.setUp()

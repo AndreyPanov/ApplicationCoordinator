@@ -8,8 +8,8 @@
 
 final class SettingsCoordinator: BaseCoordinator {
 
-    fileprivate let factory: SettingsControllersFactory
-    fileprivate let router: Router
+    private let factory: SettingsControllersFactory
+    private let router: Router
     
     init(router: Router,
         factory: SettingsControllersFactory) {
@@ -23,7 +23,7 @@ final class SettingsCoordinator: BaseCoordinator {
     
     //MARK: - Run current flow's controllers
     
-    fileprivate func showSettings() {
+    private func showSettings() {
         let settingsFlowOutput = factory.makeSettingsOutput()
         router.setRootModule(settingsFlowOutput)
     }

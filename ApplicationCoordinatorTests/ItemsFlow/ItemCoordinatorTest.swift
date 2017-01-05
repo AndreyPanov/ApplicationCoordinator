@@ -11,11 +11,11 @@ import XCTest
 
 class ItemCoordinatorTest: XCTestCase {
     
-    fileprivate var coordinator: Coordinator!
-    fileprivate var router: RouterMock!
+    private var coordinator: Coordinator!
+    private var router: RouterMock!
     
-    fileprivate var itemListOutput: ItemsListView!
-    fileprivate var itemDetailOutput: ItemDetailView!
+    private var itemListOutput: ItemsListView!
+    private var itemDetailOutput: ItemDetailView!
     
     override func setUp() {
         super.setUp()
@@ -73,8 +73,8 @@ class ItemCoordinatorTest: XCTestCase {
  */
 final class ItemControllersFactoryMock: ItemControllersFactory {
     
-    fileprivate let itemListController: ItemsListController
-    fileprivate let itemDetailCntroller: ItemDetailController
+    private let itemListController: ItemsListController
+    private let itemDetailCntroller: ItemDetailController
     
     init(itemListController: ItemsListController,
          itemDetailCntroller: ItemDetailController) {
