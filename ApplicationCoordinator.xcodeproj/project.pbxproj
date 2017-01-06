@@ -34,7 +34,7 @@
 		0E6A42CD1CF4E862005746EC /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42CC1CF4E862005746EC /* AuthCoordinatorOutput.swift */; };
 		0E6A42D01CF4E8F1005746EC /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42CF1CF4E8F1005746EC /* TabbarView.swift */; };
 		0E6A42D21CF627CC005746EC /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42D11CF627CC005746EC /* TermsController.swift */; };
-		0E6A42D41CF62EA2005746EC /* TermsControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42D31CF62EA2005746EC /* TermsControllerOutput.swift */; };
+		0E6A42D41CF62EA2005746EC /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42D31CF62EA2005746EC /* TermsView.swift */; };
 		0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCA2F41CEE365300A6E385 /* Router.swift */; };
 		7712177D1D7C89EA0070CDF9 /* BaseCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7712177C1D7C89EA0070CDF9 /* BaseCoordinatorTest.swift */; };
 		7712177F1D7C91670070CDF9 /* SettingsCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7712177E1D7C91670070CDF9 /* SettingsCoordinatorTest.swift */; };
@@ -42,6 +42,7 @@
 		77B3E7911D8E90550095527A /* ItemCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3E7901D8E90550095527A /* ItemCoordinatorTest.swift */; };
 		77E054CB1D7937C900147DAE /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CA1D7937C900147DAE /* RouterTest.swift */; };
 		77E054CD1D79391600147DAE /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CC1D79391600147DAE /* RouterMock.swift */; };
+		AD205EDD1E11B5F7004249D2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD205EDC1E11B5F7004249D2 /* BaseRouter.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */; };
 		D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C00B91D1BBADA00573E71 /* Presentable.swift */; };
@@ -103,7 +104,7 @@
 		0E6A42CC1CF4E862005746EC /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
 		0E6A42CF1CF4E8F1005746EC /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		0E6A42D11CF627CC005746EC /* TermsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsController.swift; sourceTree = "<group>"; };
-		0E6A42D31CF62EA2005746EC /* TermsControllerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsControllerOutput.swift; sourceTree = "<group>"; };
+		0E6A42D31CF62EA2005746EC /* TermsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		0EDCA2F41CEE365300A6E385 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7712177C1D7C89EA0070CDF9 /* BaseCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorTest.swift; sourceTree = "<group>"; };
 		7712177E1D7C91670070CDF9 /* SettingsCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorTest.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		77E054B41D79312700147DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E054CA1D7937C900147DAE /* RouterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		77E054CC1D79391600147DAE /* RouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
+		AD205EDC1E11B5F7004249D2 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ItemCreateController.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateController.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateView.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateView.swift"; sourceTree = SOURCE_ROOT; };
@@ -321,7 +323,7 @@
 				0E3CCFB91CCBBFEF0022E830 /* LoginController.swift */,
 				D5FDC84F1CEB3AE0001C3DF3 /* SignUpView.swift */,
 				0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */,
-				0E6A42D31CF62EA2005746EC /* TermsControllerOutput.swift */,
+				0E6A42D31CF62EA2005746EC /* TermsView.swift */,
 				0E6A42D11CF627CC005746EC /* TermsController.swift */,
 			);
 			path = Controllers;
@@ -460,6 +462,7 @@
 			children = (
 				0EDCA2F41CEE365300A6E385 /* Router.swift */,
 				D541E7691CD91304004C38B3 /* RouterImp.swift */,
+				AD205EDC1E11B5F7004249D2 /* BaseRouter.swift */,
 			);
 			name = Router;
 			path = ApplicationCoordinator/Presenters;
@@ -601,6 +604,7 @@
 				0E6A42C41CF4E300005746EC /* AuthControllersFactory.swift in Sources */,
 				D541E7661CD9128B004C38B3 /* BaseView.swift in Sources */,
 				0E6A42C21CF4E29F005746EC /* ItemCreateControllersFactory.swift in Sources */,
+				AD205EDD1E11B5F7004249D2 /* BaseRouter.swift in Sources */,
 				D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */,
 				0E6A42D21CF627CC005746EC /* TermsController.swift in Sources */,
 				0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */,
@@ -615,7 +619,7 @@
 				0E6A42CA1CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift in Sources */,
 				D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */,
 				D5FDC8501CEB3AE0001C3DF3 /* SignUpView.swift in Sources */,
-				0E6A42D41CF62EA2005746EC /* TermsControllerOutput.swift in Sources */,
+				0E6A42D41CF62EA2005746EC /* TermsView.swift in Sources */,
 				D5FDC84E1CEB3579001C3DF3 /* LoginView.swift in Sources */,
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
 				D5FE33361D071F6300CE38B1 /* ItemsListView.swift in Sources */,

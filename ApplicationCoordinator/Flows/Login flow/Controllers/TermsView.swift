@@ -1,5 +1,5 @@
 //
-//  TermsControllerOutput.swift
+//  TermsView.swift
 //  ApplicationCoordinator
 //
 //  Created by Andrey Panov on 25/05/16.
@@ -7,5 +7,5 @@
 //
 
 protocol TermsView: BaseView {
-    var onPopController: ((Bool) -> ())? { get set }
+    var confirmed: Bool { get set }
 }
