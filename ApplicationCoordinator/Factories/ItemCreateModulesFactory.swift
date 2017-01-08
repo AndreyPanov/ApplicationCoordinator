@@ -6,6 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol ItemCreateControllersFactory {
+protocol ItemCreateModulesFactory {
     func makeItemAddOutput() -> ItemCreateView
 }

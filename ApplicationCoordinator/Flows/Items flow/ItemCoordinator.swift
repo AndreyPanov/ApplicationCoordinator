@@ -8,12 +8,12 @@
 
 final class ItemCoordinator: BaseCoordinator {
 
-    private let factory: ItemControllersFactory
+    private let factory: ItemModulesFactory
     private let coordinatorFactory: CoordinatorFactory
     private let router: Router
     
     init(router: Router,
-         factory: ItemControllersFactory,
+         factory: ItemModulesFactory,
          coordinatorFactory: CoordinatorFactory) {
         
         self.router = router

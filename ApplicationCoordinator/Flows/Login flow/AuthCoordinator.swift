@@ -8,14 +8,14 @@
 
 final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
 
-    private let factory: AuthControllersFactory
+    private let factory: AuthModulesFactory
     private let router: Router
     var finishFlow: (()->())?
     
     private weak var signUpView: SignUpView?
     
     init(router: Router,
-         factory: AuthControllersFactory) {
+         factory: AuthModulesFactory) {
         
         self.factory = factory
         self.router = router

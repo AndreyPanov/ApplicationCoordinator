@@ -6,6 +6,6 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol SettingsControllersFactory {
+protocol SettingsModulesFactory {
     func makeSettingsOutput() -> SettingsView
 }
