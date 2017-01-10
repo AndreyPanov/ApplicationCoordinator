@@ -239,14 +239,14 @@
 			path = "Settings flow";
 			sourceTree = "<group>";
 		};
-		0E3CCF921CCBBB670022E830 /* MainProtocols */ = {
+		0E3CCF921CCBBB670022E830 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				D541E7631CD9126F004C38B3 /* Coordinator.swift */,
 				D541E7651CD9128B004C38B3 /* BaseView.swift */,
 				D53C00B91D1BBADA00573E71 /* Presentable.swift */,
 			);
-			name = MainProtocols;
+			name = Protocols;
 			path = ApplicationCoordinator/Protocols;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -427,7 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				0E3CCF7C1CCBBB670022E830 /* Application */,
-				0E3CCF921CCBBB670022E830 /* MainProtocols */,
+				0E3CCF921CCBBB670022E830 /* Protocols */,
 				D541E7681CD912F3004C38B3 /* Router */,
 				0E3CCF861CCBBB670022E830 /* Extensions */,
 				0E3CCFC51CCBC6660022E830 /* Model */,

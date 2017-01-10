@@ -2,7 +2,7 @@
 //  RouterMock.swift
 //  ApplicationCoordinator
 //
-//  Created by Андрей on 02.09.16.
+//  Created by Andrey on 02.09.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ final class RouterMockImp: RouterMock {
     // in test cases router store the rootController referense
     private(set) var navigationStack: [UIViewController] = []
     private(set) var presented: UIViewController?
+    private var completions: [UIViewController : ()->()] = [:]
     
     func toPresent() -> UIViewController? {
         return nil
@@ -38,6 +39,10 @@ final class RouterMockImp: RouterMock {
     }
     
     func push(_ module: Presentable?, animated: Bool)  {
+        push(module, animated: animated, completion: nil)
+    }
+    
+    func push(_ module: Presentable?, animated: Bool, completion: (()->())?) {
         guard
             let controller = module?.toPresent(),
             (controller is UINavigationController == false)
@@ -45,14 +50,14 @@ final class RouterMockImp: RouterMock {
         
         navigationStack.append(controller)
     }
-    func push(_ module: Presentable?, animated: Bool, completion: (()->())?) {}
     
     func popModule()  {
         popModule(animated: false)
     }
     
     func popModule(animated: Bool)  {
-        navigationStack.removeLast()
+        let controller = navigationStack.removeLast()
+        runCompletion(for: controller)
     }
     
     func dismissModule() {
@@ -70,6 +75,16 @@ final class RouterMockImp: RouterMock {
     
     func popToRootModule(animated: Bool) {
         guard let first = navigationStack.first else { return }
+        
+        navigationStack.forEach { controller in
+            runCompletion(for: controller)
+        }
         navigationStack = [first]
+    }
+    
+    private func runCompletion(for controller: UIViewController) {
+        guard let completion = completions[controller] else { return }
+        completion()
+        completions.removeValue(forKey: controller)
     }
 }

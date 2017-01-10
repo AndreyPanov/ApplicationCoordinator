@@ -2,7 +2,7 @@
 //  SettingsCoordinatorTest.swift
 //  ApplicationCoordinator
 //
-//  Created by Андрей on 04.09.16.
+//  Created by Andrey on 04.09.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
@@ -18,7 +18,7 @@ class SettingsCoordinatorTest: XCTestCase {
         super.setUp()
         
         router = RouterMockImp()
-        coordinator = SettingsCoordinator(router: router, factory: ControllersFactoryImp())
+        coordinator = SettingsCoordinator(router: router, factory: ModuleFactoryImp())
     }
     
     override func tearDown() {

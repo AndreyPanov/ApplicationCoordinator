@@ -1,6 +1,6 @@
 //
 //  CoordinatorFactory.swift
-//  Services
+//  ApplicationCoordinator
 //
 //  Created by Andrey Panov on 21.04.16.
 //  Copyright © 2016 Avito. All rights reserved.

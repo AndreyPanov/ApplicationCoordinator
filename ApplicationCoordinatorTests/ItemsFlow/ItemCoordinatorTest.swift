@@ -2,7 +2,7 @@
 //  ItemCoordinatorTest.swift
 //  ApplicationCoordinator
 //
-//  Created by Андрей on 18.09.16.
+//  Created by Andrey on 18.09.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
@@ -23,7 +23,7 @@ class ItemCoordinatorTest: XCTestCase {
         router = RouterMockImp()
         let itemListController = ItemsListController.controllerFromStoryboard(.items)
         let itemDetailController = ItemDetailController.controllerFromStoryboard(.items)
-        let factory = ItemControllersFactoryMock(itemListController: itemListController, itemDetailCntroller: itemDetailController)
+        let factory = ItemModuleFactoryMock(itemListController: itemListController, itemDetailCntroller: itemDetailController)
         coordinator = ItemCoordinator(router: router,
                                       factory: factory,
                                       coordinatorFactory: CoordinatorFactoryImp())
@@ -57,21 +57,9 @@ class ItemCoordinatorTest: XCTestCase {
         XCTAssertTrue(router.navigationStack.count == 2)
         
     }
-    
-    
 }
-/*
- itemsOutput.authNeed = { [weak self] in
- self?.runAuthCoordinator()
- }
- itemsOutput.onItemSelect = { [weak self] (item) in
- self?.showItemDetail(item)
- }
- itemsOutput.onCreateButtonTap = { [weak self] in
- self?.runCreationCoordinator()
- }
- */
-final class ItemControllersFactoryMock: ItemControllersFactory {
+
+final class ItemModuleFactoryMock: ItemModuleFactory {
     
     private let itemListController: ItemsListController
     private let itemDetailCntroller: ItemDetailController
