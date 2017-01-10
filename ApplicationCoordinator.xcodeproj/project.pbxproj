@@ -42,7 +42,6 @@
 		77B3E7911D8E90550095527A /* ItemCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3E7901D8E90550095527A /* ItemCoordinatorTest.swift */; };
 		77E054CB1D7937C900147DAE /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CA1D7937C900147DAE /* RouterTest.swift */; };
 		77E054CD1D79391600147DAE /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CC1D79391600147DAE /* RouterMock.swift */; };
-		AD205EDD1E11B5F7004249D2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD205EDC1E11B5F7004249D2 /* BaseRouter.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */; };
 		D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C00B91D1BBADA00573E71 /* Presentable.swift */; };
@@ -114,7 +113,6 @@
 		77E054B41D79312700147DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E054CA1D7937C900147DAE /* RouterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		77E054CC1D79391600147DAE /* RouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
-		AD205EDC1E11B5F7004249D2 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ItemCreateController.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateController.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateView.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateView.swift"; sourceTree = SOURCE_ROOT; };
@@ -462,7 +460,6 @@
 			children = (
 				0EDCA2F41CEE365300A6E385 /* Router.swift */,
 				D541E7691CD91304004C38B3 /* RouterImp.swift */,
-				AD205EDC1E11B5F7004249D2 /* BaseRouter.swift */,
 			);
 			name = Router;
 			path = ApplicationCoordinator/Presenters;
@@ -603,7 +600,6 @@
 				0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */,
 				0E6A42C41CF4E300005746EC /* AuthModuleFactory.swift in Sources */,
 				D541E7661CD9128B004C38B3 /* BaseView.swift in Sources */,
-				AD205EDD1E11B5F7004249D2 /* BaseRouter.swift in Sources */,
 				0E6A42C21CF4E29F005746EC /* ItemCreateModuleFactory.swift in Sources */,
 				D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */,
 				0E6A42D21CF627CC005746EC /* TermsController.swift in Sources */,
