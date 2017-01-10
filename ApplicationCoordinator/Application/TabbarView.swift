@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TabbarView {
+protocol TabbarView: class {
     
     var onItemFlowSelect: ((UINavigationController) -> ())? { get set }
     var onSettingsFlowSelect: ((UINavigationController) -> ())? { get set }

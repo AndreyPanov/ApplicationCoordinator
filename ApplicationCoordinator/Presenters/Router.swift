@@ -13,6 +13,7 @@ protocol Router: Presentable {
     
     func push(_ module: Presentable?)
     func push(_ module: Presentable?, animated: Bool)
+    func push(_ module: Presentable?, animated: Bool, completion: (()->())?)
     
     func popModule()
     func popModule(animated: Bool)

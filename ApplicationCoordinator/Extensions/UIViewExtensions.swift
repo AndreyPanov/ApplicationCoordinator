@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    fileprivate class func viewInNibNamed<T: UIView>(_ nibNamed: String) -> T {
+    private class func viewInNibNamed<T: UIView>(_ nibNamed: String) -> T {
         return Bundle.main.loadNibNamed(nibNamed, owner: nil, options: nil)!.first as! T
     }
     

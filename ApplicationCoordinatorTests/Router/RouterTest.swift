@@ -2,7 +2,7 @@
 //  RouterTest.swift
 //  ApplicationCoordinator
 //
-//  Created by Андрей on 02.09.16.
+//  Created by Andrey on 02.09.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
@@ -11,11 +11,11 @@ import XCTest
 
 class RouterTest: XCTestCase {
     
-    fileprivate var router: RouterMock!
+    private var router: RouterMock!
     
-    fileprivate var firstController: UIViewController!
-    fileprivate var secondController: UIViewController!
-    fileprivate var thirdController: UIViewController!
+    private var firstController: UIViewController!
+    private var secondController: UIViewController!
+    private var thirdController: UIViewController!
     
     override func setUp() {
         super.setUp()

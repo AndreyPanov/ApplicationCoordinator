@@ -6,11 +6,11 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-final class ControllersFactoryImp:
-            AuthControllersFactory,
-            ItemControllersFactory,
-            ItemCreateControllersFactory,
-            SettingsControllersFactory {
+final class ModuleFactoryImp:
+            AuthModuleFactory,
+            ItemModuleFactory,
+            ItemCreateModuleFactory,
+            SettingsModuleFactory {
     
     func makeLoginOutput() -> LoginView {
         return LoginController.controllerFromStoryboard(.auth)

@@ -10,8 +10,8 @@ import UIKit
 
 final class ApplicationCoordinator: BaseCoordinator {
     
-    var tabbarView: TabbarView
-    let coordinatorFactory: CoordinatorFactory
+    private let tabbarView: TabbarView
+    private let coordinatorFactory: CoordinatorFactory
 
     init(tabbarView: TabbarView,
          coordinatorFactory: CoordinatorFactory) {
@@ -21,12 +21,12 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        tabbarView.onViewDidLoad = runItemCoordinator()
-        tabbarView.onItemFlowSelect = runItemCoordinator()
-        tabbarView.onSettingsFlowSelect = runSettingsCoordinator()
+        tabbarView.onViewDidLoad = runItemFlow()
+        tabbarView.onItemFlowSelect = runItemFlow()
+        tabbarView.onSettingsFlowSelect = runSettingsFlow()
     }
     
-    fileprivate func runItemCoordinator() -> ((UINavigationController) -> ()) {
+    private func runItemFlow() -> ((UINavigationController) -> ()) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
                 let itemCoordinator = self.coordinatorFactory.makeItemCoordinator(navController: navController)
@@ -36,7 +36,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         }
     }
     
-    fileprivate func runSettingsCoordinator() -> ((UINavigationController) -> ()) {
+    private func runSettingsFlow() -> ((UINavigationController) -> ()) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
                 let settingsCoordinator = self.coordinatorFactory.makeSettingsCoordinator(navController: navController)

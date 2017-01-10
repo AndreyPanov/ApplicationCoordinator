@@ -1,6 +1,6 @@
 //
 //  ItemCoordinator.swift
-//  Services
+//  ApplicationCoordinator
 //
 //  Created by Andrey Panov on 19.04.16.
 //  Copyright © 2016 Avito. All rights reserved.
@@ -8,12 +8,12 @@
 
 final class ItemCoordinator: BaseCoordinator {
 
-    let factory: ItemControllersFactory
-    let coordinatorFactory: CoordinatorFactory
-    let router: Router
+    private let factory: ItemModuleFactory
+    private let coordinatorFactory: CoordinatorFactory
+    private let router: Router
     
     init(router: Router,
-         factory: ItemControllersFactory,
+         factory: ItemModuleFactory,
          coordinatorFactory: CoordinatorFactory) {
         
         self.router = router
@@ -27,22 +27,22 @@ final class ItemCoordinator: BaseCoordinator {
     
 //MARK: - Run current flow's controllers
     
-    fileprivate func showItemList() {
+    private func showItemList() {
       
         let itemsOutput = factory.makeItemsOutput()
         itemsOutput.authNeed = { [weak self] in
-            self?.runAuthCoordinator()
+            self?.runAuthFlow()
         }
         itemsOutput.onItemSelect = { [weak self] (item) in
             self?.showItemDetail(item)
         }
         itemsOutput.onCreateButtonTap = { [weak self] in
-            self?.runCreationCoordinator()
+            self?.runCreationFlow()
         }
         router.setRootModule(itemsOutput)
     }
     
-    fileprivate func showItemDetail(_ item: ItemList) {
+    private func showItemDetail(_ item: ItemList) {
         
         let itemDetailFlowOutput = factory.makeItemDetailOutput(item: item)
         router.push(itemDetailFlowOutput)
@@ -50,7 +50,7 @@ final class ItemCoordinator: BaseCoordinator {
     
 //MARK: - Run coordinators (switch to another flow)
     
-    fileprivate func runAuthCoordinator() {
+    private func runAuthFlow() {
         let (coordinator, module) = coordinatorFactory.makeAuthCoordinatorBox()
         coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.router.dismissModule()
@@ -61,7 +61,7 @@ final class ItemCoordinator: BaseCoordinator {
         coordinator.start()
     }
     
-    fileprivate func runCreationCoordinator() {
+    private func runCreationFlow() {
         
         let (coordinator, module) = coordinatorFactory.makeItemCreationCoordinatorBox()
         coordinator.finishFlow = { [weak self, weak coordinator] item in

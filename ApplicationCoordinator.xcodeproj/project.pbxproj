@@ -26,15 +26,15 @@
 		0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */; };
 		0E3CCFCB1CCBFB150022E830 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CCFCA1CCBFB150022E830 /* Setting.swift */; };
 		0E6A42BE1CF4DE62005746EC /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42BD1CF4DE62005746EC /* CoordinatorFactory.swift */; };
-		0E6A42C01CF4E06C005746EC /* ItemControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42BF1CF4E06C005746EC /* ItemControllersFactory.swift */; };
-		0E6A42C21CF4E29F005746EC /* ItemCreateControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C11CF4E29F005746EC /* ItemCreateControllersFactory.swift */; };
-		0E6A42C41CF4E300005746EC /* AuthControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C31CF4E300005746EC /* AuthControllersFactory.swift */; };
-		0E6A42C61CF4E45F005746EC /* SettingsControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C51CF4E45F005746EC /* SettingsControllersFactory.swift */; };
+		0E6A42C01CF4E06C005746EC /* ItemModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42BF1CF4E06C005746EC /* ItemModuleFactory.swift */; };
+		0E6A42C21CF4E29F005746EC /* ItemCreateModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C11CF4E29F005746EC /* ItemCreateModuleFactory.swift */; };
+		0E6A42C41CF4E300005746EC /* AuthModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C31CF4E300005746EC /* AuthModuleFactory.swift */; };
+		0E6A42C61CF4E45F005746EC /* SettingsModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C51CF4E45F005746EC /* SettingsModuleFactory.swift */; };
 		0E6A42CA1CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42C91CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift */; };
 		0E6A42CD1CF4E862005746EC /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42CC1CF4E862005746EC /* AuthCoordinatorOutput.swift */; };
 		0E6A42D01CF4E8F1005746EC /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42CF1CF4E8F1005746EC /* TabbarView.swift */; };
 		0E6A42D21CF627CC005746EC /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42D11CF627CC005746EC /* TermsController.swift */; };
-		0E6A42D41CF62EA2005746EC /* TermsControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42D31CF62EA2005746EC /* TermsControllerOutput.swift */; };
+		0E6A42D41CF62EA2005746EC /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A42D31CF62EA2005746EC /* TermsView.swift */; };
 		0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCA2F41CEE365300A6E385 /* Router.swift */; };
 		7712177D1D7C89EA0070CDF9 /* BaseCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7712177C1D7C89EA0070CDF9 /* BaseCoordinatorTest.swift */; };
 		7712177F1D7C91670070CDF9 /* SettingsCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7712177E1D7C91670070CDF9 /* SettingsCoordinatorTest.swift */; };
@@ -56,7 +56,7 @@
 		D5FDC84E1CEB3579001C3DF3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC84D1CEB3579001C3DF3 /* LoginView.swift */; };
 		D5FDC8501CEB3AE0001C3DF3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC84F1CEB3AE0001C3DF3 /* SignUpView.swift */; };
 		D5FDC8541CEB56A8001C3DF3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FDC8531CEB56A8001C3DF3 /* SettingsView.swift */; };
-		D5FE332A1D071ED900CE38B1 /* ControllersFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33261D071ED900CE38B1 /* ControllersFactoryImp.swift */; };
+		D5FE332A1D071ED900CE38B1 /* ModuleFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33261D071ED900CE38B1 /* ModuleFactoryImp.swift */; };
 		D5FE332F1D071F4100CE38B1 /* CoordinatorFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE332E1D071F4100CE38B1 /* CoordinatorFactoryImp.swift */; };
 		D5FE33341D071F6300CE38B1 /* ItemDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33301D071F6300CE38B1 /* ItemDetailController.swift */; };
 		D5FE33351D071F6300CE38B1 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE33311D071F6300CE38B1 /* ItemDetailView.swift */; };
@@ -87,23 +87,23 @@
 		0E3CCFB01CCBBC760022E830 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		0E3CCFB31CCBBCA20022E830 /* ItemCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemCoordinator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0E3CCFB91CCBBFEF0022E830 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = ../LoginController.swift; sourceTree = "<group>"; };
-		0E3CCFBB1CCBC0210022E830 /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
-		0E3CCFBD1CCBC04B0022E830 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		0E3CCFBB1CCBC0210022E830 /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AuthCoordinator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0E3CCFBD1CCBC04B0022E830 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsCoordinator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0E3CCFBF1CCBC0600022E830 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		0E3CCFC11CCBC0AA0022E830 /* ItemCreateCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateCoordinator.swift; sourceTree = "<group>"; };
+		0E3CCFC11CCBC0AA0022E830 /* ItemCreateCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemCreateCoordinator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0E3CCFC61CCBC6740022E830 /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpController.swift; path = ../SignUpController.swift; sourceTree = "<group>"; };
 		0E3CCFCA1CCBFB150022E830 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		0E6A42BD1CF4DE62005746EC /* CoordinatorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CoordinatorFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		0E6A42BF1CF4E06C005746EC /* ItemControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemControllersFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		0E6A42C11CF4E29F005746EC /* ItemCreateControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemCreateControllersFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		0E6A42C31CF4E300005746EC /* AuthControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AuthControllersFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		0E6A42C51CF4E45F005746EC /* SettingsControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsControllersFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0E6A42BF1CF4E06C005746EC /* ItemModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemModuleFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0E6A42C11CF4E29F005746EC /* ItemCreateModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemCreateModuleFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0E6A42C31CF4E300005746EC /* AuthModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AuthModuleFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0E6A42C51CF4E45F005746EC /* SettingsModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsModuleFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0E6A42C91CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreateCoordinatorOutput.swift; sourceTree = "<group>"; };
 		0E6A42CC1CF4E862005746EC /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
 		0E6A42CF1CF4E8F1005746EC /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		0E6A42D11CF627CC005746EC /* TermsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsController.swift; sourceTree = "<group>"; };
-		0E6A42D31CF62EA2005746EC /* TermsControllerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsControllerOutput.swift; sourceTree = "<group>"; };
+		0E6A42D31CF62EA2005746EC /* TermsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		0EDCA2F41CEE365300A6E385 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7712177C1D7C89EA0070CDF9 /* BaseCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorTest.swift; sourceTree = "<group>"; };
 		7712177E1D7C91670070CDF9 /* SettingsCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorTest.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		D5FDC84D1CEB3579001C3DF3 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = ../LoginView.swift; sourceTree = "<group>"; };
 		D5FDC84F1CEB3AE0001C3DF3 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpView.swift; path = ../SignUpView.swift; sourceTree = "<group>"; };
 		D5FDC8531CEB56A8001C3DF3 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		D5FE33261D071ED900CE38B1 /* ControllersFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ControllersFactoryImp.swift; path = ApplicationCoordinator/Factories/ControllersFactoryImp.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D5FE33261D071ED900CE38B1 /* ModuleFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ModuleFactoryImp.swift; path = ApplicationCoordinator/Factories/ModuleFactoryImp.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5FE332E1D071F4100CE38B1 /* CoordinatorFactoryImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CoordinatorFactoryImp.swift; path = ApplicationCoordinator/Factories/CoordinatorFactoryImp.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5FE33301D071F6300CE38B1 /* ItemDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailController.swift; path = "ApplicationCoordinator/Flows/Items flow/ItemDetailController.swift"; sourceTree = SOURCE_ROOT; };
 		D5FE33311D071F6300CE38B1 /* ItemDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDetailView.swift; path = "ApplicationCoordinator/Flows/Items flow/ItemDetailView.swift"; sourceTree = SOURCE_ROOT; };
@@ -239,14 +239,14 @@
 			path = "Settings flow";
 			sourceTree = "<group>";
 		};
-		0E3CCF921CCBBB670022E830 /* MainProtocols */ = {
+		0E3CCF921CCBBB670022E830 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				D541E7631CD9126F004C38B3 /* Coordinator.swift */,
 				D541E7651CD9128B004C38B3 /* BaseView.swift */,
 				D53C00B91D1BBADA00573E71 /* Presentable.swift */,
 			);
-			name = MainProtocols;
+			name = Protocols;
 			path = ApplicationCoordinator/Protocols;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -289,7 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				D5FE332E1D071F4100CE38B1 /* CoordinatorFactoryImp.swift */,
-				D5FE33261D071ED900CE38B1 /* ControllersFactoryImp.swift */,
+				D5FE33261D071ED900CE38B1 /* ModuleFactoryImp.swift */,
 			);
 			path = Imp;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 				0E3CCFB91CCBBFEF0022E830 /* LoginController.swift */,
 				D5FDC84F1CEB3AE0001C3DF3 /* SignUpView.swift */,
 				0E3CCFC81CCBE87F0022E830 /* SignUpController.swift */,
-				0E6A42D31CF62EA2005746EC /* TermsControllerOutput.swift */,
+				0E6A42D31CF62EA2005746EC /* TermsView.swift */,
 				0E6A42D11CF627CC005746EC /* TermsController.swift */,
 			);
 			path = Controllers;
@@ -427,7 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				0E3CCF7C1CCBBB670022E830 /* Application */,
-				0E3CCF921CCBBB670022E830 /* MainProtocols */,
+				0E3CCF921CCBBB670022E830 /* Protocols */,
 				D541E7681CD912F3004C38B3 /* Router */,
 				0E3CCF861CCBBB670022E830 /* Extensions */,
 				0E3CCFC51CCBC6660022E830 /* Model */,
@@ -446,10 +446,10 @@
 			children = (
 				0E6A42C71CF4E4C4005746EC /* Imp */,
 				0E6A42BD1CF4DE62005746EC /* CoordinatorFactory.swift */,
-				0E6A42BF1CF4E06C005746EC /* ItemControllersFactory.swift */,
-				0E6A42C11CF4E29F005746EC /* ItemCreateControllersFactory.swift */,
-				0E6A42C31CF4E300005746EC /* AuthControllersFactory.swift */,
-				0E6A42C51CF4E45F005746EC /* SettingsControllersFactory.swift */,
+				0E6A42BF1CF4E06C005746EC /* ItemModuleFactory.swift */,
+				0E6A42C11CF4E29F005746EC /* ItemCreateModuleFactory.swift */,
+				0E6A42C31CF4E300005746EC /* AuthModuleFactory.swift */,
+				0E6A42C51CF4E45F005746EC /* SettingsModuleFactory.swift */,
 			);
 			name = Factories;
 			path = ApplicationCoordinator/Factories;
@@ -595,12 +595,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E3CCF991CCBBB670022E830 /* AppDelegate.swift in Sources */,
-				0E6A42C01CF4E06C005746EC /* ItemControllersFactory.swift in Sources */,
+				0E6A42C01CF4E06C005746EC /* ItemModuleFactory.swift in Sources */,
 				0E3CCFBA1CCBBFEF0022E830 /* LoginController.swift in Sources */,
 				0E3CCFC71CCBC6740022E830 /* ItemList.swift in Sources */,
-				0E6A42C41CF4E300005746EC /* AuthControllersFactory.swift in Sources */,
+				0E6A42C41CF4E300005746EC /* AuthModuleFactory.swift in Sources */,
 				D541E7661CD9128B004C38B3 /* BaseView.swift in Sources */,
-				0E6A42C21CF4E29F005746EC /* ItemCreateControllersFactory.swift in Sources */,
+				0E6A42C21CF4E29F005746EC /* ItemCreateModuleFactory.swift in Sources */,
 				D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */,
 				0E6A42D21CF627CC005746EC /* TermsController.swift in Sources */,
 				0EDCA2F51CEE365300A6E385 /* Router.swift in Sources */,
@@ -615,16 +615,16 @@
 				0E6A42CA1CF4E81E005746EC /* ItemCreateCoordinatorOutput.swift in Sources */,
 				D541E76A1CD91304004C38B3 /* RouterImp.swift in Sources */,
 				D5FDC8501CEB3AE0001C3DF3 /* SignUpView.swift in Sources */,
-				0E6A42D41CF62EA2005746EC /* TermsControllerOutput.swift in Sources */,
+				0E6A42D41CF62EA2005746EC /* TermsView.swift in Sources */,
 				D5FDC84E1CEB3579001C3DF3 /* LoginView.swift in Sources */,
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
 				D5FE33361D071F6300CE38B1 /* ItemsListView.swift in Sources */,
 				D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */,
-				D5FE332A1D071ED900CE38B1 /* ControllersFactoryImp.swift in Sources */,
+				D5FE332A1D071ED900CE38B1 /* ModuleFactoryImp.swift in Sources */,
 				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,
 				D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */,
 				D5FE332F1D071F4100CE38B1 /* CoordinatorFactoryImp.swift in Sources */,
-				0E6A42C61CF4E45F005746EC /* SettingsControllersFactory.swift in Sources */,
+				0E6A42C61CF4E45F005746EC /* SettingsModuleFactory.swift in Sources */,
 				0E6A42D01CF4E8F1005746EC /* TabbarView.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
 				0E3CCFC21CCBC0AA0022E830 /* ItemCreateCoordinator.swift in Sources */,

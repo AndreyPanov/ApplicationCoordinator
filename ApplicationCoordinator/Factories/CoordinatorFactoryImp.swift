@@ -1,6 +1,6 @@
 //
 //  CoordinatorFactory.swift
-//  Services
+//  ApplicationCoordinator
 //
 //  Created by Andrey Panov on 21.04.16.
 //  Copyright © 2016 Avito. All rights reserved.
@@ -15,7 +15,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     
     func makeItemCoordinator(navController: UINavigationController?) -> Coordinator {
         let coordinator = ItemCoordinator(router: router(navController),
-                                          factory: ControllersFactoryImp(),
+                                          factory: ModuleFactoryImp(),
                                           coordinatorFactory: CoordinatorFactoryImp())
         return coordinator
     }
@@ -26,7 +26,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     
     func makeSettingsCoordinator(navController: UINavigationController? = nil) -> Coordinator {
         let coordinator = SettingsCoordinator(router: router(navController),
-                                              factory: ControllersFactoryImp())
+                                              factory: ModuleFactoryImp())
         return coordinator
     }
     
@@ -42,7 +42,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
             
             let router = self.router(navController)
             let coordinator = ItemCreateCoordinator(router: router,
-                                                    factory: ControllersFactoryImp())
+                                                    factory: ModuleFactoryImp())
             return (coordinator, router)
     }
     
@@ -58,15 +58,15 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
             
             let router = self.router(navController)
             let coordinator = AuthCoordinator(router: router,
-                                              factory: ControllersFactoryImp())
+                                              factory: ModuleFactoryImp())
             return (coordinator, router)
     }
     
-    fileprivate func router(_ navController: UINavigationController?) -> Router {
+    private func router(_ navController: UINavigationController?) -> Router {
         return RouterImp(rootController: navigationController(navController))
     }
     
-    fileprivate func navigationController(_ navController: UINavigationController?) -> UINavigationController {
+    private func navigationController(_ navController: UINavigationController?) -> UINavigationController {
         
         if let navController = navController { return navController }
         else { return UINavigationController.controllerFromStoryboard(.main) }

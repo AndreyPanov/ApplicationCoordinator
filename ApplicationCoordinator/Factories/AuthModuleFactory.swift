@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol AuthControllersFactory {
+protocol AuthModuleFactory {
     func makeLoginOutput() -> LoginView
     func makeSignUpHandler() -> SignUpView
     func makeTermsOutput() -> TermsView

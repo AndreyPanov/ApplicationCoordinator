@@ -2,7 +2,7 @@
 //  AuthCoordinatorTest.swift
 //  ApplicationCoordinator
 //
-//  Created by Андрей on 04.09.16.
+//  Created by Andrey on 04.09.16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
@@ -11,13 +11,13 @@ import XCTest
 
 class AuthCoordinatorTest: XCTestCase {
     
-    fileprivate var coordinator: Coordinator!
-    fileprivate var router: RouterMock!
+    private var coordinator: Coordinator!
+    private var router: RouterMock!
     
-    fileprivate var loginOutput: LoginView!
-    fileprivate var signUpOutput: SignUpView!
-    fileprivate var signUpController: SignUpController!
-    fileprivate var termsOutput: TermsView!
+    private var loginOutput: LoginView!
+    private var signUpOutput: SignUpView!
+    private var signUpController: SignUpController!
+    private var termsOutput: TermsView!
 
     override func setUp() {
         super.setUp()
@@ -27,9 +27,9 @@ class AuthCoordinatorTest: XCTestCase {
         signUpController = SignUpController.controllerFromStoryboard(.auth)
         signUpController.view.isHidden = false
         let termsController = TermsController.controllerFromStoryboard(.auth)
-        let factory = AuthControllersFactoryMock(loginController: loginController,
-                                                 signUpController: signUpController,
-                                                 termsController: termsController)
+        let factory = AuthModuleFactoryMock(loginController: loginController,
+                                            signUpController: signUpController,
+                                            termsController: termsController)
         coordinator = AuthCoordinator(router: router, factory: factory)
         
         loginOutput = loginController
@@ -75,26 +75,13 @@ class AuthCoordinatorTest: XCTestCase {
         XCTAssertTrue(router.navigationStack.last is TermsController)
         XCTAssertTrue(router.navigationStack.count == 3)
     }
-    
-    func testTermsAgreementSendToSignUpControllerSuccess() {
-        
-        coordinator.start()
-        // show signUp controller
-        loginOutput.onSignUpButtonTap!()
-        //show terms controller
-        signUpOutput.onTermsButtonTap!()
-        //terms confirmAgreement
-        termsOutput.onPopController!(true)
-        router.popModule()
-        XCTAssertTrue(signUpController.confirmed)
-    }
 }
 
-final class AuthControllersFactoryMock: AuthControllersFactory {
+final class AuthModuleFactoryMock: AuthModuleFactory {
     
-    fileprivate let loginController: LoginController
-    fileprivate let signUpController: SignUpController
-    fileprivate let termsController: TermsController
+    private let loginController: LoginController
+    private let signUpController: SignUpController
+    private let termsController: TermsController
     
     init(loginController: LoginController,
          signUpController: SignUpController,
