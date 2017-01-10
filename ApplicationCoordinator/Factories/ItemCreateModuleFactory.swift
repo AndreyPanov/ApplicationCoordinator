@@ -1,11 +1,11 @@
 //
-//  SettingsControllersFactory.swift
+//  ItemCreateControllersFactory.swift
 //  ApplicationCoordinator
 //
 //  Created by Andrey Panov on 24/05/16.
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol SettingsModulesFactory {
-    func makeSettingsOutput() -> SettingsView
+protocol ItemCreateModuleFactory {
+    func makeItemAddOutput() -> ItemCreateView
 }

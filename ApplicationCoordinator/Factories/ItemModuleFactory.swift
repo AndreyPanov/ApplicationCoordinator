@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrey Panov. All rights reserved.
 //
 
-protocol ItemModulesFactory {
+protocol ItemModuleFactory {
     func makeItemsOutput() -> ItemsListView
     func makeItemDetailOutput(item: ItemList) -> ItemDetailView
 }

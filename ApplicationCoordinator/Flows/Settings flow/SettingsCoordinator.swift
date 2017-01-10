@@ -8,11 +8,11 @@
 
 final class SettingsCoordinator: BaseCoordinator {
 
-    private let factory: SettingsModulesFactory
+    private let factory: SettingsModuleFactory
     private let router: Router
     
     init(router: Router,
-        factory: SettingsModulesFactory) {
+        factory: SettingsModuleFactory) {
         self.factory = factory
         self.router = router
     }
