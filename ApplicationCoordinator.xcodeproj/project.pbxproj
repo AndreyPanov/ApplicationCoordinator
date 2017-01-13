@@ -43,6 +43,8 @@
 		77E054CB1D7937C900147DAE /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CA1D7937C900147DAE /* RouterTest.swift */; };
 		77E054CD1D79391600147DAE /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CC1D79391600147DAE /* RouterMock.swift */; };
 		AD1BFD511E29244A0022C865 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BFD501E29244A0022C865 /* TabbarCoordinator.swift */; };
+		AD1BFD591E2930C40022C865 /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BFD581E2930C40022C865 /* DeepLinkOption.swift */; };
+		AD1BFD5B1E2930F20022C865 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BFD5A1E2930F20022C865 /* DeepLink.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */; };
 		D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C00B91D1BBADA00573E71 /* Presentable.swift */; };
@@ -116,6 +118,8 @@
 		77E054CC1D79391600147DAE /* RouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
 		AD1BFD501E29244A0022C865 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		AD1BFD561E2926900022C865 /* ApplicationCoordinator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApplicationCoordinator-Bridging-Header.h"; sourceTree = "<group>"; };
+		AD1BFD581E2930C40022C865 /* DeepLinkOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
+		AD1BFD5A1E2930F20022C865 /* DeepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ItemCreateController.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateController.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateView.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateView.swift"; sourceTree = SOURCE_ROOT; };
@@ -248,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				D541E7631CD9126F004C38B3 /* Coordinator.swift */,
+				AD1BFD5A1E2930F20022C865 /* DeepLink.swift */,
+				AD1BFD581E2930C40022C865 /* DeepLinkOption.swift */,
 				D541E7651CD9128B004C38B3 /* BaseView.swift */,
 				D53C00B91D1BBADA00573E71 /* Presentable.swift */,
 			);
@@ -636,6 +642,7 @@
 				D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */,
 				D5FE332A1D071ED900CE38B1 /* ModuleFactoryImp.swift in Sources */,
 				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,
+				AD1BFD591E2930C40022C865 /* DeepLinkOption.swift in Sources */,
 				D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */,
 				D5FE332F1D071F4100CE38B1 /* CoordinatorFactoryImp.swift in Sources */,
 				AD1BFD511E29244A0022C865 /* TabbarCoordinator.swift in Sources */,
@@ -652,6 +659,7 @@
 				0E3CCFBE1CCBC04B0022E830 /* SettingsCoordinator.swift in Sources */,
 				0E3CCFCB1CCBFB150022E830 /* Setting.swift in Sources */,
 				D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */,
+				AD1BFD5B1E2930F20022C865 /* DeepLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
