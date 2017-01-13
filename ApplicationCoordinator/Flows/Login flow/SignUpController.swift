@@ -1,48 +1,38 @@
-//
-//  SignUpController.swift
-//  ApplicationCoordinator
-//
-//  Created by Andrey Panov on 23/04/16.
-//  Copyright © 2016 Andrey Panov. All rights reserved.
-//
-
-import UIKit
-
 final class SignUpController: UIViewController, SignUpView {
-    
-    //controller handler
-    var onSignUpComplete: (() -> ())?
-    var onTermsButtonTap: (() -> ())?
-
-    @IBOutlet weak var termsLabel: UILabel!
-    @IBOutlet weak var signUpButton: UIButton!
-    
-    var confirmed = false {
-        didSet {
-            termsLabel.isHidden = !confirmed
-            signUpButton.isEnabled = confirmed
-        }
+  
+  //controller handler
+  var onSignUpComplete: (() -> ())?
+  var onTermsButtonTap: (() -> ())?
+  
+  @IBOutlet weak var termsLabel: UILabel!
+  @IBOutlet weak var signUpButton: UIButton!
+  
+  var confirmed = false {
+    didSet {
+      termsLabel.isHidden = !confirmed
+      signUpButton.isEnabled = confirmed
     }
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        title = "SignUp"
-        termsLabel.isHidden = true
-        signUpButton.isEnabled = false
+    title = "SignUp"
+    termsLabel.isHidden = true
+    signUpButton.isEnabled = false
+  }
+  
+  @IBAction func signUpClicked(_ sender: AnyObject) {
+    if confirmed {
+      onSignUpComplete?()
     }
-    
-    @IBAction func signUpClicked(_ sender: AnyObject) {
-        if confirmed {
-            onSignUpComplete?()
-        }
-    }
-    
-    @IBAction func termsButtonClicked(_ sender: AnyObject) {
-        onTermsButtonTap?()
-    }
-    
-    func conformTermsAgreement(_ agree: Bool) {
-        confirmed = agree
-    }
+  }
+  
+  @IBAction func termsButtonClicked(_ sender: AnyObject) {
+    onTermsButtonTap?()
+  }
+  
+  func conformTermsAgreement(_ agree: Bool) {
+    confirmed = agree
+  }
 }

@@ -1,36 +1,26 @@
-//
-//  TabbarPresenter.swift
-//  ApplicationCoordinator
-//
-//  Created by Andrey Panov on 03.05.16.
-//  Copyright © 2016 Andrey Panov. All rights reserved.
-//
-
-import UIKit
-
 final class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarView {
+  
+  var onItemFlowSelect: ((UINavigationController) -> ())?
+  var onSettingsFlowSelect: ((UINavigationController) -> ())?
+  var onViewDidLoad: ((UINavigationController) -> ())?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    var onItemFlowSelect: ((UINavigationController) -> ())?
-    var onSettingsFlowSelect: ((UINavigationController) -> ())?
-    var onViewDidLoad: ((UINavigationController) -> ())?
+    delegate = self
+    if let controller = customizableViewControllers?.first as? UINavigationController {
+      onViewDidLoad?(controller)
+    }
+  }
+  
+  func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    guard let controller = viewControllers?[selectedIndex] as? UINavigationController else { return }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        delegate = self
-        if let controller = customizableViewControllers?.first as? UINavigationController {
-            onViewDidLoad?(controller)
-        }
+    if selectedIndex == 0 {
+      onItemFlowSelect?(controller)
     }
-
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let controller = viewControllers?[selectedIndex] as? UINavigationController else { return }
-        
-        if selectedIndex == 0 {
-            onItemFlowSelect?(controller)
-        }
-        else if selectedIndex == 1 {
-            onSettingsFlowSelect?(controller)
-        }
+    else if selectedIndex == 1 {
+      onSettingsFlowSelect?(controller)
     }
+  }
 }

@@ -42,6 +42,7 @@
 		77B3E7911D8E90550095527A /* ItemCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3E7901D8E90550095527A /* ItemCoordinatorTest.swift */; };
 		77E054CB1D7937C900147DAE /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CA1D7937C900147DAE /* RouterTest.swift */; };
 		77E054CD1D79391600147DAE /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CC1D79391600147DAE /* RouterMock.swift */; };
+		AD1BFD511E29244A0022C865 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BFD501E29244A0022C865 /* TabbarCoordinator.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */; };
 		D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C00B91D1BBADA00573E71 /* Presentable.swift */; };
@@ -113,6 +114,8 @@
 		77E054B41D79312700147DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E054CA1D7937C900147DAE /* RouterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		77E054CC1D79391600147DAE /* RouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
+		AD1BFD501E29244A0022C865 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		AD1BFD561E2926900022C865 /* ApplicationCoordinator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApplicationCoordinator-Bridging-Header.h"; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ItemCreateController.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateController.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateView.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateView.swift"; sourceTree = SOURCE_ROOT; };
@@ -161,6 +164,8 @@
 			children = (
 				0E3CCF7D1CCBBB670022E830 /* AppDelegate.swift */,
 				0E3CCF7E1CCBBB670022E830 /* ApplicationCoordinator.swift */,
+				AD1BFD501E29244A0022C865 /* TabbarCoordinator.swift */,
+				AD1BFD561E2926900022C865 /* ApplicationCoordinator-Bridging-Header.h */,
 				0E6A42CF1CF4E8F1005746EC /* TabbarView.swift */,
 				D541E76B1CD9134A004C38B3 /* TabbarController.swift */,
 			);
@@ -405,12 +410,20 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		AD1BFD531E2926040022C865 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D50F9EE61C7A525E00C5A59F = {
 			isa = PBXGroup;
 			children = (
 				D50F9EF11C7A525E00C5A59F /* ApplicationCoordinator */,
 				77E054B11D79312700147DAE /* ApplicationCoordinatorTests */,
 				D50F9EF01C7A525E00C5A59F /* Products */,
+				AD1BFD531E2926040022C865 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -529,7 +542,8 @@
 					};
 					D50F9EEE1C7A525E00C5A59F = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						DevelopmentTeam = CMWP53JFC4;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -624,6 +638,7 @@
 				D5505CC71CDF67F60012CBA6 /* UIViewExtensions.swift in Sources */,
 				D541E76C1CD9134A004C38B3 /* TabbarController.swift in Sources */,
 				D5FE332F1D071F4100CE38B1 /* CoordinatorFactoryImp.swift in Sources */,
+				AD1BFD511E29244A0022C865 /* TabbarCoordinator.swift in Sources */,
 				0E6A42C61CF4E45F005746EC /* SettingsModuleFactory.swift in Sources */,
 				0E6A42D01CF4E8F1005746EC /* TabbarView.swift in Sources */,
 				0E3CCFA01CCBBB670022E830 /* UIViewControllerExtension.swift in Sources */,
@@ -796,10 +811,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = CMWP53JFC4;
 				INFOPLIST_FILE = "$(SRCROOT)/ApplicationCoordinator/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.panovdev.ApplicationCoordinator;
 				PRODUCT_NAME = ApplicationCoordinator;
+				SWIFT_OBJC_BRIDGING_HEADER = "ApplicationCoordinator/Application/ApplicationCoordinator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -811,10 +828,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = CMWP53JFC4;
 				INFOPLIST_FILE = "$(SRCROOT)/ApplicationCoordinator/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.panovdev.ApplicationCoordinator;
 				PRODUCT_NAME = ApplicationCoordinator;
+				SWIFT_OBJC_BRIDGING_HEADER = "ApplicationCoordinator/Application/ApplicationCoordinator-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
