@@ -4,7 +4,7 @@ fileprivate var isAutorized = false
 fileprivate enum LaunchInstructor {
   case main, auth, tutorial
   
-  static func configureInstruction(
+  static func configure(
     tutorialWasShown: Bool = tutorialWasShown,
     isAutorized: Bool = isAutorized) -> LaunchInstructor {
     
@@ -16,39 +16,38 @@ fileprivate enum LaunchInstructor {
   }
 }
 
-final class ApplicationCoordinator: BaseCoordinator {
+final class ApplicationCoordinator: BaseCoordinator, DeepLink {
   
-  private let tabbarView: TabbarView
-  private let coordinatorFactory: CoordinatorFactory
+  private var instructor: LaunchInstructor {
+    return LaunchInstructor.configure()
+  }
   
-  init(tabbarView: TabbarView, coordinatorFactory: CoordinatorFactory) {
-    self.tabbarView = tabbarView
-    self.coordinatorFactory = coordinatorFactory
+  override init() {
+    
   }
   
   override func start() {
-    tabbarView.onViewDidLoad = runItemFlow()
-    tabbarView.onItemFlowSelect = runItemFlow()
-    tabbarView.onSettingsFlowSelect = runSettingsFlow()
-  }
-  
-  private func runItemFlow() -> ((UINavigationController) -> ()) {
-    return { navController in
-      if navController.viewControllers.isEmpty == true {
-        let itemCoordinator = self.coordinatorFactory.makeItemCoordinator(navController: navController)
-        itemCoordinator.start()
-        self.addDependency(itemCoordinator)
-      }
+    
+    switch instructor {
+      case .auth: runAuthFlow()
+      case .tutorial: runTutorialFlow()
+      case .main: runMainFlow()
     }
   }
   
-  private func runSettingsFlow() -> ((UINavigationController) -> ()) {
-    return { navController in
-      if navController.viewControllers.isEmpty == true {
-        let settingsCoordinator = self.coordinatorFactory.makeSettingsCoordinator(navController: navController)
-        settingsCoordinator.start()
-        self.addDependency(settingsCoordinator)
-      }
-    }
+  private func runAuthFlow() {
+    
+  }
+  
+  private func runTutorialFlow() {
+    
+  }
+  
+  private func runMainFlow() {
+    
+  }
+  
+  func proceedDeepLink(with option: DeepLinkOption) {
+    
   }
 }
