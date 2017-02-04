@@ -1,7 +1,6 @@
 struct DeepLinkURLConstants {
   
-  static let Action = "do"
-  static let Routing = "go"
+  static let Routing = "open"
   
   static let Items = "items"
   static let Item = "item"
