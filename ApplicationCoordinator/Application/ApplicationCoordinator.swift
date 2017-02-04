@@ -31,7 +31,7 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
   }
   
   override func start() {
-    
+
     switch instructor {
       case .auth: runAuthFlow()
       case .tutorial: runTutorialFlow()
@@ -60,7 +60,7 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
     
     let (coordinator, module) = coordinatorFactory.makeTabbarCoordinator()
     addDependency(coordinator)
-    router.setRootModule(module)
+    router.setRootModule(module, hideBar: true)
     coordinator.start()
   }
   

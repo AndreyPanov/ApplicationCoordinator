@@ -14,5 +14,7 @@ protocol Router: Presentable {
   func dismissModule(animated: Bool, completion: (() -> ())?)
   
   func setRootModule(_ module: Presentable?)
+  func setRootModule(_ module: Presentable?, hideBar: Bool)
+  
   func popToRootModule(animated: Bool)
 }

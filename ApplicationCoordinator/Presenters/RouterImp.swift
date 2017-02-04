@@ -60,8 +60,13 @@ final class RouterImp: NSObject, Router {
   }
   
   func setRootModule(_ module: Presentable?) {
+    setRootModule(module, hideBar: false)
+  }
+  
+  func setRootModule(_ module: Presentable?, hideBar: Bool) {
     guard let controller = module?.toPresent() else { return }
     rootController?.setViewControllers([controller], animated: false)
+    rootController?.isNavigationBarHidden = hideBar
   }
   
   func popToRootModule(animated: Bool) {
