@@ -18,12 +18,16 @@ fileprivate enum LaunchInstructor {
 
 final class ApplicationCoordinator: BaseCoordinator, DeepLink {
   
+  private let coordinatorFactory: CoordinatorFactory
+  private let router: Router
+  
   private var instructor: LaunchInstructor {
     return LaunchInstructor.configure()
   }
   
-  override init() {
-    
+  init(router: Router, coordinatorFactory: CoordinatorFactory) {
+    self.router = router
+    self.coordinatorFactory = coordinatorFactory
   }
   
   override func start() {
@@ -37,6 +41,15 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
   
   private func runAuthFlow() {
     
+    let coordinator = coordinatorFactory.makeAuthCoordinatorBox(router: router)
+    coordinator.finishFlow = { [weak self, weak coordinator] in
+      isAutorized = true
+      tutorialWasShown = true
+      self?.start()
+      self?.removeDependency(coordinator)
+    }
+    addDependency(coordinator)
+    coordinator.start()
   }
   
   private func runTutorialFlow() {
@@ -45,6 +58,10 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
   
   private func runMainFlow() {
     
+    let (coordinator, module) = coordinatorFactory.makeTabbarCoordinator()
+    addDependency(coordinator)
+    router.setRootModule(module)
+    coordinator.start()
   }
   
   func proceedDeepLink(with option: DeepLinkOption) {

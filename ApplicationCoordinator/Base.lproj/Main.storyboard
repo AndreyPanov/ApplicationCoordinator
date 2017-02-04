@@ -63,7 +63,7 @@
         <!--Tabbar Controller-->
         <scene sceneID="fGt-Vd-pEh">
             <objects>
-                <tabBarController id="dvL-vG-wNM" customClass="TabbarController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarController" id="dvL-vG-wNM" customClass="TabbarController" customModule="ApplicationCoordinator" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="top-IN-Wys">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

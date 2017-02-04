@@ -1,5 +1,8 @@
 protocol CoordinatorFactory {
   
+  func makeTabbarCoordinator() -> (configurator: Coordinator, toPresent: Presentable?)
+  func makeAuthCoordinatorBox(router: Router) -> Coordinator & AuthCoordinatorOutput
+  
   func makeItemCoordinator(navController: UINavigationController?) -> Coordinator
   func makeItemCoordinator() -> Coordinator
   
@@ -12,13 +15,5 @@ protocol CoordinatorFactory {
   
   func makeItemCreationCoordinatorBox(navController: UINavigationController?) ->
     (configurator: Coordinator & ItemCreateCoordinatorOutput,
-    toPresent: Presentable?)
-  
-  func makeAuthCoordinatorBox() ->
-    (configurator: Coordinator & AuthCoordinatorOutput,
-    toPresent: Presentable?)
-  
-  func makeAuthCoordinatorBox(navController: UINavigationController?) ->
-    (configurator: Coordinator & AuthCoordinatorOutput,
     toPresent: Presentable?)
 }

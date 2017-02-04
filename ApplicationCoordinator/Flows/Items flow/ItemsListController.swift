@@ -1,11 +1,10 @@
 final class ItemsListController: UIViewController, ItemsListView {
   
   //controller handler
-  var authNeed: (() -> ())?
   var onItemSelect: ((ItemList) -> ())?
-  var onCreateButtonTap: (() -> ())?
+  var onCreateItem: (() -> ())?
   
-  @IBAction func addItemButtonClicked(_ sender: UIBarButtonItem) { onCreateButtonTap?() }
+  @IBAction func addItemButtonClicked(_ sender: UIBarButtonItem) { onCreateItem?() }
   
   @IBOutlet weak var tableView: UITableView!
   //mock datasource
@@ -21,14 +20,6 @@ final class ItemsListController: UIViewController, ItemsListView {
       target: self,
       action: #selector(ItemsListController.addItemButtonClicked(_:))
     )
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    if !authCheck {
-      authNeed?()
-      authCheck = true
-    }
   }
 }
 

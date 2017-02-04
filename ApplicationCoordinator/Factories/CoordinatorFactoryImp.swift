@@ -1,5 +1,17 @@
 final class CoordinatorFactoryImp: CoordinatorFactory {
   
+  func makeTabbarCoordinator() -> (configurator: Coordinator, toPresent: Presentable?) {
+    let controller = TabbarController.controllerFromStoryboard(.main)
+    let coordinator = TabbarCoordinator(tabbarView: controller, coordinatorFactory: CoordinatorFactoryImp())
+    return (coordinator, controller)
+  }
+  
+  func makeAuthCoordinatorBox(router: Router) -> Coordinator & AuthCoordinatorOutput {
+    
+    let coordinator = AuthCoordinator(router: router, factory: ModuleFactoryImp())
+    return coordinator
+  }
+  
   func makeItemCoordinator() -> Coordinator {
     return makeItemCoordinator(navController: nil)
   }
@@ -34,21 +46,6 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
       
       let router = self.router(navController)
       let coordinator = ItemCreateCoordinator(router: router, factory: ModuleFactoryImp())
-      return (coordinator, router)
-  }
-  
-  func makeAuthCoordinatorBox() ->
-    (configurator: Coordinator & AuthCoordinatorOutput,
-    toPresent: Presentable?) {
-      return makeAuthCoordinatorBox(navController: navigationController(nil))
-  }
-  
-  func makeAuthCoordinatorBox(navController: UINavigationController?) ->
-    (configurator: Coordinator & AuthCoordinatorOutput,
-    toPresent: Presentable?) {
-      
-      let router = self.router(navController)
-      let coordinator = AuthCoordinator(router: router, factory: ModuleFactoryImp())
       return (coordinator, router)
   }
   

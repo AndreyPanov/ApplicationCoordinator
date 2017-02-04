@@ -19,13 +19,10 @@ final class ItemCoordinator: BaseCoordinator {
   private func showItemList() {
     
     let itemsOutput = factory.makeItemsOutput()
-    itemsOutput.authNeed = { [weak self] in
-      self?.runAuthFlow()
-    }
     itemsOutput.onItemSelect = { [weak self] (item) in
       self?.showItemDetail(item)
     }
-    itemsOutput.onCreateButtonTap = { [weak self] in
+    itemsOutput.onCreateItem = { [weak self] in
       self?.runCreationFlow()
     }
     router.setRootModule(itemsOutput)
@@ -38,18 +35,6 @@ final class ItemCoordinator: BaseCoordinator {
   }
   
   //MARK: - Run coordinators (switch to another flow)
-  
-  private func runAuthFlow() {
-    
-    let (coordinator, module) = coordinatorFactory.makeAuthCoordinatorBox()
-    coordinator.finishFlow = { [weak self, weak coordinator] in
-      self?.router.dismissModule()
-      self?.removeDependency(coordinator)
-    }
-    addDependency(coordinator)
-    router.present(module, animated: false)
-    coordinator.start()
-  }
   
   private func runCreationFlow() {
     
