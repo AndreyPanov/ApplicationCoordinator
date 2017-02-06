@@ -48,6 +48,8 @@
 		ADE320F71E4796D90087146A /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE320F41E4796D90087146A /* TabbarController.swift */; };
 		ADE320F81E4796D90087146A /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE320F51E4796D90087146A /* TabbarCoordinator.swift */; };
 		ADE320F91E4796D90087146A /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE320F61E4796D90087146A /* TabbarView.swift */; };
+		ADE320FB1E4799150087146A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE320FA1E4799150087146A /* PageViewController.swift */; };
+		ADE320FD1E4799C20087146A /* StepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE320FC1E4799C20087146A /* StepController.swift */; };
 		D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */; };
 		D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */; };
 		D53C00BA1D1BBADA00573E71 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C00B91D1BBADA00573E71 /* Presentable.swift */; };
@@ -125,6 +127,8 @@
 		ADE320F41E4796D90087146A /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		ADE320F51E4796D90087146A /* TabbarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		ADE320F61E4796D90087146A /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		ADE320FA1E4799150087146A /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		ADE320FC1E4799C20087146A /* StepController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepController.swift; sourceTree = "<group>"; };
 		D50F9EEF1C7A525E00C5A59F /* ApplicationCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicationCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5311AAD1CF8566D00777B87 /* ItemCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ItemCreateController.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateController.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5311AAE1CF8566D00777B87 /* ItemCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreateView.swift; path = "ApplicationCoordinator/Flows/Create flow/ItemCreateView.swift"; sourceTree = SOURCE_ROOT; };
@@ -431,6 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				ADE320CD1E47941B0087146A /* OnboardingCoordinator.swift */,
+				ADE320FA1E4799150087146A /* PageViewController.swift */,
+				ADE320FC1E4799C20087146A /* StepController.swift */,
 			);
 			path = OnboardingFlow;
 			sourceTree = "<group>";
@@ -652,6 +658,7 @@
 				D5505CCB1CDF68D10012CBA6 /* StoryboardsEnum.swift in Sources */,
 				D5311AAF1CF8566D00777B87 /* ItemCreateController.swift in Sources */,
 				0E3CCFBC1CCBC0210022E830 /* AuthCoordinator.swift in Sources */,
+				ADE320FB1E4799150087146A /* PageViewController.swift in Sources */,
 				D5FE33371D071F6300CE38B1 /* ItemsListController.swift in Sources */,
 				0E3CCFC01CCBC0600022E830 /* SettingsController.swift in Sources */,
 				0E6A42BE1CF4DE62005746EC /* CoordinatorFactory.swift in Sources */,
@@ -663,6 +670,7 @@
 				0E6A42D41CF62EA2005746EC /* TermsView.swift in Sources */,
 				D5FDC84E1CEB3579001C3DF3 /* LoginView.swift in Sources */,
 				0E3CCFC91CCBE87F0022E830 /* SignUpController.swift in Sources */,
+				ADE320FD1E4799C20087146A /* StepController.swift in Sources */,
 				D5FE33361D071F6300CE38B1 /* ItemsListView.swift in Sources */,
 				D5311AB01CF8566D00777B87 /* ItemCreateView.swift in Sources */,
 				D5FE332A1D071ED900CE38B1 /* ModuleFactoryImp.swift in Sources */,
