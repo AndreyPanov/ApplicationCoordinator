@@ -56,8 +56,11 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     private func showTerms() {
         
         let termsOutput = factory.makeTermsOutput()
-        router.push(termsOutput, animated: true) { [weak self] in
-            self?.signUpView?.conformTermsAgreement(termsOutput.confirmed)
+        termsOutput.confirmed = self.signUpView?.confirmed ?? false
+
+        termsOutput.onConfirmChanged = { [weak self] confirmed in
+            self?.signUpView?.conformTermsAgreement(confirmed)
         }
+        router.push(termsOutput, animated: true)
     }
 }

@@ -10,6 +10,7 @@ protocol SignUpView: BaseView {
     
     var onSignUpComplete: (() -> ())? { get set }
     var onTermsButtonTap: (() -> ())? { get set }
-    
+    var confirmed: Bool { get set }
+
     func conformTermsAgreement(_ agree: Bool)
 }
