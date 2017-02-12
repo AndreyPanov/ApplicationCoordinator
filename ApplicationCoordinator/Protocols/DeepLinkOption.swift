@@ -1,7 +1,4 @@
 struct DeepLinkURLConstants {
-  
-  static let Routing = "open"
-  
   static let Items = "items"
   static let Item = "item"
   static let Settings = "settings"
@@ -19,7 +16,7 @@ enum DeepLinkOption {
   case signUp
   case item(String)
   
-  static func buildDeepLink(with id: String, params: [String : AnyObject]?) -> DeepLinkOption? {
+  static func build(with id: String, params: [String : AnyObject]?) -> DeepLinkOption? {
     
     let itemID = params?["item_id"] as? String ?? ""
     
