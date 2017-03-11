@@ -1,4 +1,4 @@
 protocol LoginView: BaseView {
-  var onCompleteAuth: (() -> ())? { get set }
-  var onSignUpButtonTap: (() -> ())? { get set }
+  var onCompleteAuth: (() -> Void)? { get set }
+  var onSignUpButtonTap: (() -> Void)? { get set }
 }

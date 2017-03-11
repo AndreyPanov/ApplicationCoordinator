@@ -1,7 +1,7 @@
 final class ItemCreateController: UIViewController, ItemCreateView {
   
   //controller handler
-  var onHideButtonTap: (() -> ())?
+  var onHideButtonTap: (() -> Void)?
   var onCompleteCreateItem: ((ItemList) -> ())?
   
   override func viewDidLoad() {

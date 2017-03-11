@@ -1,4 +1,4 @@
 protocol ItemCreateView: BaseView {
-  var onHideButtonTap: (() -> ())? { get set }
+  var onHideButtonTap: (() -> Void)? { get set }
   var onCompleteCreateItem: ((ItemList) -> ())? { get set }
 }

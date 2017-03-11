@@ -1,8 +1,8 @@
 final class SignUpController: UIViewController, SignUpView {
   
   //controller handler
-  var onSignUpComplete: (() -> ())?
-  var onTermsButtonTap: (() -> ())?
+  var onSignUpComplete: (() -> Void)?
+  var onTermsButtonTap: (() -> Void)?
   
   @IBOutlet weak var termsLabel: UILabel!
   @IBOutlet weak var signUpButton: UIButton!

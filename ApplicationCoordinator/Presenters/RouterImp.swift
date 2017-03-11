@@ -25,7 +25,7 @@ final class RouterImp: NSObject, Router {
     dismissModule(animated: true, completion: nil)
   }
   
-  func dismissModule(animated: Bool, completion: (() -> ())?) {
+  func dismissModule(animated: Bool, completion: (() -> Void)?) {
     rootController?.dismiss(animated: animated, completion: completion)
   }
   

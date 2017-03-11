@@ -20,7 +20,7 @@ extension PageController: UIPageViewControllerDelegate, UIPageViewControllerData
   }
   
   func pageViewController(_ pageViewController: UIPageViewController,
-                                 viewControllerAfter viewController: UIViewController) -> UIViewController? {
+                          viewControllerAfter viewController: UIViewController) -> UIViewController? {
     return UIViewController()
   }
   

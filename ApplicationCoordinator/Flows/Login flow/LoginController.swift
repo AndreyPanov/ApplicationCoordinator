@@ -1,8 +1,8 @@
 final class LoginController: UIViewController, LoginView {
   
   //controller handler
-  var onCompleteAuth: (() -> ())?
-  var onSignUpButtonTap: (() -> ())?
+  var onCompleteAuth: (() -> Void)?
+  var onSignUpButtonTap: (() -> Void)?
   
   @IBAction func loginButtonClicked(_ sender: AnyObject) { onCompleteAuth?() }
   @IBAction func signUpClicked(_ sender: AnyObject) { onSignUpButtonTap?() }

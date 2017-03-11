@@ -2,7 +2,7 @@ final class ItemsListController: UIViewController, ItemsListView {
   
   //controller handler
   var onItemSelect: ((ItemList) -> ())?
-  var onCreateItem: (() -> ())?
+  var onCreateItem: (() -> Void)?
   
   @IBAction func addItemButtonClicked(_ sender: UIBarButtonItem) { onCreateItem?() }
   

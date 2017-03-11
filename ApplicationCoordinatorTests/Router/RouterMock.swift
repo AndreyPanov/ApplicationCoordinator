@@ -64,7 +64,7 @@ final class RouterMockImp: RouterMock {
         dismissModule(animated: false, completion: nil)
     }
     
-    func dismissModule(animated: Bool, completion: (() -> ())?) {
+    func dismissModule(animated: Bool, completion: (() -> Void)?) {
         presented = nil
     }
     
