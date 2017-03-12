@@ -1,4 +1,5 @@
 struct DeepLinkURLConstants {
+  static let Onboarding = "onboarding"
   static let Items = "items"
   static let Item = "item"
   static let Settings = "settings"
@@ -9,6 +10,7 @@ struct DeepLinkURLConstants {
 
 enum DeepLinkOption {
   
+  case onboarding
   case items
   case settings
   case login
@@ -21,6 +23,7 @@ enum DeepLinkOption {
     let itemID = params?["item_id"] as? String ?? ""
     
     switch id {
+      case DeepLinkURLConstants.Onboarding: return .onboarding
       case DeepLinkURLConstants.Items: return .items
       case DeepLinkURLConstants.Item where itemID.isEmpty == false: return .item(itemID)
       case DeepLinkURLConstants.Settings: return .settings

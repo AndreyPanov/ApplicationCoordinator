@@ -1,16 +1,16 @@
-fileprivate var tutorialWasShown = false
+fileprivate var onboardingWasShown = false
 fileprivate var isAutorized = false
 
 fileprivate enum LaunchInstructor {
-  case main, auth, tutorial
+  case main, auth, onboarding
   
   static func configure(
-    tutorialWasShown: Bool = tutorialWasShown,
+    tutorialWasShown: Bool = onboardingWasShown,
     isAutorized: Bool = isAutorized) -> LaunchInstructor {
     
     switch (tutorialWasShown, isAutorized) {
       case (true, false), (false, false): return .auth
-      case (false, true): return .tutorial
+      case (false, true): return .onboarding
       case (true, true): return .main
     }
   }
@@ -31,20 +31,17 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
   }
   
   override func start() {
-
     switch instructor {
+      case .onboarding: runOnboardingFlow()
       case .auth: runAuthFlow()
-      case .tutorial: runTutorialFlow()
       case .main: runMainFlow()
     }
   }
   
   private func runAuthFlow() {
-    
     let coordinator = coordinatorFactory.makeAuthCoordinatorBox(router: router)
     coordinator.finishFlow = { [weak self, weak coordinator] in
       isAutorized = true
-      tutorialWasShown = true
       self?.start()
       self?.removeDependency(coordinator)
     }
@@ -52,12 +49,18 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
     coordinator.start()
   }
   
-  private func runTutorialFlow() {
-    
+  private func runOnboardingFlow() {
+    let coordinator = coordinatorFactory.makeOnboardingCoordinator(router: router)
+    coordinator.finishFlow = { [weak self, weak coordinator] in
+      onboardingWasShown = true
+      self?.start()
+      self?.removeDependency(coordinator)
+    }
+    addDependency(coordinator)
+    coordinator.start()
   }
   
   private func runMainFlow() {
-    
     let (coordinator, module) = coordinatorFactory.makeTabbarCoordinator()
     addDependency(coordinator)
     router.setRootModule(module, hideBar: true)
@@ -65,6 +68,20 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
   }
   
   func proceedDeepLink(with option: DeepLinkOption) {
-    
+    switch option {
+      case .onboarding: runOnboardingFlow()
+      case .signUp: runAuthFlow()
+      default: {
+        childCoordinators.forEach { coordinator in
+          coordinator.deepLinkableCoordinator()?.proceedDeepLink(with: option)
+        }
+      }()
+    }
+  }
+  
+  private func handleDeepLink() {
+    if instructor == .main {
+      
+    }
   }
 }

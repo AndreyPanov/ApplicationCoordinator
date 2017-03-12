@@ -5,7 +5,11 @@ class PageController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    pageViewController = UIPageViewController(
+      transitionStyle: .scroll,
+      navigationOrientation: .horizontal,
+      options: nil
+    )
     pageViewController.delegate = self
     addChildViewController(pageViewController)
     view.addSubview(pageViewController.view)

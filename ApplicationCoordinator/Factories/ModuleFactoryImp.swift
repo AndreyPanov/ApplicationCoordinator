@@ -1,5 +1,6 @@
 final class ModuleFactoryImp:
   AuthModuleFactory,
+  OnboardingModuleFactory,
   ItemModuleFactory,
   ItemCreateModuleFactory,
   SettingsModuleFactory {
@@ -10,6 +11,10 @@ final class ModuleFactoryImp:
   
   func makeSignUpHandler() -> SignUpView {
     return SignUpController.controllerFromStoryboard(.auth)
+  }
+  
+  func makeOnboardingModule() -> OnboardingView {
+    return OnboardingController.controllerFromStoryboard(.onboarding)
   }
   
   func makeTermsOutput() -> TermsView {

@@ -1,6 +1,6 @@
 final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
   
-  var finishFlow: (()->())?
+  var finishFlow: (() -> Void)?
   
   private let factory: AuthModuleFactory
   private let router: Router

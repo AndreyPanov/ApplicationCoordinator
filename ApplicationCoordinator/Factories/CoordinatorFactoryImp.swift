@@ -16,6 +16,10 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     return makeItemCoordinator(navController: nil)
   }
   
+  func makeOnboardingCoordinator(router: Router) -> Coordinator & OnboardingCoordinatorOutput {
+    return OnboardingCoordinator(with: ModuleFactoryImp(), router: router)
+  }
+  
   func makeItemCoordinator(navController: UINavigationController?) -> Coordinator {
     let coordinator = ItemCoordinator(
       router: router(navController),
@@ -55,6 +59,6 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
   
   private func navigationController(_ navController: UINavigationController?) -> UINavigationController {
     if let navController = navController { return navController }
-    else { return UINavigationController.controllerFromStoryboard(.main) }
+    else { return UINavigationController() }
   }
 }

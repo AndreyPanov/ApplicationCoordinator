@@ -1,7 +1,7 @@
 final class RouterImp: NSObject, Router {
   
   private weak var rootController: UINavigationController?
-  private var completions: [UIViewController : ()->()]
+  private var completions: [UIViewController : () -> Void]
   
   init(rootController: UINavigationController) {
     self.rootController = rootController
@@ -37,7 +37,7 @@ final class RouterImp: NSObject, Router {
     push(module, animated: animated, completion: nil)
   }
   
-  func push(_ module: Presentable?, animated: Bool, completion: (()->())?) {
+  func push(_ module: Presentable?, animated: Bool, completion: (() -> Void)?) {
     guard
       let controller = module?.toPresent(),
       (controller is UINavigationController == false)

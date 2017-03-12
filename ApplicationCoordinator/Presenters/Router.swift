@@ -5,7 +5,7 @@ protocol Router: Presentable {
   
   func push(_ module: Presentable?)
   func push(_ module: Presentable?, animated: Bool)
-  func push(_ module: Presentable?, animated: Bool, completion: (()->())?)
+  func push(_ module: Presentable?, animated: Bool, completion: (() -> Void)?)
   
   func popModule()
   func popModule(animated: Bool)
