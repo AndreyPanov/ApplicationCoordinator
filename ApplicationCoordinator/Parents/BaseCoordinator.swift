@@ -2,8 +2,12 @@ class BaseCoordinator: Coordinator {
   
   var childCoordinators: [Coordinator] = []
   
-  func start() {
-    assertionFailure("must be overriden")
+  func start() { }
+  
+  func start(with option: DeepLinkOption?) {
+    if option == nil {
+      start()
+    }
   }
   
   // add only unique object

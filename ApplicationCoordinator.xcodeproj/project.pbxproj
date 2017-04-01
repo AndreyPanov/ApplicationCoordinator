@@ -42,7 +42,6 @@
 		77E054CB1D7937C900147DAE /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CA1D7937C900147DAE /* RouterTest.swift */; };
 		77E054CD1D79391600147DAE /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E054CC1D79391600147DAE /* RouterMock.swift */; };
 		AD1BFD591E2930C40022C865 /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BFD581E2930C40022C865 /* DeepLinkOption.swift */; };
-		AD1BFD5B1E2930F20022C865 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BFD5A1E2930F20022C865 /* DeepLink.swift */; };
 		AD2BFC0B1E75B2730059C854 /* OnboardingModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2BFC0A1E75B2730059C854 /* OnboardingModuleFactory.swift */; };
 		AD2BFC101E75B7FE0059C854 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2BFC0D1E75B7FE0059C854 /* OnboardingController.swift */; };
 		AD2BFC111E75B7FE0059C854 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2BFC0E1E75B7FE0059C854 /* PageViewController.swift */; };
@@ -125,7 +124,6 @@
 		77E054CC1D79391600147DAE /* RouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
 		AD1BFD561E2926900022C865 /* ApplicationCoordinator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApplicationCoordinator-Bridging-Header.h"; sourceTree = "<group>"; };
 		AD1BFD581E2930C40022C865 /* DeepLinkOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
-		AD1BFD5A1E2930F20022C865 /* DeepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		AD2BFC0A1E75B2730059C854 /* OnboardingModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingModuleFactory.swift; sourceTree = "<group>"; };
 		AD2BFC0D1E75B7FE0059C854 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		AD2BFC0E1E75B7FE0059C854 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				D541E7631CD9126F004C38B3 /* Coordinator.swift */,
-				AD1BFD5A1E2930F20022C865 /* DeepLink.swift */,
 				AD1BFD581E2930C40022C865 /* DeepLinkOption.swift */,
 				D541E7651CD9128B004C38B3 /* BaseView.swift */,
 				D53C00B91D1BBADA00573E71 /* Presentable.swift */,
@@ -715,7 +712,6 @@
 				0E3CCFCB1CCBFB150022E830 /* Setting.swift in Sources */,
 				D541E7641CD9126F004C38B3 /* Coordinator.swift in Sources */,
 				ADE320F71E4796D90087146A /* TabbarController.swift in Sources */,
-				AD1BFD5B1E2930F20022C865 /* DeepLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

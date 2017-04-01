@@ -6,42 +6,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return self.window!.rootViewController as! UINavigationController
   }
   
-  private lazy var applicationCoordinator: DeepLinkableCoordinator = self.makeCoordinator()()
+  private lazy var applicationCoordinator: Coordinator = self.makeCoordinator()
   
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
     //run deep link
     //parse ApplicationLaunchOptions and extract deep link keys
-    if let deepLink = DeepLinkOption.build(with: DeepLinkURLConstants.Onboarding, params: nil) {
-      applicationCoordinator.proceedDeepLink(with: deepLink)
-    } else {
-      //default behavior, just call start method
-      applicationCoordinator.start()
-    }
+    let deepLink = DeepLinkOption.build(with: DeepLinkURLConstants.Onboarding, params: nil)
+    applicationCoordinator.start(with: deepLink)
     return true
   }
   
-  private func makeCoordinator() -> (() -> DeepLinkableCoordinator) {
-    return {
+  private func makeCoordinator() -> Coordinator {
       return ApplicationCoordinator(
         router: RouterImp(rootController: self.rootController),
         coordinatorFactory: CoordinatorFactoryImp()
       )
-    }
   }
   
   //MARK: Handle push notifications and deep links
   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
     //parse userInfo
     //run deep link
-    //applicationCoordinator.proceedDeepLink(with: deepLink)
+    //applicationCoordinator.start(with: deepLink)
   }
   
   func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
     //parse NSUserActivity
     //run deep link
-    //applicationCoordinator.proceedDeepLink(with: deepLink)
+    //applicationCoordinator.start(with: deepLink)
     return true
   }
 }

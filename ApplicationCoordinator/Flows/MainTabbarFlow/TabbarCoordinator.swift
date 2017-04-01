@@ -1,4 +1,4 @@
-class TabbarCoordinator: BaseCoordinator, DeepLink {
+class TabbarCoordinator: BaseCoordinator {
   
   private let tabbarView: TabbarView
   private let coordinatorFactory: CoordinatorFactory
@@ -12,10 +12,6 @@ class TabbarCoordinator: BaseCoordinator, DeepLink {
     tabbarView.onViewDidLoad = runItemFlow()
     tabbarView.onItemFlowSelect = runItemFlow()
     tabbarView.onSettingsFlowSelect = runSettingsFlow()
-  }
-  
-  func proceedDeepLink(with option: DeepLinkOption) {
-    
   }
   
   private func runItemFlow() -> ((UINavigationController) -> ()) {

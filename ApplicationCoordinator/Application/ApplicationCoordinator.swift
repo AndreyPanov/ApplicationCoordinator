@@ -16,7 +16,7 @@ fileprivate enum LaunchInstructor {
   }
 }
 
-final class ApplicationCoordinator: BaseCoordinator, DeepLink {
+final class ApplicationCoordinator: BaseCoordinator {
   
   private let coordinatorFactory: CoordinatorFactory
   private let router: Router
@@ -30,11 +30,23 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
     self.coordinatorFactory = coordinatorFactory
   }
   
-  override func start() {
-    switch instructor {
+  override func start(with option: DeepLinkOption?) {
+    //start with deepLink
+    if let option = option {
+      switch option {
+      case .onboarding: runOnboardingFlow()
+      case .signUp: runAuthFlow()
+      default: childCoordinators.forEach { coordinator in
+        coordinator.start(with: option)
+        }
+      }
+    // default start
+    } else {
+      switch instructor {
       case .onboarding: runOnboardingFlow()
       case .auth: runAuthFlow()
       case .main: runMainFlow()
+      }
     }
   }
   
@@ -65,23 +77,5 @@ final class ApplicationCoordinator: BaseCoordinator, DeepLink {
     addDependency(coordinator)
     router.setRootModule(module, hideBar: true)
     coordinator.start()
-  }
-  
-  func proceedDeepLink(with option: DeepLinkOption) {
-    switch option {
-      case .onboarding: runOnboardingFlow()
-      case .signUp: runAuthFlow()
-      default: {
-        childCoordinators.forEach { coordinator in
-          coordinator.deepLinkableCoordinator()?.proceedDeepLink(with: option)
-        }
-      }()
-    }
-  }
-  
-  private func handleDeepLink() {
-    if instructor == .main {
-      
-    }
   }
 }
