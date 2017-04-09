@@ -117,12 +117,12 @@
 		7712177C1D7C89EA0070CDF9 /* BaseCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorTest.swift; sourceTree = "<group>"; };
 		7712177E1D7C91670070CDF9 /* SettingsCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorTest.swift; sourceTree = "<group>"; };
 		771217801D7C94290070CDF9 /* AuthCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AuthCoordinatorTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		77ADE7671E9A724F00409A63 /* ApplicationCoordinator-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ApplicationCoordinator-Bridging-Header.h"; path = "ApplicationCoordinator/Application/ApplicationCoordinator-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		77B3E7901D8E90550095527A /* ItemCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemCoordinatorTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		77E054B01D79312700147DAE /* ApplicationCoordinatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationCoordinatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E054B41D79312700147DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E054CA1D7937C900147DAE /* RouterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		77E054CC1D79391600147DAE /* RouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
-		AD1BFD561E2926900022C865 /* ApplicationCoordinator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApplicationCoordinator-Bridging-Header.h"; sourceTree = "<group>"; };
 		AD1BFD581E2930C40022C865 /* DeepLinkOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
 		AD2BFC0A1E75B2730059C854 /* OnboardingModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingModuleFactory.swift; sourceTree = "<group>"; };
 		AD2BFC0D1E75B7FE0059C854 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
@@ -182,7 +182,6 @@
 			children = (
 				0E3CCF7D1CCBBB670022E830 /* AppDelegate.swift */,
 				0E3CCF7E1CCBBB670022E830 /* ApplicationCoordinator.swift */,
-				AD1BFD561E2926900022C865 /* ApplicationCoordinator-Bridging-Header.h */,
 			);
 			name = Application;
 			path = ApplicationCoordinator/Application;
@@ -291,6 +290,7 @@
 		0E3CCFAA1CCBBBFB0022E830 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				77ADE7671E9A724F00409A63 /* ApplicationCoordinator-Bridging-Header.h */,
 				D5FE33421D0720E500CE38B1 /* Images.xcassets */,
 				D538B0971D0722490073895D /* Info.plist */,
 				0E3CCF811CCBBB670022E830 /* Base.lproj */,

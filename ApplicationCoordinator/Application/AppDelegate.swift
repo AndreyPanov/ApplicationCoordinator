@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //run deep link
     //parse ApplicationLaunchOptions and extract deep link keys
-    let deepLink = DeepLinkOption.build(with: DeepLinkURLConstants.Onboarding, params: nil)
+    let notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
+    let deepLink = DeepLinkOption.build(with: notification)
     applicationCoordinator.start(with: deepLink)
     return true
   }
@@ -27,15 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   //MARK: Handle push notifications and deep links
   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-    //parse userInfo
-    //run deep link
-    //applicationCoordinator.start(with: deepLink)
+    let dict = userInfo as? [String: AnyObject]
+    let deepLink = DeepLinkOption.build(with: dict)
+    applicationCoordinator.start(with: deepLink)
   }
   
   func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-    //parse NSUserActivity
-    //run deep link
-    //applicationCoordinator.start(with: deepLink)
+    let deepLink = DeepLinkOption.build(with: userActivity)
+    applicationCoordinator.start(with: deepLink)
     return true
   }
 }
