@@ -3,12 +3,7 @@ class BaseCoordinator: Coordinator {
   var childCoordinators: [Coordinator] = []
   
   func start() { }
-  
-  func start(with option: DeepLinkOption?) {
-    if option == nil {
-      start()
-    }
-  }
+  func start(with option: DeepLinkOption?) { }
   
   // add only unique object
   func addDependency(_ coordinator: Coordinator) {
