@@ -59,6 +59,6 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
   
   private func navigationController(_ navController: UINavigationController?) -> UINavigationController {
     if let navController = navController { return navController }
-    else { return UINavigationController() }
+    else { return UINavigationController.controllerFromStoryboard(.main) }
   }
 }
