@@ -19,7 +19,7 @@ final class RouterMockImp: RouterMock {
     // in test cases router store the rootController referense
     private(set) var navigationStack: [UIViewController] = []
     private(set) var presented: UIViewController?
-    private var completions: [UIViewController : ()->()] = [:]
+    private var completions: [UIViewController : () -> Void] = [:]
     
     func toPresent() -> UIViewController? {
         return nil
@@ -42,7 +42,7 @@ final class RouterMockImp: RouterMock {
         push(module, animated: animated, completion: nil)
     }
     
-    func push(_ module: Presentable?, animated: Bool, completion: (()->())?) {
+    func push(_ module: Presentable?, animated: Bool, completion: (() -> Void)?) {
         guard
             let controller = module?.toPresent(),
             (controller is UINavigationController == false)
@@ -64,7 +64,7 @@ final class RouterMockImp: RouterMock {
         dismissModule(animated: false, completion: nil)
     }
     
-    func dismissModule(animated: Bool, completion: (() -> ())?) {
+    func dismissModule(animated: Bool, completion: (() -> Void)?) {
         presented = nil
     }
     

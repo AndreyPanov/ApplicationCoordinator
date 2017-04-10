@@ -3,7 +3,10 @@ A lot of developers need to change navigation flow frequently, because it depend
 
 Based on the post about Application Coordinators [khanlou.com](http://khanlou.com/2015/10/coordinators-redux/) and Application Controller pattern description [martinfowler.com](http://martinfowler.com/eaaCatalog/applicationController.html).
 
-My presentation and problem’s explanation: [speakerdeck.com](https://speakerdeck.com/andreypanov/introducing-application-coordinators)
+
+Coordinators Essential tutorial. Part I [medium.com](https://medium.com/blacklane-engineering/coordinators-essential-tutorial-part-i-376c836e9ba7)
+Coordinators Essential tutorial. Part II [medium.com](https://medium.com/@panovdev/coordinators-essential-tutorial-part-ii-b5ab3eb4a74)
+
 
 Example provides very basic structure with 6 controllers and 5 coordinators with mock data and logic.
 ![](/str.jpg)
@@ -12,6 +15,7 @@ I used a protocol for coordinators in this example:
 ```swift
 protocol Coordinatable: class {
     func start()
+    func start(with option: DeepLinkOption?)
 }
 ```
 All flow controllers have a protocols (we need to configure blocks and handle callbacks in coordinators):
@@ -39,9 +43,8 @@ class BaseCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
 
-    func start() {
-        assertionFailure("must be overriden")
-    }
+    func start() { }
+    func start(with option: DeepLinkOption?) { }
     
     // add only unique object
     func addDependency(_ coordinator: Coordinator) {
@@ -69,18 +72,24 @@ class BaseCoordinator: Coordinator {
 ```
 AppDelegate store lazy reference for the Application Coordinator
 ```swift
-fileprivate lazy var applicationCoordinator: Coordinator = self.makeCoordinator()()
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        applicationCoordinator.start()
-        return true
-    }
-    
-    fileprivate func makeCoordinator() -> (() -> Coordinator) {
-        return {
-            return ApplicationCoordinator(tabbarView: self.window!.rootViewController as! TabbarView,
-                                          coordinatorFactory: CoordinatorFactoryImp())
-        }
-    }
+var rootController: UINavigationController {
+    return self.window!.rootViewController as! UINavigationController
+  }
+  
+  private lazy var applicationCoordinator: Coordinator = self.makeCoordinator()
+  
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    let notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
+    let deepLink = DeepLinkOption.build(with: notification)
+    applicationCoordinator.start(with: deepLink)
+    return true
+  }
+  
+  private func makeCoordinator() -> Coordinator {
+      return ApplicationCoordinator(
+        router: RouterImp(rootController: self.rootController),
+        coordinatorFactory: CoordinatorFactoryImp()
+      )
+  }
 ```

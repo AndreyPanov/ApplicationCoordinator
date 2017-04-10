@@ -1,74 +1,64 @@
-//
-//  CoordinatorFactory.swift
-//  ApplicationCoordinator
-//
-//  Created by Andrey Panov on 21.04.16.
-//  Copyright © 2016 Avito. All rights reserved.
-//
-import UIKit
-
 final class CoordinatorFactoryImp: CoordinatorFactory {
+  
+  func makeTabbarCoordinator() -> (configurator: Coordinator, toPresent: Presentable?) {
+    let controller = TabbarController.controllerFromStoryboard(.main)
+    let coordinator = TabbarCoordinator(tabbarView: controller, coordinatorFactory: CoordinatorFactoryImp())
+    return (coordinator, controller)
+  }
+  
+  func makeAuthCoordinatorBox(router: Router) -> Coordinator & AuthCoordinatorOutput {
     
-    func makeItemCoordinator() -> Coordinator {
-        return makeItemCoordinator(navController: nil)
-    }
-    
-    func makeItemCoordinator(navController: UINavigationController?) -> Coordinator {
-        let coordinator = ItemCoordinator(router: router(navController),
-                                          factory: ModuleFactoryImp(),
-                                          coordinatorFactory: CoordinatorFactoryImp())
-        return coordinator
-    }
-    
-    func makeSettingsCoordinator() -> Coordinator {
-        return makeSettingsCoordinator(navController: nil)
-    }
-    
-    func makeSettingsCoordinator(navController: UINavigationController? = nil) -> Coordinator {
-        let coordinator = SettingsCoordinator(router: router(navController),
-                                              factory: ModuleFactoryImp())
-        return coordinator
-    }
-    
-    func makeItemCreationCoordinatorBox() ->
-        (configurator: Coordinator & ItemCreateCoordinatorOutput,
-        toPresent: Presentable?) {
-            
-            return makeItemCreationCoordinatorBox(navController: navigationController(nil))
-    }
-    func makeItemCreationCoordinatorBox(navController: UINavigationController?) ->
-        (configurator: Coordinator & ItemCreateCoordinatorOutput,
-        toPresent: Presentable?) {
-            
-            let router = self.router(navController)
-            let coordinator = ItemCreateCoordinator(router: router,
-                                                    factory: ModuleFactoryImp())
-            return (coordinator, router)
-    }
-    
-    func makeAuthCoordinatorBox() ->
-        (configurator: Coordinator & AuthCoordinatorOutput,
-        toPresent: Presentable?) {
-            return makeAuthCoordinatorBox(navController: navigationController(nil))
-    }
-    
-    func makeAuthCoordinatorBox(navController: UINavigationController?) ->
-        (configurator: Coordinator & AuthCoordinatorOutput,
-        toPresent: Presentable?) {
-            
-            let router = self.router(navController)
-            let coordinator = AuthCoordinator(router: router,
-                                              factory: ModuleFactoryImp())
-            return (coordinator, router)
-    }
-    
-    private func router(_ navController: UINavigationController?) -> Router {
-        return RouterImp(rootController: navigationController(navController))
-    }
-    
-    private func navigationController(_ navController: UINavigationController?) -> UINavigationController {
-        
-        if let navController = navController { return navController }
-        else { return UINavigationController.controllerFromStoryboard(.main) }
-    }
+    let coordinator = AuthCoordinator(router: router, factory: ModuleFactoryImp())
+    return coordinator
+  }
+  
+  func makeItemCoordinator() -> Coordinator {
+    return makeItemCoordinator(navController: nil)
+  }
+  
+  func makeOnboardingCoordinator(router: Router) -> Coordinator & OnboardingCoordinatorOutput {
+    return OnboardingCoordinator(with: ModuleFactoryImp(), router: router)
+  }
+  
+  func makeItemCoordinator(navController: UINavigationController?) -> Coordinator {
+    let coordinator = ItemCoordinator(
+      router: router(navController),
+      factory: ModuleFactoryImp(),
+      coordinatorFactory: CoordinatorFactoryImp()
+    )
+    return coordinator
+  }
+  
+  func makeSettingsCoordinator() -> Coordinator {
+    return makeSettingsCoordinator(navController: nil)
+  }
+  
+  func makeSettingsCoordinator(navController: UINavigationController? = nil) -> Coordinator {
+    let coordinator = SettingsCoordinator(router: router(navController), factory: ModuleFactoryImp())
+    return coordinator
+  }
+  
+  func makeItemCreationCoordinatorBox() ->
+    (configurator: Coordinator & ItemCreateCoordinatorOutput,
+    toPresent: Presentable?) {
+      
+      return makeItemCreationCoordinatorBox(navController: navigationController(nil))
+  }
+  func makeItemCreationCoordinatorBox(navController: UINavigationController?) ->
+    (configurator: Coordinator & ItemCreateCoordinatorOutput,
+    toPresent: Presentable?) {
+      
+      let router = self.router(navController)
+      let coordinator = ItemCreateCoordinator(router: router, factory: ModuleFactoryImp())
+      return (coordinator, router)
+  }
+  
+  private func router(_ navController: UINavigationController?) -> Router {
+    return RouterImp(rootController: navigationController(navController))
+  }
+  
+  private func navigationController(_ navController: UINavigationController?) -> UINavigationController {
+    if let navController = navController { return navController }
+    else { return UINavigationController.controllerFromStoryboard(.main) }
+  }
 }
