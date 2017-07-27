@@ -73,6 +73,10 @@ final class RouterMockImp: RouterMock {
         navigationStack.append(controller)
     }
     
+    func setRootModule(_ module: Presentable?, hideBar: Bool) {
+        assertionFailure("This method is not used.")
+    }
+
     func popToRootModule(animated: Bool) {
         guard let first = navigationStack.first else { return }
         
