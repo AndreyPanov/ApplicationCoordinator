@@ -4,9 +4,9 @@ A lot of developers need to change navigation flow frequently, because it depend
 Based on the post about Application Coordinators [khanlou.com](http://khanlou.com/2015/10/coordinators-redux/) and Application Controller pattern description [martinfowler.com](http://martinfowler.com/eaaCatalog/applicationController.html).
 
 
-## Coordinators Essential tutorial. Part I [medium.com](https://medium.com/blacklane-engineering/coordinators-essential-tutorial-part-i-376c836e9ba7)
+### Coordinators Essential tutorial. Part I [medium.com](https://medium.com/blacklane-engineering/coordinators-essential-tutorial-part-i-376c836e9ba7)
 
-## Coordinators Essential tutorial. Part II [medium.com](https://medium.com/@panovdev/coordinators-essential-tutorial-part-ii-b5ab3eb4a74)
+### Coordinators Essential tutorial. Part II [medium.com](https://medium.com/@panovdev/coordinators-essential-tutorial-part-ii-b5ab3eb4a74)
 
 
 Example provides very basic structure with 6 controllers and 5 coordinators with mock data and logic.
@@ -14,7 +14,7 @@ Example provides very basic structure with 6 controllers and 5 coordinators with
 
 I used a protocol for coordinators in this example:
 ```swift
-protocol Coordinatable: class {
+protocol Coordinator: class {
     func start()
     func start(with option: DeepLinkOption?)
 }
