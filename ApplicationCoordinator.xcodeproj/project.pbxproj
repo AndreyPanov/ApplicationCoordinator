@@ -296,7 +296,6 @@
 				0E3CCF811CCBBB670022E830 /* Base.lproj */,
 			);
 			name = Resources;
-			path = ../ApplicationCoordinator/Resources;
 			sourceTree = "<group>";
 		};
 		0E3CCFC51CCBC6660022E830 /* Model */ = {
@@ -315,7 +314,7 @@
 				D5FE332E1D071F4100CE38B1 /* CoordinatorFactoryImp.swift */,
 				D5FE33261D071ED900CE38B1 /* ModuleFactoryImp.swift */,
 			);
-			path = Imp;
+			name = Imp;
 			sourceTree = "<group>";
 		};
 		0E6A42C81CF4E7F7005746EC /* Controllers */ = {
@@ -326,7 +325,7 @@
 				D5FE33311D071F6300CE38B1 /* ItemDetailView.swift */,
 				D5FE33301D071F6300CE38B1 /* ItemDetailController.swift */,
 			);
-			path = Controllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		0E6A42CB1CF4E84D005746EC /* Controllers */ = {
@@ -501,7 +500,6 @@
 				0E3CCFAA1CCBBBFB0022E830 /* Resources */,
 			);
 			name = ApplicationCoordinator;
-			path = ApplicationCoordinatorExample;
 			sourceTree = "<group>";
 		};
 		D541E7671CD912BD004C38B3 /* Factories */ = {
@@ -758,7 +756,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.panovdev.ApplicationCoordinatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApplicationCoordinator.app/ApplicationCoordinator";
 			};
@@ -775,7 +773,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.panovdev.ApplicationCoordinatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApplicationCoordinator.app/ApplicationCoordinator";
 			};
@@ -892,7 +890,7 @@
 				PRODUCT_NAME = ApplicationCoordinator;
 				SWIFT_OBJC_BRIDGING_HEADER = "ApplicationCoordinator/Application/ApplicationCoordinator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -909,7 +907,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.panovdev.ApplicationCoordinator;
 				PRODUCT_NAME = ApplicationCoordinator;
 				SWIFT_OBJC_BRIDGING_HEADER = "ApplicationCoordinator/Application/ApplicationCoordinator-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
