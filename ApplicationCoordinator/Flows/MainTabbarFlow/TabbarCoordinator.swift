@@ -18,8 +18,8 @@ class TabbarCoordinator: BaseCoordinator {
     return { [unowned self] navController in
       if navController.viewControllers.isEmpty == true {
         let itemCoordinator = self.coordinatorFactory.makeItemCoordinator(navController: navController)
-        itemCoordinator.start()
         self.addDependency(itemCoordinator)
+        itemCoordinator.start()
       }
     }
   }
@@ -28,8 +28,8 @@ class TabbarCoordinator: BaseCoordinator {
     return { [unowned self] navController in
       if navController.viewControllers.isEmpty == true {
         let settingsCoordinator = self.coordinatorFactory.makeSettingsCoordinator(navController: navController)
-        settingsCoordinator.start()
         self.addDependency(settingsCoordinator)
+        settingsCoordinator.start()
       }
     }
   }
