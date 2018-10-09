@@ -22,6 +22,10 @@ class BaseCoordinator: Coordinator {
       let coordinator = coordinator
       else { return }
     
+    // Clear child-coordinators recursively
+    if let coordinator = coordinator as? BaseCoordinator, !coordinator.childCoordinators.isEmpty {
+      coordinator.childCoordinators.forEach({ coordinator.removeDependency($0) })
+    }
     for (index, element) in childCoordinators.enumerated() {
       if element === coordinator {
         childCoordinators.remove(at: index)
