@@ -10,9 +10,7 @@ class BaseCoordinator: Coordinator {
   
   // add only unique object
   func addDependency(_ coordinator: Coordinator) {
-    for element in childCoordinators {
-      if element === coordinator { return }
-    }
+    guard !childCoordinators.contains(where: { $0 === coordinator }) else { return }
     childCoordinators.append(coordinator)
   }
   
@@ -24,13 +22,13 @@ class BaseCoordinator: Coordinator {
     
     // Clear child-coordinators recursively
     if let coordinator = coordinator as? BaseCoordinator, !coordinator.childCoordinators.isEmpty {
-      coordinator.childCoordinators.forEach({ coordinator.removeDependency($0) })
+        coordinator.childCoordinators
+            .filter({ $0 !== coordinator })
+            .forEach({ coordinator.removeDependency($0) })
     }
-    for (index, element) in childCoordinators.enumerated() {
-      if element === coordinator {
+    for (index, element) in childCoordinators.enumerated() where element === coordinator {
         childCoordinators.remove(at: index)
         break
-      }
     }
   }
 }
