@@ -15,21 +15,21 @@ class TabbarCoordinator: BaseCoordinator {
   }
   
   private func runItemFlow() -> ((UINavigationController) -> ()) {
-    return { navController in
+    return { [unowned self] navController in
       if navController.viewControllers.isEmpty == true {
         let itemCoordinator = self.coordinatorFactory.makeItemCoordinator(navController: navController)
-        itemCoordinator.start()
         self.addDependency(itemCoordinator)
+        itemCoordinator.start()
       }
     }
   }
   
   private func runSettingsFlow() -> ((UINavigationController) -> ()) {
-    return { navController in
+    return { [unowned self] navController in
       if navController.viewControllers.isEmpty == true {
         let settingsCoordinator = self.coordinatorFactory.makeSettingsCoordinator(navController: navController)
-        settingsCoordinator.start()
         self.addDependency(settingsCoordinator)
+        settingsCoordinator.start()
       }
     }
   }
