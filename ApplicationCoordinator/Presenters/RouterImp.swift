@@ -32,12 +32,20 @@ final class RouterImp: NSObject, Router {
   func push(_ module: Presentable?)  {
     push(module, animated: true)
   }
+    
+  func push(_ module: Presentable?, hideBottomBar: Bool)  {
+    push(module, animated: true, hideBottomBar: hideBottomBar, completion: nil)
+  }
   
   func push(_ module: Presentable?, animated: Bool)  {
     push(module, animated: animated, completion: nil)
   }
   
   func push(_ module: Presentable?, animated: Bool, completion: (() -> Void)?) {
+    push(module, animated: animated, hideBottomBar: false, completion: completion)
+  }
+
+  func push(_ module: Presentable?, animated: Bool, hideBottomBar: Bool, completion: (() -> Void)?) {
     guard
       let controller = module?.toPresent(),
       (controller is UINavigationController == false)
@@ -46,6 +54,7 @@ final class RouterImp: NSObject, Router {
     if let completion = completion {
       completions[controller] = completion
     }
+    controller.hidesBottomBarWhenPushed = hideBottomBar
     rootController?.pushViewController(controller, animated: animated)
   }
   

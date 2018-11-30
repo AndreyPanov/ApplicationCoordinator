@@ -31,7 +31,7 @@ final class ItemCoordinator: BaseCoordinator {
   private func showItemDetail(_ item: ItemList) {
     
     let itemDetailFlowOutput = factory.makeItemDetailOutput(item: item)
-    router.push(itemDetailFlowOutput)
+    router.push(itemDetailFlowOutput, hideBottomBar: true)
   }
   
   //MARK: - Run coordinators (switch to another flow)
