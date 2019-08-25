@@ -41,13 +41,34 @@ final class RouterMockImp: RouterMock {
     func push(_ module: Presentable?, animated: Bool)  {
         push(module, animated: animated, completion: nil)
     }
+
+    func push(_ module: Presentable?, hideBottomBar: Bool) {
+        guard
+            let controller = module?.toPresent(),
+            (controller is UINavigationController == false)
+            else { assertionFailure("Deprecated push UINavigationController."); return }
+
+        controller.hidesBottomBarWhenPushed = hideBottomBar
+
+        push(module, animated: false)
+    }
+
+    func push(_ module: Presentable?, animated: Bool, hideBottomBar: Bool, completion: (() -> Void)?) {
+
+        guard
+            let controller = module?.toPresent(),
+            (controller is UINavigationController == false)
+            else { assertionFailure("Deprecated push UINavigationController."); return }
+
+        controller.hidesBottomBarWhenPushed = hideBottomBar
+        navigationStack.append(controller)
+    }
     
     func push(_ module: Presentable?, animated: Bool, completion: (() -> Void)?) {
         guard
             let controller = module?.toPresent(),
             (controller is UINavigationController == false)
             else { assertionFailure("Deprecated push UINavigationController."); return }
-        
         navigationStack.append(controller)
     }
     

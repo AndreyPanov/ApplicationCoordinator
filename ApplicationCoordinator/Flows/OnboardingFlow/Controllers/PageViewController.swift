@@ -11,7 +11,7 @@ class PageController: UIViewController {
       options: nil
     )
     pageViewController.delegate = self
-    addChildViewController(pageViewController)
+    addChild(pageViewController)
     view.addSubview(pageViewController.view)
   }
 }

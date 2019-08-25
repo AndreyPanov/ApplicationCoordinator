@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   private lazy var applicationCoordinator: Coordinator = self.makeCoordinator()
   
   func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     let notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
     let deepLink = DeepLinkOption.build(with: notification)
     applicationCoordinator.start(with: deepLink)
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ application: UIApplication, continue userActivity: NSUserActivity,
-                   restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+                   restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
     let deepLink = DeepLinkOption.build(with: userActivity)
     applicationCoordinator.start(with: deepLink)
     return true
