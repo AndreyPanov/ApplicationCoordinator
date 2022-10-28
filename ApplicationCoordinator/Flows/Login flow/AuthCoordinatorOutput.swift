@@ -1,3 +1,3 @@
-protocol AuthCoordinatorOutput: class {
+protocol AuthCoordinatorOutput: AnyObject {
   var finishFlow: (() -> Void)? { get set }
 }
